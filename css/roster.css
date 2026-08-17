@@ -677,18 +677,7 @@ nav {
 
     inset: 0;
 
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    font-family: Cinzel, serif;
-
-    font-size: 70px;
-
-    color:
-        rgba(255,255,255,.08);
+    overflow: hidden;
 
     background:
         radial-gradient(
@@ -701,7 +690,23 @@ nav {
         transform .6s ease;
 }
 
-.heroCard:hover .heroArt {
+
+.heroArt img {
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+
+    object-position: center;
+
+    transition:
+        transform .6s ease;
+}
+
+
+.heroCard:hover .heroArt img {
 
     transform:
         scale(1.08);
@@ -839,18 +844,9 @@ nav {
 
     height: 600px;
 
-    display: flex;
+    overflow: hidden;
 
-    align-items: center;
-
-    justify-content: center;
-
-    font-family: Cinzel, serif;
-
-    font-size: 150px;
-
-    color:
-        rgba(255,255,255,.07);
+    position: relative;
 
     border:
         1px solid
@@ -864,20 +860,17 @@ nav {
         );
 }
 
-.detailName {
 
-    font-family: Cinzel, serif;
+.detailArt img {
 
-    font-size:
-        clamp(
-            50px,
-            7vw,
-            100px
-        );
+    width: 100%;
 
-    line-height: .9;
+    height: 100%;
 
-    margin: 0;
+    object-fit: contain;
+
+    object-position: center;
+
 }
 
 .detailTitle {
