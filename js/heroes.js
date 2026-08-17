@@ -22,7 +22,7 @@ const heroes = [
         symbol: "A",
 
         description:
-            "Firstborn to the royal family of Elaris, Alejandro was groomed for leadership from the moment he could speak. With a silver tongue and unmatched charisma, he became the face of diplomacy, often venturing far from the kingdom’s borders to strengthen alliances, or so the court says.",
+            "Firstborn to the royal family of Elaris, Alejandro was groomed for leadership from the moment he could speak. With a silver tongue and unmatched charisma, he became the face of diplomacy, often venturing far from the kingdom’s borders to strengthen alliances... or so he says.",
 
 
         abilities: [
@@ -40,10 +40,10 @@ const heroes = [
                 name: "Blooming Influence",
 
                 icon:
-                    "assets/heroes/alejandro/abilities/blooming-power.png",
+                    "assets/heroes/alejandro/abilities/blooming-influence.png",
 
                 preview:
-                    "assets/heroes/alejandro/abilities/blooming-power-preview.mp4",
+                    "assets/heroes/alejandro/abilities/blooming-influence-preview.mp4",
 
                 previewType:
                     "video",
@@ -62,6 +62,9 @@ Beguile ends if they leave the Seed’s influence radius.`,
 
                 stats: {
 
+                    "Range":
+                        "20m",
+                    
                     "Vulnerability":
                         "10%",
 
@@ -92,10 +95,10 @@ Beguile ends if they leave the Seed’s influence radius.`,
                 name: "Blooming Budshot",
 
                 icon:
-                    "assets/heroes/alejandro/abilities/ability1.png",
+                    "assets/heroes/alejandro/abilities/primary.png",
 
                 preview:
-                    "assets/heroes/alejandro/abilities/ability1-preview.mp4",
+                    "assets/heroes/alejandro/abilities/primary-preview.mp4",
 
                 previewType:
                     "video",
@@ -116,8 +119,9 @@ The bolts will instantly Bloom any Seeds hit from Wildroot Surge.`,
 
                 stats: {
 
-                    "Damage":
-                        "First bolt 20, Subsequent bolts 10",
+                    "Damage/Healing":
+                        `First bolt: 20
+                        Subsequent bolts: 10`,
 
                     "Radius":
                         "5 m",
