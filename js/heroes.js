@@ -18,7 +18,11 @@ const heroes = [
 
     region: "Elaris",
 
-    symbol: "A",
+    thumbnail:
+        "assets/heroes/alejandro/thumbnail.png",
+
+    heroArt:
+        "assets/heroes/alejandro/hero-art.png",
 
     description:
         "Firstborn to the royal family of Elaris, Alejandro was groomed for leadership from the moment he could speak. With a silver tongue and unmatched charisma, he became the face of diplomacy, often venturing far from the kingdom’s borders to strengthen alliances, or so the court says.",
@@ -607,7 +611,11 @@ const heroes = [
 
         region: "Elaris",
 
-        symbol: "A",
+        thumbnail:
+        "assets/heroes/alejandro/thumbnail.png",
+
+    heroArt:
+        "assets/heroes/alejandro/hero-art.png",
 
         description:
             "A tiny guardian whose warmth can turn even the darkest battlefield into a place of hope.",
