@@ -1574,5 +1574,135 @@ footer {
 
         width: 100%;
     }
+    /* =========================================================
+   ABILITY VARIANTS
+========================================================= */
+
+.abilityVariants {
+
+    margin-top: 30px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 25px;
+}
+
+
+.abilityVariant {
+
+    border:
+        1px solid
+        rgba(255,255,255,.08);
+
+    background:
+        rgba(255,255,255,.02);
+}
+
+
+.variantHeader {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    padding: 15px 18px;
+
+    border-bottom:
+        1px solid
+        rgba(255,255,255,.07);
+
+    font-family: Cinzel, serif;
+
+    font-size: 14px;
+}
+
+
+.variantIcon {
+
+    font-family:
+        "Apple Color Emoji",
+        "Segoe UI Emoji",
+        sans-serif;
+
+    font-size: 16px;
+}
+
+
+.variantDescription {
+
+    padding:
+        18px;
+
+    color:
+        #aaa9b4;
+
+    font-size:
+        12px;
+
+    line-height:
+        1.8;
+}
+
+
+/* =========================================================
+   VARIANT COLORS
+========================================================= */
+
+.flourishing {
+
+    border-color:
+        rgba(255,200,100,.18);
+}
+
+
+.wilting {
+
+    border-color:
+        rgba(190,100,180,.18);
+}
+
+
+.flourishing .variantName {
+
+    color:
+        #f0c77a;
+}
+
+
+.wilting .variantName {
+
+    color:
+        #d58ccf;
+}
+
+
+/* =========================================================
+   GENERAL STATS LABEL
+========================================================= */
+
+.abilityGeneralLabel {
+
+    color:
+        var(--accent);
+
+    font-size:
+        8px;
+
+    letter-spacing:
+        .2em;
+
+    text-transform:
+        uppercase;
+
+    margin-top:
+        25px;
+
+    margin-bottom:
+        10px;
+}
 
 }
