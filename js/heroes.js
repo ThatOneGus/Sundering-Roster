@@ -4,292 +4,591 @@ const heroes = [
        ALEJANDRO
     ===================================================== */
 
-    {
+{
+    name: "Alejandro",
 
-        name: "Alejandro",
+    title: "The Crown Prince of Elaris",
 
-        title: "The Crown Prince of Elaris",
+    role: "Catalyst",
 
-        role: "Catalyst",
+    secondaryRoles: [
+        "Playmaker",
+        "Controller"
+    ],
 
-        secondaryRoles: [
-            "Playmaker",
-            "Controller"
-        ],
+    region: "Elaris",
 
-        region: "Elaris",
+    symbol: "A",
 
-        symbol: "A",
+    description:
+        "Firstborn to the royal family of Elaris, Alejandro was groomed for leadership from the moment he could speak. With a silver tongue and unmatched charisma, he became the face of diplomacy, often venturing far from the kingdom’s borders to strengthen alliances, or so the court says.",
 
-        description:
-            "Firstborn to the royal family of Elaris, Alejandro was groomed for leadership from the moment he could speak. With a silver tongue and unmatched charisma, he became the face of diplomacy, often venturing far from the kingdom’s borders to strengthen alliances... or so he says.",
+    abilities: [
+
+        /* =====================================================
+           PASSIVE
+        ===================================================== */
+
+        {
+            type: "Passive",
+
+            key: "PASSIVE",
+
+            name: "Blooming Influence",
+
+            icon:
+                "assets/heroes/alejandro/abilities/blooming-influence.png",
+
+            preview:
+                "assets/heroes/alejandro/abilities/blooming-influence-preview.mp4",
+
+            previewType:
+                "video",
+
+            shortDescription:
+                "Enemies who remain near one of Alejandro's psychic power become Beguiled, allowing Alejandro to turn their aggression against them.",
+
+            detailedDescription:
+                "Enemies within 20m of Alejandro or a Seed who maintain line of sight for 2 seconds become Beguiled. Beguiled enemies are revealed to allies. If Beguiled enemies hit Alejandro with a form of Hard CC, they are Charmed in return and are left vulnerable while walking. Beguile ends if they leave the Seed’s influence radius. Enemies hit by an exploding Seed reduce Blooming Influence's internal cooldown.",
+
+            stats: {
+
+                "Beguile Range":
+                    "20m",
+
+                "Line of Sight Duration":
+                    "2 sec",
+
+                "Vulnerability":
+                    "10%",
+
+                "Charmed Duration":
+                    "1 sec",
+
+                "Internal Cooldown":
+                    "15 sec",
+
+                "Exploding Seed Cooldown Reduction":
+                    "-2 sec"
+
+            }
+
+        },
 
 
-        abilities: [
+        /* =====================================================
+           PRIMARY FIRE
+        ===================================================== */
 
-            /* -------------------------------------------------
-               PASSIVE
-            ------------------------------------------------- */
+        {
+            type: "Primary Fire",
 
-            {
+            key: "M2",
 
-                type: "Passive",
+            name: "Blooming Budshot",
 
-                key: "PASSIVE",
+            icon:
+                "assets/heroes/alejandro/abilities/blooming-budshot.png",
 
-                name: "Blooming Influence",
+            preview:
+                "assets/heroes/alejandro/abilities/blooming-budshot-preview.mp4",
 
-                icon:
-                    "assets/heroes/alejandro/abilities/blooming-influence.png",
+            previewType:
+                "video",
 
-                preview:
-                    "assets/heroes/alejandro/abilities/blooming-influence-preview.mp4",
+            shortDescription:
+                "Fire piercing bolts of psychic energy from the Bud to damage enemies or heal allies. The first bolt to hit an obstacle or terrain explodes.",
 
-                previewType:
-                    "video",
+            detailedDescription:
+                "Fire piercing bolts of psychic energy from the Bud to damage enemies or heal allies. 4 bolts are fired in quick succession. The first bolt hit per round deals significantly more damage or healing than subsequent bolts. The first bolt to hit an obstacle or terrain will explode. The bolts will instantly Bloom any Seeds hit from Wildroot Surge.",
 
-                shortDescription:
-                    "Alejandro charms enemies who try to hit him with Hard CC as long as they are within range of his Seeds.",
+            stats: {
 
-                detailedDescription:
-                    `Enemies who stay within range of a Seed for 2s become Beguiled.
+                "First Hit Healing/Damage":
+                    "20",
 
-Beguiled enemies are revealed to allies.
+                "Subsequent Shots Healing/Damage":
+                    "10",
 
-If Beguiled enemies hit Alejandro with a form of Hard CC, they are Charmed in return and are left vulnerable while walking.
+                "Shot Explosion Healing/Damage":
+                    "15",
 
-Beguile ends if they leave the Seed’s influence radius.`,
+                "Explosion Radius":
+                    "3m",
 
-                stats: {
+                "Fire Rate":
+                    "0.8 sec per full round",
 
-                    "Range":
-                        "20m",
-                    
-                    "Vulnerability":
-                        "10%",
+                "Attack Intervals":
+                    "0.05 sec between each shot per round",
 
-                    "Charm Duration":
-                        "1 sec",
+                "Projectile Speed":
+                    "Hitscan",
 
-                    "Cooldown":
-                        "15 sec",
+                "Falloff":
+                    "Starting at 20m, decreasing to 80% at 40m",
 
-                    "Special":
-                        "Enemies hit with exploding Seeds reduce this cooldown by 2 sec"
+                "Can Crit":
+                    "Yes"
 
-                }
+            }
+
+        },
+
+
+        /* =====================================================
+           ABILITY 1
+        ===================================================== */
+
+        {
+            type: "Ability 1",
+
+            key: "M2",
+
+            name: "Verdant Pulse",
+
+            icon:
+                "assets/heroes/alejandro/abilities/verdant-pulse.png",
+
+            preview:
+                "assets/heroes/alejandro/abilities/verdant-pulse-preview.mp4",
+
+            previewType:
+                "video",
+
+            shortDescription:
+                "Release a wave of psychic floral energy that heals allies, damages and shoves enemies, and leaves behind a movement-enhancing trail.",
+
+            detailedDescription:
+                "Release a wave of psychic floral energy from the Bud. The wave heals allies while damaging and shoving enemies slightly. The first 2 enemies hit by the center of the pulse are Rooted. The pulse leaves behind a flourishing trail that grants Movement Speed to allies. The pulse will instantly Bloom any Seeds hit from Wildroot Surge.",
+
+            stats: {
+
+                "Healing/Damage":
+                    "40",
+
+                "Maximum Distance":
+                    "35m",
+
+                "Shove Distance":
+                    "5m",
+
+                "Projectile Speed":
+                    "80m/s",
+
+                "Root Hitbox":
+                    "0.8m Radius",
+
+                "Pulse Hitbox":
+                    "2.5m Radius",
+
+                "Trail Duration":
+                    "5 sec",
+
+                "Root Duration":
+                    "2.5 sec",
+
+                "Movement Speed Boost":
+                    "+40%",
+
+                "Cooldown":
+                    "8 sec"
+
+            }
+
+        },
+
+
+        /* =====================================================
+           ABILITY 2
+        ===================================================== */
+
+        {
+            type: "Ability 2",
+
+            key: "E",
+
+            name: "Wildroot Surge",
+
+            icon:
+                "assets/heroes/alejandro/abilities/wildroot-surge.png",
+
+            preview:
+                "assets/heroes/alejandro/abilities/wildroot-surge-preview.mp4",
+
+            previewType:
+                "video",
+
+            shortDescription:
+                "Plant psychic Seeds that grow based on healing or damage before blooming into powerful area effects.",
+
+            detailedDescription:
+                "Plant a psychic Seed at a target location. Planting a Seed will slightly knockback enemies in the area. After a duration, the Seeds will Bloom and explode in an area, healing allies and damaging enemies. Seeds grow based on healing or damage done in their area respectively. The Seed behaves differently based on the Bud’s current alignment.",
+
+            stats: {
+
+                "Knockback Distance":
+                    "2m",
+
+                "Range":
+                    "20m",
+
+                "Maximum Active Seeds":
+                    "3",
+
+                "Charges":
+                    "3",
+
+                "Recharge Time":
+                    "5 sec",
+
+                "Duration":
+                    "8 sec"
 
             },
 
+            variants: {
 
-            /* -------------------------------------------------
-               PRIMARY
-            ------------------------------------------------- */
+                flourishingBud: {
 
-            {
+                    name: "Flourishing Bud",
 
-                type: "Primary Fire",
+                    description:
+                        "The Seed heals allies over time and grows with healing done in its area, increasing its size and healing.",
 
-                key: "PRIMARY",
+                    details: {
 
-                name: "Blooming Budshot",
+                        "Healing":
+                            "15 HP/s → 35 HP/s",
 
-                icon:
-                    "assets/heroes/alejandro/abilities/primary.png",
+                        "Radius":
+                            "3m → 6m",
 
-                preview:
-                    "assets/heroes/alejandro/abilities/primary-preview.mp4",
+                        "Healing Required for Full Growth":
+                            "250 (125 if on Trail or in Garden)",
 
-                previewType:
-                    "video",
+                        "When Bloomed — Burst Healing":
+                            "40 → 60",
 
-                shortDescription:
-                    "Fire piercing bolts of psychic energy that damage enemies and heal allies. The first bolt to hit an obstacle or terrain will burst.",
+                        "When Bloomed — Burst Damage":
+                            "25",
 
-                detailedDescription:
-                    `Fire piercing bolts of psychic energy from the Bud to damage enemies or heal allies.
+                        "Growth Bonus":
+                            "Healing required for full growth is halved when planted in the trail of Verdant Pulse or in the Garden of Burgeoning Florescence."
 
-4 bolts are fired in quick succession.
+                    }
 
-The first bolt hit per round does significantly more damage or healing than subsequent bolts hit.
+                },
 
-The first bolt to hit obstacles or terrain will explode.
+                wiltingBud: {
 
-The bolts will instantly Bloom any Seeds hit from Wildroot Surge.`,
+                    name: "Wilting Bud",
 
-                stats: {
+                    description:
+                        "The Seed slows enemies in the area and grows with damage dealt within it, increasing its size and damage.",
 
-                    "Damage/Healing":
-                        `First bolt: 20
-                        Subsequent bolts: 10`,
+                    details: {
 
-                    "Radius":
-                        "5 m",
+                        "Slow Rate":
+                            "20%",
 
-                    "Duration":
-                        "6 s",
+                        "Radius":
+                            "4m → 8m",
 
-                    "Projectile Speed":
-                        "25 m/s",
+                        "Damage Required for Full Growth":
+                            "250 (125 if on Trail or in Garden)",
 
-                    "Cooldown":
-                        "8 s"
+                        "When Bloomed — Burst Damage":
+                            "30 → 50",
 
-                }
+                        "When Bloomed — Burst Healing":
+                            "35",
 
-            },
+                        "Growth Bonus":
+                            "Damage required for full growth is halved when planted in the trail of Verdant Pulse or in the Garden of Burgeoning Florescence."
 
-
-            /* -------------------------------------------------
-               ABILITY 1
-            ------------------------------------------------- */
-
-            {
-
-                type: "Ability 1",
-
-                key: "Q",
-
-                name: "Vanguard's Garden",
-
-                icon:
-                    "assets/heroes/alejandro/abilities/ability1.png",
-
-                preview:
-                    "assets/heroes/alejandro/abilities/ability1-preview.mp4",
-
-                previewType:
-                    "video",
-
-                shortDescription:
-                    "Summon a living growth that changes the battlefield.",
-
-                detailedDescription:
-                    `Alejandro creates a magical growth at the targeted location.
-
-The growth interacts with enemies and allies according to the ability's current Bloom state.`,
-
-                stats: {
-
-                    "Damage":
-                        "80 / 120 / 160 / 200",
-
-                    "Radius":
-                        "5 m",
-
-                    "Duration":
-                        "6 s",
-
-                    "Projectile Speed":
-                        "25 m/s",
-
-                    "Cooldown":
-                        "8 s"
-
-                }
-
-            },
-
-
-            /* -------------------------------------------------
-               ABILITY 2
-            ------------------------------------------------- */
-
-            {
-
-                type: "Ability 2",
-
-                key: "E",
-
-                name: "Royal Decree",
-
-                icon:
-                    "assets/heroes/alejandro/abilities/ability2.png",
-
-                preview:
-                    "assets/heroes/alejandro/abilities/ability2-preview.mp4",
-
-                previewType:
-                    "video",
-
-                shortDescription:
-                    "Command the battlefield with a burst of nature magic.",
-
-                detailedDescription:
-                    `Alejandro releases a concentrated burst of natural energy that damages enemies caught within the affected area.`,
-
-                stats: {
-
-                    "Damage":
-                        "70 / 105 / 140 / 175",
-
-                    "Radius":
-                        "4 m",
-
-                    "Cast Time":
-                        "0.4 s",
-
-                    "Cooldown":
-                        "10 s"
-
-                }
-
-            },
-
-
-            /* -------------------------------------------------
-               ULTIMATE
-            ------------------------------------------------- */
-
-            {
-
-                type: "Ultimate",
-
-                key: "R",
-
-                name: "Elarian Dominion",
-
-                icon:
-                    "assets/heroes/alejandro/abilities/ultimate.png",
-
-                preview:
-                    "assets/heroes/alejandro/abilities/ultimate-preview.mp4",
-
-                previewType:
-                    "video",
-
-                shortDescription:
-                    "Transform the battlefield into Alejandro's domain.",
-
-                detailedDescription:
-                    `Alejandro unleashes his accumulated power, creating a massive zone of Elarian influence.
-
-The effect scales with his current Bloom.`,
-
-                stats: {
-
-                    "Damage":
-                        "150 / 225 / 300",
-
-                    "Radius":
-                        "12 m",
-
-                    "Duration":
-                        "8 s",
-
-                    "Bloom Scaling":
-                        "Yes",
-
-                    "Ultimate Cost":
-                        "100"
+                    }
 
                 }
 
             }
 
-        ]
+        },
 
-    },
+
+        /* =====================================================
+           ABILITY 3
+        ===================================================== */
+
+        {
+            type: "Ability 3",
+
+            key: "C",
+
+            name: "Grand Flourish",
+
+            icon:
+                "assets/heroes/alejandro/abilities/grand-flourish.png",
+
+            preview:
+                "assets/heroes/alejandro/abilities/grand-flourish-preview.mp4",
+
+            previewType:
+                "video",
+
+            shortDescription:
+                "Conjure a massive psychic flower that launches Alejandro and blooms beneath him, healing allies and damaging enemies.",
+
+            detailedDescription:
+                "Alejandro conjures a massive psychic flower beneath himself that violently blooms, launching him in the direction he is currently moving. The flower will heal allies and damage enemies around him. Upon landing, Alejandro gains increased Movement Speed for a short duration. The flower will instantly Bloom any Seeds hit from Wildroot Surge.",
+
+            stats: {
+
+                "Launch Distance":
+                    "10m",
+
+                "Healing":
+                    "45",
+
+                "Damage":
+                    "45",
+
+                "Radius":
+                    "6m",
+
+                "Movement Speed Boost":
+                    "+50%",
+
+                "Movement Speed Boost Duration":
+                    "3 sec",
+
+                "Cooldown":
+                    "11 sec"
+
+            }
+
+        },
+
+
+        /* =====================================================
+           ABILITY 4
+        ===================================================== */
+
+        {
+            type: "Ability 4",
+
+            key: "SHIFT",
+
+            name: "Corolla Conversion",
+
+            icon:
+                "assets/heroes/alejandro/abilities/corolla-conversion.png",
+
+            preview:
+                "assets/heroes/alejandro/abilities/corolla-conversion-preview.mp4",
+
+            previewType:
+                "video",
+
+            shortDescription:
+                "Switch between the Bud's Flourishing and Wilting manifestations, specializing Alejandro in healing or damage.",
+
+            detailedDescription:
+                "Switch between the Bud's two manifestations. Casting Corolla Conversion grants +10% increased healing and damage on cast. The buff gradually increases to +50% after 1.5 seconds, increasing by +25% per second until it reaches +50%.",
+
+            stats: {
+
+                "Flourishing Bud":
+                    "All healing dealt is increased by 50%",
+
+                "Wilting Bud":
+                    "All damage dealt is increased by 50%",
+
+                "Initial Buff":
+                    "+10% Healing/Damage",
+
+                "Maximum Buff":
+                    "+50% Healing/Damage",
+
+                "Switch Time":
+                    "0.2 sec",
+
+                "Cooldown":
+                    "None"
+
+            },
+
+            variants: {
+
+                flourishingBud: {
+
+                    name: "Flourishing Bud",
+
+                    description:
+                        "All healing dealt is increased by 50%."
+
+                },
+
+                wiltingBud: {
+
+                    name: "Wilting Bud",
+
+                    description:
+                        "All damage dealt is increased by 50%."
+
+                }
+
+            }
+
+        },
+
+
+        /* =====================================================
+           ULTIMATE
+        ===================================================== */
+
+        {
+            type: "Ultimate",
+
+            key: "R",
+
+            name: "Burgeoning Florescence",
+
+            icon:
+                "assets/heroes/alejandro/abilities/burgeoning-florescence.png",
+
+            preview:
+                "assets/heroes/alejandro/abilities/burgeoning-florescence-preview.mp4",
+
+            previewType:
+                "video",
+
+            shortDescription:
+                "Channel the full power of the Bud into an enormous psychic blossom that creates a powerful Garden based on Alejandro's current alignment.",
+
+            detailedDescription:
+                "Alejandro becomes CC immune and channels the full power of his Bud into an enormous psychic blossom before launching it forward. All Wildroot Surge Seeds inside the initial explosion of the Garden instantly Bloom. All Wildroot Surge Seeds planted in the Garden after the initial explosion Bloom significantly faster. The Garden will persist even after Alejandro is eliminated.",
+
+            stats: {
+
+                "Cast Time":
+                    "1 sec",
+
+                "Bonus Health Granted on Cast":
+                    "200",
+
+                "Projectile Speed":
+                    "80 m/s",
+
+                "Blossom Spell Field":
+                    "3m Spherical Radius",
+
+                "Wildroot Surge Seed Bloom Time":
+                    "8 sec → 4 sec",
+
+                "Ultimate Cost":
+                    "4500 Energy"
+
+            },
+
+            variants: {
+
+                flourishingBud: {
+
+                    name: "Flourishing Bud",
+
+                    description:
+                        "The blossom passes through and damages enemies as it flies, only stopping upon colliding with allies or terrain. Upon impact, it erupts and heals all allies within range and creates a massive Garden that heals allies over time. Allies within the Flourishing Garden also have their Ability cooldowns reduced.",
+
+                    details: {
+
+                        "Projectile Damage":
+                            "40 HP/s",
+
+                        "Projectile Healing":
+                            "50",
+
+                        "Initial Burst Healing":
+                            "80",
+
+                        "Healing":
+                            "90 HP/s",
+
+                        "Burst Healing":
+                            "70",
+
+                        "Burst Healing Interval":
+                            "1 sec",
+
+                        "Cooldown Reduction Rate":
+                            "20%",
+
+                        "Radius":
+                            "10m",
+
+                        "Duration":
+                            "10 sec"
+
+                    }
+
+                },
+
+                wiltingBud: {
+
+                    name: "Wilting Bud",
+
+                    description:
+                        "The blossom passes through and heals allies as it flies, only stopping upon colliding with enemies or terrain. Upon impact, it erupts and damages all enemies within range and creates a massive Garden that periodically damages enemies. Enemies within the Wilting Garden are also slowed.",
+
+                    details: {
+
+                        "Projectile Damage":
+                            "50",
+
+                        "Projectile Healing":
+                            "100 HP/s",
+
+                        "Root Duration":
+                            "3 sec",
+
+                        "Slow Rate":
+                            "45%",
+
+                        "Slow Duration":
+                            "1 sec",
+
+                        "Initial Burst Damage":
+                            "60",
+
+                        "Damage":
+                            "20 HP/s",
+
+                        "Burst Damage":
+                            "70",
+
+                        "Burst Damage Interval":
+                            "1.5 sec",
+
+                        "Slow Rate in Garden":
+                            "20%",
+
+                        "Radius":
+                            "10m",
+
+                        "Duration":
+                            "8 sec"
+
+                    }
+
+                }
+
+            }
+
+        }
+
+    ]
+
+},
 
 
     /* =====================================================
