@@ -10,25 +10,27 @@ function renderRoster(list) {
 
     roster.innerHTML = "";
 
+
     if (!list.length) {
 
         roster.innerHTML = `
 
             <div style="
-                grid-column:1/-1;
-                padding:100px;
-                text-align:center;
-                color:#777;
-                letter-spacing:.2em;
+                grid-column: 1 / -1;
+                padding: 100px;
+                text-align: center;
+                color: #777;
+                letter-spacing: .2em;
             ">
 
-                NO VANGUARDS FOUND
+                NO CHARACTERS FOUND
 
             </div>
 
         `;
 
         return;
+
     }
 
 
@@ -37,24 +39,22 @@ function renderRoster(list) {
         const card =
             document.createElement("div");
 
+
         card.className =
             "heroCard";
 
 
         card.innerHTML = `
 
-            card.innerHTML = `
+            <div class="heroArt">
 
-    <div class="heroArt">
+                <img
+                    src="${hero.thumbnail}"
+                    alt="${hero.name}"
+                >
 
-        <img
-            src="${hero.thumbnail}"
-            alt="${hero.name}"
-        >
+            </div>
 
-    </div>
-
-    <div class="heroInfo">
 
             <div class="heroInfo">
 
