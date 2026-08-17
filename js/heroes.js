@@ -208,116 +208,98 @@ const heroes = [
         ===================================================== */
 
         {
-            type: "Ability 2",
+    type: "Ability 2",
+    key: "E",
+    name: "Wildroot Surge",
 
-            key: "E",
+    icon: "assets/heroes/alejandro/abilities/ability2.png",
 
-            name: "Wildroot Surge",
+    preview: "assets/heroes/alejandro/abilities/ability2-preview.mp4",
+    previewType: "video",
 
-            icon:
-                "assets/heroes/alejandro/abilities/wildroot-surge.png",
+    shortDescription:
+        "Plant a psychic Seed that grows based on healing or damage dealt within its area.",
 
-            preview:
-                "assets/heroes/alejandro/abilities/wildroot-surge-preview.mp4",
+    detailedDescription:
+        "Plant a psychic Seed at a target location. Planting a Seed slightly knocks back enemies in the area. Seeds grow based on healing or damage done within their area before Blooming and exploding.",
 
-            previewType:
-                "video",
+    stats: {
+        "Knockback Distance": "2m",
+        "Range": "20m",
+        "Maximum Active Seeds": "3",
+        "Charges": "3",
+        "Recharge Time": "5 sec",
+        "Duration": "8 sec"
+    },
 
-            shortDescription:
-                "Plant psychic Seeds that grow based on healing or damage before blooming into powerful area effects.",
+    variants: {
 
-            detailedDescription:
-                "Plant a psychic Seed at a target location. Planting a Seed will slightly knockback enemies in the area. After a duration, the Seeds will Bloom and explode in an area, healing allies and damaging enemies. Seeds grow based on healing or damage done in their area respectively. The Seed behaves differently based on the Bud’s current alignment.",
+        flourishingBud: {
 
-            stats: {
+            name: "Flourishing Bud",
 
-                "Knockback Distance":
-                    "2m",
+            description:
+                "The Seed heals allies over time. It grows based on healing done within its area, increasing both its size and healing.",
 
-                "Range":
-                    "20m",
+            details: {
 
-                "Maximum Active Seeds":
-                    "3",
+                "Healing":
+                    "15 HP/s → 35 HP/s",
 
-                "Charges":
-                    "3",
+                "Radius":
+                    "3m → 6m",
 
-                "Recharge Time":
-                    "5 sec",
+                "Healing Required for Full Growth":
+                    "250",
 
-                "Duration":
-                    "8 sec"
+                "Healing Required on Trail/Garden":
+                    "125",
 
-            },
+                "Burst Healing":
+                    "40 → 60",
 
-            variants: {
-
-                flourishingBud: {
-
-                    name: "Flourishing Bud",
-
-                    description:
-                        "The Seed heals allies over time and grows with healing done in its area, increasing its size and healing.",
-
-                    details: {
-
-                        "Healing":
-                            "15 HP/s → 35 HP/s",
-
-                        "Radius":
-                            "3m → 6m",
-
-                        "Healing Required for Full Growth":
-                            "250 (125 if on Trail or in Garden)",
-
-                        "When Bloomed — Burst Healing":
-                            "40 → 60",
-
-                        "When Bloomed — Burst Damage":
-                            "25",
-
-                        "Growth Bonus":
-                            "Healing required for full growth is halved when planted in the trail of Verdant Pulse or in the Garden of Burgeoning Florescence."
-
-                    }
-
-                },
-
-                wiltingBud: {
-
-                    name: "Wilting Bud",
-
-                    description:
-                        "The Seed slows enemies in the area and grows with damage dealt within it, increasing its size and damage.",
-
-                    details: {
-
-                        "Slow Rate":
-                            "20%",
-
-                        "Radius":
-                            "4m → 8m",
-
-                        "Damage Required for Full Growth":
-                            "250 (125 if on Trail or in Garden)",
-
-                        "When Bloomed — Burst Damage":
-                            "30 → 50",
-
-                        "When Bloomed — Burst Healing":
-                            "35",
-
-                        "Growth Bonus":
-                            "Damage required for full growth is halved when planted in the trail of Verdant Pulse or in the Garden of Burgeoning Florescence."
-
-                    }
-
-                }
+                "Burst Damage":
+                    "25"
 
             }
 
         },
+
+
+        wiltingBud: {
+
+            name: "Wilting Bud",
+
+            description:
+                "The Seed slows enemies in its area. It grows based on damage dealt within its area, increasing both its size and damage.",
+
+            details: {
+
+                "Slow Rate":
+                    "20%",
+
+                "Radius":
+                    "4m → 8m",
+
+                "Damage Required for Full Growth":
+                    "250",
+
+                "Damage Required on Trail/Garden":
+                    "125",
+
+                "Burst Damage":
+                    "30 → 50",
+
+                "Burst Healing":
+                    "35"
+
+            }
+
+        }
+
+    }
+
+},
 
 
         /* =====================================================
