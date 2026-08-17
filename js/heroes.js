@@ -87,12 +87,12 @@ const heroes = [
         {
             type: "Primary Fire",
 
-            key: "M2",
+            key: "M1",
 
             name: "Blooming Budshot",
 
             icon:
-                "assets/heroes/alejandro/abilities/blooming-budshot.png",
+                "Assets/Heroes/Alejandro/Abilities/IMG_6603.png",
 
             preview:
                 "assets/heroes/alejandro/abilities/blooming-budshot-preview.mp4",
@@ -380,12 +380,6 @@ const heroes = [
                 "Switch between the Bud's two manifestations. Casting Corolla Conversion grants +10% increased healing and damage on cast. The buff gradually increases to +50% after 1.5 seconds, increasing by +25% per second until it reaches +50%.",
 
             stats: {
-
-                "Flourishing Bud":
-                    "All healing dealt is increased by 50%",
-
-                "Wilting Bud":
-                    "All damage dealt is increased by 50%",
 
                 "Initial Buff":
                     "+10% Healing/Damage",
