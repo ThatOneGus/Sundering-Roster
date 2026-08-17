@@ -43,9 +43,18 @@ function renderRoster(list) {
 
         card.innerHTML = `
 
-            <div class="heroArt">
-                ${hero.symbol}
-            </div>
+            card.innerHTML = `
+
+    <div class="heroArt">
+
+        <img
+            src="${hero.thumbnail}"
+            alt="${hero.name}"
+        >
+
+    </div>
+
+    <div class="heroInfo">
 
             <div class="heroInfo">
 
