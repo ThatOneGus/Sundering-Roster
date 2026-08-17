@@ -527,8 +527,14 @@ const abilityGrid =
 
 function openHero(hero) {
 
-    detailArt.textContent =
-        hero.symbol;
+    detailArt.innerHTML = `
+
+    <img
+        src="${hero.heroArt}"
+        alt="${hero.name}"
+    >
+
+`;
 
     detailName.textContent =
         hero.name;
