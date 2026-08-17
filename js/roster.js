@@ -81,6 +81,7 @@ function renderRoster(list) {
 
 renderRoster(heroes);
 
+
 /* =========================================================
    SEARCH
 ========================================================= */
@@ -372,6 +373,118 @@ document.addEventListener(
 
 
 /* =========================================================
+   ABILITY STAT RENDERER
+========================================================= */
+
+function renderStats(stats) {
+
+    if (!stats) {
+        return "";
+    }
+
+
+    return Object.entries(stats)
+        .map(
+            ([label, value]) => `
+
+                <div class="stat">
+
+                    <div class="statLabel">
+                        ${label}
+                    </div>
+
+                    <div class="statValue">
+                        ${value}
+                    </div>
+
+                </div>
+
+            `
+        )
+        .join("");
+
+}
+
+
+/* =========================================================
+   ABILITY VARIANT RENDERER
+========================================================= */
+
+function renderVariant(
+    variant,
+    icon,
+    colorClass
+) {
+
+    if (!variant) {
+        return "";
+    }
+
+
+    const stats =
+        renderStats(
+            variant.details
+        );
+
+
+    return `
+
+        <div class="
+            abilityVariant
+            ${colorClass}
+        ">
+
+
+            <div class="variantHeader">
+
+                <span class="variantIcon">
+                    ${icon}
+                </span>
+
+                <span class="variantName">
+                    ${variant.name}
+                </span>
+
+            </div>
+
+
+            ${
+                variant.description
+                    ? `
+
+                        <div class="variantDescription">
+
+                            ${variant.description}
+
+                        </div>
+
+                    `
+                    : ""
+            }
+
+
+            ${
+                stats
+                    ? `
+
+                        <div class="abilityStats">
+
+                            ${stats}
+
+                        </div>
+
+                    `
+                    : ""
+            }
+
+        </div>
+
+    `;
+
+}
+
+
+/* =========================================================
    HERO MODAL
 ========================================================= */
 
@@ -464,29 +577,56 @@ function openHero(hero) {
                 "ability";
 
 
+            /* -------------------------------------------------
+               GENERAL STATS
+            ------------------------------------------------- */
+
             const stats =
-                Object.entries(
-                    ability.stats || {}
-                )
-                .map(
-                    ([label,value]) => `
+                renderStats(
+                    ability.stats
+                );
 
-                        <div class="stat">
 
-                            <div class="statLabel">
-                                ${label}
-                            </div>
+            /* -------------------------------------------------
+               VARIANT STATS
+            ------------------------------------------------- */
 
-                            <div class="statValue">
-                                ${value}
-                            </div>
+            let variants = "";
 
-                        </div>
 
-                    `
-                )
-                .join("");
+            if (
+                ability.variants
+            ) {
 
+                variants = `
+
+                    <div class="abilityVariants">
+
+
+                        ${renderVariant(
+                            ability.variants.flourishingBud,
+                            "🌸",
+                            "flourishing"
+                        )}
+
+
+                        ${renderVariant(
+                            ability.variants.wiltingBud,
+                            "🌺",
+                            "wilting"
+                        )}
+
+
+                    </div>
+
+                `;
+
+            }
+
+
+            /* -------------------------------------------------
+               ABILITY CARD
+            ------------------------------------------------- */
 
             card.innerHTML = `
 
@@ -552,6 +692,7 @@ function openHero(hero) {
                         View Details
                     </button>
 
+
                     <button
                         class="abilityAction previewAction"
                     >
@@ -563,18 +704,43 @@ function openHero(hero) {
 
                 <div class="abilityDetails">
 
-                    <div class="detailText">
 
-                        ${ability.detailedDescription}
+                    ${
+                        ability.detailedDescription
+                            ? `
 
-                    </div>
+                                <div class="detailText">
+
+                                    ${ability.detailedDescription}
+
+                                </div>
+
+                            `
+                            : ""
+                    }
 
 
-                    <div class="abilityStats">
+                    ${
+                        stats
+                            ? `
 
-                        ${stats}
+                                <div class="abilityGeneralLabel">
+                                    GENERAL
+                                </div>
 
-                    </div>
+                                <div class="abilityStats">
+
+                                    ${stats}
+
+                                </div>
+
+                            `
+                            : ""
+                    }
+
+
+                    ${variants}
+
 
                 </div>
 
@@ -637,7 +803,9 @@ function openHero(hero) {
 
             detailsButton.addEventListener(
                 "click",
-                () => {
+                event => {
+
+                    event.stopPropagation();
 
                     toggleDetails(
                         detailsButton
@@ -676,7 +844,9 @@ function openHero(hero) {
             );
 
 
-            abilityGrid.appendChild(card);
+            abilityGrid.appendChild(
+                card
+            );
 
         }
     );
@@ -699,6 +869,7 @@ function toggleDetails(button) {
     const card =
         button.closest(".ability");
 
+
     const details =
         card.querySelector(
             ".abilityDetails"
@@ -706,7 +877,9 @@ function toggleDetails(button) {
 
 
     const isOpen =
-        details.classList.toggle("open");
+        details.classList.toggle(
+            "open"
+        );
 
 
     button.textContent =
@@ -763,7 +936,9 @@ document.addEventListener(
 
 function closeHero() {
 
-    modal.classList.remove("open");
+    modal.classList.remove(
+        "open"
+    );
 
     document.body.style.overflow =
         "";
@@ -802,7 +977,8 @@ function openPreview(ability) {
         ability.name;
 
 
-    previewMedia.innerHTML = "";
+    previewMedia.innerHTML =
+        "";
 
 
     if (
@@ -811,10 +987,14 @@ function openPreview(ability) {
     ) {
 
         const video =
-            document.createElement("video");
+            document.createElement(
+                "video"
+            );
+
 
         video.src =
             ability.preview;
+
 
         video.controls =
             true;
@@ -828,6 +1008,7 @@ function openPreview(ability) {
         video.muted =
             true;
 
+
         previewMedia.appendChild(
             video
         );
@@ -840,13 +1021,18 @@ function openPreview(ability) {
     ) {
 
         const image =
-            document.createElement("img");
+            document.createElement(
+                "img"
+            );
+
 
         image.src =
             ability.preview;
 
+
         image.alt =
             ability.name;
+
 
         previewMedia.appendChild(
             image
