@@ -640,7 +640,7 @@ nav {
 
     position: relative;
 
-    height: 350px;
+    aspect-ratio: 1 / 1;
 
     overflow: hidden;
 
@@ -660,6 +660,28 @@ nav {
     transition:
         transform var(--transition),
         border-color var(--transition);
+}
+
+.heroCard::after {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        linear-gradient(
+            to top,
+            rgba(5,5,8,.95) 0%,
+            rgba(5,5,8,.65) 22%,
+            rgba(5,5,8,.15) 48%,
+            transparent 70%
+        );
+
+    pointer-events: none;
+
+    z-index: 1;
 }
 
 .heroCard:hover {
@@ -872,6 +894,28 @@ nav {
     object-position: center;
 
 }
+
+
+/* =========================================================
+   HERO DETAIL TEXT
+========================================================= */
+
+.detailName {
+
+    font-family: Cinzel, serif;
+
+    font-size:
+        clamp(
+            50px,
+            7vw,
+            100px
+        );
+
+    line-height: .9;
+
+    margin: 0;
+}
+
 
 .detailTitle {
 
@@ -1295,6 +1339,146 @@ nav {
 
 
 /* =========================================================
+   ABILITY VARIANTS
+========================================================= */
+
+.abilityVariants {
+
+    margin-top: 30px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 25px;
+}
+
+
+.abilityVariant {
+
+    border:
+        1px solid
+        rgba(255,255,255,.08);
+
+    background:
+        rgba(255,255,255,.02);
+}
+
+
+.variantHeader {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    padding:
+        15px
+        18px;
+
+    border-bottom:
+        1px solid
+        rgba(255,255,255,.07);
+
+    font-family: Cinzel, serif;
+
+    font-size: 14px;
+}
+
+
+.variantIcon {
+
+    font-family:
+        "Apple Color Emoji",
+        "Segoe UI Emoji",
+        sans-serif;
+
+    font-size: 16px;
+}
+
+
+.variantName {
+
+    font-weight: 600;
+}
+
+
+.variantDescription {
+
+    padding:
+        18px;
+
+    color:
+        #aaa9b4;
+
+    font-size:
+        12px;
+
+    line-height:
+        1.8;
+}
+
+
+/* =========================================================
+   VARIANT COLORS
+========================================================= */
+
+.flourishing {
+
+    border-color:
+        rgba(85, 213, 170,.18);
+}
+
+
+.wilting {
+
+    border-color:
+        rgba(190,100,180,.18);
+}
+
+
+.flourishing .variantName {
+
+    color:
+        #55d5ab;
+}
+
+
+.wilting .variantName {
+
+    color:
+        #d58ccf;
+}
+
+
+/* =========================================================
+   GENERAL STATS LABEL
+========================================================= */
+
+.abilityGeneralLabel {
+
+    color:
+        var(--accent);
+
+    font-size:
+        8px;
+
+    letter-spacing:
+        .2em;
+
+    text-transform:
+        uppercase;
+
+    margin-top:
+        25px;
+
+    margin-bottom:
+        10px;
+}
+
+
+/* =========================================================
    PREVIEW MODAL
 ========================================================= */
 
@@ -1445,7 +1629,7 @@ footer {
 
 
 /* =========================================================
-   RESPONSIVE
+   RESPONSIVE — TABLET
 ========================================================= */
 
 @media (max-width: 900px) {
@@ -1483,10 +1667,14 @@ footer {
     .detailArt {
 
         height: 400px;
-
-        font-size: 100px;
     }
+
 }
+
+
+/* =========================================================
+   RESPONSIVE — MOBILE
+========================================================= */
 
 @media (max-width: 600px) {
 
@@ -1502,10 +1690,6 @@ footer {
         padding-left: 25px;
 
         padding-right: 25px;
-    }
-
-    .heroCard {
-        height: 300px;
     }
 
     .modalContent {
@@ -1567,135 +1751,14 @@ footer {
 
         width: 100%;
     }
-    /* =========================================================
-   ABILITY VARIANTS
-========================================================= */
-
-.abilityVariants {
-
-    margin-top: 30px;
-
-    display: flex;
-
-    flex-direction: column;
-
-    gap: 25px;
-}
 
 
-.abilityVariant {
+    /* ABILITY STATS */
 
-    border:
-        1px solid
-        rgba(255,255,255,.08);
+    .abilityStats {
 
-    background:
-        rgba(255,255,255,.02);
-}
-
-
-.variantHeader {
-
-    display: flex;
-
-    align-items: center;
-
-    gap: 10px;
-
-    padding: 15px 18px;
-
-    border-bottom:
-        1px solid
-        rgba(255,255,255,.07);
-
-    font-family: Cinzel, serif;
-
-    font-size: 14px;
-}
-
-
-.variantIcon {
-
-    font-family:
-        "Apple Color Emoji",
-        "Segoe UI Emoji",
-        sans-serif;
-
-    font-size: 16px;
-}
-
-
-.variantDescription {
-
-    padding:
-        18px;
-
-    color:
-        #aaa9b4;
-
-    font-size:
-        12px;
-
-    line-height:
-        1.8;
-}
-
-
-/* =========================================================
-   VARIANT COLORS
-========================================================= */
-
-.flourishing {
-
-    border-color:
-        rgba(255,200,100,.18);
-}
-
-
-.wilting {
-
-    border-color:
-        rgba(190,100,180,.18);
-}
-
-
-.flourishing .variantName {
-
-    color:
-        #f0c77a;
-}
-
-
-.wilting .variantName {
-
-    color:
-        #d58ccf;
-}
-
-
-/* =========================================================
-   GENERAL STATS LABEL
-========================================================= */
-
-.abilityGeneralLabel {
-
-    color:
-        var(--accent);
-
-    font-size:
-        8px;
-
-    letter-spacing:
-        .2em;
-
-    text-transform:
-        uppercase;
-
-    margin-top:
-        25px;
-
-    margin-bottom:
-        10px;
-}
+        grid-template-columns:
+            1fr;
+    }
 
 }
