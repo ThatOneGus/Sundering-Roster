@@ -323,7 +323,7 @@ const heroes = [
         {
             type: "Ability 3",
 
-            key: "C",
+            key: "SHIFT",
 
             name: "Grand Flourish",
 
@@ -347,10 +347,7 @@ const heroes = [
                 "Launch Distance":
                     "10m",
 
-                "Healing":
-                    "45",
-
-                "Damage":
+                "Healing/Damage":
                     "45",
 
                 "Radius":
@@ -377,7 +374,7 @@ const heroes = [
         {
             type: "Ability 4",
 
-            key: "SHIFT",
+            key: "F",
 
             name: "Corolla Conversion",
 
@@ -450,7 +447,7 @@ const heroes = [
         {
             type: "Ultimate",
 
-            key: "R",
+            key: "Q",
 
             name: "Burgeoning Florescence",
 
