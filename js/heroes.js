@@ -41,7 +41,7 @@ const heroes = [
             name: "Blooming Influence",
 
             icon:
-                "assets/heroes/alejandro/abilities/blooming-influence.png",
+                "Assets/Heroes/Alejandro/Abilities/IMG_6601.png",
 
             preview:
                 "assets/heroes/alejandro/abilities/blooming-influence-preview.mp4",
