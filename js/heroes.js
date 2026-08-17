@@ -19,10 +19,10 @@ const heroes = [
     region: "Elaris",
 
     thumbnail:
-        "assets/heroes/alejandro/thumbnail.png",
+        "Assets/Heroes/Alejandro/thumbnail.png",
 
     heroArt:
-        "assets/heroes/alejandro/hero-art.png",
+        "Assets/Heroes/Alejandro/hero-art.png",
 
     description:
         "Firstborn to the royal family of Elaris, Alejandro was groomed for leadership from the moment he could speak. With a silver tongue and unmatched charisma, he became the face of diplomacy, often venturing far from the kingdom’s borders to strengthen alliances, or so the court says.",
