@@ -3,1924 +3,258 @@
 
 <head>
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>SUNDERING — Roster</title>
-
-<style>
-
-/* =========================================================
-   GLOBAL
-========================================================= */
-
-@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap');
-
-:root {
-
-    --bg: #07070b;
-    --panel: rgba(15,15,23,.9);
-
-    --text: #eeeef5;
-    --muted: #858593;
-
-    --accent: #b794ff;
-    --accent-dark: #6f4dcc;
-
-    --gold: #d8b56a;
-
-    --border: rgba(255,255,255,.1);
-
-    --transition: .35s cubic-bezier(.2,.8,.2,1);
-}
-
-* {
-    box-sizing: border-box;
-}
-
-html {
-    scroll-behavior: smooth;
-}
-
-body {
-
-    margin: 0;
-
-    background: var(--bg);
-
-    color: var(--text);
-
-    font-family: Inter, sans-serif;
-
-    overflow-x: hidden;
-}
-
-
-/* =========================================================
-   BACKGROUND
-========================================================= */
-
-.background {
-
-    position: fixed;
-
-    inset: 0;
-
-    pointer-events: none;
-
-    z-index: -5;
-
-    background:
-
-        radial-gradient(
-            circle at 20% 20%,
-            rgba(132,84,255,.12),
-            transparent 35%
-        ),
-
-        radial-gradient(
-            circle at 80% 70%,
-            rgba(255,150,80,.08),
-            transparent 30%
-        ),
-
-        #07070b;
-}
-
-.background::before {
-
-    content: "";
-
-    position: absolute;
-
-    inset: 0;
-
-    background-image:
-
-        linear-gradient(
-            rgba(255,255,255,.025) 1px,
-            transparent 1px
-        ),
-
-        linear-gradient(
-            90deg,
-            rgba(255,255,255,.025) 1px,
-            transparent 1px
-        );
-
-    background-size: 70px 70px;
-
-    mask-image:
-        linear-gradient(
-            to bottom,
-            black,
-            transparent
-        );
-}
-
-.noise {
-
-    position: fixed;
-
-    inset: 0;
-
-    opacity: .035;
-
-    pointer-events: none;
-
-    z-index: 999;
-
-    background-image:
-        url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.4'/%3E%3C/svg%3E");
-}
-
-
-/* =========================================================
-   NAVIGATION
-========================================================= */
-
-nav {
-
-    position: fixed;
-
-    top: 0;
-    left: 0;
-    right: 0;
-
-    height: 80px;
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: space-between;
-
-    padding: 0 5vw;
-
-    z-index: 100;
-
-    border-bottom:
-        1px solid rgba(255,255,255,.06);
-
-    background:
-        rgba(7,7,11,.65);
-
-    backdrop-filter: blur(20px);
-}
-
-.logo {
-
-    font-family: Cinzel, serif;
-
-    font-weight: 700;
-
-    letter-spacing: .3em;
-
-    font-size: 18px;
-}
-
-.logo span {
-    color: var(--accent);
-}
-
-.navLinks {
-
-    display: flex;
-
-    gap: 35px;
-}
-
-.navLinks a {
-
-    color: var(--muted);
-
-    text-decoration: none;
-
-    font-size: 12px;
-
-    letter-spacing: .18em;
-
-    text-transform: uppercase;
-
-    transition: var(--transition);
-}
-
-.navLinks a:hover,
-.navLinks a.active {
-    color: white;
-}
-
-
-/* =========================================================
-   HERO HEADER
-========================================================= */
-
-.heroHeader {
-
-    min-height: 75vh;
-
-    padding:
-        170px
-        7vw
-        80px;
-
-    position: relative;
-
-    display: flex;
-
-    flex-direction: column;
-
-    justify-content: center;
-}
-
-.eyebrow {
-
-    color: var(--accent);
-
-    font-size: 11px;
-
-    letter-spacing: .45em;
-
-    text-transform: uppercase;
-
-    margin-bottom: 20px;
-}
-
-.heroHeader h1 {
-
-    font-family: Cinzel, serif;
-
-    font-size:
-        clamp(
-            70px,
-            13vw,
-            190px
-        );
-
-    line-height: .8;
-
-    margin: 0;
-
-    font-weight: 600;
-
-    letter-spacing: -.04em;
-
-    background:
-        linear-gradient(
-            180deg,
-            #ffffff,
-            #aaa7bb
-        );
-
-    -webkit-background-clip: text;
-
-    color: transparent;
-}
-
-.heroHeader p {
-
-    max-width: 550px;
-
-    color: var(--muted);
-
-    font-size: 15px;
-
-    line-height: 1.8;
-
-    margin-top: 35px;
-}
-
-
-/* =========================================================
-   ORBIT
-========================================================= */
-
-.orbit {
-
-    position: absolute;
-
-    right: 10vw;
-
-    top: 18vh;
-
-    width: 420px;
-
-    height: 420px;
-
-    border:
-        1px solid
-        rgba(183,148,255,.18);
-
-    border-radius: 50%;
-
-    animation:
-        rotate 30s linear infinite;
-}
-
-.orbit::before,
-.orbit::after {
-
-    content: "";
-
-    position: absolute;
-
-    border-radius: 50%;
-
-    border:
-        1px solid
-        rgba(255,255,255,.08);
-}
-
-.orbit::before {
-    inset: 35px;
-}
-
-.orbit::after {
-    inset: 100px;
-}
-
-.orbitDot {
-
-    position: absolute;
-
-    width: 8px;
-
-    height: 8px;
-
-    background:
-        var(--accent);
-
-    border-radius: 50%;
-
-    box-shadow:
-        0 0 20px
-        var(--accent);
-
-    top: -4px;
-
-    left: 50%;
-}
-
-@keyframes rotate {
-
-    from {
-        transform: rotate(0deg);
-    }
-
-    to {
-        transform: rotate(360deg);
-    }
-}
-
-
-/* =========================================================
-   ROSTER
-========================================================= */
-
-.rosterSection {
-
-    padding:
-        40px
-        7vw
-        150px;
-}
-
-.controls {
-
-    display: flex;
-
-    align-items: flex-start;
-
-    justify-content: space-between;
-
-    gap: 30px;
-
-    margin-bottom: 50px;
-}
-
-.search {
-
-    width: 300px;
-}
-
-.search input {
-
-    width: 100%;
-
-    padding:
-        16px
-        20px;
-
-    background: transparent;
-
-    border: none;
-
-    border-bottom:
-        1px solid
-        var(--border);
-
-    color: white;
-
-    outline: none;
-
-    font-size: 13px;
-}
-
-.search input:focus {
-
-    border-color:
-        var(--accent);
-}
-
-
-/* =========================================================
-   ROLE FILTER SYSTEM
-========================================================= */
-
-.filters {
-
-    display: flex;
-
-    align-items: flex-start;
-
-    gap: 10px;
-
-    flex-wrap: wrap;
-}
-
-.roleGroup {
-
-    position: relative;
-}
-
-
-/* MAIN ROLE BUTTONS */
-
-.roleFilter,
-.allFilter {
-
-    height: 42px;
-
-    min-width: 125px;
-
-    padding:
-        0
-        16px;
-
-    border:
-        1px solid
-        var(--border);
-
-    background:
-        rgba(255,255,255,.015);
-
-    color:
-        var(--muted);
-
-    font-size: 10px;
-
-    letter-spacing: .15em;
-
-    text-transform: uppercase;
-
-    cursor: pointer;
-
-    transition:
-        var(--transition);
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    gap: 12px;
-}
-
-.roleFilter:hover,
-.roleFilter.active,
-.allFilter:hover,
-.allFilter.active {
-
-    color: white;
-
-    border-color:
-        var(--accent);
-
-    background:
-        rgba(183,148,255,.08);
-}
-
-
-/* DROPDOWN ARROW */
-
-.dropdownArrow {
-
-    font-size: 14px;
-
-    line-height: 1;
-
-    transition:
-        transform .25s ease;
-}
-
-.roleGroup.open
-.dropdownArrow {
-
-    transform:
-        rotate(180deg);
-}
-
-
-/* SUBCLASS DROPDOWN */
-
-.subFilters {
-
-    position: absolute;
-
-    top: calc(100% + 8px);
-
-    left: 0;
-
-    min-width: 100%;
-
-    padding: 6px;
-
-    display: flex;
-
-    flex-direction: column;
-
-    gap: 3px;
-
-    background:
-        rgba(10,10,16,.97);
-
-    border:
-        1px solid
-        var(--border);
-
-    box-shadow:
-        0 20px 50px
-        rgba(0,0,0,.5);
-
-    backdrop-filter:
-        blur(20px);
-
-    opacity: 0;
-
-    visibility: hidden;
-
-    transform:
-        translateY(-6px);
-
-    transition:
-        opacity .2s ease,
-        transform .2s ease,
-        visibility .2s ease;
-
-    z-index: 50;
-}
-
-.roleGroup.open
-.subFilters {
-
-    opacity: 1;
-
-    visibility: visible;
-
-    transform:
-        translateY(0);
-}
-
-
-/* SUBCLASS BUTTONS */
-
-.subFilters button {
-
-    width: 100%;
-
-    padding:
-        11px
-        14px;
-
-    border: none;
-
-    background: transparent;
-
-    color: var(--muted);
-
-    text-align: left;
-
-    font-family: Inter, sans-serif;
-
-    font-size: 9px;
-
-    letter-spacing: .12em;
-
-    text-transform: uppercase;
-
-    cursor: pointer;
-
-    transition:
-        var(--transition);
-
-    white-space: nowrap;
-}
-
-.subFilters button:hover,
-.subFilters button.active {
-
-    color: white;
-
-    background:
-        rgba(183,148,255,.1);
-}
-
-
-/* =========================================================
-   HERO CARDS
-========================================================= */
-
-.roster {
-
-    display: grid;
-
-    grid-template-columns:
-        repeat(
-            auto-fill,
-            minmax(230px,1fr)
-        );
-
-    gap: 14px;
-}
-
-.heroCard {
-
-    position: relative;
-
-    height: 350px;
-
-    overflow: hidden;
-
-    cursor: pointer;
-
-    border:
-        1px solid
-        rgba(255,255,255,.07);
-
-    background:
-        linear-gradient(
-            145deg,
-            rgba(255,255,255,.04),
-            rgba(255,255,255,.01)
-        );
-
-    transition:
-        transform var(--transition),
-        border-color var(--transition);
-}
-
-.heroCard:hover {
-
-    transform:
-        translateY(-8px);
-
-    border-color:
-        rgba(183,148,255,.5);
-}
-
-.heroArt {
-
-    position: absolute;
-
-    inset: 0;
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    font-family: Cinzel, serif;
-
-    font-size: 70px;
-
-    color:
-        rgba(255,255,255,.08);
-
-    background:
-        radial-gradient(
-            circle at 50% 35%,
-            rgba(183,148,255,.25),
-            transparent 55%
-        );
-
-    transition:
-        transform .6s ease;
-}
-
-.heroCard:hover .heroArt {
-
-    transform:
-        scale(1.08);
-}
-
-.heroInfo {
-
-    position: absolute;
-
-    left: 25px;
-
-    right: 25px;
-
-    bottom: 22px;
-
-    z-index: 2;
-}
-
-.heroName {
-
-    font-family: Cinzel, serif;
-
-    font-size: 24px;
-}
-
-.heroTitle {
-
-    color: var(--muted);
-
-    font-size: 10px;
-
-    text-transform: uppercase;
-
-    letter-spacing: .18em;
-
-    margin-top: 5px;
-}
-
-.heroRole {
-
-    display: inline-block;
-
-    margin-top: 14px;
-
-    color: var(--accent);
-
-    font-size: 9px;
-
-    letter-spacing: .12em;
-
-    text-transform: uppercase;
-}
-
-
-/* =========================================================
-   HERO MODAL
-========================================================= */
-
-.modal {
-
-    position: fixed;
-
-    inset: 0;
-
-    z-index: 500;
-
-    display: none;
-
-    background:
-        rgba(0,0,0,.88);
-
-    backdrop-filter:
-        blur(18px);
-
-    overflow-y: auto;
-}
-
-.modal.open {
-    display: block;
-}
-
-.modalContent {
-
-    min-height: 100vh;
-
-    padding:
-        100px
-        7vw;
-}
-
-.close {
-
-    position: fixed;
-
-    top: 30px;
-
-    right: 40px;
-
-    width: 45px;
-
-    height: 45px;
-
-    border:
-        1px solid
-        var(--border);
-
-    background:
-        rgba(0,0,0,.5);
-
-    color: white;
-
-    font-size: 20px;
-
-    cursor: pointer;
-
-    z-index: 20;
-}
-
-.detailHeader {
-
-    display: grid;
-
-    grid-template-columns:
-        1fr
-        1fr;
-
-    gap: 70px;
-
-    align-items: center;
-
-    min-height: 70vh;
-}
-
-.detailArt {
-
-    height: 600px;
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    font-family: Cinzel, serif;
-
-    font-size: 150px;
-
-    color:
-        rgba(255,255,255,.07);
-
-    border:
-        1px solid
-        var(--border);
-
-    background:
-        radial-gradient(
-            circle,
-            rgba(183,148,255,.2),
-            transparent 65%
-        );
-}
-
-.detailName {
-
-    font-family: Cinzel, serif;
-
-    font-size:
-        clamp(
-            50px,
-            7vw,
-            100px
-        );
-
-    line-height: .9;
-
-    margin: 0;
-}
-
-.detailTitle {
-
-    color: var(--accent);
-
-    letter-spacing: .25em;
-
-    text-transform: uppercase;
-
-    font-size: 11px;
-
-    margin: 20px 0;
-}
-
-.detailDescription {
-
-    max-width: 600px;
-
-    color: #aaa9b4;
-
-    line-height: 1.9;
-
-    font-size: 14px;
-}
-
-.tags {
-
-    display: flex;
-
-    gap: 8px;
-
-    flex-wrap: wrap;
-
-    margin-top: 25px;
-}
-
-.tag {
-
-    padding:
-        8px
-        12px;
-
-    border:
-        1px solid
-        var(--border);
-
-    font-size: 9px;
-
-    letter-spacing: .12em;
-
-    text-transform: uppercase;
-
-    color: var(--muted);
-}
-
-
-/* =========================================================
-   ABILITIES
-========================================================= */
-
-.abilities {
-
-    margin-top: 80px;
-
-    padding-bottom: 100px;
-}
-
-.sectionTitle {
-
-    font-family: Cinzel, serif;
-
-    font-size: 30px;
-
-    margin-bottom: 30px;
-}
-
-
-/* =========================================================
-   ABILITY CARD
-========================================================= */
-
-.abilityGrid {
-
-    display: grid;
-
-    grid-template-columns:
-        repeat(
-            auto-fit,
-            minmax(320px,1fr)
-        );
-
-    gap: 15px;
-}
-
-.ability {
-
-    position: relative;
-
-    border:
-        1px solid
-        var(--border);
-
-    background:
-        rgba(255,255,255,.025);
-
-    overflow: hidden;
-
-    transition:
-        border-color var(--transition);
-}
-
-.ability:hover {
-
-    border-color:
-        rgba(183,148,255,.35);
-}
-
-
-/* =========================================================
-   ABILITY TOP
-========================================================= */
-
-.abilityTop {
-
-    display: grid;
-
-    grid-template-columns:
-        70px
-        1fr
-        auto;
-
-    gap: 18px;
-
-    align-items: center;
-
-    padding: 20px;
-}
-
-
-/* =========================================================
-   ABILITY ICON
-========================================================= */
-
-.abilityIcon {
-
-    width: 70px;
-
-    height: 70px;
-
-    border:
-        1px solid
-        rgba(255,255,255,.15);
-
-    background:
-        rgba(0,0,0,.4);
-
-    overflow: hidden;
-
-    flex-shrink: 0;
-}
-
-.abilityIcon img {
-
-    width: 100%;
-
-    height: 100%;
-
-    object-fit: cover;
-}
-
-.abilityIconFallback {
-
-    width: 100%;
-
-    height: 100%;
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    font-family: Cinzel, serif;
-
-    color:
-        rgba(255,255,255,.35);
-
-    font-size: 20px;
-}
-
-
-/* =========================================================
-   ABILITY NAME
-========================================================= */
-
-.abilityType {
-
-    color: var(--accent);
-
-    font-size: 8px;
-
-    letter-spacing: .2em;
-
-    text-transform: uppercase;
-
-    margin-bottom: 7px;
-}
-
-.ability h3 {
-
-    font-family: Cinzel, serif;
-
-    font-size: 18px;
-
-    margin: 0;
-}
-
-.abilityKey {
-
-    display: inline-block;
-
-    margin-top: 8px;
-
-    color: var(--muted);
-
-    font-size: 9px;
-
-    letter-spacing: .12em;
-}
-
-
-/* =========================================================
-   PREVIEW BUTTON
-========================================================= */
-
-.previewButton {
-
-    width: 38px;
-
-    height: 38px;
-
-    border:
-        1px solid
-        var(--border);
-
-    background:
-        rgba(255,255,255,.03);
-
-    color: white;
-
-    cursor: pointer;
-
-    transition: var(--transition);
-}
-
-.previewButton:hover {
-
-    border-color:
-        var(--accent);
-
-    background:
-        rgba(183,148,255,.1);
-}
-
-
-/* =========================================================
-   SHORT DESCRIPTION
-========================================================= */
-
-.abilityShort {
-
-    padding:
-        0
-        20px
-        20px;
-
-    color: var(--muted);
-
-    font-size: 12px;
-
-    line-height: 1.7;
-}
-
-
-/* =========================================================
-   ABILITY ACTIONS
-========================================================= */
-
-.abilityActions {
-
-    display: flex;
-
-    border-top:
-        1px solid
-        rgba(255,255,255,.06);
-}
-
-.abilityAction {
-
-    flex: 1;
-
-    padding: 13px;
-
-    border: none;
-
-    background: transparent;
-
-    color: var(--muted);
-
-    font-size: 9px;
-
-    letter-spacing: .15em;
-
-    text-transform: uppercase;
-
-    cursor: pointer;
-
-    transition: var(--transition);
-}
-
-.abilityAction:hover {
-
-    color: white;
-
-    background:
-        rgba(255,255,255,.04);
-}
-
-
-/* =========================================================
-   DETAILED DESCRIPTION
-========================================================= */
-
-.abilityDetails {
-
-    display: none;
-
-    padding: 25px;
-
-    border-top:
-        1px solid
-        var(--border);
-
-    background:
-        rgba(0,0,0,.2);
-}
-
-.abilityDetails.open {
-    display: block;
-}
-
-.detailText {
-
-    color: #aaa9b4;
-
-    font-size: 12px;
-
-    line-height: 1.8;
-
-    margin-bottom: 25px;
-
-    white-space: pre-line;
-}
-
-
-/* =========================================================
-   ABILITY STATS
-========================================================= */
-
-.abilityStats {
-
-    display: grid;
-
-    grid-template-columns:
-        repeat(
-            2,
-            1fr
-        );
-
-    border-top:
-        1px solid
-        rgba(255,255,255,.07);
-
-    border-left:
-        1px solid
-        rgba(255,255,255,.07);
-}
-
-.stat {
-
-    padding: 14px;
-
-    border-right:
-        1px solid
-        rgba(255,255,255,.07);
-
-    border-bottom:
-        1px solid
-        rgba(255,255,255,.07);
-}
-
-.statLabel {
-
-    color: var(--muted);
-
-    font-size: 8px;
-
-    letter-spacing: .15em;
-
-    text-transform: uppercase;
-
-    margin-bottom: 6px;
-}
-
-.statValue {
-
-    color: white;
-
-    font-size: 12px;
-}
-
-
-/* =========================================================
-   PREVIEW MODAL
-========================================================= */
-
-.previewModal {
-
-    position: fixed;
-
-    inset: 0;
-
-    z-index: 900;
-
-    display: none;
-
-    align-items: center;
-
-    justify-content: center;
-
-    padding: 30px;
-
-    background:
-        rgba(0,0,0,.9);
-
-    backdrop-filter:
-        blur(20px);
-}
-
-.previewModal.open {
-    display: flex;
-}
-
-.previewWindow {
-
-    width: min(
-        1000px,
-        95vw
-    );
-
-    background:
-        #0b0b10;
-
-    border:
-        1px solid
-        var(--border);
-
-    box-shadow:
-        0 30px 100px
-        rgba(0,0,0,.7);
-}
-
-.previewHeader {
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: space-between;
-
-    padding:
-        18px
-        22px;
-
-    border-bottom:
-        1px solid
-        var(--border);
-}
-
-.previewHeader span {
-
-    font-family: Cinzel, serif;
-
-    font-size: 16px;
-}
-
-.previewClose {
-
-    background: transparent;
-
-    border: none;
-
-    color: white;
-
-    font-size: 22px;
-
-    cursor: pointer;
-}
-
-.previewMedia {
-
-    width: 100%;
-
-    aspect-ratio:
-        16 / 9;
-
-    background:
-        #050507;
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-}
-
-.previewMedia img,
-.previewMedia video {
-
-    width: 100%;
-
-    height: 100%;
-
-    object-fit: contain;
-}
-
-.previewFallback {
-
-    color: var(--muted);
-
-    font-size: 11px;
-
-    letter-spacing: .15em;
-
-    text-transform: uppercase;
-}
-
-
-/* =========================================================
-   FOOTER
-========================================================= */
-
-footer {
-
-    padding:
-        50px
-        7vw;
-
-    border-top:
-        1px solid
-        var(--border);
-
-    color: var(--muted);
-
-    font-size: 10px;
-
-    letter-spacing: .15em;
-
-    text-transform: uppercase;
-}
-
-
-/* =========================================================
-   RESPONSIVE
-========================================================= */
-
-@media (max-width: 900px) {
-
-    .navLinks {
-        display: none;
-    }
-
-    .orbit {
-
-        opacity: .35;
-
-        right: -180px;
-
-        top: 180px;
-    }
-
-    .controls {
-
-        align-items: stretch;
-
-        flex-direction: column;
-    }
-
-    .search {
-        width: 100%;
-    }
-
-    .detailHeader {
-
-        grid-template-columns:
-            1fr;
-    }
-
-    .detailArt {
-
-        height: 400px;
-
-        font-size: 100px;
-    }
-}
-
-@media (max-width: 600px) {
-
-    .heroHeader {
-
-        padding-left: 25px;
-
-        padding-right: 25px;
-    }
-
-    .rosterSection {
-
-        padding-left: 25px;
-
-        padding-right: 25px;
-    }
-
-    .heroCard {
-        height: 300px;
-    }
-
-    .modalContent {
-
-        padding:
-            80px
-            25px;
-    }
-
-    .close {
-
-        right: 20px;
-
-        top: 20px;
-    }
-
-    .abilityGrid {
-
-        grid-template-columns:
-            1fr;
-    }
-
-    .abilityTop {
-
-        grid-template-columns:
-            60px
-            1fr
-            auto;
-    }
-
-    .abilityIcon {
-
-        width: 60px;
-
-        height: 60px;
-    }
-
-
-    /* FILTERS */
-
-    .filters {
-
-        display: grid;
-
-        grid-template-columns:
-            repeat(2, 1fr);
-
-        width: 100%;
-    }
-
-    .roleGroup,
-    .roleFilter,
-    .allFilter {
-
-        width: 100%;
-    }
-
-    .subFilters {
-
-        width: 100%;
-    }
-
-}
-
-</style>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>SUNDERING — Roster</title>
+
+    <link
+        rel="stylesheet"
+        href="css/roster.css"
+    >
 
 </head>
 
 
 <body>
 
+    <div class="background"></div>
 
-<div class="background"></div>
-
-<div class="noise"></div>
-
-
-<!-- =====================================================
-     NAVIGATION
-===================================================== -->
-
-<nav>
-
-    <div class="logo">
-        SUND<span>E</span>RING
-    </div>
-
-    <div class="navLinks">
-
-        <a href="#" class="active">
-            Vanguards
-        </a>
-
-        <a href="#">
-            World
-        </a>
-
-        <a href="#">
-            Lore
-        </a>
-
-        <a href="#">
-            Skins
-        </a>
-
-    </div>
-
-</nav>
+    <div class="noise"></div>
 
 
-<!-- =====================================================
-     HEADER
-===================================================== -->
+    <!-- =====================================================
+         NAVIGATION
+    ===================================================== -->
 
-<header class="heroHeader">
+    <nav>
 
-    <div class="orbit">
+        <div class="logo">
+            SUND<span>E</span>RING
+        </div>
 
-        <div class="orbitDot"></div>
+        <div class="navLinks">
 
-    </div>
-
-    <div class="eyebrow">
-        Project Sundering Roster
-    </div>
-
-    <h1>
-        Characters
-    </h1>
-
-    <p>
-        Learn the roster of characters in this fantastical world.
-        From royalty, Gods, creatures, or even simple people…
-        you’re bound to find someone who peaks your interest.
-    </p>
-
-</header>
-
-
-<!-- =====================================================
-     ROSTER
-===================================================== -->
-
-<section class="rosterSection">
-
-    <div class="controls">
-
-
-        <!-- SEARCH -->
-
-        <div class="search">
-
-            <input
-                type="text"
-                id="search"
-                placeholder="SEARCH THE ARCHIVE..."
+            <a
+                href="#"
+                class="active"
             >
+                Vanguards
+            </a>
+
+            <a href="#">
+                World
+            </a>
+
+            <a href="#">
+                Lore
+            </a>
+
+            <a href="#">
+                Skins
+            </a>
 
         </div>
 
-
-        <!-- ROLE FILTERS -->
-
-        <div class="filters">
+    </nav>
 
 
-            <!-- ALL -->
+    <!-- =====================================================
+         HEADER
+    ===================================================== -->
 
-            <button
-                class="roleFilter allFilter active"
-                data-role="all"
-            >
-                All
-            </button>
+    <header class="heroHeader">
+
+        <div class="orbit">
+
+            <div class="orbitDot"></div>
+
+        </div>
+
+        <div class="eyebrow">
+            Project Sundering Roster
+        </div>
+
+        <h1>
+            Characters
+        </h1>
+
+        <p>
+            Learn the roster of characters in this fantastical world.
+            From royalty, Gods, creatures, or even simple people…
+            you’re bound to find someone who peaks your interest.
+        </p>
+
+    </header>
 
 
-            <!-- VANGUARD -->
+    <!-- =====================================================
+         ROSTER
+    ===================================================== -->
 
-            <div class="roleGroup">
+    <section class="rosterSection">
 
-                <button
-                    class="roleFilter"
-                    data-role="Vanguard"
+        <div class="controls">
+
+
+            <!-- SEARCH -->
+
+            <div class="search">
+
+                <input
+                    type="text"
+                    id="search"
+                    placeholder="SEARCH THE ARCHIVE..."
                 >
 
-                    <span>
-                        Vanguard
-                    </span>
+            </div>
 
-                    <span class="dropdownArrow">
-                        ⌄
-                    </span>
 
+            <!-- ROLE FILTERS -->
+
+            <div class="filters">
+
+
+                <!-- ALL -->
+
+                <button
+                    class="roleFilter allFilter active"
+                    data-role="all"
+                >
+                    All
                 </button>
 
 
-                <div class="subFilters">
+                <!-- VANGUARD -->
 
-                    <button data-role="Guardian">
-                        Guardian
+                <div class="roleGroup">
+
+                    <button
+                        class="roleFilter"
+                        data-role="Vanguard"
+                    >
+
+                        <span>
+                            Vanguard
+                        </span>
+
+                        <span class="dropdownArrow">
+                            ⌄
+                        </span>
+
                     </button>
 
-                    <button data-role="Warden">
-                        Warden
-                    </button>
 
-                    <button data-role="Bludgeon">
-                        Bludgeon
-                    </button>
+                    <div class="subFilters">
 
-                    <button data-role="Brawler">
-                        Brawler
-                    </button>
+                        <button data-role="Guardian">
+                            Guardian
+                        </button>
+
+                        <button data-role="Warden">
+                            Warden
+                        </button>
+
+                        <button data-role="Bludgeon">
+                            Bludgeon
+                        </button>
+
+                        <button data-role="Brawler">
+                            Brawler
+                        </button>
+
+                    </div>
 
                 </div>
 
-            </div>
 
+                <!-- STRIKER -->
 
-            <!-- STRIKER -->
+                <div class="roleGroup">
 
-            <div class="roleGroup">
+                    <button
+                        class="roleFilter"
+                        data-role="Striker"
+                    >
 
-                <button
-                    class="roleFilter"
-                    data-role="Striker"
-                >
+                        <span>
+                            Striker
+                        </span>
 
-                    <span>
-                        Striker
-                    </span>
+                        <span class="dropdownArrow">
+                            ⌄
+                        </span>
 
-                    <span class="dropdownArrow">
-                        ⌄
-                    </span>
-
-                </button>
-
-
-                <div class="subFilters">
-
-                    <button data-role="Marksman">
-                        Marksman
                     </button>
 
-                    <button data-role="Hunter">
-                        Hunter
-                    </button>
 
-                    <button data-role="Ravager">
-                        Ravager
-                    </button>
+                    <div class="subFilters">
 
-                    <button data-role="Disruptor">
-                        Disruptor
-                    </button>
+                        <button data-role="Marksman">
+                            Marksman
+                        </button>
+
+                        <button data-role="Hunter">
+                            Hunter
+                        </button>
+
+                        <button data-role="Ravager">
+                            Ravager
+                        </button>
+
+                        <button data-role="Disruptor">
+                            Disruptor
+                        </button>
+
+                    </div>
 
                 </div>
 
-            </div>
 
+                <!-- CATALYST -->
 
-            <!-- CATALYST -->
+                <div class="roleGroup">
 
-            <div class="roleGroup">
+                    <button
+                        class="roleFilter"
+                        data-role="Catalyst"
+                    >
 
-                <button
-                    class="roleFilter"
-                    data-role="Catalyst"
-                >
+                        <span>
+                            Catalyst
+                        </span>
 
-                    <span>
-                        Catalyst
-                    </span>
+                        <span class="dropdownArrow">
+                            ⌄
+                        </span>
 
-                    <span class="dropdownArrow">
-                        ⌄
-                    </span>
-
-                </button>
-
-
-                <div class="subFilters">
-
-                    <button data-role="Lifeline">
-                        Lifeline
                     </button>
 
-                    <button data-role="Playmaker">
-                        Playmaker
-                    </button>
 
-                    <button data-role="Utility">
-                        Utility
-                    </button>
+                    <div class="subFilters">
 
-                    <button data-role="Controller">
-                        Controller
-                    </button>
+                        <button data-role="Lifeline">
+                            Lifeline
+                        </button>
 
-                </div>
+                        <button data-role="Playmaker">
+                            Playmaker
+                        </button>
 
-            </div>
+                        <button data-role="Utility">
+                            Utility
+                        </button>
 
-        </div>
+                        <button data-role="Controller">
+                            Controller
+                        </button>
 
-    </div>
+                    </div>
 
-
-    <!-- ROSTER GRID -->
-
-    <div
-        class="roster"
-        id="roster"
-    ></div>
-
-</section>
-
-
-<footer>
-
-    SUNDERING — THE ARCHIVE
-
-</footer>
-
-
-<!-- =====================================================
-     HERO MODAL
-===================================================== -->
-
-<div
-    class="modal"
-    id="modal"
->
-
-    <button
-        class="close"
-        id="closeModal"
-    >
-        ×
-    </button>
-
-
-    <div class="modalContent">
-
-        <div class="detailHeader">
-
-
-            <div
-                class="detailArt"
-                id="detailArt"
-            >
-                ?
-            </div>
-
-
-            <div>
-
-                <div
-                    class="eyebrow"
-                    id="detailRole"
-                >
-                </div>
-
-
-                <h2
-                    class="detailName"
-                    id="detailName"
-                >
-                </h2>
-
-
-                <div
-                    class="detailTitle"
-                    id="detailTitle"
-                >
-                </div>
-
-
-                <p
-                    class="detailDescription"
-                    id="detailDescription"
-                >
-                </p>
-
-
-                <div
-                    class="tags"
-                    id="detailTags"
-                >
                 </div>
 
             </div>
@@ -1928,1404 +262,156 @@ footer {
         </div>
 
 
-        <!-- ABILITIES -->
-
-        <section class="abilities">
-
-            <div class="sectionTitle">
-                Abilities
-            </div>
-
-
-            <div
-                class="abilityGrid"
-                id="abilityGrid"
-            >
-            </div>
-
-        </section>
-
-    </div>
-
-</div>
-
-
-<!-- =====================================================
-     PREVIEW MODAL
-===================================================== -->
-
-<div
-    class="previewModal"
-    id="previewModal"
->
-
-    <div class="previewWindow">
-
-        <div class="previewHeader">
-
-            <span id="previewTitle">
-                Ability Preview
-            </span>
-
-            <button
-                class="previewClose"
-                id="previewClose"
-            >
-                ×
-            </button>
-
-        </div>
-
+        <!-- ROSTER GRID -->
 
         <div
-            class="previewMedia"
-            id="previewMedia"
+            class="roster"
+            id="roster"
+        ></div>
+
+    </section>
+
+
+    <!-- =====================================================
+         FOOTER
+    ===================================================== -->
+
+    <footer>
+        SUNDERING — THE ARCHIVE
+    </footer>
+
+
+    <!-- =====================================================
+         HERO MODAL
+    ===================================================== -->
+
+    <div
+        class="modal"
+        id="modal"
+    >
+
+        <button
+            class="close"
+            id="closeModal"
         >
+            ×
+        </button>
+
+
+        <div class="modalContent">
+
+            <div class="detailHeader">
+
+
+                <div
+                    class="detailArt"
+                    id="detailArt"
+                >
+                    ?
+                </div>
+
+
+                <div>
+
+                    <div
+                        class="eyebrow"
+                        id="detailRole"
+                    ></div>
+
+
+                    <h2
+                        class="detailName"
+                        id="detailName"
+                    ></h2>
+
+
+                    <div
+                        class="detailTitle"
+                        id="detailTitle"
+                    ></div>
+
+
+                    <p
+                        class="detailDescription"
+                        id="detailDescription"
+                    ></p>
+
+
+                    <div
+                        class="tags"
+                        id="detailTags"
+                    ></div>
+
+                </div>
+
+            </div>
+
+
+            <!-- ABILITIES -->
+
+            <section class="abilities">
+
+                <div class="sectionTitle">
+                    Abilities
+                </div>
+
+
+                <div
+                    class="abilityGrid"
+                    id="abilityGrid"
+                ></div>
+
+            </section>
+
         </div>
 
     </div>
 
-</div>
 
+    <!-- =====================================================
+         ABILITY PREVIEW MODAL
+    ===================================================== -->
 
-<script>
+    <div
+        class="previewModal"
+        id="previewModal"
+    >
 
-/* =========================================================
-   HERO DATABASE
-========================================================= */
+        <div class="previewWindow">
 
-const heroes = [
+            <div class="previewHeader">
 
-    /* =====================================================
-       ALEJANDRO
-    ===================================================== */
+                <span id="previewTitle">
+                    Ability Preview
+                </span>
 
-    {
-
-        name: "Alejandro",
-
-        title: "The Crown Prince of Elaris",
-
-        role: "Catalyst",
-
-        secondaryRoles: [
-            "Playmaker",
-            "Controller"
-        ],
-
-        region: "Elaris",
-
-        symbol: "A",
-
-        description:
-            "Firstborn to the royal family of Elaris, Alejandro was groomed for leadership from the moment he could speak. With a silver tongue and unmatched charisma, he became the face of diplomacy, often venturing far from the kingdom’s borders to strengthen alliances, or so the court says.",
-
-
-        abilities: [
-
-            /* -------------------------------------------------
-               PASSIVE
-            ------------------------------------------------- */
-
-            {
-
-                type: "Passive",
-
-                key: "PASSIVE",
-
-                name: "Blooming Power",
-
-                icon:
-                    "assets/heroes/alejandro/abilities/blooming-power.png",
-
-                preview:
-                    "assets/heroes/alejandro/abilities/blooming-power-preview.mp4",
-
-                previewType:
-                    "video",
-
-                shortDescription:
-                    "Alejandro charms enemies who try to hit him with hard CC as long as they are within range of his Seeds.",
-
-                detailedDescription:
-                    `Enemies within 20m of a Seed who maintain line of sight to it for 2 seconds become Beguiled.
-
-Beguiled enemies are revealed to allies.
-
-If Beguiled enemies hit Alejandro with a form of Hard CC, they are Charmed in return and are left vulnerable while walking.
-
-Beguile ends if they leave the Seed’s influence radius.`,
-
-                stats: {
-
-                    "Vulnerability":
-                        "10%",
-
-                    "Charm Duration":
-                        "1 sec",
-
-                    "Cooldown":
-                        "15 sec",
-
-                    "Special":
-                        "Enemies hit with exploding Seeds reduce this cooldown by 2 sec"
-
-                }
-
-            },
-
-
-            /* -------------------------------------------------
-               PRIMARY
-            ------------------------------------------------- */
-
-            {
-
-                type: "Primary Fire",
-
-                key: "PRIMARY",
-
-                name: "Blooming Budshot",
-
-                icon:
-                    "assets/heroes/alejandro/abilities/ability1.png",
-
-                preview:
-                    "assets/heroes/alejandro/abilities/ability1-preview.mp4",
-
-                previewType:
-                    "video",
-
-                shortDescription:
-                    "Fire piercing bolts of psychic energy that damage enemies and heal allies. The first bolt to hit an obstacle or terrain will burst.",
-
-                detailedDescription:
-                    `Fire piercing bolts of psychic energy from the Bud to damage enemies or heal allies.
-
-4 bolts are fired in quick succession.
-
-The first bolt hit per round does significantly more damage or healing than subsequent bolts hit.
-
-The first bolt to hit obstacles or terrain will explode.
-
-The bolts will instantly Bloom any Seeds hit from Wildroot Surge.`,
-
-                stats: {
-
-                    "Damage":
-                        "First bolt 20, Subsequent bolts 10",
-
-                    "Radius":
-                        "5 m",
-
-                    "Duration":
-                        "6 s",
-
-                    "Projectile Speed":
-                        "25 m/s",
-
-                    "Cooldown":
-                        "8 s"
-
-                }
-
-            },
-
-
-            /* -------------------------------------------------
-               ABILITY 1
-            ------------------------------------------------- */
-
-            {
-
-                type: "Ability 1",
-
-                key: "Q",
-
-                name: "Vanguard's Garden",
-
-                icon:
-                    "assets/heroes/alejandro/abilities/ability1.png",
-
-                preview:
-                    "assets/heroes/alejandro/abilities/ability1-preview.mp4",
-
-                previewType:
-                    "video",
-
-                shortDescription:
-                    "Summon a living growth that changes the battlefield.",
-
-                detailedDescription:
-                    `Alejandro creates a magical growth at the targeted location.
-
-The growth interacts with enemies and allies according to the ability's current Bloom state.`,
-
-                stats: {
-
-                    "Damage":
-                        "80 / 120 / 160 / 200",
-
-                    "Radius":
-                        "5 m",
-
-                    "Duration":
-                        "6 s",
-
-                    "Projectile Speed":
-                        "25 m/s",
-
-                    "Cooldown":
-                        "8 s"
-
-                }
-
-            },
-
-
-            /* -------------------------------------------------
-               ABILITY 2
-            ------------------------------------------------- */
-
-            {
-
-                type: "Ability 2",
-
-                key: "E",
-
-                name: "Royal Decree",
-
-                icon:
-                    "assets/heroes/alejandro/abilities/ability2.png",
-
-                preview:
-                    "assets/heroes/alejandro/abilities/ability2-preview.mp4",
-
-                previewType:
-                    "video",
-
-                shortDescription:
-                    "Command the battlefield with a burst of nature magic.",
-
-                detailedDescription:
-                    `Alejandro releases a concentrated burst of natural energy that damages enemies caught within the affected area.`,
-
-                stats: {
-
-                    "Damage":
-                        "70 / 105 / 140 / 175",
-
-                    "Radius":
-                        "4 m",
-
-                    "Cast Time":
-                        "0.4 s",
-
-                    "Cooldown":
-                        "10 s"
-
-                }
-
-            },
-
-
-            /* -------------------------------------------------
-               ULTIMATE
-            ------------------------------------------------- */
-
-            {
-
-                type: "Ultimate",
-
-                key: "R",
-
-                name: "Elarian Dominion",
-
-                icon:
-                    "assets/heroes/alejandro/abilities/ultimate.png",
-
-                preview:
-                    "assets/heroes/alejandro/abilities/ultimate-preview.mp4",
-
-                previewType:
-                    "video",
-
-                shortDescription:
-                    "Transform the battlefield into Alejandro's domain.",
-
-                detailedDescription:
-                    `Alejandro unleashes his accumulated power, creating a massive zone of Elarian influence.
-
-The effect scales with his current Bloom.`,
-
-                stats: {
-
-                    "Damage":
-                        "150 / 225 / 300",
-
-                    "Radius":
-                        "12 m",
-
-                    "Duration":
-                        "8 s",
-
-                    "Bloom Scaling":
-                        "Yes",
-
-                    "Ultimate Cost":
-                        "100"
-
-                }
-
-            }
-
-        ]
-
-    },
-
-
-    /* =====================================================
-       ARI
-    ===================================================== */
-
-    {
-
-        name: "Ari",
-
-        title: "The Sunflower Fairy",
-
-        role: "Catalyst",
-
-        secondaryRoles: [
-            "Lifeline",
-            "Catalyst"
-        ],
-
-        region: "Elaris",
-
-        symbol: "A",
-
-        description:
-            "A tiny guardian whose warmth can turn even the darkest battlefield into a place of hope.",
-
-
-        abilities: [
-
-            /* -------------------------------------------------
-               PASSIVE
-            ------------------------------------------------- */
-
-            {
-
-                type: "Passive",
-
-                key: "PASSIVE",
-
-                name: "Sunlit Spirit",
-
-                icon:
-                    "assets/heroes/ari/abilities/passive.png",
-
-                preview:
-                    "assets/heroes/ari/abilities/passive-preview.mp4",
-
-                previewType:
-                    "video",
-
-                shortDescription:
-                    "Ari's healing abilities gain additional effects under the right conditions.",
-
-                detailedDescription:
-                    `Ari's restorative abilities interact with her Sunlit Spirit mechanic, allowing her to provide additional utility to allies.`,
-
-                stats: {
-
-                    "Healing":
-                        "Ability dependent",
-
-                    "Duration":
-                        "Varies",
-
-                    "Cooldown":
-                        "Passive"
-
-                }
-
-            },
-
-
-            /* -------------------------------------------------
-               ABILITY 1
-            ------------------------------------------------- */
-
-            {
-
-                type: "Ability 1",
-
-                key: "Q",
-
-                name: "Sunbeam",
-
-                icon:
-                    "assets/heroes/ari/abilities/ability1.png",
-
-                preview:
-                    "assets/heroes/ari/abilities/ability1-preview.mp4",
-
-                previewType:
-                    "video",
-
-                shortDescription:
-                    "Release a beam of radiant energy that restores an ally.",
-
-                detailedDescription:
-                    `Ari channels sunlight into an ally, restoring their health.`,
-
-                stats: {
-
-                    "Healing":
-                        "60 / 90 / 120 / 150",
-
-                    "Range":
-                        "18 m",
-
-                    "Cast Time":
-                        "0.25 s",
-
-                    "Cooldown":
-                        "6 s"
-
-                }
-
-            }
-
-        ]
-
-    }
-
-];
-
-
-/* =========================================================
-   RENDER ROSTER
-========================================================= */
-
-const roster =
-    document.getElementById("roster");
-
-
-function renderRoster(list) {
-
-    roster.innerHTML = "";
-
-
-    if (!list.length) {
-
-        roster.innerHTML = `
-
-            <div style="
-                grid-column:1/-1;
-                padding:100px;
-                text-align:center;
-                color:#777;
-                letter-spacing:.2em;
-            ">
-
-                NO VANGUARDS FOUND
-
-            </div>
-
-        `;
-
-        return;
-
-    }
-
-
-    list.forEach(hero => {
-
-        const card =
-            document.createElement("div");
-
-        card.className =
-            "heroCard";
-
-
-        card.innerHTML = `
-
-            <div class="heroArt">
-
-                ${hero.symbol}
+                <button
+                    class="previewClose"
+                    id="previewClose"
+                >
+                    ×
+                </button>
 
             </div>
 
 
-            <div class="heroInfo">
+            <div
+                class="previewMedia"
+                id="previewMedia"
+            ></div>
 
-                <div class="heroName">
-                    ${hero.name}
-                </div>
+        </div>
 
-                <div class="heroTitle">
-                    ${hero.title}
-                </div>
+    </div>
 
-                <div class="heroRole">
-                    ${hero.role}
-                </div>
 
-            </div>
+    <!-- =====================================================
+         JAVASCRIPT
+    ===================================================== -->
 
-        `;
+    <script src="js/heroes.js"></script>
 
-
-        card.addEventListener(
-            "click",
-            () => openHero(hero)
-        );
-
-
-        roster.appendChild(card);
-
-    });
-
-}
-
-
-renderRoster(heroes);
-
-
-/* =========================================================
-   SEARCH
-========================================================= */
-
-const search =
-    document.getElementById("search");
-
-
-search.addEventListener(
-    "input",
-    () => {
-
-        const query =
-            search.value.toLowerCase().trim();
-
-
-        const results =
-            heroes.filter(hero =>
-
-                hero.name
-                    .toLowerCase()
-                    .includes(query)
-
-                ||
-
-                hero.title
-                    .toLowerCase()
-                    .includes(query)
-
-                ||
-
-                hero.region
-                    .toLowerCase()
-                    .includes(query)
-
-                ||
-
-                hero.role
-                    .toLowerCase()
-                    .includes(query)
-
-                ||
-
-                hero.secondaryRoles.some(
-                    role =>
-                        role
-                            .toLowerCase()
-                            .includes(query)
-                )
-
-            );
-
-
-        renderRoster(results);
-
-    }
-);
-
-
-/* =========================================================
-   ROLE FILTERS
-========================================================= */
-
-const roleButtons =
-    document.querySelectorAll(".roleFilter");
-
-const allButton =
-    document.querySelector(".allFilter");
-
-const roleGroups =
-    document.querySelectorAll(".roleGroup");
-
-const subclassButtons =
-    document.querySelectorAll(".subFilters button");
-
-
-/* ---------------------------------------------------------
-   FILTER HEROES
---------------------------------------------------------- */
-
-function filterHeroes(role) {
-
-    if (role === "all") {
-
-        renderRoster(heroes);
-
-        return;
-
-    }
-
-
-    const filtered =
-        heroes.filter(hero =>
-
-            hero.role === role ||
-
-            hero.secondaryRoles.includes(role)
-
-        );
-
-
-    renderRoster(filtered);
-
-}
-
-
-/* ---------------------------------------------------------
-   ALL BUTTON
---------------------------------------------------------- */
-
-allButton.addEventListener(
-    "click",
-    () => {
-
-        roleGroups.forEach(
-            group =>
-                group.classList.remove("open")
-        );
-
-
-        roleButtons.forEach(
-            button =>
-                button.classList.remove("active")
-        );
-
-
-        subclassButtons.forEach(
-            button =>
-                button.classList.remove("active")
-        );
-
-
-        allButton.classList.add("active");
-
-
-        filterHeroes("all");
-
-    }
-);
-
-
-/* ---------------------------------------------------------
-   MAIN ROLE BUTTONS
---------------------------------------------------------- */
-
-roleButtons.forEach(button => {
-
-    button.addEventListener(
-        "click",
-        event => {
-
-            event.stopPropagation();
-
-
-            const group =
-                button.closest(".roleGroup");
-
-
-            const wasOpen =
-                group.classList.contains("open");
-
-
-            roleGroups.forEach(
-                otherGroup => {
-
-                    if (
-                        otherGroup !== group
-                    ) {
-
-                        otherGroup.classList.remove(
-                            "open"
-                        );
-
-                    }
-
-                }
-            );
-
-
-            filterHeroes(
-                button.dataset.role
-            );
-
-
-            roleButtons.forEach(
-                b =>
-                    b.classList.remove("active")
-            );
-
-
-            subclassButtons.forEach(
-                b =>
-                    b.classList.remove("active")
-            );
-
-
-            allButton.classList.remove(
-                "active"
-            );
-
-
-            button.classList.add(
-                "active"
-            );
-
-
-            group.classList.toggle(
-                "open",
-                !wasOpen
-            );
-
-        }
-    );
-
-});
-
-
-/* ---------------------------------------------------------
-   SUBCLASS BUTTONS
---------------------------------------------------------- */
-
-subclassButtons.forEach(button => {
-
-    button.addEventListener(
-        "click",
-        event => {
-
-            event.stopPropagation();
-
-
-            const role =
-                button.dataset.role;
-
-
-            filterHeroes(role);
-
-
-            roleButtons.forEach(
-                b =>
-                    b.classList.remove("active")
-            );
-
-
-            subclassButtons.forEach(
-                b =>
-                    b.classList.remove("active")
-            );
-
-
-            allButton.classList.remove(
-                "active"
-            );
-
-
-            button.classList.add(
-                "active"
-            );
-
-
-            const group =
-                button.closest(".roleGroup");
-
-
-            group.classList.add(
-                "open"
-            );
-
-        }
-    );
-
-});
-
-
-/* ---------------------------------------------------------
-   CLICK OUTSIDE DROPDOWNS
---------------------------------------------------------- */
-
-document.addEventListener(
-    "click",
-    () => {
-
-        roleGroups.forEach(
-            group =>
-                group.classList.remove("open")
-        );
-
-    }
-);
-
-
-/* =========================================================
-   HERO MODAL
-========================================================= */
-
-const modal =
-    document.getElementById("modal");
-
-const closeModal =
-    document.getElementById("closeModal");
-
-const detailArt =
-    document.getElementById("detailArt");
-
-const detailName =
-    document.getElementById("detailName");
-
-const detailTitle =
-    document.getElementById("detailTitle");
-
-const detailRole =
-    document.getElementById("detailRole");
-
-const detailDescription =
-    document.getElementById("detailDescription");
-
-const detailTags =
-    document.getElementById("detailTags");
-
-const abilityGrid =
-    document.getElementById("abilityGrid");
-
-
-function openHero(hero) {
-
-    detailArt.textContent =
-        hero.symbol;
-
-    detailName.textContent =
-        hero.name;
-
-    detailTitle.textContent =
-        hero.title;
-
-    detailRole.textContent =
-        hero.role;
-
-    detailDescription.textContent =
-        hero.description;
-
-
-    detailTags.innerHTML = "";
-
-
-    [
-
-        hero.role,
-
-        ...hero.secondaryRoles.filter(
-            role =>
-                role !== hero.role
-        ),
-
-        hero.region
-
-    ].forEach(tag => {
-
-        const element =
-            document.createElement("div");
-
-        element.className =
-            "tag";
-
-        element.textContent =
-            tag;
-
-        detailTags.appendChild(element);
-
-    });
-
-
-    abilityGrid.innerHTML = "";
-
-
-    hero.abilities.forEach(
-        (ability, index) => {
-
-            const card =
-                document.createElement("div");
-
-            card.className =
-                "ability";
-
-
-            const stats =
-                Object.entries(
-                    ability.stats || {}
-                )
-                .map(
-                    ([label,value]) => `
-
-                        <div class="stat">
-
-                            <div class="statLabel">
-                                ${label}
-                            </div>
-
-                            <div class="statValue">
-                                ${value}
-                            </div>
-
-                        </div>
-
-                    `
-                )
-                .join("");
-
-
-            card.innerHTML = `
-
-                <div class="abilityTop">
-
-
-                    <div class="abilityIcon">
-
-                        <img
-                            src="${ability.icon}"
-                            alt="${ability.name}"
-                        >
-
-                        <div
-                            class="abilityIconFallback"
-                            style="display:none;"
-                        >
-                            ${index + 1}
-                        </div>
-
-                    </div>
-
-
-                    <div>
-
-                        <div class="abilityType">
-                            ${ability.type}
-                        </div>
-
-                        <h3>
-                            ${ability.name}
-                        </h3>
-
-                        <div class="abilityKey">
-                            ${ability.key}
-                        </div>
-
-                    </div>
-
-
-                    <button
-                        class="previewButton"
-                        title="Preview ability"
-                    >
-                        ▶
-                    </button>
-
-                </div>
-
-
-                <div class="abilityShort">
-
-                    ${ability.shortDescription}
-
-                </div>
-
-
-                <div class="abilityActions">
-
-                    <button
-                        class="abilityAction detailsButton"
-                    >
-                        View Details
-                    </button>
-
-                    <button
-                        class="abilityAction previewAction"
-                    >
-                        Preview
-                    </button>
-
-                </div>
-
-
-                <div class="abilityDetails">
-
-                    <div class="detailText">
-
-                        ${ability.detailedDescription}
-
-                    </div>
-
-
-                    <div class="abilityStats">
-
-                        ${stats}
-
-                    </div>
-
-                </div>
-
-            `;
-
-
-            /* -------------------------------------------------
-               PREVIEW BUTTON
-            ------------------------------------------------- */
-
-            const previewButton =
-                card.querySelector(
-                    ".previewButton"
-                );
-
-
-            previewButton.addEventListener(
-                "click",
-                event => {
-
-                    event.stopPropagation();
-
-                    openPreview(ability);
-
-                }
-            );
-
-
-            /* -------------------------------------------------
-               PREVIEW ACTION
-            ------------------------------------------------- */
-
-            const previewAction =
-                card.querySelector(
-                    ".previewAction"
-                );
-
-
-            previewAction.addEventListener(
-                "click",
-                event => {
-
-                    event.stopPropagation();
-
-                    openPreview(ability);
-
-                }
-            );
-
-
-            /* -------------------------------------------------
-               DETAILS BUTTON
-            ------------------------------------------------- */
-
-            const detailsButton =
-                card.querySelector(
-                    ".detailsButton"
-                );
-
-
-            detailsButton.addEventListener(
-                "click",
-                () => {
-
-                    toggleDetails(
-                        detailsButton
-                    );
-
-                }
-            );
-
-
-            /* -------------------------------------------------
-               ICON FALLBACK
-            ------------------------------------------------- */
-
-            const icon =
-                card.querySelector(
-                    ".abilityIcon img"
-                );
-
-            const fallback =
-                card.querySelector(
-                    ".abilityIconFallback"
-                );
-
-
-            icon.addEventListener(
-                "error",
-                () => {
-
-                    icon.style.display =
-                        "none";
-
-                    fallback.style.display =
-                        "flex";
-
-                }
-            );
-
-
-            abilityGrid.appendChild(card);
-
-        }
-    );
-
-
-    modal.classList.add("open");
-
-    document.body.style.overflow =
-        "hidden";
-
-}
-
-
-/* =========================================================
-   ABILITY DETAILS
-========================================================= */
-
-function toggleDetails(button) {
-
-    const card =
-        button.closest(".ability");
-
-    const details =
-        card.querySelector(
-            ".abilityDetails"
-        );
-
-
-    const isOpen =
-        details.classList.toggle("open");
-
-
-    button.textContent =
-        isOpen
-            ? "Hide Details"
-            : "View Details";
-
-}
-
-
-/* =========================================================
-   CLOSE HERO
-========================================================= */
-
-closeModal.addEventListener(
-    "click",
-    closeHero
-);
-
-
-modal.addEventListener(
-    "click",
-    event => {
-
-        if (
-            event.target === modal
-        ) {
-
-            closeHero();
-
-        }
-
-    }
-);
-
-
-document.addEventListener(
-    "keydown",
-    event => {
-
-        if (
-            event.key === "Escape"
-        ) {
-
-            closeHero();
-
-            closePreview();
-
-        }
-
-    }
-);
-
-
-function closeHero() {
-
-    modal.classList.remove("open");
-
-    document.body.style.overflow =
-        "";
-
-}
-
-
-/* =========================================================
-   ABILITY PREVIEW
-========================================================= */
-
-const previewModal =
-    document.getElementById(
-        "previewModal"
-    );
-
-const previewMedia =
-    document.getElementById(
-        "previewMedia"
-    );
-
-const previewTitle =
-    document.getElementById(
-        "previewTitle"
-    );
-
-const previewClose =
-    document.getElementById(
-        "previewClose"
-    );
-
-
-function openPreview(ability) {
-
-    previewTitle.textContent =
-        ability.name;
-
-
-    previewMedia.innerHTML = "";
-
-
-    if (
-        ability.preview &&
-        ability.previewType === "video"
-    ) {
-
-        const video =
-            document.createElement("video");
-
-        video.src =
-            ability.preview;
-
-        video.controls =
-            true;
-
-        video.autoplay =
-            true;
-
-        video.loop =
-            true;
-
-        video.muted =
-            true;
-
-        previewMedia.appendChild(
-            video
-        );
-
-    }
-
-    else if (
-        ability.preview &&
-        ability.previewType === "image"
-    ) {
-
-        const image =
-            document.createElement("img");
-
-        image.src =
-            ability.preview;
-
-        image.alt =
-            ability.name;
-
-        previewMedia.appendChild(
-            image
-        );
-
-    }
-
-    else {
-
-        previewMedia.innerHTML = `
-
-            <div class="previewFallback">
-
-                PREVIEW NOT AVAILABLE
-
-            </div>
-
-        `;
-
-    }
-
-
-    previewModal.classList.add(
-        "open"
-    );
-
-}
-
-
-function closePreview() {
-
-    previewModal.classList.remove(
-        "open"
-    );
-
-
-    previewMedia.innerHTML =
-        "";
-
-}
-
-
-previewClose.addEventListener(
-    "click",
-    closePreview
-);
-
-
-previewModal.addEventListener(
-    "click",
-    event => {
-
-        if (
-            event.target ===
-            previewModal
-        ) {
-
-            closePreview();
-
-        }
-
-    }
-);
-
-</script>
+    <script src="js/roster.js"></script>
 
 </body>
 
