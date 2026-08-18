@@ -766,10 +766,10 @@ function renderDifficulty(hero) {
 
         {
             label:
-                "Skill Ceiling",
+                "Skill Floor",
 
             value:
-                difficulty.skillceiling
+                difficulty.skillfloor
         },
 
         {
