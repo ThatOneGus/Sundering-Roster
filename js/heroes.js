@@ -29,9 +29,9 @@ const heroes = [
 
     difficulty: {
 
-        mechanics: 7,
-        positioning: 6,
-        decisionMaking: 9,
+        mechanics: 5,
+        skillfloor: 3,
+        decisionMaking: 7,
 
         label: "Complex"
 
