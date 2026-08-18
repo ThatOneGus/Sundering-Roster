@@ -1530,13 +1530,13 @@ function openHero(hero) {
 
                         ${renderVariant(
                             ability.variants.flourishingBud,
-                            "🌸",
+                            " ",
                             "flourishing"
                         )}
 
                         ${renderVariant(
                             ability.variants.wiltingBud,
-                            "🌺",
+                            " ",
                             "wilting"
                         )}
 
