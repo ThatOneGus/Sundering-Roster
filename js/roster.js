@@ -1,10 +1,14 @@
+/* =========================================================
+   ROSTER ELEMENT
+========================================================= */
+
 const roster =
     document.getElementById("roster");
 
 
-// =========================================================
-// RENDER ROSTER
-// =========================================================
+/* =========================================================
+   RENDER ROSTER
+========================================================= */
 
 function renderRoster(list) {
 
@@ -59,15 +63,23 @@ function renderRoster(list) {
             <div class="heroInfo">
 
                 <div class="heroName">
+
                     ${hero.name}
+
                 </div>
+
 
                 <div class="heroTitle">
+
                     ${hero.title}
+
                 </div>
 
+
                 <div class="heroRole">
+
                     ${hero.role}
+
                 </div>
 
             </div>
@@ -88,6 +100,8 @@ function renderRoster(list) {
 }
 
 
+/* Initial roster load */
+
 renderRoster(heroes);
 
 
@@ -104,44 +118,55 @@ search.addEventListener(
     () => {
 
         const query =
-            search.value.toLowerCase().trim();
+            search.value
+                .toLowerCase()
+                .trim();
 
 
         const results =
-            heroes.filter(hero =>
+            heroes.filter(hero => {
 
-                hero.name
-                    .toLowerCase()
-                    .includes(query)
 
-                ||
+                const secondaryRoles =
+                    hero.secondaryRoles || [];
 
-                hero.title
-                    .toLowerCase()
-                    .includes(query)
 
-                ||
+                return (
 
-                hero.region
-                    .toLowerCase()
-                    .includes(query)
+                    hero.name
+                        .toLowerCase()
+                        .includes(query)
 
-                ||
+                    ||
 
-                hero.role
-                    .toLowerCase()
-                    .includes(query)
+                    hero.title
+                        .toLowerCase()
+                        .includes(query)
 
-                ||
+                    ||
 
-                hero.secondaryRoles.some(
-                    role =>
-                        role
-                            .toLowerCase()
-                            .includes(query)
-                )
+                    hero.region
+                        .toLowerCase()
+                        .includes(query)
 
-            );
+                    ||
+
+                    hero.role
+                        .toLowerCase()
+                        .includes(query)
+
+                    ||
+
+                    secondaryRoles.some(
+                        role =>
+                            role
+                                .toLowerCase()
+                                .includes(query)
+                    )
+
+                );
+
+            });
 
 
         renderRoster(results);
@@ -155,16 +180,27 @@ search.addEventListener(
 ========================================================= */
 
 const roleButtons =
-    document.querySelectorAll(".roleFilter");
+    document.querySelectorAll(
+        ".roleFilter"
+    );
+
 
 const allButton =
-    document.querySelector(".allFilter");
+    document.querySelector(
+        ".allFilter"
+    );
+
 
 const roleGroups =
-    document.querySelectorAll(".roleGroup");
+    document.querySelectorAll(
+        ".roleGroup"
+    );
+
 
 const subclassButtons =
-    document.querySelectorAll(".subFilters button");
+    document.querySelectorAll(
+        ".subFilters button"
+    );
 
 
 /* ---------------------------------------------------------
@@ -175,7 +211,9 @@ function filterHeroes(role) {
 
     if (role === "all") {
 
-        renderRoster(heroes);
+        renderRoster(
+            heroes
+        );
 
         return;
 
@@ -183,16 +221,30 @@ function filterHeroes(role) {
 
 
     const filtered =
-        heroes.filter(hero =>
+        heroes.filter(hero => {
 
-            hero.role === role ||
-
-            hero.secondaryRoles.includes(role)
-
-        );
+            const secondaryRoles =
+                hero.secondaryRoles || [];
 
 
-    renderRoster(filtered);
+            return (
+
+                hero.role === role
+
+                ||
+
+                secondaryRoles.includes(
+                    role
+                )
+
+            );
+
+        });
+
+
+    renderRoster(
+        filtered
+    );
 
 }
 
@@ -205,28 +257,39 @@ allButton.addEventListener(
     "click",
     () => {
 
+
         roleGroups.forEach(
             group =>
-                group.classList.remove("open")
+                group.classList.remove(
+                    "open"
+                )
         );
 
 
         roleButtons.forEach(
             button =>
-                button.classList.remove("active")
+                button.classList.remove(
+                    "active"
+                )
         );
 
 
         subclassButtons.forEach(
             button =>
-                button.classList.remove("active")
+                button.classList.remove(
+                    "active"
+                )
         );
 
 
-        allButton.classList.add("active");
+        allButton.classList.add(
+            "active"
+        );
 
 
-        filterHeroes("all");
+        filterHeroes(
+            "all"
+        );
 
     }
 );
@@ -238,20 +301,48 @@ allButton.addEventListener(
 
 roleButtons.forEach(button => {
 
+    /*
+        Skip the All button here because it
+        has its own event listener above.
+    */
+
+    if (
+        button.classList.contains(
+            "allFilter"
+        )
+    ) {
+
+        return;
+
+    }
+
+
     button.addEventListener(
         "click",
         event => {
+
 
             event.stopPropagation();
 
 
             const group =
-                button.closest(".roleGroup");
+                button.closest(
+                    ".roleGroup"
+                );
+
+
+            if (!group) {
+                return;
+            }
 
 
             const wasOpen =
-                group.classList.contains("open");
+                group.classList.contains(
+                    "open"
+                );
 
+
+            /* Close other role dropdowns */
 
             roleGroups.forEach(
                 otherGroup => {
@@ -270,20 +361,29 @@ roleButtons.forEach(button => {
             );
 
 
+            /*
+                Clicking the main class also
+                filters the roster.
+            */
+
             filterHeroes(
                 button.dataset.role
             );
 
 
             roleButtons.forEach(
-                b =>
-                    b.classList.remove("active")
+                otherButton =>
+                    otherButton.classList.remove(
+                        "active"
+                    )
             );
 
 
             subclassButtons.forEach(
-                b =>
-                    b.classList.remove("active")
+                otherButton =>
+                    otherButton.classList.remove(
+                        "active"
+                    )
             );
 
 
@@ -318,6 +418,7 @@ subclassButtons.forEach(button => {
         "click",
         event => {
 
+
             event.stopPropagation();
 
 
@@ -325,18 +426,24 @@ subclassButtons.forEach(button => {
                 button.dataset.role;
 
 
-            filterHeroes(role);
+            filterHeroes(
+                role
+            );
 
 
             roleButtons.forEach(
-                b =>
-                    b.classList.remove("active")
+                otherButton =>
+                    otherButton.classList.remove(
+                        "active"
+                    )
             );
 
 
             subclassButtons.forEach(
-                b =>
-                    b.classList.remove("active")
+                otherButton =>
+                    otherButton.classList.remove(
+                        "active"
+                    )
             );
 
 
@@ -351,12 +458,18 @@ subclassButtons.forEach(button => {
 
 
             const group =
-                button.closest(".roleGroup");
+                button.closest(
+                    ".roleGroup"
+                );
 
 
-            group.classList.add(
-                "open"
-            );
+            if (group) {
+
+                group.classList.add(
+                    "open"
+                );
+
+            }
 
         }
     );
@@ -374,11 +487,109 @@ document.addEventListener(
 
         roleGroups.forEach(
             group =>
-                group.classList.remove("open")
+                group.classList.remove(
+                    "open"
+                )
         );
 
     }
 );
+
+
+/* =========================================================
+   HERO MODAL ELEMENTS
+========================================================= */
+
+const modal =
+    document.getElementById(
+        "modal"
+    );
+
+
+const closeModal =
+    document.getElementById(
+        "closeModal"
+    );
+
+
+const detailArt =
+    document.getElementById(
+        "detailArt"
+    );
+
+
+const detailName =
+    document.getElementById(
+        "detailName"
+    );
+
+
+const detailTitle =
+    document.getElementById(
+        "detailTitle"
+    );
+
+
+const detailRole =
+    document.getElementById(
+        "detailRole"
+    );
+
+
+const detailDescription =
+    document.getElementById(
+        "detailDescription"
+    );
+
+
+const detailTags =
+    document.getElementById(
+        "detailTags"
+    );
+
+
+const abilityGrid =
+    document.getElementById(
+        "abilityGrid"
+    );
+
+
+/* =========================================================
+   CHARACTER TAB ELEMENTS
+========================================================= */
+
+const characterTabs =
+    document.querySelectorAll(
+        ".characterTab"
+    );
+
+
+const characterPanels =
+    document.querySelectorAll(
+        ".characterPanel"
+    );
+
+
+/* =========================================================
+   NEW CHARACTER SECTION ELEMENTS
+========================================================= */
+
+const difficultyDisplay =
+    document.getElementById(
+        "difficultyDisplay"
+    );
+
+
+const skinsGrid =
+    document.getElementById(
+        "skinsGrid"
+    );
+
+
+const conceptGrid =
+    document.getElementById(
+        "conceptGrid"
+    );
 
 
 /* =========================================================
@@ -392,19 +603,28 @@ function renderStats(stats) {
     }
 
 
-    return Object.entries(stats)
+    return Object.entries(
+        stats
+    )
         .map(
             ([label, value]) => `
 
                 <div class="stat">
 
+
                     <div class="statLabel">
+
                         ${label}
+
                     </div>
 
+
                     <div class="statValue">
+
                         ${value}
+
                     </div>
+
 
                 </div>
 
@@ -438,27 +658,37 @@ function renderVariant(
 
     return `
 
-        <div class="
-            abilityVariant
-            ${colorClass}
-        ">
+        <div
+            class="
+                abilityVariant
+                ${colorClass}
+            "
+        >
 
 
             <div class="variantHeader">
 
+
                 <span class="variantIcon">
+
                     ${icon}
+
                 </span>
 
+
                 <span class="variantName">
+
                     ${variant.name}
+
                 </span>
+
 
             </div>
 
 
             ${
                 variant.description
+
                     ? `
 
                         <div class="variantDescription">
@@ -468,12 +698,14 @@ function renderVariant(
                         </div>
 
                     `
+
                     : ""
             }
 
 
             ${
                 stats
+
                     ? `
 
                         <div class="abilityStats">
@@ -483,8 +715,10 @@ function renderVariant(
                         </div>
 
                     `
+
                     : ""
             }
+
 
         </div>
 
@@ -494,69 +728,451 @@ function renderVariant(
 
 
 /* =========================================================
-   HERO MODAL
+   DIFFICULTY RENDERER
 ========================================================= */
 
-const modal =
-    document.getElementById("modal");
+function renderDifficulty(hero) {
 
-const closeModal =
-    document.getElementById("closeModal");
+    const difficulty =
+        hero.difficulty;
 
-const detailArt =
-    document.getElementById("detailArt");
 
-const detailName =
-    document.getElementById("detailName");
+    if (!difficulty) {
 
-const detailTitle =
-    document.getElementById("detailTitle");
+        difficultyDisplay.innerHTML = `
 
-const detailRole =
-    document.getElementById("detailRole");
+            <div class="emptySection">
 
-const detailDescription =
-    document.getElementById("detailDescription");
+                Difficulty data unavailable.
 
-const detailTags =
-    document.getElementById("detailTags");
+            </div>
 
-const abilityGrid =
-    document.getElementById("abilityGrid");
+        `;
 
+        return;
+
+    }
+
+
+    const rows = [
+
+        {
+            label:
+                "Mechanics",
+
+            value:
+                difficulty.mechanics
+        },
+
+        {
+            label:
+                "Positioning",
+
+            value:
+                difficulty.positioning
+        },
+
+        {
+            label:
+                "Decision Making",
+
+            value:
+                difficulty.decisionMaking
+        }
+
+    ];
+
+
+    difficultyDisplay.innerHTML = `
+
+
+        ${rows.map(row => {
+
+
+            /*
+                Clamp the value between 0 and 10
+                so bad data can't break the bar.
+            */
+
+            const value =
+                Math.max(
+                    0,
+                    Math.min(
+                        10,
+                        Number(row.value) || 0
+                    )
+                );
+
+
+            return `
+
+                <div class="difficultyRow">
+
+
+                    <div class="difficultyLabel">
+
+                        ${row.label}
+
+                    </div>
+
+
+                    <div class="difficultyTrack">
+
+                        <div
+                            class="difficultyFill"
+                            style="
+                                width:
+                                ${value * 10}%;
+                            "
+                        >
+                        </div>
+
+                    </div>
+
+
+                    <div class="difficultyNumber">
+
+                        ${value}
+
+                    </div>
+
+
+                </div>
+
+            `;
+
+        }).join("")}
+
+
+        <div class="difficultyOverall">
+
+            ${difficulty.label || "Unrated"}
+
+        </div>
+
+
+    `;
+
+}
+
+
+/* =========================================================
+   SKINS RENDERER
+========================================================= */
+
+function renderSkins(hero) {
+
+    skinsGrid.innerHTML =
+        "";
+
+
+    if (
+        !hero.skins ||
+        !hero.skins.length
+    ) {
+
+        skinsGrid.innerHTML = `
+
+            <div class="emptySection">
+
+                No skins available.
+
+            </div>
+
+        `;
+
+        return;
+
+    }
+
+
+    hero.skins.forEach(
+        skin => {
+
+
+            const card =
+                document.createElement(
+                    "div"
+                );
+
+
+            card.className =
+                "skinCard";
+
+
+            card.innerHTML = `
+
+
+                <img
+                    src="${skin.thumbnail}"
+                    alt="${skin.name}"
+                >
+
+
+                <div class="skinInfo">
+
+
+                    <div class="skinName">
+
+                        ${skin.name}
+
+                    </div>
+
+
+                    ${
+                        skin.rarity
+
+                            ? `
+
+                                <div class="skinRarity">
+
+                                    ${skin.rarity}
+
+                                </div>
+
+                            `
+
+                            : ""
+                    }
+
+
+                </div>
+
+
+            `;
+
+
+            skinsGrid.appendChild(
+                card
+            );
+
+        }
+    );
+
+}
+
+
+/* =========================================================
+   CONCEPT ART RENDERER
+========================================================= */
+
+function renderConceptArt(hero) {
+
+    conceptGrid.innerHTML =
+        "";
+
+
+    if (
+        !hero.conceptArt ||
+        !hero.conceptArt.length
+    ) {
+
+        conceptGrid.innerHTML = `
+
+            <div class="emptySection">
+
+                No concept art available.
+
+            </div>
+
+        `;
+
+        return;
+
+    }
+
+
+    hero.conceptArt.forEach(
+        concept => {
+
+
+            const card =
+                document.createElement(
+                    "div"
+                );
+
+
+            card.className =
+                "conceptCard";
+
+
+            card.innerHTML = `
+
+
+                <div class="conceptImage">
+
+
+                    <img
+                        src="${concept.image}"
+                        alt="${concept.title}"
+                    >
+
+
+                </div>
+
+
+                <div class="conceptInfo">
+
+
+                    <div class="conceptTitle">
+
+                        ${concept.title}
+
+                    </div>
+
+
+                    ${
+                        concept.description
+
+                            ? `
+
+                                <div class="conceptDescription">
+
+                                    ${concept.description}
+
+                                </div>
+
+                            `
+
+                            : ""
+                    }
+
+
+                </div>
+
+
+            `;
+
+
+            conceptGrid.appendChild(
+                card
+            );
+
+        }
+    );
+
+}
+
+
+/* =========================================================
+   RESET CHARACTER TAB
+========================================================= */
+
+function resetCharacterTabs() {
+
+    characterTabs.forEach(
+        tab =>
+            tab.classList.remove(
+                "active"
+            )
+    );
+
+
+    characterPanels.forEach(
+        panel =>
+            panel.classList.remove(
+                "active"
+            )
+    );
+
+
+    const overviewTab =
+        document.querySelector(
+            '[data-tab="overview"]'
+        );
+
+
+    const overviewPanel =
+        document.getElementById(
+            "overviewPanel"
+        );
+
+
+    if (overviewTab) {
+
+        overviewTab.classList.add(
+            "active"
+        );
+
+    }
+
+
+    if (overviewPanel) {
+
+        overviewPanel.classList.add(
+            "active"
+        );
+
+    }
+
+}
+
+
+/* =========================================================
+   OPEN HERO
+========================================================= */
 
 function openHero(hero) {
 
+
+    /* ---------------------------------------------------------
+       RESET TO OVERVIEW
+    --------------------------------------------------------- */
+
+    resetCharacterTabs();
+
+
+    /* ---------------------------------------------------------
+       HERO ART
+    --------------------------------------------------------- */
+
     detailArt.innerHTML = `
 
-    <img
-        src="${hero.heroArt}"
-        alt="${hero.name}"
-    >
+        <img
+            src="${hero.heroArt}"
+            alt="${hero.name}"
+        >
 
-`;
+    `;
+
+
+    /* ---------------------------------------------------------
+       HERO INFORMATION
+    --------------------------------------------------------- */
 
     detailName.textContent =
         hero.name;
 
+
     detailTitle.textContent =
         hero.title;
 
+
     detailRole.textContent =
         hero.role;
+
 
     detailDescription.textContent =
         hero.description;
 
 
-    detailTags.innerHTML = "";
+    /* ---------------------------------------------------------
+       HERO TAGS
+    --------------------------------------------------------- */
+
+    detailTags.innerHTML =
+        "";
+
+
+    const secondaryRoles =
+        hero.secondaryRoles || [];
 
 
     [
 
         hero.role,
 
-        ...hero.secondaryRoles.filter(
+        ...secondaryRoles.filter(
             role =>
                 role !== hero.role
         ),
@@ -565,36 +1181,84 @@ function openHero(hero) {
 
     ].forEach(tag => {
 
+
         const element =
-            document.createElement("div");
+            document.createElement(
+                "div"
+            );
+
 
         element.className =
             "tag";
 
+
         element.textContent =
             tag;
 
-        detailTags.appendChild(element);
+
+        detailTags.appendChild(
+            element
+        );
 
     });
 
 
-    abilityGrid.innerHTML = "";
+    /* ---------------------------------------------------------
+       DIFFICULTY
+    --------------------------------------------------------- */
+
+    renderDifficulty(
+        hero
+    );
 
 
-    hero.abilities.forEach(
+    /* ---------------------------------------------------------
+       SKINS
+    --------------------------------------------------------- */
+
+    renderSkins(
+        hero
+    );
+
+
+    /* ---------------------------------------------------------
+       CONCEPT ART
+    --------------------------------------------------------- */
+
+    renderConceptArt(
+        hero
+    );
+
+
+    /* ---------------------------------------------------------
+       ABILITIES
+    --------------------------------------------------------- */
+
+    abilityGrid.innerHTML =
+        "";
+
+
+    const abilities =
+        hero.abilities || [];
+
+
+    abilities.forEach(
         (ability, index) => {
 
+
             const card =
-                document.createElement("div");
+                document.createElement(
+                    "div"
+                );
+
 
             card.className =
                 "ability";
 
 
-            /* -------------------------------------------------
+            /* ---------------------------------------------
                GENERAL STATS
-            ------------------------------------------------- */
+            --------------------------------------------- */
 
             const stats =
                 renderStats(
@@ -602,11 +1266,12 @@ function openHero(hero) {
                 );
 
 
-            /* -------------------------------------------------
-               VARIANT STATS
-            ------------------------------------------------- */
+            /* ---------------------------------------------
+               VARIANTS
+            --------------------------------------------- */
 
-            let variants = "";
+            let variants =
+                "";
 
 
             if (
@@ -639,45 +1304,61 @@ function openHero(hero) {
             }
 
 
-            /* -------------------------------------------------
+            /* ---------------------------------------------
                ABILITY CARD
-            ------------------------------------------------- */
+            --------------------------------------------- */
 
             card.innerHTML = `
+
 
                 <div class="abilityTop">
 
 
                     <div class="abilityIcon">
 
+
                         <img
                             src="${ability.icon}"
                             alt="${ability.name}"
                         >
 
+
                         <div
                             class="abilityIconFallback"
                             style="display:none;"
                         >
+
                             ${index + 1}
+
                         </div>
+
 
                     </div>
 
 
                     <div>
 
+
                         <div class="abilityType">
+
                             ${ability.type}
+
                         </div>
+
 
                         <h3>
+
                             ${ability.name}
+
                         </h3>
 
+
                         <div class="abilityKey">
-                            ${ability.key}
+
+                            ${ability.key || ""}
+
                         </div>
+
 
                     </div>
 
@@ -685,34 +1366,52 @@ function openHero(hero) {
                     <button
                         class="previewButton"
                         title="Preview ability"
+                        type="button"
                     >
+
                         ▶
+
                     </button>
+
 
                 </div>
 
 
                 <div class="abilityShort">
 
-                    ${ability.shortDescription}
+                    ${ability.shortDescription || ""}
 
                 </div>
 
 
                 <div class="abilityActions">
 
+
                     <button
-                        class="abilityAction detailsButton"
+                        class="
+                            abilityAction
+                            detailsButton
+                        "
+                        type="button"
                     >
+
                         View Details
+
                     </button>
 
 
                     <button
-                        class="abilityAction previewAction"
+                        class="
+                            abilityAction
+                            previewAction
+                        "
+                        type="button"
                     >
+
                         Preview
+
                     </button>
+
 
                 </div>
 
@@ -722,6 +1421,7 @@ function openHero(hero) {
 
                     ${
                         ability.detailedDescription
+
                             ? `
 
                                 <div class="detailText">
@@ -731,17 +1431,22 @@ function openHero(hero) {
                                 </div>
 
                             `
+
                             : ""
                     }
 
 
                     ${
                         stats
+
                             ? `
 
                                 <div class="abilityGeneralLabel">
-                                    GENERAL
+
+                                    General
+
                                 </div>
+
 
                                 <div class="abilityStats">
 
@@ -750,6 +1455,7 @@ function openHero(hero) {
                                 </div>
 
                             `
+
                             : ""
                     }
 
@@ -759,12 +1465,13 @@ function openHero(hero) {
 
                 </div>
 
+
             `;
 
 
-            /* -------------------------------------------------
+            /* ---------------------------------------------
                PREVIEW BUTTON
-            ------------------------------------------------- */
+            --------------------------------------------- */
 
             const previewButton =
                 card.querySelector(
@@ -778,15 +1485,17 @@ function openHero(hero) {
 
                     event.stopPropagation();
 
-                    openPreview(ability);
+                    openPreview(
+                        ability
+                    );
 
                 }
             );
 
 
-            /* -------------------------------------------------
-               PREVIEW ACTION
-            ------------------------------------------------- */
+            /* ---------------------------------------------
+               BOTTOM PREVIEW BUTTON
+            --------------------------------------------- */
 
             const previewAction =
                 card.querySelector(
@@ -800,15 +1509,17 @@ function openHero(hero) {
 
                     event.stopPropagation();
 
-                    openPreview(ability);
+                    openPreview(
+                        ability
+                    );
 
                 }
             );
 
 
-            /* -------------------------------------------------
+            /* ---------------------------------------------
                DETAILS BUTTON
-            ------------------------------------------------- */
+            --------------------------------------------- */
 
             const detailsButton =
                 card.querySelector(
@@ -830,14 +1541,15 @@ function openHero(hero) {
             );
 
 
-            /* -------------------------------------------------
+            /* ---------------------------------------------
                ICON FALLBACK
-            ------------------------------------------------- */
+            --------------------------------------------- */
 
             const icon =
                 card.querySelector(
                     ".abilityIcon img"
                 );
+
 
             const fallback =
                 card.querySelector(
@@ -851,6 +1563,7 @@ function openHero(hero) {
 
                     icon.style.display =
                         "none";
+
 
                     fallback.style.display =
                         "flex";
@@ -867,12 +1580,76 @@ function openHero(hero) {
     );
 
 
-    modal.classList.add("open");
+    /* ---------------------------------------------------------
+       OPEN MODAL
+    --------------------------------------------------------- */
+
+    modal.classList.add(
+        "open"
+    );
+
 
     document.body.style.overflow =
         "hidden";
 
 }
+
+
+/* =========================================================
+   CHARACTER TAB SWITCHING
+========================================================= */
+
+characterTabs.forEach(
+    tab => {
+
+
+        tab.addEventListener(
+            "click",
+            () => {
+
+
+                characterTabs.forEach(
+                    otherTab =>
+                        otherTab.classList.remove(
+                            "active"
+                        )
+                );
+
+
+                characterPanels.forEach(
+                    panel =>
+                        panel.classList.remove(
+                            "active"
+                        )
+                );
+
+
+                tab.classList.add(
+                    "active"
+                );
+
+
+                const targetPanel =
+                    document.getElementById(
+                        `${tab.dataset.tab}Panel`
+                    );
+
+
+                if (
+                    targetPanel
+                ) {
+
+                    targetPanel.classList.add(
+                        "active"
+                    );
+
+                }
+
+            }
+        );
+
+    }
+);
 
 
 /* =========================================================
@@ -882,13 +1659,25 @@ function openHero(hero) {
 function toggleDetails(button) {
 
     const card =
-        button.closest(".ability");
+        button.closest(
+            ".ability"
+        );
+
+
+    if (!card) {
+        return;
+    }
 
 
     const details =
         card.querySelector(
             ".abilityDetails"
         );
+
+
+    if (!details) {
+        return;
+    }
 
 
     const isOpen =
@@ -931,29 +1720,12 @@ modal.addEventListener(
 );
 
 
-document.addEventListener(
-    "keydown",
-    event => {
-
-        if (
-            event.key === "Escape"
-        ) {
-
-            closeHero();
-
-            closePreview();
-
-        }
-
-    }
-);
-
-
 function closeHero() {
 
     modal.classList.remove(
         "open"
     );
+
 
     document.body.style.overflow =
         "";
@@ -962,7 +1734,7 @@ function closeHero() {
 
 
 /* =========================================================
-   ABILITY PREVIEW
+   ABILITY PREVIEW ELEMENTS
 ========================================================= */
 
 const previewModal =
@@ -970,21 +1742,28 @@ const previewModal =
         "previewModal"
     );
 
+
 const previewMedia =
     document.getElementById(
         "previewMedia"
     );
+
 
 const previewTitle =
     document.getElementById(
         "previewTitle"
     );
 
+
 const previewClose =
     document.getElementById(
         "previewClose"
     );
 
+
+/* =========================================================
+   OPEN ABILITY PREVIEW
+========================================================= */
 
 function openPreview(ability) {
 
@@ -995,6 +1774,10 @@ function openPreview(ability) {
     previewMedia.innerHTML =
         "";
 
+
+    /* ---------------------------------------------------------
+       VIDEO
+    --------------------------------------------------------- */
 
     if (
         ability.preview &&
@@ -1014,11 +1797,14 @@ function openPreview(ability) {
         video.controls =
             true;
 
+
         video.autoplay =
             true;
 
+
         video.loop =
             true;
+
 
         video.muted =
             true;
@@ -1029,6 +1815,11 @@ function openPreview(ability) {
         );
 
     }
+
+
+    /* ---------------------------------------------------------
+       IMAGE
+    --------------------------------------------------------- */
 
     else if (
         ability.preview &&
@@ -1055,6 +1846,11 @@ function openPreview(ability) {
 
     }
 
+
+    /* ---------------------------------------------------------
+       NO PREVIEW
+    --------------------------------------------------------- */
+
     else {
 
         previewMedia.innerHTML = `
@@ -1077,6 +1873,10 @@ function openPreview(ability) {
 }
 
 
+/* =========================================================
+   CLOSE ABILITY PREVIEW
+========================================================= */
+
 function closePreview() {
 
     previewModal.classList.remove(
@@ -1090,11 +1890,15 @@ function closePreview() {
 }
 
 
+/* Close button */
+
 previewClose.addEventListener(
     "click",
     closePreview
 );
 
+
+/* Click outside preview */
 
 previewModal.addEventListener(
     "click",
@@ -1106,6 +1910,58 @@ previewModal.addEventListener(
         ) {
 
             closePreview();
+
+        }
+
+    }
+);
+
+
+/* =========================================================
+   ESCAPE KEY
+========================================================= */
+
+document.addEventListener(
+    "keydown",
+    event => {
+
+        if (
+            event.key !== "Escape"
+        ) {
+
+            return;
+
+        }
+
+
+        /*
+            Close the preview first if it's open.
+        */
+
+        if (
+            previewModal.classList.contains(
+                "open"
+            )
+        ) {
+
+            closePreview();
+
+            return;
+
+        }
+
+
+        /*
+            Otherwise close the character modal.
+        */
+
+        if (
+            modal.classList.contains(
+                "open"
+            )
+        ) {
+
+            closeHero();
 
         }
 
