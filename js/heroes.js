@@ -1244,7 +1244,7 @@ const heroes = [
     ===================================================== */
 
     thumbnail:
-        "Assets/Heroes/Bartholomew/thumbnail.png",
+        "Assets/Heroes/Bartholomew/IMG_6495.png",
 
     heroArt:
         "Assets/Heroes/Bartholomew/IMG_6494.png",
@@ -1433,7 +1433,7 @@ const heroes = [
         {
             type: "Ability 1",
 
-            key: "E",
+            key: "M2",
 
             name: "Silver Service",
 
@@ -1563,7 +1563,7 @@ const heroes = [
                         "Tap — Sidestep",
 
                     color:
-                        "blue",
+                        "teal",
 
                     description:
                         "Quickly adjust Bartholomew's position in the chosen direction.",
@@ -1583,7 +1583,7 @@ const heroes = [
                         "Hold — Vault",
 
                     color:
-                        "blue",
+                        "teal",
 
                     description:
                         "Vault forward, allowing Bartholomew to clear low obstacles.",
@@ -1612,7 +1612,7 @@ const heroes = [
         {
             type: "Ability 3",
 
-            key: "F",
+            key: "E",
 
             name: "Formal Invitation",
 
