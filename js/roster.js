@@ -34,7 +34,6 @@ function renderRoster(list) {
         `;
 
         return;
-
     }
 
 
@@ -63,23 +62,17 @@ function renderRoster(list) {
             <div class="heroInfo">
 
                 <div class="heroName">
-
                     ${hero.name}
-
                 </div>
 
 
                 <div class="heroTitle">
-
                     ${hero.title}
-
                 </div>
 
 
                 <div class="heroRole">
-
                     ${hero.role}
-
                 </div>
 
             </div>
@@ -99,8 +92,6 @@ function renderRoster(list) {
 
 }
 
-
-/* Initial roster load */
 
 renderRoster(heroes);
 
@@ -125,7 +116,6 @@ search.addEventListener(
 
         const results =
             heroes.filter(hero => {
-
 
                 const secondaryRoles =
                     hero.secondaryRoles || [];
@@ -203,17 +193,11 @@ const subclassButtons =
     );
 
 
-/* ---------------------------------------------------------
-   FILTER HEROES
---------------------------------------------------------- */
-
 function filterHeroes(role) {
 
     if (role === "all") {
 
-        renderRoster(
-            heroes
-        );
+        renderRoster(heroes);
 
         return;
 
@@ -233,30 +217,25 @@ function filterHeroes(role) {
 
                 ||
 
-                secondaryRoles.includes(
-                    role
-                )
+                secondaryRoles.includes(role)
 
             );
 
         });
 
 
-    renderRoster(
-        filtered
-    );
+    renderRoster(filtered);
 
 }
 
 
-/* ---------------------------------------------------------
+/* =========================================================
    ALL BUTTON
---------------------------------------------------------- */
+========================================================= */
 
 allButton.addEventListener(
     "click",
     () => {
-
 
         roleGroups.forEach(
             group =>
@@ -287,24 +266,17 @@ allButton.addEventListener(
         );
 
 
-        filterHeroes(
-            "all"
-        );
+        filterHeroes("all");
 
     }
 );
 
 
-/* ---------------------------------------------------------
+/* =========================================================
    MAIN ROLE BUTTONS
---------------------------------------------------------- */
+========================================================= */
 
 roleButtons.forEach(button => {
-
-    /*
-        Skip the All button here because it
-        has its own event listener above.
-    */
 
     if (
         button.classList.contains(
@@ -320,7 +292,6 @@ roleButtons.forEach(button => {
     button.addEventListener(
         "click",
         event => {
-
 
             event.stopPropagation();
 
@@ -342,8 +313,6 @@ roleButtons.forEach(button => {
                 );
 
 
-            /* Close other role dropdowns */
-
             roleGroups.forEach(
                 otherGroup => {
 
@@ -360,11 +329,6 @@ roleButtons.forEach(button => {
                 }
             );
 
-
-            /*
-                Clicking the main class also
-                filters the roster.
-            */
 
             filterHeroes(
                 button.dataset.role
@@ -408,16 +372,15 @@ roleButtons.forEach(button => {
 });
 
 
-/* ---------------------------------------------------------
+/* =========================================================
    SUBCLASS BUTTONS
---------------------------------------------------------- */
+========================================================= */
 
 subclassButtons.forEach(button => {
 
     button.addEventListener(
         "click",
         event => {
-
 
             event.stopPropagation();
 
@@ -426,9 +389,7 @@ subclassButtons.forEach(button => {
                 button.dataset.role;
 
 
-            filterHeroes(
-                role
-            );
+            filterHeroes(role);
 
 
             roleButtons.forEach(
@@ -477,9 +438,9 @@ subclassButtons.forEach(button => {
 });
 
 
-/* ---------------------------------------------------------
+/* =========================================================
    CLICK OUTSIDE DROPDOWNS
---------------------------------------------------------- */
+========================================================= */
 
 document.addEventListener(
     "click",
@@ -555,7 +516,7 @@ const abilityGrid =
 
 
 /* =========================================================
-   CHARACTER TAB ELEMENTS
+   CHARACTER TABS
 ========================================================= */
 
 const characterTabs =
@@ -571,14 +532,24 @@ const characterPanels =
 
 
 /* =========================================================
-   NEW CHARACTER SECTION ELEMENTS
+   COMBAT PROFILE ELEMENTS
 ========================================================= */
 
-const difficultyDisplay =
+const radarChart =
     document.getElementById(
-        "difficultyDisplay"
+        "radarChart"
     );
 
+
+const profileStats =
+    document.getElementById(
+        "profileStats"
+    );
+
+
+/* =========================================================
+   SKINS + CONCEPT ART
+========================================================= */
 
 const skinsGrid =
     document.getElementById(
@@ -603,28 +574,19 @@ function renderStats(stats) {
     }
 
 
-    return Object.entries(
-        stats
-    )
+    return Object.entries(stats)
         .map(
             ([label, value]) => `
 
                 <div class="stat">
 
-
                     <div class="statLabel">
-
                         ${label}
-
                     </div>
-
 
                     <div class="statValue">
-
                         ${value}
-
                     </div>
-
 
                 </div>
 
@@ -665,30 +627,21 @@ function renderVariant(
             "
         >
 
-
             <div class="variantHeader">
 
-
                 <span class="variantIcon">
-
                     ${icon}
-
                 </span>
-
 
                 <span class="variantName">
-
                     ${variant.name}
-
                 </span>
-
 
             </div>
 
 
             ${
                 variant.description
-
                     ? `
 
                         <div class="variantDescription">
@@ -698,14 +651,12 @@ function renderVariant(
                         </div>
 
                     `
-
                     : ""
             }
 
 
             ${
                 stats
-
                     ? `
 
                         <div class="abilityStats">
@@ -715,10 +666,8 @@ function renderVariant(
                         </div>
 
                     `
-
                     : ""
             }
-
 
         </div>
 
@@ -728,130 +677,464 @@ function renderVariant(
 
 
 /* =========================================================
-   DIFFICULTY RENDERER
+   COMBAT PROFILE / RADAR CHART
 ========================================================= */
 
-function renderDifficulty(hero) {
+function renderCombatProfile(hero) {
 
-    const difficulty =
-        hero.difficulty;
+    const profile =
+        hero.profile;
 
 
-    if (!difficulty) {
+    if (!profile) {
 
-        difficultyDisplay.innerHTML = `
+        radarChart.innerHTML = `
 
             <div class="emptySection">
 
-                Difficulty data unavailable.
+                Combat profile unavailable.
 
             </div>
 
         `;
 
-        return;
 
+        profileStats.innerHTML =
+            "";
+
+        return;
     }
 
 
-    const rows = [
+    const axes = [
 
         {
-            label:
-                "Mechanics",
-
-            value:
-                difficulty.mechanics
+            key: "damage",
+            label: "Damage"
         },
 
         {
-            label:
-                "Skill Floor",
-
-            value:
-                difficulty.skillfloor
+            key: "survivability",
+            label: "Survivability"
         },
 
         {
-            label:
-                "Decision Making",
+            key: "crowdControl",
+            label: "Crowd Control"
+        },
 
-            value:
-                difficulty.decisionMaking
+        {
+            key: "mobility",
+            label: "Mobility"
+        },
+
+        {
+            key: "support",
+            label: "Support"
+        },
+
+        {
+            key: "range",
+            label: "Range"
         }
 
     ];
 
 
-    difficultyDisplay.innerHTML = `
+    const size =
+        500;
 
 
-        ${rows.map(row => {
+    const center =
+        size / 2;
 
 
-            /*
-                Clamp the value between 0 and 10
-                so bad data can't break the bar.
-            */
-
-            const value =
-                Math.max(
-                    0,
-                    Math.min(
-                        10,
-                        Number(row.value) || 0
-                    )
-                );
+    const radius =
+        155;
 
 
-            return `
-
-                <div class="difficultyRow">
-
-
-                    <div class="difficultyLabel">
-
-                        ${row.label}
-
-                    </div>
+    const labelRadius =
+        205;
 
 
-                    <div class="difficultyTrack">
+    const levels =
+        5;
 
-                        <div
-                            class="difficultyFill"
-                            style="
-                                width:
-                                ${value * 10}%;
-                            "
+
+    function pointAt(
+        index,
+        distance
+    ) {
+
+        const angle =
+            (
+                Math.PI * 2 *
+                index /
+                axes.length
+            )
+            -
+            Math.PI / 2;
+
+
+        return {
+
+            x:
+                center +
+                Math.cos(angle) *
+                distance,
+
+            y:
+                center +
+                Math.sin(angle) *
+                distance
+
+        };
+
+    }
+
+
+    /* ---------------------------------------------------------
+       GRID
+    --------------------------------------------------------- */
+
+    let grid =
+        "";
+
+
+    for (
+        let level = 1;
+        level <= levels;
+        level++
+    ) {
+
+        const levelRadius =
+            radius *
+            (
+                level /
+                levels
+            );
+
+
+        const points =
+            axes
+                .map(
+                    (_, index) => {
+
+                        const point =
+                            pointAt(
+                                index,
+                                levelRadius
+                            );
+
+
+                        return (
+                            `${point.x},${point.y}`
+                        );
+
+                    }
+                )
+                .join(" ");
+
+
+        grid += `
+
+            <polygon
+                points="${points}"
+                class="radarGrid"
+            />
+
+        `;
+
+    }
+
+
+    /* ---------------------------------------------------------
+       AXIS LINES
+    --------------------------------------------------------- */
+
+    const axisLines =
+        axes
+            .map(
+                (_, index) => {
+
+                    const point =
+                        pointAt(
+                            index,
+                            radius
+                        );
+
+
+                    return `
+
+                        <line
+                            x1="${center}"
+                            y1="${center}"
+                            x2="${point.x}"
+                            y2="${point.y}"
+                            class="radarAxis"
+                        />
+
+                    `;
+
+                }
+            )
+            .join("");
+
+
+    /* ---------------------------------------------------------
+       PROFILE POLYGON
+    --------------------------------------------------------- */
+
+    const profilePoints =
+        axes
+            .map(
+                (axis, index) => {
+
+                    const rawValue =
+                        Number(
+                            profile[
+                                axis.key
+                            ]
+                        ) || 0;
+
+
+                    const value =
+                        Math.max(
+                            0,
+                            Math.min(
+                                10,
+                                rawValue
+                            )
+                        );
+
+
+                    const distance =
+                        radius *
+                        (
+                            value /
+                            10
+                        );
+
+
+                    const point =
+                        pointAt(
+                            index,
+                            distance
+                        );
+
+
+                    return (
+                        `${point.x},${point.y}`
+                    );
+
+                }
+            )
+            .join(" ");
+
+
+    /* ---------------------------------------------------------
+       PROFILE DOTS
+    --------------------------------------------------------- */
+
+    const profileDots =
+        axes
+            .map(
+                (axis, index) => {
+
+                    const rawValue =
+                        Number(
+                            profile[
+                                axis.key
+                            ]
+                        ) || 0;
+
+
+                    const value =
+                        Math.max(
+                            0,
+                            Math.min(
+                                10,
+                                rawValue
+                            )
+                        );
+
+
+                    const point =
+                        pointAt(
+                            index,
+                            radius *
+                            (
+                                value /
+                                10
+                            )
+                        );
+
+
+                    return `
+
+                        <circle
+                            cx="${point.x}"
+                            cy="${point.y}"
+                            r="4"
+                            class="radarPoint"
+                        />
+
+                    `;
+
+                }
+            )
+            .join("");
+
+
+    /* ---------------------------------------------------------
+       LABELS
+    --------------------------------------------------------- */
+
+    const labels =
+        axes
+            .map(
+                (axis, index) => {
+
+                    const point =
+                        pointAt(
+                            index,
+                            labelRadius
+                        );
+
+
+                    let anchor =
+                        "middle";
+
+
+                    if (
+                        point.x <
+                        center - 20
+                    ) {
+
+                        anchor =
+                            "end";
+
+                    }
+
+                    else if (
+                        point.x >
+                        center + 20
+                    ) {
+
+                        anchor =
+                            "start";
+
+                    }
+
+
+                    return `
+
+                        <text
+                            x="${point.x}"
+                            y="${point.y}"
+                            text-anchor="${anchor}"
+                            dominant-baseline="middle"
+                            class="radarLabel"
                         >
-                        </div>
 
-                    </div>
+                            ${axis.label}
 
+                        </text>
 
-                    <div class="difficultyNumber">
+                    `;
 
-                        ${value}
-
-                    </div>
-
-
-                </div>
-
-            `;
-
-        }).join("")}
+                }
+            )
+            .join("");
 
 
-        <div class="difficultyOverall">
+    /* ---------------------------------------------------------
+       BUILD SVG
+    --------------------------------------------------------- */
 
-            ${difficulty.label || "Unrated"}
+    radarChart.innerHTML = `
 
-        </div>
+        <svg
+            viewBox="0 0 ${size} ${size}"
+            class="radarSvg"
+            role="img"
+            aria-label="${hero.name} combat profile"
+        >
 
+            ${grid}
+
+            ${axisLines}
+
+
+            <polygon
+                points="${profilePoints}"
+                class="radarProfile"
+            />
+
+
+            ${profileDots}
+
+            ${labels}
+
+
+        </svg>
 
     `;
+
+
+    /* ---------------------------------------------------------
+       NUMERIC VALUES
+    --------------------------------------------------------- */
+
+    profileStats.innerHTML =
+        axes
+            .map(
+                axis => {
+
+                    const rawValue =
+                        Number(
+                            profile[
+                                axis.key
+                            ]
+                        ) || 0;
+
+
+                    const value =
+                        Math.max(
+                            0,
+                            Math.min(
+                                10,
+                                rawValue
+                            )
+                        );
+
+
+                    return `
+
+                        <div class="profileStat">
+
+                            <div class="profileStatName">
+                                ${axis.label}
+                            </div>
+
+
+                            <div class="profileStatValue">
+
+                                ${value}
+
+                                <span>
+                                    / 10
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                    `;
+
+                }
+            )
+            .join("");
 
 }
 
@@ -882,13 +1165,11 @@ function renderSkins(hero) {
         `;
 
         return;
-
     }
 
 
     hero.skins.forEach(
         skin => {
-
 
             const card =
                 document.createElement(
@@ -902,7 +1183,6 @@ function renderSkins(hero) {
 
             card.innerHTML = `
 
-
                 <img
                     src="${skin.thumbnail}"
                     alt="${skin.name}"
@@ -911,17 +1191,13 @@ function renderSkins(hero) {
 
                 <div class="skinInfo">
 
-
                     <div class="skinName">
-
                         ${skin.name}
-
                     </div>
 
 
                     ${
                         skin.rarity
-
                             ? `
 
                                 <div class="skinRarity">
@@ -931,13 +1207,10 @@ function renderSkins(hero) {
                                 </div>
 
                             `
-
                             : ""
                     }
 
-
                 </div>
-
 
             `;
 
@@ -978,13 +1251,11 @@ function renderConceptArt(hero) {
         `;
 
         return;
-
     }
 
 
     hero.conceptArt.forEach(
         concept => {
-
 
             const card =
                 document.createElement(
@@ -998,32 +1269,25 @@ function renderConceptArt(hero) {
 
             card.innerHTML = `
 
-
                 <div class="conceptImage">
-
 
                     <img
                         src="${concept.image}"
                         alt="${concept.title}"
                     >
 
-
                 </div>
 
 
                 <div class="conceptInfo">
 
-
                     <div class="conceptTitle">
-
                         ${concept.title}
-
                     </div>
 
 
                     ${
                         concept.description
-
                             ? `
 
                                 <div class="conceptDescription">
@@ -1033,13 +1297,10 @@ function renderConceptArt(hero) {
                                 </div>
 
                             `
-
                             : ""
                     }
 
-
                 </div>
-
 
             `;
 
@@ -1055,7 +1316,7 @@ function renderConceptArt(hero) {
 
 
 /* =========================================================
-   RESET CHARACTER TAB
+   RESET CHARACTER TABS
 ========================================================= */
 
 function resetCharacterTabs() {
@@ -1114,11 +1375,6 @@ function resetCharacterTabs() {
 
 function openHero(hero) {
 
-
-    /* ---------------------------------------------------------
-       RESET TO OVERVIEW
-    --------------------------------------------------------- */
-
     resetCharacterTabs();
 
 
@@ -1157,7 +1413,7 @@ function openHero(hero) {
 
 
     /* ---------------------------------------------------------
-       HERO TAGS
+       TAGS
     --------------------------------------------------------- */
 
     detailTags.innerHTML =
@@ -1181,7 +1437,6 @@ function openHero(hero) {
 
     ].forEach(tag => {
 
-
         const element =
             document.createElement(
                 "div"
@@ -1204,10 +1459,10 @@ function openHero(hero) {
 
 
     /* ---------------------------------------------------------
-       DIFFICULTY
+       COMBAT PROFILE
     --------------------------------------------------------- */
 
-    renderDifficulty(
+    renderCombatProfile(
         hero
     );
 
@@ -1245,7 +1500,6 @@ function openHero(hero) {
     abilities.forEach(
         (ability, index) => {
 
-
             const card =
                 document.createElement(
                     "div"
@@ -1256,19 +1510,11 @@ function openHero(hero) {
                 "ability";
 
 
-            /* ---------------------------------------------
-               GENERAL STATS
-            --------------------------------------------- */
-
             const stats =
                 renderStats(
                     ability.stats
                 );
 
-
-            /* ---------------------------------------------
-               VARIANTS
-            --------------------------------------------- */
 
             let variants =
                 "";
@@ -1282,20 +1528,17 @@ function openHero(hero) {
 
                     <div class="abilityVariants">
 
-
                         ${renderVariant(
                             ability.variants.flourishingBud,
                             "🌸",
                             "flourishing"
                         )}
 
-
                         ${renderVariant(
                             ability.variants.wiltingBud,
                             "🌺",
                             "wilting"
                         )}
-
 
                     </div>
 
@@ -1304,18 +1547,12 @@ function openHero(hero) {
             }
 
 
-            /* ---------------------------------------------
-               ABILITY CARD
-            --------------------------------------------- */
-
             card.innerHTML = `
-
 
                 <div class="abilityTop">
 
 
                     <div class="abilityIcon">
-
 
                         <img
                             src="${ability.icon}"
@@ -1327,38 +1564,27 @@ function openHero(hero) {
                             class="abilityIconFallback"
                             style="display:none;"
                         >
-
                             ${index + 1}
-
                         </div>
-
 
                     </div>
 
 
                     <div>
 
-
                         <div class="abilityType">
-
                             ${ability.type}
-
                         </div>
 
 
                         <h3>
-
                             ${ability.name}
-
                         </h3>
 
 
                         <div class="abilityKey">
-
                             ${ability.key || ""}
-
                         </div>
-
 
                     </div>
 
@@ -1368,11 +1594,8 @@ function openHero(hero) {
                         title="Preview ability"
                         type="button"
                     >
-
                         ▶
-
                     </button>
-
 
                 </div>
 
@@ -1394,9 +1617,7 @@ function openHero(hero) {
                         "
                         type="button"
                     >
-
                         View Details
-
                     </button>
 
 
@@ -1407,9 +1628,7 @@ function openHero(hero) {
                         "
                         type="button"
                     >
-
                         Preview
-
                     </button>
 
 
@@ -1421,7 +1640,6 @@ function openHero(hero) {
 
                     ${
                         ability.detailedDescription
-
                             ? `
 
                                 <div class="detailText">
@@ -1431,20 +1649,16 @@ function openHero(hero) {
                                 </div>
 
                             `
-
                             : ""
                     }
 
 
                     ${
                         stats
-
                             ? `
 
                                 <div class="abilityGeneralLabel">
-
                                     General
-
                                 </div>
 
 
@@ -1455,7 +1669,6 @@ function openHero(hero) {
                                 </div>
 
                             `
-
                             : ""
                     }
 
@@ -1465,13 +1678,12 @@ function openHero(hero) {
 
                 </div>
 
-
             `;
 
 
-            /* ---------------------------------------------
+            /* -------------------------------------------------
                PREVIEW BUTTON
-            --------------------------------------------- */
+            ------------------------------------------------- */
 
             const previewButton =
                 card.querySelector(
@@ -1493,9 +1705,9 @@ function openHero(hero) {
             );
 
 
-            /* ---------------------------------------------
-               BOTTOM PREVIEW BUTTON
-            --------------------------------------------- */
+            /* -------------------------------------------------
+               SECOND PREVIEW BUTTON
+            ------------------------------------------------- */
 
             const previewAction =
                 card.querySelector(
@@ -1517,9 +1729,9 @@ function openHero(hero) {
             );
 
 
-            /* ---------------------------------------------
-               DETAILS BUTTON
-            --------------------------------------------- */
+            /* -------------------------------------------------
+               DETAILS
+            ------------------------------------------------- */
 
             const detailsButton =
                 card.querySelector(
@@ -1541,9 +1753,9 @@ function openHero(hero) {
             );
 
 
-            /* ---------------------------------------------
+            /* -------------------------------------------------
                ICON FALLBACK
-            --------------------------------------------- */
+            ------------------------------------------------- */
 
             const icon =
                 card.querySelector(
@@ -1580,10 +1792,6 @@ function openHero(hero) {
     );
 
 
-    /* ---------------------------------------------------------
-       OPEN MODAL
-    --------------------------------------------------------- */
-
     modal.classList.add(
         "open"
     );
@@ -1602,11 +1810,9 @@ function openHero(hero) {
 characterTabs.forEach(
     tab => {
 
-
         tab.addEventListener(
             "click",
             () => {
-
 
                 characterTabs.forEach(
                     otherTab =>
@@ -1635,9 +1841,7 @@ characterTabs.forEach(
                     );
 
 
-                if (
-                    targetPanel
-                ) {
+                if (targetPanel) {
 
                     targetPanel.classList.add(
                         "active"
@@ -1775,10 +1979,6 @@ function openPreview(ability) {
         "";
 
 
-    /* ---------------------------------------------------------
-       VIDEO
-    --------------------------------------------------------- */
-
     if (
         ability.preview &&
         ability.previewType === "video"
@@ -1817,10 +2017,6 @@ function openPreview(ability) {
     }
 
 
-    /* ---------------------------------------------------------
-       IMAGE
-    --------------------------------------------------------- */
-
     else if (
         ability.preview &&
         ability.previewType === "image"
@@ -1846,10 +2042,6 @@ function openPreview(ability) {
 
     }
 
-
-    /* ---------------------------------------------------------
-       NO PREVIEW
-    --------------------------------------------------------- */
 
     else {
 
@@ -1890,15 +2082,11 @@ function closePreview() {
 }
 
 
-/* Close button */
-
 previewClose.addEventListener(
     "click",
     closePreview
 );
 
-
-/* Click outside preview */
 
 previewModal.addEventListener(
     "click",
@@ -1934,10 +2122,6 @@ document.addEventListener(
         }
 
 
-        /*
-            Close the preview first if it's open.
-        */
-
         if (
             previewModal.classList.contains(
                 "open"
@@ -1950,10 +2134,6 @@ document.addEventListener(
 
         }
 
-
-        /*
-            Otherwise close the character modal.
-        */
 
         if (
             modal.classList.contains(
