@@ -353,7 +353,7 @@ const heroes = [
             name: "Wildroot Surge",
 
             icon:
-                "Assets/Heroes/Alejandro/Abilities/wildroot-surge.png",
+                "Assets/Heroes/Alejandro/Abilities/IMG_6606.png",
 
             preview:
                 "Assets/Heroes/Alejandro/Abilities/wildroot-surge-preview.mp4",
@@ -397,7 +397,7 @@ const heroes = [
                         "Flourishing Bud",
 
                     color:
-                        "yellow",
+                        "green",
 
                     description:
                         "The Seed heals allies over time and grows based on healing done within its area, increasing its size and healing. If planted in Verdant Pulse's trail or the Garden of Burgeoning Florescence, the healing required for full growth is halved.",
@@ -478,7 +478,7 @@ const heroes = [
             name: "Grand Flourish",
 
             icon:
-                "Assets/Heroes/Alejandro/Abilities/grand-flourish.png",
+                "Assets/Heroes/Alejandro/Abilities/IMG_6612.png",
 
             preview:
                 "Assets/Heroes/Alejandro/Abilities/grand-flourish-preview.mp4",
@@ -527,12 +527,12 @@ const heroes = [
         {
             type: "Ability 4",
 
-            key: "C",
+            key: "F",
 
             name: "Corolla Conversion",
 
             icon:
-                "Assets/Heroes/Alejandro/Abilities/corolla-conversion.png",
+                "Assets/Heroes/Alejandro/Abilities/6610.png",
 
             preview:
                 "Assets/Heroes/Alejandro/Abilities/corolla-conversion-preview.mp4",
@@ -576,7 +576,7 @@ const heroes = [
                         "Flourishing Bud",
 
                     color:
-                        "yellow",
+                        "green",
 
                     description:
                         "The Bud manifests in its Flourishing form, specializing Alejandro toward healing.",
@@ -627,7 +627,7 @@ const heroes = [
             name: "Burgeoning Florescence",
 
             icon:
-                "Assets/Heroes/Alejandro/Abilities/burgeoning-florescence.png",
+                "Assets/Heroes/Alejandro/Abilities/IMG_6611.png",
 
             preview:
                 "Assets/Heroes/Alejandro/Abilities/burgeoning-florescence-preview.mp4",
@@ -671,7 +671,7 @@ const heroes = [
                         "Flourishing Bud",
 
                     color:
-                        "yellow",
+                        "green",
 
                     description:
                         "The blossom passes through and damages enemies as it flies, stopping upon colliding with an ally or terrain. On impact, it erupts to heal allies and creates a Flourishing Garden that heals allies over time and reduces their Ability cooldowns.",
