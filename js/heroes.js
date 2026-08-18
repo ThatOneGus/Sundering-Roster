@@ -802,9 +802,10 @@ const heroes = [
 
     abilities: [
 
-        /* =====================================================
-           PASSIVE
-        ===================================================== */
+
+        /* =================================================
+           PASSIVE — SOLAR HARMONY
+        ================================================= */
 
         {
             type: "Passive",
@@ -823,7 +824,7 @@ const heroes = [
                 "video",
 
             shortDescription:
-                "Ari periodically generates Sunpetals that are consumed to empower her healing abilities.",
+                "Ari periodically generates Sunpetals that are consumed to power her abilities.",
 
             detailedDescription:
                 "Ari generates 1 Sunpetal every 4 seconds, up to a maximum of 5. Sunpetals are consumed to power certain abilities.",
@@ -841,9 +842,9 @@ const heroes = [
         },
 
 
-        /* =====================================================
-           PRIMARY FIRE
-        ===================================================== */
+        /* =================================================
+           PRIMARY — PETAL DANCE
+        ================================================= */
 
         {
             type: "Primary Fire",
@@ -862,10 +863,10 @@ const heroes = [
                 "video",
 
             shortDescription:
-                "Hurl a sharp sunflower petal in a straight line.",
+                "Hurl a sharp petal in a straight line to damage an enemy.",
 
             detailedDescription:
-                "Ari hurls a sharp petal in a straight line, damaging the first enemy struck.",
+                "Ari hurls a sharp petal in a straight line.",
 
             stats: {
 
@@ -883,9 +884,9 @@ const heroes = [
         },
 
 
-        /* =====================================================
-           SECONDARY FIRE
-        ===================================================== */
+        /* =================================================
+           SECONDARY — LIFE GLEAM
+        ================================================= */
 
         {
             type: "Secondary Fire",
@@ -907,7 +908,7 @@ const heroes = [
                 "Channel focused sunlight into an ally, consuming additional Sunpetals for stronger and longer healing.",
 
             detailedDescription:
-                "Ari channels a beam of focused sunlight into a single ally. Hold Secondary Fire to determine how many Sunpetals are consumed, with an on-screen meter displaying the current charge. Healing strength and duration increase with each Sunpetal consumed. Healing is 30% stronger if the target is below 50% HP.",
+                "Ari channels a beam of focused sunlight into a single ally. Hold Secondary Fire to determine how many Sunpetals are consumed. A meter displays how many Sunpetals will be used. Healing strength and duration increase based on the number of Sunpetals consumed. Healing is 30% stronger if the target is below 50% HP.",
 
             stats: {
 
@@ -920,7 +921,7 @@ const heroes = [
                 "Maximum Cost":
                     "4 Sunpetals",
 
-                "Low-Health Bonus":
+                "Low Health Bonus":
                     "+30% Healing below 50% HP",
 
                 "Cooldown":
@@ -928,14 +929,22 @@ const heroes = [
 
             },
 
-            variants: {
 
-                flourishingBud: {
+            /* ---------------------------------------------
+               SUNPETAL SCALING
+            --------------------------------------------- */
 
-                    name: "Sunpetal Scaling",
+            sections: [
+
+                {
+                    name:
+                        "Sunpetal Scaling",
+
+                    color:
+                        "yellow",
 
                     description:
-                        "Holding Life Gleam consumes additional Sunpetals to increase both its healing rate and channel duration.",
+                        "Holding Life Gleam consumes additional Sunpetals, increasing both the healing rate and channel duration.",
 
                     details: {
 
@@ -955,14 +964,14 @@ const heroes = [
 
                 }
 
-            }
+            ]
 
         },
 
 
-        /* =====================================================
-           ABILITY 1
-        ===================================================== */
+        /* =================================================
+           ABILITY 1 — POCKET-SIZE COMPANION
+        ================================================= */
 
         {
             type: "Ability 1",
@@ -984,7 +993,7 @@ const heroes = [
                 "Shrink down and attach to an ally, gaining protection while continuously healing your host.",
 
             detailedDescription:
-                "Ari shrinks and attaches to a target ally, riding along as a companion. While attached, Ari takes 50% less damage and the host ally receives continuous healing. Ari may detach at will and automatically detaches if the host is eliminated.",
+                "Ari shrinks and attaches to a target ally after a short delay, riding along as a companion. While attached, Ari takes 50% less damage and continuously heals her host. Ari can detach at will and automatically detaches if her host is eliminated.",
 
             stats: {
 
@@ -1008,9 +1017,9 @@ const heroes = [
         },
 
 
-        /* =====================================================
-           ABILITY 2
-        ===================================================== */
+        /* =================================================
+           ABILITY 2 — SUNFLOWER
+        ================================================= */
 
         {
             type: "Ability 2",
@@ -1029,10 +1038,10 @@ const heroes = [
                 "video",
 
             shortDescription:
-                "Grant a teammate a radiant Sunflower that periodically creates healing orbs for nearby wounded allies.",
+                "Grant a teammate a glowing Sunflower that periodically creates healing orbs for nearby wounded allies.",
 
             detailedDescription:
-                "Ari grants a glowing Sunflower to a selected teammate. The Sunflower generates healing orbs every 1.5 seconds. Each orb automatically seeks the most injured nearby ally. Up to 4 healing orbs can be active at once.",
+                "Ari grants a glowing Sunflower to a selected teammate. The Sunflower creates a healing orb every 1.5 seconds. Each orb automatically seeks the most injured nearby ally. Up to 4 healing orbs can be active at once.",
 
             stats: {
 
@@ -1040,7 +1049,7 @@ const heroes = [
                     "1.5 sec",
 
                 "Orb Healing":
-                    "45/sec over 2 sec",
+                    "45 HP/sec over 2 sec",
 
                 "Maximum Active Orbs":
                     "4",
@@ -1056,9 +1065,9 @@ const heroes = [
         },
 
 
-        /* =====================================================
-           ULTIMATE
-        ===================================================== */
+        /* =================================================
+           ULTIMATE — SOLAR PETALSTORM
+        ================================================= */
 
         {
             type: "Ultimate",
@@ -1080,20 +1089,20 @@ const heroes = [
                 "Take flight and scatter radiant Sunpetals that seek wounded allies, healing them and granting Movement Speed.",
 
             detailedDescription:
-                "Ari takes flight and scatters 10 radiant Sunpetals in a 12m radius. Each petal seeks the nearest ally, prioritizing low-health allies. If no ally is available, the petal hovers for 4 seconds and can be picked up. Allies that catch 2 or more petals gain an additional burst heal and regeneration effect.",
+                "Ari takes flight and scatters 10 radiant Sunpetals within a 12m radius. Each petal seeks the nearest ally and prioritizes low-health allies. A petal that cannot find an ally hovers for 4 seconds and can be picked up. Allies that catch 2 or more petals receive an additional restorative effect.",
 
             stats: {
 
-                "Sunpetals Created":
+                "Sunpetals Scattered":
                     "10",
 
                 "Radius":
-                    "12m",
+                    "12 m",
 
                 "Healing Per Petal":
                     "75 HP",
 
-                "Movement Speed":
+                "Movement Speed Boost":
                     "+15%",
 
                 "Movement Speed Duration":
@@ -1107,14 +1116,22 @@ const heroes = [
 
             },
 
-            variants: {
 
-                flourishingBud: {
+            /* ---------------------------------------------
+               MULTI-PETAL BONUS
+            --------------------------------------------- */
 
-                    name: "2+ Petal Bonus",
+            sections: [
+
+                {
+                    name:
+                        "2+ Petal Bonus",
+
+                    color:
+                        "yellow",
 
                     description:
-                        "Any ally that catches 2 or more Sunpetals receives additional restorative effects.",
+                        "Any ally that catches 2 or more Sunpetals gains an additional burst of healing followed by powerful regeneration.",
 
                     details: {
 
@@ -1131,7 +1148,7 @@ const heroes = [
 
                 }
 
-            }
+            ]
 
         }
 
