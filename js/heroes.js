@@ -346,133 +346,165 @@ const heroes = [
         ===================================================== */
 
         {
-    type: "Ability 2",
-    key: "E",
-    name: "Wildroot Surge",
-
-    icon: "Assets/Heroes/Alejandro/Abilities/IMG_6606.png",
-
-    preview: "assets/heroes/alejandro/abilities/ability2-preview.mp4",
-    previewType: "video",
-
-    shortDescription:
-        "Plant a psychic Seed that grows based on healing or damage dealt within its area.",
-
-    detailedDescription:
-        "Plant a psychic Seed at a target location. Planting a Seed slightly knocks back enemies in the area. Seeds grow based on healing or damage done within their area before Blooming and exploding.",
-
-    stats: {
-        "Knockback Distance": "2m",
-        "Range": "20m",
-        "Maximum Active Seeds": "3",
-        "Charges": "3",
-        "Recharge Time": "5 sec",
-        "Duration": "8 sec"
-    },
-
-    sections: {
-
-            name: "Flourishing Bud",
-
-        color: "green",
-
-            description:
-                "The Seed heals allies over time. It grows based on healing done within its area, increasing both its size and healing.",
-
-            details: {
-
-                "Healing":
-                    "15 HP/s → 35 HP/s",
-
-                "Radius":
-                    "3m → 6m",
-
-                "Healing Required for Full Growth":
-                    "250",
-
-                "Healing Required on Trail/Garden":
-                    "125",
-
-                "Burst Healing":
-                    "40 → 60",
-
-                "Burst Damage":
-                    "25"
-
-            },
-
-
-            name: "Wilting Bud",
-
-        color: "violet",
-
-            description:
-                "The Seed slows enemies in its area. It grows based on damage dealt within its area, increasing both its size and damage.",
-
-            details: {
-
-                "Slow Rate":
-                    "20%",
-
-                "Radius":
-                    "4m → 8m",
-
-                "Damage Required for Full Growth":
-                    "250",
-
-                "Damage Required on Trail/Garden":
-                    "125",
-
-                "Burst Damage":
-                    "30 → 50",
-
-                "Burst Healing":
-                    "35"
-
-
-        }
-
-    }
-
-},
-
-
-        /* =====================================================
-           ABILITY 3
-        ===================================================== */
-
-        {
-            type: "Ability 3",
+            type: "Ability 2",
 
             key: "SHIFT",
 
-            name: "Grand Flourish",
+            name: "Wildroot Surge",
 
             icon:
-                "Assets/Heroes/Alejandro/Abilities/IMG_6612.png",
+                "Assets/Heroes/Alejandro/Abilities/wildroot-surge.png",
 
             preview:
-                "assets/heroes/alejandro/abilities/grand-flourish-preview.mp4",
+                "Assets/Heroes/Alejandro/Abilities/wildroot-surge-preview.mp4",
 
             previewType:
                 "video",
 
             shortDescription:
-                "Conjure a massive psychic flower that launches Alejandro and blooms beneath him, healing allies and damaging enemies.",
+                "Plant psychic Seeds that grow through nearby healing or damage before Blooming in an area.",
 
             detailedDescription:
-                "Alejandro conjures a massive psychic flower beneath himself that violently blooms, launching him in the direction he is currently moving. The flower will heal allies and damage enemies around him. Upon landing, Alejandro gains increased Movement Speed for a short duration. The flower will instantly Bloom any Seeds hit from Wildroot Surge.",
+                "Plant a psychic Seed at a target location. Planting a Seed slightly knocks back enemies in the area. After a duration, the Seed Blooms and explodes, healing allies and damaging enemies. Seeds grow based on healing or damage done within their area depending on the Bud's current alignment.",
+
+            stats: {
+
+                "Knockback Distance":
+                    "2 m",
+
+                "Range":
+                    "20 m",
+
+                "Maximum Active Seeds":
+                    "3",
+
+                "Charges":
+                    "3",
+
+                "Recharge Time":
+                    "5 sec",
+
+                "Duration":
+                    "8 sec"
+
+            },
+
+
+            sections: [
+
+                {
+                    name:
+                        "Flourishing Bud",
+
+                    color:
+                        "yellow",
+
+                    description:
+                        "The Seed heals allies over time and grows based on healing done within its area, increasing its size and healing. If planted in Verdant Pulse's trail or the Garden of Burgeoning Florescence, the healing required for full growth is halved.",
+
+                    details: {
+
+                        "Healing":
+                            "15 HP/s → 35 HP/s",
+
+                        "Radius":
+                            "3 m → 6 m",
+
+                        "Healing Required for Full Growth":
+                            "250",
+
+                        "Healing Required on Trail or in Garden":
+                            "125",
+
+                        "Bloom Burst Healing":
+                            "40 → 60",
+
+                        "Bloom Burst Damage":
+                            "25"
+
+                    }
+
+                },
+
+
+                {
+                    name:
+                        "Wilting Bud",
+
+                    color:
+                        "violet",
+
+                    description:
+                        "The Seed Slows enemies in its area and grows based on damage done within its area, increasing its size and damage. If planted in Verdant Pulse's trail or the Garden of Burgeoning Florescence, the damage required for full growth is halved.",
+
+                    details: {
+
+                        "Slow Rate":
+                            "20%",
+
+                        "Radius":
+                            "4 m → 8 m",
+
+                        "Damage Required for Full Growth":
+                            "250",
+
+                        "Damage Required on Trail or in Garden":
+                            "125",
+
+                        "Bloom Burst Damage":
+                            "30 → 50",
+
+                        "Bloom Burst Healing":
+                            "35"
+
+                    }
+
+                }
+
+            ]
+
+        },
+
+
+        /* =================================================
+           ABILITY 3 — GRAND FLOURISH
+        ================================================= */
+
+        {
+            type: "Ability 3",
+
+            key: "F",
+
+            name: "Grand Flourish",
+
+            icon:
+                "Assets/Heroes/Alejandro/Abilities/grand-flourish.png",
+
+            preview:
+                "Assets/Heroes/Alejandro/Abilities/grand-flourish-preview.mp4",
+
+            previewType:
+                "video",
+
+            shortDescription:
+                "Bloom a massive flower beneath Alejandro to launch forward, affect nearby heroes, and gain Movement Speed upon landing.",
+
+            detailedDescription:
+                "Alejandro conjures a massive psychic flower beneath himself that violently blooms, launching him in the direction he is currently moving. The flower heals allies and damages enemies around him. Upon landing, Alejandro gains increased Movement Speed for a short duration. The flower instantly Blooms any Seeds hit from Wildroot Surge.",
 
             stats: {
 
                 "Launch Distance":
-                    "10m",
+                    "10 m",
 
-                "Healing/Damage":
+                "Healing":
+                    "45",
+
+                "Damage":
                     "45",
 
                 "Radius":
-                    "6m",
+                    "6 m",
 
                 "Movement Speed Boost":
                     "+50%",
@@ -488,39 +520,45 @@ const heroes = [
         },
 
 
-        /* =====================================================
-           ABILITY 4
-        ===================================================== */
+        /* =================================================
+           ABILITY 4 — COROLLA CONVERSION
+        ================================================= */
 
         {
             type: "Ability 4",
 
-            key: "F",
+            key: "C",
 
             name: "Corolla Conversion",
 
             icon:
-                "Assets/Heroes/Alejandro/Abilities/IMG_6611.png",
+                "Assets/Heroes/Alejandro/Abilities/corolla-conversion.png",
 
             preview:
-                "assets/heroes/alejandro/abilities/corolla-conversion-preview.mp4",
+                "Assets/Heroes/Alejandro/Abilities/corolla-conversion-preview.mp4",
 
             previewType:
                 "video",
 
             shortDescription:
-                "Switch between the Bud's Flourishing and Wilting manifestations, specializing Alejandro in healing or damage.",
+                "Switch the Bud between Flourishing and Wilting manifestations, specializing Alejandro toward healing or damage.",
 
             detailedDescription:
-                "Switch between the Bud's two manifestations. Casting Corolla Conversion grants +10% increased healing and damage on cast. The buff gradually increases to +50% after 1.5 seconds, increasing by +25% per second until it reaches +50%.",
+                "Switch between the Bud's two manifestations. Casting Corolla Conversion initially grants +10% increased healing or damage based on the selected manifestation. The bonus gradually increases to +50%, increasing by 25% per second until reaching its maximum.",
 
             stats: {
 
-                "Initial Buff":
-                    "+10% Healing/Damage",
+                "Initial Bonus":
+                    "+10%",
 
-                "Maximum Buff":
-                    "+50% Healing/Damage",
+                "Maximum Bonus":
+                    "+50%",
+
+                "Bonus Increase Rate":
+                    "+25%/sec",
+
+                "Time to Maximum":
+                    "1.5 sec",
 
                 "Switch Time":
                     "0.2 sec",
@@ -530,34 +568,56 @@ const heroes = [
 
             },
 
-            variants: {
 
-                flourishingBud: {
+            sections: [
 
-                    name: "Flourishing Bud",
+                {
+                    name:
+                        "Flourishing Bud",
+
+                    color:
+                        "yellow",
 
                     description:
-                        "All healing dealt is increased by 50%."
+                        "The Bud manifests in its Flourishing form, specializing Alejandro toward healing.",
+
+                    details: {
+
+                        "Maximum Healing Increase":
+                            "+50%"
+
+                    }
 
                 },
 
-                wiltingBud: {
 
-                    name: "Wilting Bud",
+                {
+                    name:
+                        "Wilting Bud",
+
+                    color:
+                        "violet",
 
                     description:
-                        "All damage dealt is increased by 50%."
+                        "The Bud manifests in its Wilting form, specializing Alejandro toward damage.",
+
+                    details: {
+
+                        "Maximum Damage Increase":
+                            "+50%"
+
+                    }
 
                 }
 
-            }
+            ]
 
         },
 
 
-        /* =====================================================
-           ULTIMATE
-        ===================================================== */
+        /* =================================================
+           ULTIMATE — BURGEONING FLORESCENCE
+        ================================================= */
 
         {
             type: "Ultimate",
@@ -567,19 +627,19 @@ const heroes = [
             name: "Burgeoning Florescence",
 
             icon:
-                "Assets/Heroes/Alejandro/Abilities/IMG_6610.png",
+                "Assets/Heroes/Alejandro/Abilities/burgeoning-florescence.png",
 
             preview:
-                "assets/heroes/alejandro/abilities/burgeoning-florescence-preview.mp4",
+                "Assets/Heroes/Alejandro/Abilities/burgeoning-florescence-preview.mp4",
 
             previewType:
                 "video",
 
             shortDescription:
-                "Channel the full power of the Bud into an enormous psychic blossom that creates a powerful Garden based on Alejandro's current alignment.",
+                "Channel the full power of the Bud into an enormous psychic blossom that creates a Garden based on Alejandro's current alignment.",
 
             detailedDescription:
-                "Alejandro becomes CC immune and channels the full power of his Bud into an enormous psychic blossom before launching it forward. All Wildroot Surge Seeds inside the initial explosion of the Garden instantly Bloom. All Wildroot Surge Seeds planted in the Garden after the initial explosion Bloom significantly faster. The Garden will persist even after Alejandro is eliminated.",
+                "Alejandro becomes CC Immune and channels the full power of his Bud into an enormous psychic blossom before launching it forward. All Wildroot Surge Seeds inside the Garden's initial explosion instantly Bloom. Seeds planted within the Garden afterward Bloom significantly faster. The Garden persists even if Alejandro is eliminated.",
 
             stats: {
 
@@ -593,7 +653,7 @@ const heroes = [
                     "80 m/s",
 
                 "Blossom Spell Field":
-                    "3m Spherical Radius",
+                    "3 m Spherical Radius",
 
                 "Wildroot Surge Seed Bloom Time":
                     "8 sec → 4 sec",
@@ -603,14 +663,18 @@ const heroes = [
 
             },
 
-            variants: {
 
-                flourishingBud: {
+            sections: [
 
-                    name: "Flourishing Bud",
+                {
+                    name:
+                        "Flourishing Bud",
+
+                    color:
+                        "yellow",
 
                     description:
-                        "The blossom passes through and damages enemies as it flies, only stopping upon colliding with allies or terrain. Upon impact, it erupts and heals all allies within range and creates a massive Garden that heals allies over time. Allies within the Flourishing Garden also have their Ability cooldowns reduced.",
+                        "The blossom passes through and damages enemies as it flies, stopping upon colliding with an ally or terrain. On impact, it erupts to heal allies and creates a Flourishing Garden that heals allies over time and reduces their Ability cooldowns.",
 
                     details: {
 
@@ -623,7 +687,7 @@ const heroes = [
                         "Initial Burst Healing":
                             "80",
 
-                        "Healing":
+                        "Garden Healing":
                             "90 HP/s",
 
                         "Burst Healing":
@@ -635,22 +699,26 @@ const heroes = [
                         "Cooldown Reduction Rate":
                             "20%",
 
-                        "Radius":
-                            "10m",
+                        "Garden Radius":
+                            "10 m",
 
-                        "Duration":
+                        "Garden Duration":
                             "10 sec"
 
                     }
 
                 },
 
-                wiltingBud: {
 
-                    name: "Wilting Bud",
+                {
+                    name:
+                        "Wilting Bud",
+
+                    color:
+                        "violet",
 
                     description:
-                        "The blossom passes through and heals allies as it flies, only stopping upon colliding with enemies or terrain. Upon impact, it erupts and damages all enemies within range and creates a massive Garden that periodically damages enemies. Enemies within the Wilting Garden are also slowed.",
+                        "The blossom passes through and heals allies as it flies, stopping upon colliding with an enemy or terrain. On impact, it erupts to damage enemies and creates a Wilting Garden that periodically damages and Slows enemies.",
 
                     details: {
 
@@ -663,16 +731,16 @@ const heroes = [
                         "Root Duration":
                             "3 sec",
 
-                        "Slow Rate":
+                        "Projectile Slow Rate":
                             "45%",
 
-                        "Slow Duration":
+                        "Projectile Slow Duration":
                             "1 sec",
 
                         "Initial Burst Damage":
                             "60",
 
-                        "Damage":
+                        "Garden Damage":
                             "20 HP/s",
 
                         "Burst Damage":
@@ -681,20 +749,20 @@ const heroes = [
                         "Burst Damage Interval":
                             "1.5 sec",
 
-                        "Slow Rate in Garden":
+                        "Garden Slow Rate":
                             "20%",
 
-                        "Radius":
-                            "10m",
+                        "Garden Radius":
+                            "10 m",
 
-                        "Duration":
+                        "Garden Duration":
                             "8 sec"
 
                     }
 
                 }
 
-            }
+            ]
 
         }
 
