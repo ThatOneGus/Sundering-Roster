@@ -766,10 +766,10 @@ function renderDifficulty(hero) {
 
         {
             label:
-                "Positioning",
+                "Skill Ceiling",
 
             value:
-                difficulty.positioning
+                difficulty.skillceiling
         },
 
         {
