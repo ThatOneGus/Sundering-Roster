@@ -810,7 +810,7 @@ const heroes = [
 
         crowdControl: 1,
 
-        mobility: 3,
+        mobility: 2,
 
         support: 10,
 
