@@ -532,7 +532,7 @@ const heroes = [
             name: "Corolla Conversion",
 
             icon:
-                "Assets/Heroes/Alejandro/Abilities/6610.png",
+                "Assets/Heroes/Alejandro/Abilities/IMG_6611.png",
 
             preview:
                 "Assets/Heroes/Alejandro/Abilities/corolla-conversion-preview.mp4",
@@ -627,7 +627,7 @@ const heroes = [
             name: "Burgeoning Florescence",
 
             icon:
-                "Assets/Heroes/Alejandro/Abilities/IMG_6611.png",
+                "Assets/Heroes/Alejandro/Abilities/IMG_6610.png",
 
             preview:
                 "Assets/Heroes/Alejandro/Abilities/burgeoning-florescence-preview.mp4",
