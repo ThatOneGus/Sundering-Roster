@@ -27,6 +27,90 @@ const heroes = [
     description:
         "Firstborn to the royal family of Elaris, Alejandro was groomed for leadership from the moment he could speak. With a silver tongue and unmatched charisma, he became the face of diplomacy, often venturing far from the kingdom’s borders to strengthen alliances. ...or so he says.",
 
+    difficulty: {
+
+        mechanics: 7,
+        positioning: 6,
+        decisionMaking: 9,
+
+        label: "Complex"
+
+    },
+
+    skins: [
+
+        {
+            name: "Default",
+
+            rarity: "Base",
+
+            thumbnail:
+                "Assets/Heroes/Alejandro/Skins/Default/thumbnail.png",
+
+            splash:
+                "Assets/Heroes/Alejandro/Skins/Default/splash.png"
+        },
+
+        {
+            name: "Island Paradise",
+
+            rarity: "Epic",
+
+            thumbnail:
+                "Assets/Heroes/Alejandro/Skins/Island-Paradise/thumbnail.png",
+
+            splash:
+                "Assets/Heroes/Alejandro/Skins/Island-Paradise/splash.png"
+        },
+
+        {
+            name: "Elarian Heir",
+
+            rarity: "Epic",
+
+            thumbnail:
+                "Assets/Heroes/Alejandro/Skins/Elarian-Heir/thumbnail.png",
+
+            splash:
+                "Assets/Heroes/Alejandro/Skins/Elarian-Heir/splash.png"
+        }
+
+    ],
+
+    conceptArt: [
+
+        {
+            title: "Early Silhouette",
+
+            image:
+                "Assets/Heroes/Alejandro/Concept-Art/early-silhouette.png",
+
+            description:
+                "An early exploration of Alejandro's silhouette and Bud design."
+        },
+
+        {
+            title: "Bud Exploration",
+
+            image:
+                "Assets/Heroes/Alejandro/Concept-Art/bud-exploration.png",
+
+            description:
+                "Early concepts exploring the Bud's shape and floral manifestations."
+        },
+
+        {
+            title: "Final Costume Study",
+
+            image:
+                "Assets/Heroes/Alejandro/Concept-Art/final-costume.png",
+
+            description:
+                "A closer look at Alejandro's finalized royal costume."
+        }
+
+    ],
+    
     abilities: [
 
         /* =====================================================
