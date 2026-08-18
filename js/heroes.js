@@ -3351,37 +3351,7 @@ const heroes = [
                 "Maximum Daggers":
                     "12"
 
-            },
-
-
-            sections: [
-
-                {
-                    name:
-                        "Crimson Dagger Vulnerability",
-
-                    color:
-                        "red",
-
-                    description:
-                        "Once an enemy is within range of at least 2 Crimson Daggers, each nearby Dagger increases the damage they take.",
-
-                    details: {
-
-                        "Required Daggers":
-                            "2+",
-
-                        "Vulnerability per Dagger":
-                            "+4%",
-
-                        "Maximum Daggers":
-                            "12"
-
-                    }
-
-                }
-
-            ]
+            }
 
         },
 
@@ -3410,7 +3380,7 @@ const heroes = [
                 "Throw a fast psychic dagger that damages the first enemy struck and leaves a Crimson Dagger at the impact location.",
 
             detailedDescription:
-                "Esmeralda throws a fast Crimson Dagger in a straight line, damaging the first enemy hit. The attack drops a Crimson Dagger at the impact location for use by Mindpiercer and her other abilities.",
+                "Esmeralda throws a fast Crimson Dagger in a straight line, damaging the first enemy hit. The attack drops a Crimson Dagger at the impact location.",
 
             stats: {
 
@@ -3426,7 +3396,7 @@ const heroes = [
                 "Ammo Count":
                     "12",
 
-                "Drops Crimson Dagger":
+                "Can Crit":
                     "Yes"
 
             }
@@ -3441,7 +3411,7 @@ const heroes = [
         {
             type: "Ability 1",
 
-            key: "E",
+            key: "M2",
 
             name: "Psychic Rend",
 
@@ -3480,34 +3450,7 @@ const heroes = [
                 "Cooldown":
                     "10 sec"
 
-            },
-
-
-            sections: [
-
-                {
-                    name:
-                        "Psychic Mark",
-
-                    color:
-                        "violet",
-
-                    description:
-                        "Enemies passed through by Psychic Rend are marked, causing nearby Crimson Daggers to seek them out.",
-
-                    details: {
-
-                        "Dagger Homing Range":
-                            "8 m",
-
-                        "Dagger Damage":
-                            "20"
-
-                    }
-
-                }
-
-            ]
+            }
 
         },
 
@@ -3519,7 +3462,7 @@ const heroes = [
         {
             type: "Ability 2",
 
-            key: "SHIFT",
+            key: "E",
 
             name: "Mind Shatter",
 
@@ -3556,65 +3499,12 @@ const heroes = [
                     "90 m/s",
 
                 "Root Duration":
-                    "0.5 sec"
+                    "1.25 sec",
+                
+                "Cooldown":
+                    "15 sec"
 
-            },
-
-
-            sections: [
-
-                {
-                    name:
-                        "Detonation",
-
-                    color:
-                        "red",
-
-                    description:
-                        "Every Crimson Dagger within range explodes at its current location.",
-
-                    details: {
-
-                        "Activation Range":
-                            "8 m around Esmeralda",
-
-                        "Explosion Radius":
-                            "3 m",
-
-                        "Explosion Damage":
-                            "40 per Dagger"
-
-                    }
-
-                },
-
-
-                {
-                    name:
-                        "Return",
-
-                    color:
-                        "violet",
-
-                    description:
-                        "After exploding, the Daggers fly back toward Esmeralda and briefly Root enemies they strike.",
-
-                    details: {
-
-                        "Return Damage":
-                            "40",
-
-                        "Return Speed":
-                            "90 m/s",
-
-                        "Root Duration":
-                            "0.5 sec"
-
-                    }
-
-                }
-
-            ]
+            }
 
         },
 
@@ -3626,7 +3516,7 @@ const heroes = [
         {
             type: "Ability 3",
 
-            key: "F",
+            key: "SHIFT",
 
             name: "Crimson Echo",
 
@@ -3654,7 +3544,10 @@ const heroes = [
                     "4 m",
 
                 "Explosion Damage":
-                    "40"
+                    "40",
+
+                "Cooldown":
+                    "12 sec"
 
             }
 
@@ -3702,35 +3595,15 @@ const heroes = [
                     "20 per Dagger",
 
                 "Mind Shatter Radius Increase":
-                    "+4 m"
+                    "+4 m",
+
+                "Ultimate Energy Cost":
+                    "3200"
 
             },
 
 
             sections: [
-
-                {
-                    name:
-                        "Bloodfall",
-
-                    color:
-                        "red",
-
-                    description:
-                        "Basic attacks and abilities summon 3 additional Crimson Daggers from above during Psionic Bloodfall.",
-
-                    details: {
-
-                        "Additional Daggers":
-                            "3",
-
-                        "Damage per Dagger":
-                            "20"
-
-                    }
-
-                },
-
 
                 {
                     name:
@@ -3755,26 +3628,6 @@ const heroes = [
 
                         "Slow Duration":
                             "2 sec"
-
-                    }
-
-                },
-
-
-                {
-                    name:
-                        "Empowered Mind Shatter",
-
-                    color:
-                        "red",
-
-                    description:
-                        "Mind Shatter can detonate Crimson Daggers from significantly farther away while Psionic Bloodfall is active.",
-
-                    details: {
-
-                        "Empowered Radius":
-                            "12 m"
 
                     }
 
