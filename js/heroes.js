@@ -370,11 +370,11 @@ const heroes = [
         "Duration": "8 sec"
     },
 
-    variants: {
-
-        flourishingBud: {
+    sections: {
 
             name: "Flourishing Bud",
+
+        color: "green",
 
             description:
                 "The Seed heals allies over time. It grows based on healing done within its area, increasing both its size and healing.",
@@ -399,14 +399,12 @@ const heroes = [
                 "Burst Damage":
                     "25"
 
-            }
+            },
 
-        },
-
-
-        wiltingBud: {
 
             name: "Wilting Bud",
+
+        color: "violet",
 
             description:
                 "The Seed slows enemies in its area. It grows based on damage dealt within its area, increasing both its size and damage.",
@@ -431,7 +429,6 @@ const heroes = [
                 "Burst Healing":
                     "35"
 
-            }
 
         }
 
