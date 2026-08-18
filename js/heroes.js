@@ -33,7 +33,7 @@ const heroes = [
         skillfloor: 3,
         decisionMaking: 7,
 
-        label: "Complex"
+        label: "Average"
 
     },
 
