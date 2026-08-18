@@ -22,6 +22,11 @@
 
 <body>
 
+
+    <!-- =====================================================
+         BACKGROUND
+    ===================================================== -->
+
     <div class="background"></div>
 
     <div class="noise"></div>
@@ -36,6 +41,7 @@
         <div class="logo">
             <span>SUND</span>ERING
         </div>
+
 
         <div class="navLinks">
 
@@ -69,25 +75,36 @@
 
     <header class="heroHeader">
 
+
         <div class="orbit">
 
             <div class="orbitDot"></div>
 
         </div>
 
+
         <div class="eyebrow">
+
             Project Sundering Roster
+
         </div>
 
+
         <h1>
+
             Characters
+
         </h1>
 
+
         <p>
+
             Learn the roster of characters in this fantastical world.
             From royalty, Gods, creatures, or even simple people…
             you’re bound to find someone who peaks your interest.
+
         </p>
+
 
     </header>
 
@@ -98,10 +115,13 @@
 
     <section class="rosterSection">
 
+
         <div class="controls">
 
 
-            <!-- SEARCH -->
+            <!-- =================================================
+                 SEARCH
+            ================================================== -->
 
             <div class="search">
 
@@ -109,12 +129,15 @@
                     type="text"
                     id="search"
                     placeholder="SEARCH THE ARCHIVE..."
+                    autocomplete="off"
                 >
 
             </div>
 
 
-            <!-- ROLE FILTERS -->
+            <!-- =================================================
+                 ROLE FILTERS
+            ================================================== -->
 
             <div class="filters">
 
@@ -124,18 +147,25 @@
                 <button
                     class="roleFilter allFilter active"
                     data-role="all"
+                    type="button"
                 >
+
                     All
+
                 </button>
 
 
-                <!-- VANGUARD -->
+                <!-- =================================================
+                     VANGUARD
+                ================================================== -->
 
                 <div class="roleGroup">
+
 
                     <button
                         class="roleFilter"
                         data-role="Vanguard"
+                        type="button"
                     >
 
                         <span>
@@ -151,30 +181,48 @@
 
                     <div class="subFilters">
 
-                        <button data-role="Guardian">
+
+                        <button
+                            data-role="Guardian"
+                            type="button"
+                        >
                             Guardian
                         </button>
 
-                        <button data-role="Warden">
+
+                        <button
+                            data-role="Warden"
+                            type="button"
+                        >
                             Warden
                         </button>
 
-                        <button data-role="Bludgeon">
+
+                        <button
+                            data-role="Bludgeon"
+                            type="button"
+                        >
                             Bludgeon
                         </button>
 
+
                     </div>
+
 
                 </div>
 
 
-                <!-- STRIKER -->
+                <!-- =================================================
+                     STRIKER
+                ================================================== -->
 
                 <div class="roleGroup">
+
 
                     <button
                         class="roleFilter"
                         data-role="Striker"
+                        type="button"
                     >
 
                         <span>
@@ -189,39 +237,65 @@
 
 
                     <div class="subFilters">
-                        
-                        <button data-role="Brawler">
+
+
+                        <button
+                            data-role="Brawler"
+                            type="button"
+                        >
                             Brawler
                         </button>
 
-                        <button data-role="Marksman">
+
+                        <button
+                            data-role="Marksman"
+                            type="button"
+                        >
                             Marksman
                         </button>
 
-                        <button data-role="Hunter">
+
+                        <button
+                            data-role="Hunter"
+                            type="button"
+                        >
                             Hunter
                         </button>
 
-                        <button data-role="Ravager">
+
+                        <button
+                            data-role="Ravager"
+                            type="button"
+                        >
                             Ravager
                         </button>
 
-                        <button data-role="Disruptor">
+
+                        <button
+                            data-role="Disruptor"
+                            type="button"
+                        >
                             Disruptor
                         </button>
 
+
                     </div>
+
 
                 </div>
 
 
-                <!-- CATALYST -->
+                <!-- =================================================
+                     CATALYST
+                ================================================== -->
 
                 <div class="roleGroup">
+
 
                     <button
                         class="roleFilter"
                         data-role="Catalyst"
+                        type="button"
                     >
 
                         <span>
@@ -237,37 +311,64 @@
 
                     <div class="subFilters">
 
-                        <button data-role="Lifeline">
+
+                        <button
+                            data-role="Lifeline"
+                            type="button"
+                        >
                             Lifeline
                         </button>
 
-                        <button data-role="Playmaker">
+
+                        <button
+                            data-role="Playmaker"
+                            type="button"
+                        >
                             Playmaker
                         </button>
 
-                        <button data-role="Utility">
+
+                        <button
+                            data-role="Utility"
+                            type="button"
+                        >
                             Utility
                         </button>
 
-                        <button data-role="Controller">
+
+                        <button
+                            data-role="Controller"
+                            type="button"
+                        >
                             Controller
                         </button>
 
+
                     </div>
+
 
                 </div>
 
+
             </div>
+
 
         </div>
 
 
-        <!-- ROSTER GRID -->
+        <!-- =================================================
+             ROSTER GRID
+        ================================================== -->
 
         <div
             class="roster"
             id="roster"
-        ></div>
+        >
+
+            <!-- Generated by roster.js -->
+
+        </div>
+
 
     </section>
 
@@ -277,7 +378,9 @@
     ===================================================== -->
 
     <footer>
+
         SUNDERING — THE ARCHIVE
+
     </footer>
 
 
@@ -290,80 +393,263 @@
         id="modal"
     >
 
+
         <button
             class="close"
             id="closeModal"
+            type="button"
+            aria-label="Close character"
         >
+
             ×
+
         </button>
 
 
         <div class="modalContent">
 
+
+            <!-- =================================================
+                 CHARACTER HEADER
+            ================================================== -->
+
             <div class="detailHeader">
 
+
+                <!-- HERO ART -->
 
                 <div
                     class="detailArt"
                     id="detailArt"
                 >
-                    ?
+
+                    <!-- Inserted by roster.js -->
+
                 </div>
 
 
+                <!-- HERO TEXT -->
+
                 <div>
+
 
                     <div
                         class="eyebrow"
                         id="detailRole"
-                    ></div>
+                    >
+                    </div>
 
 
                     <h2
                         class="detailName"
                         id="detailName"
-                    ></h2>
+                    >
+                    </h2>
 
 
                     <div
                         class="detailTitle"
                         id="detailTitle"
-                    ></div>
+                    >
+                    </div>
 
 
                     <p
                         class="detailDescription"
                         id="detailDescription"
-                    ></p>
+                    >
+                    </p>
 
 
                     <div
                         class="tags"
                         id="detailTags"
-                    ></div>
+                    >
+                    </div>
+
 
                 </div>
+
 
             </div>
 
 
-            <!-- ABILITIES -->
+            <!-- =================================================
+                 CHARACTER NAVIGATION
+            ================================================== -->
 
-            <section class="abilities">
+            <div class="characterTabs">
+
+
+                <button
+                    class="characterTab active"
+                    data-tab="overview"
+                    type="button"
+                >
+
+                    Overview
+
+                </button>
+
+
+                <button
+                    class="characterTab"
+                    data-tab="abilities"
+                    type="button"
+                >
+
+                    Abilities
+
+                </button>
+
+
+                <button
+                    class="characterTab"
+                    data-tab="skins"
+                    type="button"
+                >
+
+                    Skins
+
+                </button>
+
+
+                <button
+                    class="characterTab"
+                    data-tab="concept"
+                    type="button"
+                >
+
+                    Concept Art
+
+                </button>
+
+
+            </div>
+
+
+            <!-- =================================================
+                 OVERVIEW
+            ================================================== -->
+
+            <section
+                class="characterPanel active"
+                id="overviewPanel"
+            >
+
 
                 <div class="sectionTitle">
+
+                    Mastery Profile
+
+                </div>
+
+
+                <div
+                    class="difficultyDisplay"
+                    id="difficultyDisplay"
+                >
+
+                    <!-- Generated by roster.js -->
+
+                </div>
+
+
+            </section>
+
+
+            <!-- =================================================
+                 ABILITIES
+            ================================================== -->
+
+            <section
+                class="characterPanel"
+                id="abilitiesPanel"
+            >
+
+
+                <div class="sectionTitle">
+
                     Abilities
+
                 </div>
 
 
                 <div
                     class="abilityGrid"
                     id="abilityGrid"
-                ></div>
+                >
+
+                    <!-- Generated by roster.js -->
+
+                </div>
+
 
             </section>
 
+
+            <!-- =================================================
+                 SKINS
+            ================================================== -->
+
+            <section
+                class="characterPanel"
+                id="skinsPanel"
+            >
+
+
+                <div class="sectionTitle">
+
+                    Skins
+
+                </div>
+
+
+                <div
+                    class="skinsGrid"
+                    id="skinsGrid"
+                >
+
+                    <!-- Generated by roster.js -->
+
+                </div>
+
+
+            </section>
+
+
+            <!-- =================================================
+                 CONCEPT ART
+            ================================================== -->
+
+            <section
+                class="characterPanel"
+                id="conceptPanel"
+            >
+
+
+                <div class="sectionTitle">
+
+                    Concept Art
+
+                </div>
+
+
+                <div
+                    class="conceptGrid"
+                    id="conceptGrid"
+                >
+
+                    <!-- Generated by roster.js -->
+
+                </div>
+
+
+            </section>
+
+
         </div>
+
 
     </div>
 
@@ -377,20 +663,31 @@
         id="previewModal"
     >
 
+
         <div class="previewWindow">
+
 
             <div class="previewHeader">
 
+
                 <span id="previewTitle">
+
                     Ability Preview
+
                 </span>
+
 
                 <button
                     class="previewClose"
                     id="previewClose"
+                    type="button"
+                    aria-label="Close preview"
                 >
+
                     ×
+
                 </button>
+
 
             </div>
 
@@ -398,9 +695,15 @@
             <div
                 class="previewMedia"
                 id="previewMedia"
-            ></div>
+            >
+
+                <!-- Generated by roster.js -->
+
+            </div>
+
 
         </div>
+
 
     </div>
 
@@ -409,9 +712,16 @@
          JAVASCRIPT
     ===================================================== -->
 
+    <!--
+        IMPORTANT:
+        heroes.js must load FIRST because roster.js
+        uses the heroes array.
+    -->
+
     <script src="js/heroes.js"></script>
 
     <script src="js/roster.js"></script>
+
 
 </body>
 
