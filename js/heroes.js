@@ -27,13 +27,19 @@ const heroes = [
     description:
         "Firstborn to the royal family of Elaris, Alejandro was groomed for leadership from the moment he could speak. With a silver tongue and unmatched charisma, he became the face of diplomacy, often venturing far from the kingdom’s borders to strengthen alliances. ...or so he says.",
 
-    difficulty: {
+    profile: {
 
-        mechanics: 5,
-        skillfloor: 3,
-        decisionMaking: 7,
+        damage: 6,
 
-        label: "Average"
+        survivability: 5,
+
+        crowdControl: 7,
+
+        mobility: 5,
+
+        support: 9,
+
+        range: 7
 
     },
 
@@ -45,16 +51,16 @@ const heroes = [
             rarity: "Base",
 
             thumbnail:
-                "Assets/Heroes/Alejandro/Skins/Default/thumbnail.png",
+                "Assets/Heroes/Alejandro/Skins/IMG_6309.png",
 
             splash:
-                "Assets/Heroes/Alejandro/Skins/Default/splash.png"
+                "Assets/Heroes/Alejandro/Skins/IMG_6308.png"
         },
 
         {
             name: "Island Paradise",
 
-            rarity: "Epic",
+            rarity: "Legendary",
 
             thumbnail:
                 "Assets/Heroes/Alejandro/Skins/Island-Paradise/thumbnail.png",
@@ -66,7 +72,55 @@ const heroes = [
         {
             name: "Elarian Heir",
 
+            rarity: "Legendary",
+
+            thumbnail:
+                "Assets/Heroes/Alejandro/Skins/Elarian-Heir/thumbnail.png",
+
+            splash:
+                "Assets/Heroes/Alejandro/Skins/Elarian-Heir/splash.png"
+        },
+
+        {
+            name: "Auroral Frostbloom",
+
+            rarity: "Legendary",
+
+            thumbnail:
+                "Assets/Heroes/Alejandro/Skins/Elarian-Heir/thumbnail.png",
+
+            splash:
+                "Assets/Heroes/Alejandro/Skins/Elarian-Heir/splash.png"
+        },
+
+        {
+            name: "Campus Royalty",
+
             rarity: "Epic",
+
+            thumbnail:
+                "Assets/Heroes/Alejandro/Skins/Elarian-Heir/thumbnail.png",
+
+            splash:
+                "Assets/Heroes/Alejandro/Skins/Elarian-Heir/splash.png"
+        },
+
+        {
+            name: "Halloween",
+
+            rarity: "Legendary",
+
+            thumbnail:
+                "Assets/Heroes/Alejandro/Skins/Elarian-Heir/thumbnail.png",
+
+            splash:
+                "Assets/Heroes/Alejandro/Skins/Elarian-Heir/splash.png"
+        },
+
+        {
+            name: "Temptation",
+
+            rarity: "Legendary",
 
             thumbnail:
                 "Assets/Heroes/Alejandro/Skins/Elarian-Heir/thumbnail.png",
