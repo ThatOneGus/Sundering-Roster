@@ -152,7 +152,7 @@ const heroes = [
             name: "Verdant Pulse",
 
             icon:
-                "assets/heroes/alejandro/abilities/verdant-pulse.png",
+                "Assets/Heroes/Alejandro/Abilities/IMG_6607.png",
 
             preview:
                 "assets/heroes/alejandro/abilities/verdant-pulse-preview.mp4",
@@ -212,7 +212,7 @@ const heroes = [
     key: "E",
     name: "Wildroot Surge",
 
-    icon: "assets/heroes/alejandro/abilities/ability2.png",
+    icon: "Assets/Heroes/Alejandro/Abilities/IMG_6606.png",
 
     preview: "assets/heroes/alejandro/abilities/ability2-preview.mp4",
     previewType: "video",
@@ -314,7 +314,7 @@ const heroes = [
             name: "Grand Flourish",
 
             icon:
-                "assets/heroes/alejandro/abilities/grand-flourish.png",
+                "Assets/Heroes/Alejandro/Abilities/IMG_6612.png",
 
             preview:
                 "assets/heroes/alejandro/abilities/grand-flourish-preview.mp4",
@@ -365,7 +365,7 @@ const heroes = [
             name: "Corolla Conversion",
 
             icon:
-                "assets/heroes/alejandro/abilities/corolla-conversion.png",
+                "Assets/Heroes/Alejandro/Abilities/IMG_6611.png",
 
             preview:
                 "assets/heroes/alejandro/abilities/corolla-conversion-preview.mp4",
@@ -432,7 +432,7 @@ const heroes = [
             name: "Burgeoning Florescence",
 
             icon:
-                "assets/heroes/alejandro/abilities/burgeoning-florescence.png",
+                "Assets/Heroes/Alejandro/Abilities/IMG_6610.png",
 
             preview:
                 "assets/heroes/alejandro/abilities/burgeoning-florescence-preview.mp4",
