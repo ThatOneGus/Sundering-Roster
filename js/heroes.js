@@ -1247,7 +1247,7 @@ const heroes = [
         "Assets/Heroes/Bartholomew/thumbnail.png",
 
     heroArt:
-        "Assets/Heroes/Bartholomew/hero-art.png",
+        "Assets/Heroes/Bartholomew/IMG_6494.png",
 
 
     /* =====================================================
