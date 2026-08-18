@@ -2457,7 +2457,7 @@ const heroes = [
         {
             name: "Roll The Tides",
 
-            rarity: "Rare",
+            rarity: "Epic",
 
             thumbnail:
                 "Assets/Heroes/Chance/Skins/Roll-The-Tides/thumbnail.png"
@@ -2466,7 +2466,7 @@ const heroes = [
         {
             name: "Royal Flush",
 
-            rarity: "Legendary",
+            rarity: "Rare",
 
             thumbnail:
                 "Assets/Heroes/Chance/Skins/Royal-Flush/thumbnail.png"
@@ -3229,7 +3229,7 @@ const heroes = [
 
         damage: 9,
 
-        survivability: 3,
+        survivability: 2,
 
         crowdControl: 5,
 
@@ -3237,7 +3237,7 @@ const heroes = [
 
         support: 1,
 
-        range: 7
+        range: 6
 
     },
 
@@ -3260,7 +3260,7 @@ const heroes = [
         {
             name: "Sunlit Escape",
 
-            rarity: "Epic",
+            rarity: "Legendary",
 
             thumbnail:
                 "Assets/Heroes/Esmeralda/Skins/Sunlit-Escape/thumbnail.png"
@@ -3269,7 +3269,7 @@ const heroes = [
         {
             name: "Kingdom's Princess",
 
-            rarity: "Rare",
+            rarity: "Epic",
 
             thumbnail:
                 "Assets/Heroes/Esmeralda/Skins/Kingdoms-Princess/thumbnail.png"
