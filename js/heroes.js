@@ -880,7 +880,7 @@ const heroes = [
             name: "Solar Harmony",
 
             icon:
-                "Assets/Heroes/Ari/Abilities/solar-harmony.png",
+                "Assets/Heroes/Ari/Abilities/IMG_6625.png",
 
             preview:
                 "Assets/Heroes/Ari/Abilities/solar-harmony-preview.mp4",
@@ -919,7 +919,7 @@ const heroes = [
             name: "Petal Dance",
 
             icon:
-                "Assets/Heroes/Ari/Abilities/petal-dance.png",
+                "Assets/Heroes/Ari/Abilities/IMG_6624.png",
 
             preview:
                 "Assets/Heroes/Ari/Abilities/petal-dance-preview.mp4",
@@ -961,7 +961,7 @@ const heroes = [
             name: "Life Gleam",
 
             icon:
-                "Assets/Heroes/Ari/Abilities/life-gleam.png",
+                "Assets/Heroes/Ari/Abilities/IMG_6623.png",
 
             preview:
                 "Assets/Heroes/Ari/Abilities/life-gleam-preview.mp4",
@@ -1046,7 +1046,7 @@ const heroes = [
             name: "Pocket-Size Companion",
 
             icon:
-                "Assets/Heroes/Ari/Abilities/pocket-size-companion.png",
+                "Assets/Heroes/Ari/Abilities/IMG_6622.png",
 
             preview:
                 "Assets/Heroes/Ari/Abilities/pocket-size-companion-preview.mp4",
@@ -1091,10 +1091,10 @@ const heroes = [
 
             key: "SHIFT",
 
-            name: "Sunflower",
+            name: "Sunlit Flora",
 
             icon:
-                "Assets/Heroes/Ari/Abilities/sunflower.png",
+                "Assets/Heroes/Ari/Abilities/IMG_6621.png",
 
             preview:
                 "Assets/Heroes/Ari/Abilities/sunflower-preview.mp4",
@@ -1142,7 +1142,7 @@ const heroes = [
             name: "Solar Petalstorm",
 
             icon:
-                "Assets/Heroes/Ari/Abilities/solar-petalstorm.png",
+                "Assets/Heroes/Ari/Abilities/IMG_6620.png",
 
             preview:
                 "Assets/Heroes/Ari/Abilities/solar-petalstorm-preview.mp4",
@@ -1777,10 +1777,10 @@ const heroes = [
     ===================================================== */
 
     thumbnail:
-        "Assets/Heroes/Cedric/thumbnail.png",
+        "Assets/Heroes/Cedric/IMG_6588.png",
 
     heroArt:
-        "Assets/Heroes/Cedric/hero-art.png",
+        "Assets/Heroes/Cedric/IMG_6591.png",
 
 
     /* =====================================================
@@ -1799,11 +1799,11 @@ const heroes = [
 
         damage: 5,
 
-        survivability: 9,
+        survivability: 8,
 
         crowdControl: 7,
 
-        mobility: 3,
+        mobility: 2,
 
         support: 6,
 
@@ -2219,7 +2219,7 @@ const heroes = [
                         "Smoke Barricade Reinforcement",
 
                     color:
-                        "blue",
+                        "orange",
 
                     description:
                         "Smoke Barricades temporarily gain additional durability.",
