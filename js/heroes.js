@@ -707,127 +707,437 @@ const heroes = [
 
 
     /* =====================================================
-       ARI
-    ===================================================== */
+   ARI
+===================================================== */
 
-    {
+{
+    name: "Ari",
 
-        name: "Ari",
+    title: "The Sunflower Fairy",
 
-        title: "The Sunflower Fairy",
+    role: "Catalyst",
 
-        role: "Catalyst",
+    secondaryRoles: [
+        "Lifeline"
+    ],
 
-        secondaryRoles: [
-            "Lifeline",
-            "Catalyst"
-        ],
+    region: "Elaris",
 
-        region: "Thaloria",
-
-        thumbnail:
-        "Assets/Heroes/Ari/thumbnail.png",
+    thumbnail:
+        "Assets/Heroes/Ari/IMG_6594.png",
 
     heroArt:
-        "Assets/Heroes/Ari/hero-art.png",
+        "Assets/Heroes/Ari/IMG_6484.png",
 
-        description:
-            "A tiny guardian whose warmth can turn even the darkest battlefield into a place of hope.",
+    description:
+        "A tiny sunflower fairy whose radiant magic allows her to remain close to her allies, sustaining them through focused healing and bursts of solar energy.",
 
 
-        abilities: [
+    /* =====================================================
+       COMBAT PROFILE
+    ===================================================== */
 
-            /* -------------------------------------------------
-               PASSIVE
-            ------------------------------------------------- */
+    profile: {
 
-            {
+        damage: 2,
 
-                type: "Passive",
+        survivability: 5,
 
-                key: "PASSIVE",
+        crowdControl: 1,
 
-                name: "Sunlit Spirit",
+        mobility: 3,
 
-                icon:
-                    "assets/heroes/ari/abilities/passive.png",
+        support: 10,
 
-                preview:
-                    "assets/heroes/ari/abilities/passive-preview.mp4",
+        range: 7
 
-                previewType:
-                    "video",
+    },
 
-                shortDescription:
-                    "Ari's healing abilities gain additional effects under the right conditions.",
 
-                detailedDescription:
-                    `Ari's restorative abilities interact with her Sunlit Spirit mechanic, allowing her to provide additional utility to allies.`,
+    /* =====================================================
+       SKINS
+    ===================================================== */
 
-                stats: {
+    skins: [
 
-                    "Healing":
-                        "Ability dependent",
+        {
+            name: "Default",
 
-                    "Duration":
-                        "Varies",
+            rarity: "Base",
 
-                    "Cooldown":
-                        "Passive"
+            thumbnail:
+                "Assets/Heroes/Ari/Skins/Default/thumbnail.png"
+        },
 
-                }
+        {
+            name: "Faerie Waves",
+
+            rarity: "Legendary",
+
+            thumbnail:
+                "Assets/Heroes/Ari/Skins/Faerie-Waves/thumbnail.png"
+        }
+
+    ],
+
+
+    /* =====================================================
+       CONCEPT ART
+    ===================================================== */
+
+    conceptArt: [
+
+        {
+            title: "Early Ari Concept",
+
+            image:
+                "Assets/Heroes/Ari/Concept-Art/early-concept.png",
+
+            description:
+                "Early exploration of Ari's sunflower-inspired design."
+        }
+        
+    ],
+
+
+    abilities: [
+
+        /* =====================================================
+           PASSIVE
+        ===================================================== */
+
+        {
+            type: "Passive",
+
+            key: "PASSIVE",
+
+            name: "Solar Harmony",
+
+            icon:
+                "Assets/Heroes/Ari/Abilities/solar-harmony.png",
+
+            preview:
+                "Assets/Heroes/Ari/Abilities/solar-harmony-preview.mp4",
+
+            previewType:
+                "video",
+
+            shortDescription:
+                "Ari periodically generates Sunpetals that are consumed to empower her healing abilities.",
+
+            detailedDescription:
+                "Ari generates 1 Sunpetal every 4 seconds, up to a maximum of 5. Sunpetals are consumed to power certain abilities.",
+
+            stats: {
+
+                "Sunpetal Generation":
+                    "1 every 4 sec",
+
+                "Maximum Sunpetals":
+                    "5"
+
+            }
+
+        },
+
+
+        /* =====================================================
+           PRIMARY FIRE
+        ===================================================== */
+
+        {
+            type: "Primary Fire",
+
+            key: "M1",
+
+            name: "Petal Dance",
+
+            icon:
+                "Assets/Heroes/Ari/Abilities/petal-dance.png",
+
+            preview:
+                "Assets/Heroes/Ari/Abilities/petal-dance-preview.mp4",
+
+            previewType:
+                "video",
+
+            shortDescription:
+                "Hurl a sharp sunflower petal in a straight line.",
+
+            detailedDescription:
+                "Ari hurls a sharp petal in a straight line, damaging the first enemy struck.",
+
+            stats: {
+
+                "Type":
+                    "Projectile",
+
+                "Damage":
+                    "32",
+
+                "Projectile Speed":
+                    "120 m/s"
+
+            }
+
+        },
+
+
+        /* =====================================================
+           SECONDARY FIRE
+        ===================================================== */
+
+        {
+            type: "Secondary Fire",
+
+            key: "M2",
+
+            name: "Life Gleam",
+
+            icon:
+                "Assets/Heroes/Ari/Abilities/life-gleam.png",
+
+            preview:
+                "Assets/Heroes/Ari/Abilities/life-gleam-preview.mp4",
+
+            previewType:
+                "video",
+
+            shortDescription:
+                "Channel focused sunlight into an ally, consuming additional Sunpetals for stronger and longer healing.",
+
+            detailedDescription:
+                "Ari channels a beam of focused sunlight into a single ally. Hold Secondary Fire to determine how many Sunpetals are consumed, with an on-screen meter displaying the current charge. Healing strength and duration increase with each Sunpetal consumed. Healing is 30% stronger if the target is below 50% HP.",
+
+            stats: {
+
+                "Type":
+                    "Channeled Beam",
+
+                "Base Cost":
+                    "1 Sunpetal",
+
+                "Maximum Cost":
+                    "4 Sunpetals",
+
+                "Low-Health Bonus":
+                    "+30% Healing below 50% HP",
+
+                "Cooldown":
+                    "3 sec"
 
             },
 
+            variants: {
 
-            /* -------------------------------------------------
-               ABILITY 1
-            ------------------------------------------------- */
+                flourishingBud: {
 
-            {
+                    name: "Sunpetal Scaling",
 
-                type: "Ability 1",
+                    description:
+                        "Holding Life Gleam consumes additional Sunpetals to increase both its healing rate and channel duration.",
 
-                key: "Q",
+                    details: {
 
-                name: "Sunbeam",
+                        "1 Sunpetal":
+                            "80 HP/sec for 2.5 sec",
 
-                icon:
-                    "assets/heroes/ari/abilities/ability1.png",
+                        "2 Sunpetals":
+                            "95 HP/sec for 3.5 sec",
 
-                preview:
-                    "assets/heroes/ari/abilities/ability1-preview.mp4",
+                        "3 Sunpetals":
+                            "110 HP/sec for 4.5 sec",
 
-                previewType:
-                    "video",
+                        "4 Sunpetals":
+                            "125 HP/sec for 5.5 sec"
 
-                shortDescription:
-                    "Release a beam of radiant energy that restores an ally.",
-
-                detailedDescription:
-                    `Ari channels sunlight into an ally, restoring their health.`,
-
-                stats: {
-
-                    "Healing":
-                        "60 / 90 / 120 / 150",
-
-                    "Range":
-                        "18 m",
-
-                    "Cast Time":
-                        "0.25 s",
-
-                    "Cooldown":
-                        "6 s"
+                    }
 
                 }
 
             }
 
-        ]
+        },
 
-    },
+
+        /* =====================================================
+           ABILITY 1
+        ===================================================== */
+
+        {
+            type: "Ability 1",
+
+            key: "E",
+
+            name: "Pocket-Size Companion",
+
+            icon:
+                "Assets/Heroes/Ari/Abilities/pocket-size-companion.png",
+
+            preview:
+                "Assets/Heroes/Ari/Abilities/pocket-size-companion-preview.mp4",
+
+            previewType:
+                "video",
+
+            shortDescription:
+                "Shrink down and attach to an ally, gaining protection while continuously healing your host.",
+
+            detailedDescription:
+                "Ari shrinks and attaches to a target ally, riding along as a companion. While attached, Ari takes 50% less damage and the host ally receives continuous healing. Ari may detach at will and automatically detaches if the host is eliminated.",
+
+            stats: {
+
+                "Cost":
+                    "1 Sunpetal",
+
+                "Attach Delay":
+                    "0.3 sec",
+
+                "Damage Reduction":
+                    "50%",
+
+                "Host Healing":
+                    "20 HP/sec",
+
+                "Detach":
+                    "At will or when host is eliminated"
+
+            }
+
+        },
+
+
+        /* =====================================================
+           ABILITY 2
+        ===================================================== */
+
+        {
+            type: "Ability 2",
+
+            key: "SHIFT",
+
+            name: "Sunflower",
+
+            icon:
+                "Assets/Heroes/Ari/Abilities/sunflower.png",
+
+            preview:
+                "Assets/Heroes/Ari/Abilities/sunflower-preview.mp4",
+
+            previewType:
+                "video",
+
+            shortDescription:
+                "Grant a teammate a radiant Sunflower that periodically creates healing orbs for nearby wounded allies.",
+
+            detailedDescription:
+                "Ari grants a glowing Sunflower to a selected teammate. The Sunflower generates healing orbs every 1.5 seconds. Each orb automatically seeks the most injured nearby ally. Up to 4 healing orbs can be active at once.",
+
+            stats: {
+
+                "Orb Generation Interval":
+                    "1.5 sec",
+
+                "Orb Healing":
+                    "45/sec over 2 sec",
+
+                "Maximum Active Orbs":
+                    "4",
+
+                "Targeting":
+                    "Most injured nearby ally",
+
+                "Cooldown":
+                    "18 sec"
+
+            }
+
+        },
+
+
+        /* =====================================================
+           ULTIMATE
+        ===================================================== */
+
+        {
+            type: "Ultimate",
+
+            key: "Q",
+
+            name: "Solar Petalstorm",
+
+            icon:
+                "Assets/Heroes/Ari/Abilities/solar-petalstorm.png",
+
+            preview:
+                "Assets/Heroes/Ari/Abilities/solar-petalstorm-preview.mp4",
+
+            previewType:
+                "video",
+
+            shortDescription:
+                "Take flight and scatter radiant Sunpetals that seek wounded allies, healing them and granting Movement Speed.",
+
+            detailedDescription:
+                "Ari takes flight and scatters 10 radiant Sunpetals in a 12m radius. Each petal seeks the nearest ally, prioritizing low-health allies. If no ally is available, the petal hovers for 4 seconds and can be picked up. Allies that catch 2 or more petals gain an additional burst heal and regeneration effect.",
+
+            stats: {
+
+                "Sunpetals Created":
+                    "10",
+
+                "Radius":
+                    "12m",
+
+                "Healing Per Petal":
+                    "75 HP",
+
+                "Movement Speed":
+                    "+15%",
+
+                "Movement Speed Duration":
+                    "2.5 sec",
+
+                "Unclaimed Petal Duration":
+                    "4 sec",
+
+                "Target Priority":
+                    "Low-health allies"
+
+            },
+
+            variants: {
+
+                flourishingBud: {
+
+                    name: "2+ Petal Bonus",
+
+                    description:
+                        "Any ally that catches 2 or more Sunpetals receives additional restorative effects.",
+
+                    details: {
+
+                        "Burst Healing":
+                            "55 HP",
+
+                        "Regeneration":
+                            "80 HP/sec for 3 sec",
+
+                        "Effect Duration":
+                            "10 sec after the Ultimate ends"
+
+                    }
+
+                }
+
+            }
+
+        }
+
+    ]
+
+},
 
     /* =====================================================
        BARTHOLOMEW
