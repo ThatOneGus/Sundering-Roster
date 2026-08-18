@@ -598,24 +598,45 @@ function renderStats(stats) {
 
 
 /* =========================================================
-   ABILITY VARIANT RENDERER
+   COLORED ABILITY SECTION RENDERER
 ========================================================= */
 
-function renderVariant(
-    variant,
-    icon,
-    colorClass
-) {
+function renderAbilitySection(section) {
 
-    if (!variant) {
+    if (!section) {
         return "";
     }
 
 
     const stats =
         renderStats(
-            variant.details
+            section.details
         );
+
+
+    const allowedColors = [
+        "red",
+        "orange",
+        "yellow",
+        "green",
+        "teal",
+        "blue",
+        "violet",
+        "pink",
+        "white"
+    ];
+
+
+    const requestedColor =
+        section.color || "white";
+
+
+    const color =
+        allowedColors.includes(
+            requestedColor
+        )
+            ? requestedColor
+            : "white";
 
 
     return `
@@ -623,30 +644,26 @@ function renderVariant(
         <div
             class="
                 abilityVariant
-                ${colorClass}
+                variant-${color}
             "
         >
 
             <div class="variantHeader">
 
-                <span class="variantIcon">
-                    ${icon}
-                </span>
-
                 <span class="variantName">
-                    ${variant.name}
+                    ${section.name}
                 </span>
 
             </div>
 
 
             ${
-                variant.description
+                section.description
                     ? `
 
                         <div class="variantDescription">
 
-                            ${variant.description}
+                            ${section.description}
 
                         </div>
 
@@ -1516,29 +1533,31 @@ function openHero(hero) {
                 );
 
 
-            let variants =
+            /* -------------------------------------------------
+               GENERIC COLORED SECTIONS
+            ------------------------------------------------- */
+
+            let sections =
                 "";
 
 
             if (
-                ability.variants
+                ability.sections &&
+                ability.sections.length
             ) {
 
-                variants = `
+                sections = `
 
                     <div class="abilityVariants">
 
-                        ${renderVariant(
-                            ability.variants.flourishingBud,
-                            " ",
-                            "flourishing"
-                        )}
-
-                        ${renderVariant(
-                            ability.variants.wiltingBud,
-                            " ",
-                            "wilting"
-                        )}
+                        ${ability.sections
+                            .map(
+                                section =>
+                                    renderAbilitySection(
+                                        section
+                                    )
+                            )
+                            .join("")}
 
                     </div>
 
@@ -1546,6 +1565,10 @@ function openHero(hero) {
 
             }
 
+
+            /* -------------------------------------------------
+               ABILITY CARD
+            ------------------------------------------------- */
 
             card.innerHTML = `
 
@@ -1673,7 +1696,7 @@ function openHero(hero) {
                     }
 
 
-                    ${variants}
+                    ${sections}
 
 
                 </div>
