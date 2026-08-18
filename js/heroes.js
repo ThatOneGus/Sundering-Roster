@@ -35,9 +35,9 @@ const heroes = [
 
         crowdControl: 7,
 
-        mobility: 5,
+        mobility: 4,
 
-        support: 9,
+        support: 8,
 
         range: 7
 
@@ -1270,7 +1270,7 @@ const heroes = [
 
         crowdControl: 4,
 
-        mobility: 3,
+        mobility: 2,
 
         support: 6,
 
