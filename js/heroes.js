@@ -51,10 +51,10 @@ const heroes = [
             rarity: "Base",
 
             thumbnail:
-                "Assets/Heroes/Alejandro/Skins/IMG_6309.png",
+                "Assets/Heroes/Alejandro/IMG_6309.png",
 
             splash:
-                "Assets/Heroes/Alejandro/Skins/IMG_6308.png"
+                "Assets/Heroes/Alejandro/IMG_6308.png"
         },
 
         {
@@ -348,7 +348,7 @@ const heroes = [
         {
             type: "Ability 2",
 
-            key: "SHIFT",
+            key: "E",
 
             name: "Wildroot Surge",
 
@@ -473,7 +473,7 @@ const heroes = [
         {
             type: "Ability 3",
 
-            key: "F",
+            key: "SHIFT",
 
             name: "Grand Flourish",
 
