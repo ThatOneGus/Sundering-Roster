@@ -134,7 +134,7 @@ const heroes = [
                 "video",
 
             shortDescription:
-                "Enemies who remain near one of Alejandro's psychic power become Beguiled, allowing Alejandro to turn their aggression against them.",
+                "Enemies who remain near Alejandro's psychic power become Beguiled, allowing Alejandro to turn their aggression against them.",
 
             detailedDescription:
                 "Enemies within 20m of Alejandro or a Seed who maintain line of sight for 2 seconds become Beguiled. Beguiled enemies are revealed to allies. If Beguiled enemies hit Alejandro with a form of Hard CC, they are Charmed in return and are left vulnerable while walking. Beguile ends if they leave the Seed’s influence radius. Enemies hit by an exploding Seed reduce Blooming Influence's internal cooldown.",
@@ -669,13 +669,13 @@ const heroes = [
             "Catalyst"
         ],
 
-        region: "Elaris",
+        region: "Thaloria",
 
         thumbnail:
-        "assets/heroes/alejandro/thumbnail.png",
+        "Assets/Heroes/Ari/thumbnail.png",
 
     heroArt:
-        "assets/heroes/alejandro/hero-art.png",
+        "Assets/Heroes/Ari/hero-art.png",
 
         description:
             "A tiny guardian whose warmth can turn even the darkest battlefield into a place of hope.",
@@ -737,6 +737,129 @@ const heroes = [
                 key: "Q",
 
                 name: "Sunbeam",
+
+                icon:
+                    "assets/heroes/ari/abilities/ability1.png",
+
+                preview:
+                    "assets/heroes/ari/abilities/ability1-preview.mp4",
+
+                previewType:
+                    "video",
+
+                shortDescription:
+                    "Release a beam of radiant energy that restores an ally.",
+
+                detailedDescription:
+                    `Ari channels sunlight into an ally, restoring their health.`,
+
+                stats: {
+
+                    "Healing":
+                        "60 / 90 / 120 / 150",
+
+                    "Range":
+                        "18 m",
+
+                    "Cast Time":
+                        "0.25 s",
+
+                    "Cooldown":
+                        "6 s"
+
+                }
+
+            }
+
+        ]
+
+    },
+
+    /* =====================================================
+       BARTHOLOMEW
+    ===================================================== */
+
+    {
+
+        name: "Bartholomew",
+
+        title: "Elaris Royal Butler",
+
+        role: "Striker",
+
+        secondaryRoles: [
+            "Marksman",
+            "Striker"
+        ],
+
+        region: "Elaris",
+
+        thumbnail:
+        "Assets/Heroes/Bartholomew/thumbnail.png",
+
+    heroArt:
+        "Assets/Heroes/Bartholomew/hero-art.png",
+
+        description:
+            "A tiny guardian whose warmth can turn even the darkest battlefield into a place of hope.",
+
+
+        abilities: [
+
+            /* -------------------------------------------------
+               PASSIVE
+            ------------------------------------------------- */
+
+            {
+
+                type: "Passive",
+
+                key: "PASSIVE",
+
+                name: "At Your Service",
+
+                icon:
+                    "assets/heroes/ari/abilities/passive.png",
+
+                preview:
+                    "assets/heroes/ari/abilities/passive-preview.mp4",
+
+                previewType:
+                    "video",
+
+                shortDescription:
+                    "Ari's healing abilities gain additional effects under the right conditions.",
+
+                detailedDescription:
+                    `Ari's restorative abilities interact with her Sunlit Spirit mechanic, allowing her to provide additional utility to allies.`,
+
+                stats: {
+
+                    "Healing":
+                        "Ability dependent",
+
+                    "Duration":
+                        "Varies",
+
+                    "Cooldown":
+                        "Passive"
+
+                }
+
+            },
+
+
+            /* -------------------------------------------------
+               ABILITY 1
+            ------------------------------------------------- */
+
+            {
+
+                type: "Ability 1",
+
+                key: "M1",
+
+                name: "Cane Shot",
 
                 icon:
                     "assets/heroes/ari/abilities/ability1.png",
