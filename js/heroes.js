@@ -3228,15 +3228,15 @@ const heroes = [
 
     profile: {
 
-        damage: 8,
+        damage: 9,
 
-        survivability: 6,
+        survivability: 3,
 
         crowdControl: 6,
 
-        mobility: 7,
+        mobility: 4,
 
-        support: 4,
+        support: 3,
 
         range: 8
 
