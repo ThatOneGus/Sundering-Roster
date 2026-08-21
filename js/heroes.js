@@ -2404,10 +2404,10 @@ const heroes = [
     ===================================================== */
 
     thumbnail:
-        "Assets/Heroes/Chance/thumbnail.png",
+        "Assets/Heroes/Chance/IMG_6557.png",
 
     heroArt:
-        "Assets/Heroes/Chance/hero-art.png",
+        "Assets/Heroes/Chance/IMG_6561.png",
 
 
     /* =====================================================
@@ -3208,7 +3208,7 @@ const heroes = [
     ===================================================== */
 
     thumbnail:
-        "Assets/Heroes/Corvin-Silas/thumbnail.png",
+        "Assets/Heroes/Corvin-Silas/IMG_6658.png",
 
     heroArt:
         "Assets/Heroes/Corvin-Silas/hero-art.png",
@@ -3974,10 +3974,10 @@ const heroes = [
     ===================================================== */
 
     thumbnail:
-        "Assets/Heroes/Esmeralda/thumbnail.png",
+        "Assets/Heroes/Esmeralda/IMG_6470.png",
 
     heroArt:
-        "Assets/Heroes/Esmeralda/hero-art.png",
+        "Assets/Heroes/Esmeralda/IMG_6484.png",
 
 
     /* =====================================================
