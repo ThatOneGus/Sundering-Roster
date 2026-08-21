@@ -554,8 +554,6 @@ nav {
 }
 
 
-/* MAIN ROLE BUTTONS */
-
 .roleFilter,
 .allFilter {
 
@@ -624,8 +622,6 @@ nav {
 }
 
 
-/* DROPDOWN ARROW */
-
 .dropdownArrow {
 
     font-size:
@@ -648,8 +644,6 @@ nav {
         rotate(180deg);
 }
 
-
-/* SUBCLASS DROPDOWN */
 
 .subFilters {
 
@@ -725,8 +719,6 @@ nav {
         translateY(0);
 }
 
-
-/* SUBCLASS BUTTONS */
 
 .subFilters button {
 
@@ -849,8 +841,6 @@ nav {
 }
 
 
-/* DARK GRADIENT OVER THUMBNAIL */
-
 .heroCard::after {
 
     content:
@@ -878,8 +868,6 @@ nav {
         1;
 }
 
-
-/* HERO THUMBNAIL */
 
 .heroArt {
 
@@ -929,8 +917,6 @@ nav {
         scale(1.08);
 }
 
-
-/* HERO INFORMATION */
 
 .heroInfo {
 
@@ -1462,8 +1448,6 @@ nav {
 }
 
 
-/* BACKGROUND HEXAGONS */
-
 .radarGrid {
 
     fill:
@@ -1477,8 +1461,6 @@ nav {
 }
 
 
-/* AXIS LINES */
-
 .radarAxis {
 
     stroke:
@@ -1488,8 +1470,6 @@ nav {
         1;
 }
 
-
-/* CHARACTER PROFILE SHAPE */
 
 .radarProfile {
 
@@ -1515,8 +1495,6 @@ nav {
 }
 
 
-/* PROFILE POINTS */
-
 .radarPoint {
 
     fill:
@@ -1529,8 +1507,6 @@ nav {
         2;
 }
 
-
-/* AXIS LABELS */
 
 .radarLabel {
 
@@ -1692,10 +1668,6 @@ nav {
 }
 
 
-/* =========================================================
-   ABILITY TOP
-========================================================= */
-
 .abilityTop {
 
     display:
@@ -1716,10 +1688,6 @@ nav {
         20px;
 }
 
-
-/* =========================================================
-   ABILITY ICON
-========================================================= */
 
 .abilityIcon {
 
@@ -1786,10 +1754,6 @@ nav {
 }
 
 
-/* =========================================================
-   ABILITY NAME
-========================================================= */
-
 .abilityType {
 
     color:
@@ -1842,10 +1806,6 @@ nav {
 }
 
 
-/* =========================================================
-   PREVIEW BUTTON
-========================================================= */
-
 .previewButton {
 
     width:
@@ -1882,10 +1842,6 @@ nav {
 }
 
 
-/* =========================================================
-   SHORT DESCRIPTION
-========================================================= */
-
 .abilityShort {
 
     padding:
@@ -1903,10 +1859,6 @@ nav {
         1.7;
 }
 
-
-/* =========================================================
-   ABILITY ACTIONS
-========================================================= */
 
 .abilityActions {
 
@@ -1963,10 +1915,6 @@ nav {
 }
 
 
-/* =========================================================
-   DETAILED DESCRIPTION
-========================================================= */
-
 .abilityDetails {
 
     display:
@@ -2009,10 +1957,6 @@ nav {
         pre-line;
 }
 
-
-/* =========================================================
-   ABILITY STATS
-========================================================= */
 
 .abilityStats {
 
@@ -2082,10 +2026,6 @@ nav {
 }
 
 
-/* =========================================================
-   GENERAL STATS LABEL
-========================================================= */
-
 .abilityGeneralLabel {
 
     color:
@@ -2109,7 +2049,7 @@ nav {
 
 
 /* =========================================================
-   ABILITY VARIANTS
+   ABILITY SECTIONS
 ========================================================= */
 
 .abilityVariants {
@@ -2167,18 +2107,6 @@ nav {
 }
 
 
-.variantIcon {
-
-    font-family:
-        "Apple Color Emoji",
-        "Segoe UI Emoji",
-        sans-serif;
-
-    font-size:
-        16px;
-}
-
-
 .variantName {
 
     font-weight:
@@ -2202,14 +2130,9 @@ nav {
 }
 
 
-/* VARIANT COLORS */
-
 /* =========================================================
    COLORED ABILITY SECTIONS
 ========================================================= */
-
-
-/* RED */
 
 .variant-red {
 
@@ -2224,8 +2147,6 @@ nav {
 }
 
 
-/* ORANGE */
-
 .variant-orange {
 
     border-color:
@@ -2238,8 +2159,6 @@ nav {
         #ff9e58;
 }
 
-
-/* YELLOW */
 
 .variant-yellow {
 
@@ -2254,8 +2173,6 @@ nav {
 }
 
 
-/* GREEN */
-
 .variant-green {
 
     border-color:
@@ -2268,8 +2185,6 @@ nav {
         #75d98f;
 }
 
-
-/* TEAL */
 
 .variant-teal {
 
@@ -2284,8 +2199,6 @@ nav {
 }
 
 
-/* BLUE */
-
 .variant-blue {
 
     border-color:
@@ -2298,8 +2211,6 @@ nav {
         #7ba4ff;
 }
 
-
-/* VIOLET */
 
 .variant-violet {
 
@@ -2314,8 +2225,6 @@ nav {
 }
 
 
-/* PINK */
-
 .variant-pink {
 
     border-color:
@@ -2328,8 +2237,6 @@ nav {
         #f38fc3;
 }
 
-
-/* WHITE */
 
 .variant-white {
 
@@ -2781,6 +2688,607 @@ img {
 
 
 /* =========================================================
+   ROLES PAGE HEADER
+========================================================= */
+
+.rolesHeader {
+
+    min-height:
+        68vh;
+
+    padding:
+        170px
+        7vw
+        90px;
+
+    position:
+        relative;
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    justify-content:
+        center;
+}
+
+
+.rolesHeader h1 {
+
+    font-family:
+        Cinzel,
+        serif;
+
+    font-size:
+        clamp(
+            80px,
+            14vw,
+            200px
+        );
+
+    line-height:
+        .8;
+
+    margin:
+        0;
+
+    font-weight:
+        600;
+
+    letter-spacing:
+        -.04em;
+
+    background:
+        linear-gradient(
+            180deg,
+            #ffffff,
+            #aaa7bb
+        );
+
+    -webkit-background-clip:
+        text;
+
+    background-clip:
+        text;
+
+    color:
+        transparent;
+}
+
+
+.rolesHeader p {
+
+    max-width:
+        560px;
+
+    margin-top:
+        35px;
+
+    color:
+        var(--muted);
+
+    font-size:
+        15px;
+
+    line-height:
+        1.8;
+}
+
+
+/* =========================================================
+   ROLES PAGE
+========================================================= */
+
+.rolesPage {
+
+    padding:
+        20px
+        7vw
+        160px;
+}
+
+
+.rolesIntro {
+
+    max-width:
+        700px;
+
+    margin-bottom:
+        100px;
+}
+
+
+.sectionEyebrow {
+
+    color:
+        var(--accent);
+
+    font-size:
+        9px;
+
+    letter-spacing:
+        .25em;
+
+    text-transform:
+        uppercase;
+
+    margin-bottom:
+        15px;
+}
+
+
+.rolesIntro h2 {
+
+    margin:
+        0;
+
+    font-family:
+        Cinzel,
+        serif;
+
+    font-size:
+        clamp(
+            40px,
+            5vw,
+            70px
+        );
+}
+
+
+.rolesIntro p {
+
+    color:
+        var(--muted);
+
+    font-size:
+        14px;
+
+    line-height:
+        1.9;
+
+    margin-top:
+        25px;
+}
+
+
+/* =========================================================
+   MAJOR ROLE SECTION
+========================================================= */
+
+.roleSection {
+
+    padding:
+        100px
+        0;
+
+    border-top:
+        1px solid
+        var(--border);
+}
+
+
+.majorRoleHeader {
+
+    display:
+        grid;
+
+    grid-template-columns:
+        minmax(200px,.65fr)
+        1.35fr;
+
+    gap:
+        80px;
+
+    align-items:
+        center;
+
+    margin-bottom:
+        70px;
+}
+
+
+/* =========================================================
+   MAJOR ROLE ICON
+========================================================= */
+
+.majorRoleIcon {
+
+    position:
+        relative;
+
+    aspect-ratio:
+        1 / 1;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    max-width:
+        420px;
+
+    border:
+        1px solid
+        var(--border);
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(183,148,255,.12),
+            transparent 68%
+        );
+
+    overflow:
+        hidden;
+}
+
+
+.majorRoleIcon::before {
+
+    content:
+        "";
+
+    position:
+        absolute;
+
+    width:
+        72%;
+
+    height:
+        72%;
+
+    border:
+        1px solid
+        rgba(183,148,255,.13);
+
+    transform:
+        rotate(45deg);
+}
+
+
+.majorRoleIcon img {
+
+    position:
+        relative;
+
+    z-index:
+        2;
+
+    width:
+        65%;
+
+    height:
+        65%;
+
+    object-fit:
+        contain;
+}
+
+
+/* =========================================================
+   MAJOR ROLE TEXT
+========================================================= */
+
+.majorRoleText {
+
+    max-width:
+        700px;
+}
+
+
+.roleNumber {
+
+    color:
+        rgba(255,255,255,.09);
+
+    font-family:
+        Cinzel,
+        serif;
+
+    font-size:
+        70px;
+
+    line-height:
+        1;
+
+    margin-bottom:
+        -10px;
+}
+
+
+.roleCategory {
+
+    color:
+        var(--accent);
+
+    font-size:
+        8px;
+
+    letter-spacing:
+        .22em;
+
+    text-transform:
+        uppercase;
+
+    margin-bottom:
+        10px;
+}
+
+
+.majorRoleText h2 {
+
+    font-family:
+        Cinzel,
+        serif;
+
+    font-size:
+        clamp(
+            45px,
+            6vw,
+            90px
+        );
+
+    line-height:
+        .95;
+
+    margin:
+        0;
+}
+
+
+.majorRoleText p {
+
+    max-width:
+        620px;
+
+    margin-top:
+        25px;
+
+    color:
+        #aaa9b4;
+
+    font-size:
+        14px;
+
+    line-height:
+        1.9;
+}
+
+
+/* =========================================================
+   SUBCLASS LABEL
+========================================================= */
+
+.subclassLabel {
+
+    margin-bottom:
+        20px;
+
+    color:
+        var(--muted);
+
+    font-size:
+        9px;
+
+    letter-spacing:
+        .22em;
+
+    text-transform:
+        uppercase;
+}
+
+
+/* =========================================================
+   SUBCLASS GRID
+========================================================= */
+
+.subclassGrid {
+
+    display:
+        grid;
+
+    grid-template-columns:
+        repeat(
+            auto-fit,
+            minmax(260px,1fr)
+        );
+
+    gap:
+        14px;
+}
+
+
+/* =========================================================
+   SUBCLASS CARD
+========================================================= */
+
+.subclassCard {
+
+    min-height:
+        320px;
+
+    position:
+        relative;
+
+    padding:
+        28px;
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    justify-content:
+        space-between;
+
+    border:
+        1px solid
+        var(--border);
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.035),
+            rgba(255,255,255,.012)
+        );
+
+    overflow:
+        hidden;
+
+    transition:
+        transform
+        var(--transition),
+        border-color
+        var(--transition),
+        background
+        var(--transition);
+}
+
+
+.subclassCard::before {
+
+    content:
+        "";
+
+    position:
+        absolute;
+
+    width:
+        180px;
+
+    height:
+        180px;
+
+    top:
+        -90px;
+
+    right:
+        -90px;
+
+    border:
+        1px solid
+        rgba(183,148,255,.08);
+
+    transform:
+        rotate(45deg);
+}
+
+
+.subclassCard:hover {
+
+    transform:
+        translateY(-6px);
+
+    border-color:
+        rgba(183,148,255,.4);
+
+    background:
+        rgba(183,148,255,.035);
+}
+
+
+/* =========================================================
+   SUBCLASS ICON
+========================================================= */
+
+.subclassIcon {
+
+    width:
+        90px;
+
+    height:
+        90px;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    margin-bottom:
+        55px;
+}
+
+
+.subclassIcon img {
+
+    width:
+        100%;
+
+    height:
+        100%;
+
+    object-fit:
+        contain;
+}
+
+
+/* =========================================================
+   SUBCLASS TEXT
+========================================================= */
+
+.subclassParent {
+
+    color:
+        var(--accent);
+
+    font-size:
+        8px;
+
+    letter-spacing:
+        .2em;
+
+    text-transform:
+        uppercase;
+
+    margin-bottom:
+        8px;
+}
+
+
+.subclassContent h3 {
+
+    margin:
+        0;
+
+    font-family:
+        Cinzel,
+        serif;
+
+    font-size:
+        25px;
+}
+
+
+.subclassContent p {
+
+    margin:
+        14px
+        0
+        0;
+
+    color:
+        var(--muted);
+
+    font-size:
+        11px;
+
+    line-height:
+        1.75;
+}
+
+
+/* =========================================================
    FOOTER
 ========================================================= */
 
@@ -2882,6 +3390,23 @@ footer {
             auto;
     }
 
+
+    .majorRoleHeader {
+
+        grid-template-columns:
+            1fr;
+
+        gap:
+            40px;
+    }
+
+
+    .majorRoleIcon {
+
+        max-width:
+            320px;
+    }
+
 }
 
 
@@ -2891,7 +3416,8 @@ footer {
 
 @media (max-width: 600px) {
 
-    .heroHeader {
+    .heroHeader,
+    .rolesHeader {
 
         padding-left:
             25px;
@@ -2901,7 +3427,8 @@ footer {
     }
 
 
-    .rosterSection {
+    .rosterSection,
+    .rolesPage {
 
         padding-left:
             25px;
@@ -2928,8 +3455,6 @@ footer {
             20px;
     }
 
-
-    /* FILTERS */
 
     .filters {
 
@@ -2960,16 +3485,12 @@ footer {
     }
 
 
-    /* TABS */
-
     .characterTabs {
 
         margin-top:
             40px;
     }
 
-
-    /* RADAR */
 
     .combatProfile {
 
@@ -2984,8 +3505,6 @@ footer {
             10px;
     }
 
-
-    /* ABILITY GRID */
 
     .abilityGrid {
 
@@ -3020,8 +3539,6 @@ footer {
     }
 
 
-    /* SKINS */
-
     .skinsGrid {
 
         grid-template-columns:
@@ -3032,9 +3549,22 @@ footer {
     }
 
 
-    /* CONCEPT ART */
-
     .conceptGrid {
+
+        grid-template-columns:
+            1fr;
+    }
+
+
+    .roleSection {
+
+        padding:
+            70px
+            0;
+    }
+
+
+    .subclassGrid {
 
         grid-template-columns:
             1fr;
