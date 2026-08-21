@@ -93,9 +93,6 @@ function renderRoster(list) {
 }
 
 
-renderRoster(heroes);
-
-
 /* =========================================================
    SEARCH
 ========================================================= */
@@ -193,14 +190,19 @@ const subclassButtons =
     );
 
 
+/* =========================================================
+   FILTER HEROES
+========================================================= */
+
 function filterHeroes(role) {
 
     if (role === "all") {
 
-        renderRoster(heroes);
+        renderRoster(
+            heroes
+        );
 
         return;
-
     }
 
 
@@ -217,14 +219,18 @@ function filterHeroes(role) {
 
                 ||
 
-                secondaryRoles.includes(role)
+                secondaryRoles.includes(
+                    role
+                )
 
             );
 
         });
 
 
-    renderRoster(filtered);
+    renderRoster(
+        filtered
+    );
 
 }
 
@@ -266,7 +272,14 @@ allButton.addEventListener(
         );
 
 
-        filterHeroes("all");
+        filterHeroes(
+            "all"
+        );
+
+
+        updateRoleURL(
+            null
+        );
 
     }
 );
@@ -313,6 +326,8 @@ roleButtons.forEach(button => {
                 );
 
 
+            /* Close other dropdowns */
+
             roleGroups.forEach(
                 otherGroup => {
 
@@ -330,10 +345,18 @@ roleButtons.forEach(button => {
             );
 
 
+            /* Filter roster */
+
+            const role =
+                button.dataset.role;
+
+
             filterHeroes(
-                button.dataset.role
+                role
             );
 
+
+            /* Clear active states */
 
             roleButtons.forEach(
                 otherButton =>
@@ -356,14 +379,25 @@ roleButtons.forEach(button => {
             );
 
 
+            /* Activate selected role */
+
             button.classList.add(
                 "active"
             );
 
 
+            /* Open or close dropdown */
+
             group.classList.toggle(
                 "open",
                 !wasOpen
+            );
+
+
+            /* Update URL */
+
+            updateRoleURL(
+                role
             );
 
         }
@@ -389,8 +423,14 @@ subclassButtons.forEach(button => {
                 button.dataset.role;
 
 
-            filterHeroes(role);
+            /* Filter */
 
+            filterHeroes(
+                role
+            );
+
+
+            /* Clear active state */
 
             roleButtons.forEach(
                 otherButton =>
@@ -413,6 +453,8 @@ subclassButtons.forEach(button => {
             );
 
 
+            /* Activate subclass */
+
             button.classList.add(
                 "active"
             );
@@ -430,7 +472,34 @@ subclassButtons.forEach(button => {
                     "open"
                 );
 
+
+                /*
+                    Also highlight the parent
+                    major role.
+                */
+
+                const parentButton =
+                    group.querySelector(
+                        ".roleFilter"
+                    );
+
+
+                if (parentButton) {
+
+                    parentButton.classList.add(
+                        "active"
+                    );
+
+                }
+
             }
+
+
+            /* Update URL */
+
+            updateRoleURL(
+                role
+            );
 
         }
     );
@@ -455,6 +524,232 @@ document.addEventListener(
 
     }
 );
+
+
+/* =========================================================
+   UPDATE ROLE URL
+========================================================= */
+
+function updateRoleURL(role) {
+
+    const url =
+        new URL(
+            window.location.href
+        );
+
+
+    if (role) {
+
+        url.searchParams.set(
+            "role",
+            role
+        );
+
+    }
+
+    else {
+
+        url.searchParams.delete(
+            "role"
+        );
+
+    }
+
+
+    window.history.replaceState(
+        {},
+        "",
+        url
+    );
+
+}
+
+
+/* =========================================================
+   APPLY ROLE FROM URL
+========================================================= */
+
+function applyRoleFromURL() {
+
+    const params =
+        new URLSearchParams(
+            window.location.search
+        );
+
+
+    const requestedRole =
+        params.get(
+            "role"
+        );
+
+
+    /* ---------------------------------------------------------
+       VALID ROLES
+    --------------------------------------------------------- */
+
+    const validRoles = [
+
+        "Vanguard",
+        "Guardian",
+        "Warden",
+        "Bludgeon",
+
+        "Striker",
+        "Brawler",
+        "Marksman",
+        "Hunter",
+        "Ravager",
+        "Disruptor",
+
+        "Catalyst",
+        "Lifeline",
+        "Playmaker",
+        "Utility",
+        "Controller"
+
+    ];
+
+
+    /* ---------------------------------------------------------
+       DEFAULT TO ALL
+    --------------------------------------------------------- */
+
+    if (
+        !requestedRole ||
+        !validRoles.includes(
+            requestedRole
+        )
+    ) {
+
+        renderRoster(
+            heroes
+        );
+
+
+        allButton.classList.add(
+            "active"
+        );
+
+
+        return;
+    }
+
+
+    /* ---------------------------------------------------------
+       FILTER ROSTER
+    --------------------------------------------------------- */
+
+    filterHeroes(
+        requestedRole
+    );
+
+
+    /* ---------------------------------------------------------
+       CLEAR ACTIVE FILTERS
+    --------------------------------------------------------- */
+
+    allButton.classList.remove(
+        "active"
+    );
+
+
+    roleButtons.forEach(
+        button =>
+            button.classList.remove(
+                "active"
+            )
+    );
+
+
+    subclassButtons.forEach(
+        button =>
+            button.classList.remove(
+                "active"
+            )
+    );
+
+
+    /* ---------------------------------------------------------
+       MAIN ROLE?
+    --------------------------------------------------------- */
+
+    const mainRoleButton =
+        Array.from(
+            roleButtons
+        )
+        .find(
+            button =>
+                button.dataset.role ===
+                requestedRole
+        );
+
+
+    if (
+        mainRoleButton &&
+        !mainRoleButton.classList.contains(
+            "allFilter"
+        )
+    ) {
+
+        mainRoleButton.classList.add(
+            "active"
+        );
+
+        return;
+    }
+
+
+    /* ---------------------------------------------------------
+       SUBCLASS?
+    --------------------------------------------------------- */
+
+    const subclassButton =
+        Array.from(
+            subclassButtons
+        )
+        .find(
+            button =>
+                button.dataset.role ===
+                requestedRole
+        );
+
+
+    if (!subclassButton) {
+        return;
+    }
+
+
+    subclassButton.classList.add(
+        "active"
+    );
+
+
+    const group =
+        subclassButton.closest(
+            ".roleGroup"
+        );
+
+
+    if (!group) {
+        return;
+    }
+
+
+    const parentButton =
+        group.querySelector(
+            ".roleFilter"
+        );
+
+
+    if (parentButton) {
+
+        parentButton.classList.add(
+            "active"
+        );
+
+    }
+
+}
 
 
 /* =========================================================
@@ -574,7 +869,9 @@ function renderStats(stats) {
     }
 
 
-    return Object.entries(stats)
+    return Object.entries(
+        stats
+    )
         .map(
             ([label, value]) => `
 
@@ -601,7 +898,9 @@ function renderStats(stats) {
    COLORED ABILITY SECTION RENDERER
 ========================================================= */
 
-function renderAbilitySection(section) {
+function renderAbilitySection(
+    section
+) {
 
     if (!section) {
         return "";
@@ -615,6 +914,7 @@ function renderAbilitySection(section) {
 
 
     const allowedColors = [
+
         "red",
         "orange",
         "yellow",
@@ -624,11 +924,13 @@ function renderAbilitySection(section) {
         "violet",
         "pink",
         "white"
+
     ];
 
 
     const requestedColor =
-        section.color || "white";
+        section.color ||
+        "white";
 
 
     const color =
@@ -651,7 +953,9 @@ function renderAbilitySection(section) {
             <div class="variantHeader">
 
                 <span class="variantName">
+
                     ${section.name}
+
                 </span>
 
             </div>
@@ -778,6 +1082,10 @@ function renderCombatProfile(hero) {
         5;
 
 
+    /* ---------------------------------------------------------
+       POINT CALCULATOR
+    --------------------------------------------------------- */
+
     function pointAt(
         index,
         distance
@@ -785,7 +1093,8 @@ function renderCombatProfile(hero) {
 
         const angle =
             (
-                Math.PI * 2 *
+                Math.PI *
+                2 *
                 index /
                 axes.length
             )
@@ -811,7 +1120,7 @@ function renderCombatProfile(hero) {
 
 
     /* ---------------------------------------------------------
-       GRID
+       BACKGROUND GRID
     --------------------------------------------------------- */
 
     let grid =
@@ -899,7 +1208,7 @@ function renderCombatProfile(hero) {
 
 
     /* ---------------------------------------------------------
-       PROFILE POLYGON
+       HERO PROFILE POLYGON
     --------------------------------------------------------- */
 
     const profilePoints =
@@ -950,7 +1259,7 @@ function renderCombatProfile(hero) {
 
 
     /* ---------------------------------------------------------
-       PROFILE DOTS
+       HERO PROFILE DOTS
     --------------------------------------------------------- */
 
     const profileDots =
@@ -1093,14 +1402,13 @@ function renderCombatProfile(hero) {
 
             ${labels}
 
-
         </svg>
 
     `;
 
 
     /* ---------------------------------------------------------
-       NUMERIC VALUES
+       NUMERIC PROFILE VALUES
     --------------------------------------------------------- */
 
     profileStats.innerHTML =
@@ -1131,7 +1439,9 @@ function renderCombatProfile(hero) {
                         <div class="profileStat">
 
                             <div class="profileStatName">
+
                                 ${axis.label}
+
                             </div>
 
 
@@ -1209,7 +1519,9 @@ function renderSkins(hero) {
                 <div class="skinInfo">
 
                     <div class="skinName">
+
                         ${skin.name}
+
                     </div>
 
 
@@ -1299,7 +1611,9 @@ function renderConceptArt(hero) {
                 <div class="conceptInfo">
 
                     <div class="conceptTitle">
+
                         ${concept.title}
+
                     </div>
 
 
@@ -1533,9 +1847,9 @@ function openHero(hero) {
                 );
 
 
-            /* -------------------------------------------------
-               GENERIC COLORED SECTIONS
-            ------------------------------------------------- */
+            /* ---------------------------------------------
+               COLORED SECTIONS
+            --------------------------------------------- */
 
             let sections =
                 "";
@@ -1566,9 +1880,9 @@ function openHero(hero) {
             }
 
 
-            /* -------------------------------------------------
+            /* ---------------------------------------------
                ABILITY CARD
-            ------------------------------------------------- */
+            --------------------------------------------- */
 
             card.innerHTML = `
 
@@ -1587,7 +1901,9 @@ function openHero(hero) {
                             class="abilityIconFallback"
                             style="display:none;"
                         >
+
                             ${index + 1}
+
                         </div>
 
                     </div>
@@ -1596,17 +1912,23 @@ function openHero(hero) {
                     <div>
 
                         <div class="abilityType">
+
                             ${ability.type}
+
                         </div>
 
 
                         <h3>
+
                             ${ability.name}
+
                         </h3>
 
 
                         <div class="abilityKey">
+
                             ${ability.key || ""}
+
                         </div>
 
                     </div>
@@ -1617,7 +1939,9 @@ function openHero(hero) {
                         title="Preview ability"
                         type="button"
                     >
+
                         ▶
+
                     </button>
 
                 </div>
@@ -1640,7 +1964,9 @@ function openHero(hero) {
                         "
                         type="button"
                     >
+
                         View Details
+
                     </button>
 
 
@@ -1651,7 +1977,9 @@ function openHero(hero) {
                         "
                         type="button"
                     >
+
                         Preview
+
                     </button>
 
 
@@ -1681,7 +2009,9 @@ function openHero(hero) {
                             ? `
 
                                 <div class="abilityGeneralLabel">
+
                                     General
+
                                 </div>
 
 
@@ -1704,9 +2034,9 @@ function openHero(hero) {
             `;
 
 
-            /* -------------------------------------------------
-               PREVIEW BUTTON
-            ------------------------------------------------- */
+            /* ---------------------------------------------
+               TOP PREVIEW BUTTON
+            --------------------------------------------- */
 
             const previewButton =
                 card.querySelector(
@@ -1728,9 +2058,9 @@ function openHero(hero) {
             );
 
 
-            /* -------------------------------------------------
-               SECOND PREVIEW BUTTON
-            ------------------------------------------------- */
+            /* ---------------------------------------------
+               BOTTOM PREVIEW BUTTON
+            --------------------------------------------- */
 
             const previewAction =
                 card.querySelector(
@@ -1752,9 +2082,9 @@ function openHero(hero) {
             );
 
 
-            /* -------------------------------------------------
-               DETAILS
-            ------------------------------------------------- */
+            /* ---------------------------------------------
+               DETAILS BUTTON
+            --------------------------------------------- */
 
             const detailsButton =
                 card.querySelector(
@@ -1776,9 +2106,9 @@ function openHero(hero) {
             );
 
 
-            /* -------------------------------------------------
+            /* ---------------------------------------------
                ICON FALLBACK
-            ------------------------------------------------- */
+            --------------------------------------------- */
 
             const icon =
                 card.querySelector(
@@ -1814,6 +2144,10 @@ function openHero(hero) {
         }
     );
 
+
+    /* ---------------------------------------------------------
+       OPEN HERO MODAL
+    --------------------------------------------------------- */
 
     modal.classList.add(
         "open"
@@ -2002,9 +2336,14 @@ function openPreview(ability) {
         "";
 
 
+    /* ---------------------------------------------------------
+       VIDEO
+    --------------------------------------------------------- */
+
     if (
         ability.preview &&
-        ability.previewType === "video"
+        ability.previewType ===
+        "video"
     ) {
 
         const video =
@@ -2040,9 +2379,14 @@ function openPreview(ability) {
     }
 
 
+    /* ---------------------------------------------------------
+       IMAGE
+    --------------------------------------------------------- */
+
     else if (
         ability.preview &&
-        ability.previewType === "image"
+        ability.previewType ===
+        "image"
     ) {
 
         const image =
@@ -2065,6 +2409,10 @@ function openPreview(ability) {
 
     }
 
+
+    /* ---------------------------------------------------------
+       NO PREVIEW
+    --------------------------------------------------------- */
 
     else {
 
@@ -2137,7 +2485,8 @@ document.addEventListener(
     event => {
 
         if (
-            event.key !== "Escape"
+            event.key !==
+            "Escape"
         ) {
 
             return;
@@ -2170,3 +2519,29 @@ document.addEventListener(
 
     }
 );
+
+
+/* =========================================================
+   INITIAL PAGE LOAD
+========================================================= */
+
+/*
+    This replaces the old:
+
+        renderRoster(heroes);
+
+    We now check the URL first.
+
+    Examples:
+
+        index.html
+        → shows everyone
+
+        index.html?role=Striker
+        → shows Strikers
+
+        index.html?role=Ravager
+        → shows Ravagers
+*/
+
+applyRoleFromURL();
