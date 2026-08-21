@@ -3977,7 +3977,7 @@ const heroes = [
         "Assets/Heroes/Esmeralda/IMG_6470.png",
 
     heroArt:
-        "Assets/Heroes/Esmeralda/IMG_6484.png",
+        "Assets/Heroes/Esmeralda/IMG_6485.png",
 
 
     /* =====================================================
