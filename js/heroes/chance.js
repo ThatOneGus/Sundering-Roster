@@ -10,7 +10,7 @@ const chance = {
         "Warden"
     ],
 
-    region: "Elaris",
+    region: "Ferrumalis",
 
 
     /* =====================================================
