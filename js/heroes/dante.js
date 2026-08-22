@@ -1,4 +1,6 @@
-const dante = {
+window.heroes = window.heroes || [];
+
+window.heroes.push({
     name: "Dante",
 
     title: "The Thief",
@@ -63,6 +65,15 @@ const dante = {
             name: "Default",
 
             rarity: "Base",
+
+            thumbnail:
+                "Assets/Heroes/Dante/Skins/Default/thumbnail.png"
+        },
+        
+        {
+            name: "Elarian Theif",
+
+            rarity: "Epic",
 
             thumbnail:
                 "Assets/Heroes/Dante/Skins/Default/thumbnail.png"
@@ -965,4 +976,4 @@ const dante = {
 
     ]
 
-}
+});
