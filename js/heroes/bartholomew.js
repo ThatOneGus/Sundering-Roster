@@ -78,8 +78,6 @@ window.heroes.push({
 
     conceptArt: [
 
-        Example:
-
         {
             title: "Cane Rifle Exploration",
 
