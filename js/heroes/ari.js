@@ -66,6 +66,15 @@ window.heroes.push({
 
             thumbnail:
                 "Assets/Heroes/Ari/Skins/Faerie-Waves/thumbnail.png"
+        },
+        
+        {
+            name: "Magical Girl",
+
+            rarity: "Epic",
+
+            thumbnail:
+                "Assets/Heroes/Ari/Skins/Faerie-Waves/thumbnail.png"
         }
 
     ],
