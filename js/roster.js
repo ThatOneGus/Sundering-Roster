@@ -23,16 +23,16 @@ const roleIconPaths = {
     /* VANGUARD */
 
     Vanguard:
-        "Assets/Roles/Vanguard/Vanguard.png",
+        "Assets/Roles/Vanguard/IMG_6672.png",
 
     Guardian:
-        "Assets/Roles/Vanguard/Guardian.png",
+        "Assets/Roles/Vanguard/IMG_6671.png",
 
     Warden:
-        "Assets/Roles/Vanguard/Warden.png",
+        "Assets/Roles/Vanguard/IMG_6670.png",
 
     Bludgeon:
-        "Assets/Roles/Vanguard/Bludgeon.png",
+        "Assets/Roles/Vanguard/IMG_6669.png",
 
 
     /* STRIKER */
