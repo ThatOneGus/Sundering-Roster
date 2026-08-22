@@ -44,7 +44,7 @@ const dante = {
 
         crowdControl: 4,
 
-        mobility: 10,
+        mobility: 7,
 
         support: 3,
 
