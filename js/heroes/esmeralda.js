@@ -96,8 +96,6 @@ window.heroes.push({
 
     conceptArt: [
 
-        Example:
-
         {
             title: "Early Esmeralda Concept",
 
