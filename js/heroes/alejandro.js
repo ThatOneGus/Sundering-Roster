@@ -112,7 +112,7 @@ const alejandro = {
         },
 
         {
-            name: "Temptation",
+            name: "Sinful Temptation",
 
             rarity: "Legendary",
 
