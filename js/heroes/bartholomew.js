@@ -76,7 +76,6 @@ const bartholomew = {
 
     conceptArt: [
 
-        /*
         Example:
 
         {
@@ -88,7 +87,6 @@ const bartholomew = {
             description:
                 "Early explorations of Bartholomew's concealed rifle cane."
         }
-        */
 
     ],
 
