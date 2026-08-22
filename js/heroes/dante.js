@@ -3,7 +3,7 @@ window.heroes = window.heroes || [];
 window.heroes.push({
     name: "Dante",
 
-    title: "The Thief",
+    title: "Elaris's Most Wanted",
 
     role: "Striker",
 
@@ -40,17 +40,17 @@ window.heroes.push({
 
     profile: {
 
-        damage: 7,
+        damage: 6,
 
-        survivability: 5,
+        survivability: 6,
 
-        crowdControl: 4,
+        crowdControl: 5,
 
         mobility: 7,
 
         support: 3,
 
-        range: 7
+        range: 6
 
     },
 
@@ -190,7 +190,7 @@ window.heroes.push({
                         "Movement Speed",
 
                     color:
-                        "blue",
+                        "yellow",
 
                     details: {
 
@@ -250,7 +250,7 @@ window.heroes.push({
                         "Bonus Health",
 
                     color:
-                        "white",
+                        "blue",
 
                     details: {
 
@@ -469,12 +469,12 @@ window.heroes.push({
                         "Bonus Health Stolen",
 
                     color:
-                        "white",
+                        "blue",
 
                     details: {
 
                         "Bonus Health":
-                            "80",
+                            "50",
 
                         "Duration":
                             "4 sec"
@@ -489,7 +489,7 @@ window.heroes.push({
                         "Movement Speed Stolen",
 
                     color:
-                        "blue",
+                        "yellow",
 
                     details: {
 
@@ -652,13 +652,13 @@ window.heroes.push({
                     details: {
 
                         "Maximum Bonus Health":
-                            "+100",
+                            "+50",
 
                         "Maximum Movement Speed":
                             "+20%",
 
                         "Maximum Ultimate Charge":
-                            "+16%"
+                            "+12%"
 
                     }
 
