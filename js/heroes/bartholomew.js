@@ -1,4 +1,6 @@
-const bartholomew = {
+window.heroes = window.heroes || [];
+
+window.heroes.push({
     name: "Bartholomew",
 
     title: "The Royal Butler",
@@ -523,4 +525,4 @@ const bartholomew = {
         }
 
     ]
-};
+});
