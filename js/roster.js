@@ -16,14 +16,14 @@ const heroes =
 
 /* =========================================================
    ROLE ICON PATHS
+
+   These paths are only used for subclass icons on
+   roster cards.
 ========================================================= */
 
 const roleIconPaths = {
 
-    /* VANGUARD */
-
-    Vanguard:
-        "Assets/Roles/Vanguard/IMG_6672.png",
+    /* VANGUARD SUBCLASSES */
 
     Guardian:
         "Assets/Roles/Vanguard/IMG_6671.png",
@@ -35,10 +35,7 @@ const roleIconPaths = {
         "Assets/Roles/Vanguard/IMG_6669.png",
 
 
-    /* STRIKER */
-
-    Striker:
-        "Assets/Roles/Striker/Striker.png",
+    /* STRIKER SUBCLASSES */
 
     Brawler:
         "Assets/Roles/Striker/Brawler.png",
@@ -56,10 +53,7 @@ const roleIconPaths = {
         "Assets/Roles/Striker/Disruptor.png",
 
 
-    /* CATALYST */
-
-    Catalyst:
-        "Assets/Roles/Catalyst/Catalyst.png",
+    /* CATALYST SUBCLASSES */
 
     Lifeline:
         "Assets/Roles/Catalyst/Lifeline.png",
@@ -143,11 +137,14 @@ function renderRoster(list) {
                     "img"
                 );
 
+
             image.src =
                 hero.thumbnail;
 
+
             image.alt =
                 hero.name;
+
 
             image.loading =
                 "lazy";
@@ -192,24 +189,20 @@ function renderRoster(list) {
 
 
         /* -----------------------------------------------------
-           ROLE ICONS
+           SUBCLASS ICONS
+
+           Main role appears as text.
+           Only secondaryRoles get icons.
         ----------------------------------------------------- */
 
-        const heroRoles = [
-
-            hero.role,
-
-            ...(hero.secondaryRoles || [])
-
-        ];
-
-
-        const uniqueHeroRoles =
-            [...new Set(heroRoles)];
+        const subclassRoles =
+            [...new Set(
+                hero.secondaryRoles || []
+            )];
 
 
         const roleIcons =
-            uniqueHeroRoles
+            subclassRoles
                 .filter(
                     role =>
                         roleIconPaths[role]
@@ -224,7 +217,7 @@ function renderRoster(list) {
 
                             <img
                                 src="${roleIconPaths[role]}"
-                                alt="${role}"
+                                alt="${role} icon"
                             >
 
                         </div>
@@ -235,28 +228,6 @@ function renderRoster(list) {
 
 
         /* -----------------------------------------------------
-           ROLE TEXT
-        ----------------------------------------------------- */
-
-        const secondaryRoles =
-            hero.secondaryRoles || [];
-
-
-        const secondaryRoleText =
-            secondaryRoles.length
-                ? `
-
-                    <span class="heroRoleDivider">
-                        /
-                    </span>
-
-                    ${secondaryRoles.join(" / ")}
-
-                `
-                : "";
-
-
-        /* -----------------------------------------------------
            HERO INFORMATION
         ----------------------------------------------------- */
 
@@ -264,6 +235,7 @@ function renderRoster(list) {
             document.createElement(
                 "div"
             );
+
 
         info.className =
             "heroInfo";
@@ -283,16 +255,14 @@ function renderRoster(list) {
 
                 <div class="heroTitle">
 
-                    ${hero.title}
+                    ${hero.title || ""}
 
                 </div>
 
 
                 <div class="heroRole">
 
-                    ${hero.role}
-
-                    ${secondaryRoleText}
+                    ${hero.role || ""}
 
                 </div>
 
@@ -300,11 +270,19 @@ function renderRoster(list) {
             </div>
 
 
-            <div class="heroRoleIcons">
+            ${
+                roleIcons
+                    ? `
 
-                ${roleIcons}
+                        <div class="heroRoleIcons">
 
-            </div>
+                            ${roleIcons}
+
+                        </div>
+
+                      `
+                    : ""
+            }
 
         `;
 
@@ -370,7 +348,7 @@ function getFilteredHeroes() {
 
             ...(hero.secondaryRoles || [])
 
-        ];
+        ].filter(Boolean);
 
 
         /* -----------------------------------------------------
@@ -503,7 +481,7 @@ function setRoleFilter(role) {
 
 
     /* -----------------------------------------------------
-       CLEAR STATES
+       CLEAR ACTIVE STATES
     ----------------------------------------------------- */
 
     roleButtons.forEach(
@@ -1224,7 +1202,7 @@ function openHero(hero) {
 
 
     /* -----------------------------------------------------
-       RENDER CHARACTER DATA
+       CHARACTER DATA
     ----------------------------------------------------- */
 
     renderCombatProfile(
@@ -1779,29 +1757,17 @@ function renderAbilities(hero) {
                 "ability";
 
 
-            /* -------------------------------------------------
-               BASE STATS
-            ------------------------------------------------- */
-
             const stats =
                 createStatsHTML(
                     ability.stats
                 );
 
 
-            /* -------------------------------------------------
-               COLORED SECTIONS
-            ------------------------------------------------- */
-
             const sections =
                 createSectionsHTML(
                     ability.sections
                 );
 
-
-            /* -------------------------------------------------
-               CARD HTML
-            ------------------------------------------------- */
 
             card.innerHTML = `
 
@@ -2113,18 +2079,6 @@ function createStatsHTML(
 
 /* =========================================================
    COLORED ABILITY SECTIONS
-
-   Supported colors:
-
-   red
-   orange
-   yellow
-   green
-   teal
-   blue
-   violet
-   pink
-   white
 ========================================================= */
 
 function createSectionsHTML(
@@ -2966,7 +2920,7 @@ document.addEventListener(
 ========================================================= */
 
 /*
-    Every individual hero file should already have run:
+    Individual hero files should already have run:
 
         window.heroes.push({...});
 
@@ -2980,7 +2934,7 @@ renderRoster(
 
 
 /*
-    Apply links coming from roles.html.
+    Apply role filters coming from roles.html.
 
     Example:
 
