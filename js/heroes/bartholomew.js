@@ -525,4 +525,5 @@ window.heroes.push({
         }
 
     ]
+
 });
