@@ -4,27 +4,77 @@
 
 
 /* =========================================================
+   ROOT
+========================================================= */
+
+:root {
+
+    --bg:
+        #080808;
+
+    --panel:
+        #0d0d0d;
+
+    --panel-soft:
+        rgba(255,255,255,.02);
+
+    --text:
+        #f2f2f2;
+
+    --muted:
+        #858585;
+
+    --dim:
+        #555;
+
+    --border:
+        rgba(255,255,255,.09);
+
+    --border-strong:
+        rgba(255,255,255,.18);
+
+    --accent:
+        #b794ff;
+
+    --transition:
+        .25s cubic-bezier(.2,.8,.2,1);
+}
+
+
+/* =========================================================
    RESET
 ========================================================= */
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+
+    margin:
+        0;
+
+    padding:
+        0;
+
+    box-sizing:
+        border-box;
 }
+
 
 html {
-    scroll-behavior: smooth;
+
+    scroll-behavior:
+        smooth;
 }
 
+
 body {
-    min-height: 100vh;
+
+    min-height:
+        100vh;
 
     background:
-        #080808;
+        var(--bg);
 
     color:
-        #f2f2f2;
+        var(--text);
 
     font-family:
         Arial,
@@ -35,19 +85,30 @@ body {
         hidden;
 }
 
+
 button,
 input {
-    font: inherit;
+
+    font:
+        inherit;
 }
 
+
 button {
-    color: inherit;
+
+    color:
+        inherit;
 }
+
 
 img,
 video {
-    display: block;
-    max-width: 100%;
+
+    display:
+        block;
+
+    max-width:
+        100%;
 }
 
 
@@ -56,20 +117,28 @@ video {
 ========================================================= */
 
 ::-webkit-scrollbar {
-    width: 8px;
+
+    width:
+        8px;
 }
 
+
 ::-webkit-scrollbar-track {
+
     background:
         #090909;
 }
 
+
 ::-webkit-scrollbar-thumb {
+
     background:
         #333;
 }
 
+
 ::-webkit-scrollbar-thumb:hover {
+
     background:
         #555;
 }
@@ -80,30 +149,36 @@ video {
 ========================================================= */
 
 .background {
-    position: fixed;
-    inset: 0;
 
-    z-index: -3;
+    position:
+        fixed;
 
-    pointer-events: none;
+    inset:
+        0;
+
+    z-index:
+        -3;
+
+    pointer-events:
+        none;
 
     background:
 
         radial-gradient(
             circle at 50% -20%,
-            rgba(255, 255, 255, 0.08),
+            rgba(255,255,255,.08),
             transparent 38%
         ),
 
         radial-gradient(
             circle at 15% 50%,
-            rgba(255, 255, 255, 0.025),
+            rgba(183,148,255,.05),
             transparent 30%
         ),
 
         radial-gradient(
             circle at 85% 70%,
-            rgba(255, 255, 255, 0.02),
+            rgba(255,255,255,.025),
             transparent 30%
         ),
 
@@ -112,20 +187,27 @@ video {
 
 
 .noise {
-    position: fixed;
-    inset: 0;
 
-    z-index: -2;
+    position:
+        fixed;
 
-    pointer-events: none;
+    inset:
+        0;
 
-    opacity: 0.035;
+    z-index:
+        -2;
+
+    pointer-events:
+        none;
+
+    opacity:
+        .035;
 
     background-image:
         repeating-linear-gradient(
             0deg,
-            rgba(255, 255, 255, 0.1) 0px,
-            rgba(255, 255, 255, 0.1) 1px,
+            rgba(255,255,255,.1) 0px,
+            rgba(255,255,255,.1) 1px,
             transparent 1px,
             transparent 3px
         );
@@ -137,25 +219,38 @@ video {
 ========================================================= */
 
 nav {
-    position: sticky;
-    top: 0;
 
-    z-index: 1000;
+    position:
+        sticky;
 
-    min-height: 72px;
+    top:
+        0;
 
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    z-index:
+        1000;
+
+    min-height:
+        72px;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        space-between;
 
     padding:
-        0 6vw;
+        0
+        6vw;
 
     background:
-        rgba(8, 8, 8, 0.88);
+        rgba(8,8,8,.88);
 
     border-bottom:
-        1px solid rgba(255, 255, 255, 0.08);
+        1px solid
+        rgba(255,255,255,.08);
 
     backdrop-filter:
         blur(16px);
@@ -166,6 +261,7 @@ nav {
 
 
 .logo {
+
     font-size:
         1.05rem;
 
@@ -173,7 +269,7 @@ nav {
         800;
 
     letter-spacing:
-        0.28em;
+        .28em;
 
     white-space:
         nowrap;
@@ -181,14 +277,19 @@ nav {
 
 
 .logo span {
+
     color:
-        #8b8b8b;
+        var(--accent);
 }
 
 
 .navLinks {
-    display: flex;
-    align-items: center;
+
+    display:
+        flex;
+
+    align-items:
+        center;
 
     gap:
         36px;
@@ -196,7 +297,9 @@ nav {
 
 
 .navLinks a {
-    position: relative;
+
+    position:
+        relative;
 
     color:
         #777;
@@ -208,36 +311,43 @@ nav {
         uppercase;
 
     font-size:
-        0.7rem;
+        .7rem;
 
     font-weight:
         700;
 
     letter-spacing:
-        0.2em;
+        .2em;
 
     transition:
-        color 0.2s ease;
+        color .2s ease;
 }
 
 
 .navLinks a:hover,
 .navLinks a.active {
+
     color:
         #fff;
 }
 
 
 .navLinks a::after {
+
     content:
         "";
 
-    position: absolute;
+    position:
+        absolute;
 
-    left: 0;
-    right: 0;
+    left:
+        0;
 
-    bottom: -10px;
+    right:
+        0;
+
+    bottom:
+        -10px;
 
     height:
         1px;
@@ -249,12 +359,13 @@ nav {
         scaleX(0);
 
     transition:
-        transform 0.2s ease;
+        transform .2s ease;
 }
 
 
 .navLinks a:hover::after,
 .navLinks a.active::after {
+
     transform:
         scaleX(1);
 }
@@ -265,7 +376,9 @@ nav {
 ========================================================= */
 
 .heroHeader {
-    position: relative;
+
+    position:
+        relative;
 
     max-width:
         1500px;
@@ -274,25 +387,22 @@ nav {
         0 auto;
 
     padding:
-        130px 6vw 90px;
+        130px
+        6vw
+        90px;
 
     overflow:
         hidden;
 }
 
 
-.heroHeader .eyebrow {
-    margin-bottom:
-        18px;
-}
-
-
 .eyebrow {
+
     color:
-        #777;
+        var(--accent);
 
     font-size:
-        0.67rem;
+        .67rem;
 
     font-weight:
         700;
@@ -301,14 +411,24 @@ nav {
         uppercase;
 
     letter-spacing:
-        0.3em;
+        .3em;
+}
+
+
+.heroHeader .eyebrow {
+
+    margin-bottom:
+        18px;
 }
 
 
 .heroHeader h1 {
-    position: relative;
 
-    z-index: 2;
+    position:
+        relative;
+
+    z-index:
+        2;
 
     max-width:
         900px;
@@ -324,10 +444,10 @@ nav {
         800;
 
     line-height:
-        0.82;
+        .82;
 
     letter-spacing:
-        -0.065em;
+        -.065em;
 
     text-transform:
         uppercase;
@@ -335,9 +455,12 @@ nav {
 
 
 .heroHeader p {
-    position: relative;
 
-    z-index: 2;
+    position:
+        relative;
+
+    z-index:
+        2;
 
     max-width:
         620px;
@@ -349,7 +472,7 @@ nav {
         #888;
 
     font-size:
-        0.95rem;
+        .95rem;
 
     line-height:
         1.8;
@@ -357,11 +480,13 @@ nav {
 
 
 /* =========================================================
-   ORBIT DECORATION
+   ORBIT
 ========================================================= */
 
 .orbit {
-    position: absolute;
+
+    position:
+        absolute;
 
     width:
         430px;
@@ -376,27 +501,34 @@ nav {
         50px;
 
     border:
-        1px solid rgba(255, 255, 255, 0.07);
+        1px solid
+        rgba(183,148,255,.12);
 
     border-radius:
         50%;
 
     animation:
-        orbitRotate 20s linear infinite;
+        orbitRotate
+        20s
+        linear
+        infinite;
 }
 
 
 .orbit::before {
+
     content:
         "";
 
-    position: absolute;
+    position:
+        absolute;
 
     inset:
         55px;
 
     border:
-        1px solid rgba(255, 255, 255, 0.035);
+        1px solid
+        rgba(255,255,255,.035);
 
     border-radius:
         50%;
@@ -404,7 +536,9 @@ nav {
 
 
 .orbitDot {
-    position: absolute;
+
+    position:
+        absolute;
 
     width:
         8px;
@@ -422,25 +556,29 @@ nav {
         50%;
 
     background:
-        #fff;
+        var(--accent);
 
     box-shadow:
-        0 0 25px rgba(255, 255, 255, 0.8);
+        0
+        0
+        25px
+        rgba(183,148,255,.8);
 }
 
 
 @keyframes orbitRotate {
 
     from {
+
         transform:
             rotate(0deg);
     }
 
     to {
+
         transform:
             rotate(360deg);
     }
-
 }
 
 
@@ -449,6 +587,7 @@ nav {
 ========================================================= */
 
 .rosterSection {
+
     max-width:
         1500px;
 
@@ -456,7 +595,9 @@ nav {
         0 auto;
 
     padding:
-        0 6vw 130px;
+        0
+        6vw
+        130px;
 }
 
 
@@ -465,13 +606,21 @@ nav {
 ========================================================= */
 
 .controls {
-    position: relative;
 
-    z-index: 50;
+    position:
+        relative;
 
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    z-index:
+        50;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        space-between;
 
     gap:
         30px;
@@ -480,13 +629,16 @@ nav {
         45px;
 
     padding:
-        18px 0;
+        18px
+        0;
 
     border-top:
-        1px solid rgba(255, 255, 255, 0.08);
+        1px solid
+        rgba(255,255,255,.08);
 
     border-bottom:
-        1px solid rgba(255, 255, 255, 0.08);
+        1px solid
+        rgba(255,255,255,.08);
 }
 
 
@@ -495,6 +647,7 @@ nav {
 ========================================================= */
 
 .search {
+
     flex:
         1;
 
@@ -504,11 +657,13 @@ nav {
 
 
 .search input {
+
     width:
         100%;
 
     padding:
-        14px 0;
+        14px
+        0;
 
     color:
         #fff;
@@ -520,34 +675,37 @@ nav {
         none;
 
     border-bottom:
-        1px solid #333;
+        1px solid
+        #333;
 
     outline:
         none;
 
     font-size:
-        0.72rem;
+        .72rem;
 
     font-weight:
         600;
 
     letter-spacing:
-        0.18em;
+        .18em;
 
     transition:
-        border-color 0.2s ease;
+        border-color .2s ease;
 }
 
 
 .search input::placeholder {
+
     color:
         #555;
 }
 
 
 .search input:focus {
+
     border-color:
-        #aaa;
+        var(--accent);
 }
 
 
@@ -556,8 +714,12 @@ nav {
 ========================================================= */
 
 .filters {
-    display: flex;
-    align-items: center;
+
+    display:
+        flex;
+
+    align-items:
+        center;
 
     gap:
         8px;
@@ -567,10 +729,19 @@ nav {
 }
 
 
+.roleGroup {
+
+    position:
+        relative;
+}
+
+
 .roleFilter,
 .subFilters button {
+
     border:
-        1px solid rgba(255, 255, 255, 0.12);
+        1px solid
+        rgba(255,255,255,.12);
 
     background:
         transparent;
@@ -585,31 +756,36 @@ nav {
         uppercase;
 
     font-size:
-        0.64rem;
+        .64rem;
 
     font-weight:
         700;
 
     letter-spacing:
-        0.14em;
+        .14em;
 
     transition:
-        0.2s ease;
+        var(--transition);
 }
 
 
 .roleFilter {
+
     min-height:
         40px;
 
-    display: flex;
-    align-items: center;
+    display:
+        flex;
+
+    align-items:
+        center;
 
     gap:
         10px;
 
     padding:
-        0 15px;
+        0
+        15px;
 }
 
 
@@ -617,24 +793,20 @@ nav {
 .roleFilter.active,
 .subFilters button:hover,
 .subFilters button.active {
+
     color:
         #fff;
 
     border-color:
-        rgba(255, 255, 255, 0.55);
+        rgba(183,148,255,.55);
 
     background:
-        rgba(255, 255, 255, 0.06);
-}
-
-
-.roleGroup {
-    position:
-        relative;
+        rgba(183,148,255,.07);
 }
 
 
 .dropdownArrow {
+
     display:
         inline-block;
 
@@ -642,14 +814,16 @@ nav {
         #555;
 
     font-size:
-        0.85rem;
+        .85rem;
 
     transition:
-        transform 0.2s ease;
+        transform .2s ease;
 }
 
 
-.roleGroup.open .dropdownArrow {
+.roleGroup.open
+.dropdownArrow {
+
     transform:
         rotate(180deg);
 }
@@ -660,6 +834,7 @@ nav {
 ========================================================= */
 
 .subFilters {
+
     position:
         absolute;
 
@@ -685,13 +860,17 @@ nav {
         7px;
 
     background:
-        rgba(12, 12, 12, 0.98);
+        rgba(12,12,12,.98);
 
     border:
-        1px solid rgba(255, 255, 255, 0.12);
+        1px solid
+        rgba(255,255,255,.12);
 
     box-shadow:
-        0 20px 50px rgba(0, 0, 0, 0.5);
+        0
+        20px
+        50px
+        rgba(0,0,0,.5);
 
     opacity:
         0;
@@ -703,11 +882,15 @@ nav {
         translateY(-7px);
 
     transition:
-        0.18s ease;
+        opacity .18s ease,
+        transform .18s ease,
+        visibility .18s ease;
 }
 
 
-.roleGroup.open .subFilters {
+.roleGroup.open
+.subFilters {
+
     opacity:
         1;
 
@@ -720,11 +903,13 @@ nav {
 
 
 .subFilters button {
+
     width:
         100%;
 
     padding:
-        13px 14px;
+        13px
+        14px;
 
     text-align:
         left;
@@ -733,11 +918,13 @@ nav {
         none;
 
     border-bottom:
-        1px solid rgba(255, 255, 255, 0.06);
+        1px solid
+        rgba(255,255,255,.06);
 }
 
 
 .subFilters button:last-child {
+
     border-bottom:
         none;
 }
@@ -748,13 +935,14 @@ nav {
 ========================================================= */
 
 .roster {
+
     display:
         grid;
 
     grid-template-columns:
         repeat(
             4,
-            minmax(0, 1fr)
+            minmax(0,1fr)
         );
 
     gap:
@@ -763,6 +951,7 @@ nav {
 
 
 .emptyRoster {
+
     grid-column:
         1 / -1;
 
@@ -782,13 +971,14 @@ nav {
         #555;
 
     border:
-        1px solid rgba(255, 255, 255, 0.06);
+        1px solid
+        rgba(255,255,255,.06);
 
     font-size:
-        0.7rem;
+        .7rem;
 
     letter-spacing:
-        0.3em;
+        .3em;
 
     text-align:
         center;
@@ -800,6 +990,7 @@ nav {
 ========================================================= */
 
 .heroCard {
+
     position:
         relative;
 
@@ -813,21 +1004,23 @@ nav {
         #0d0d0d;
 
     border:
-        1px solid rgba(255, 255, 255, 0.08);
+        1px solid
+        rgba(255,255,255,.08);
 
     transition:
-        transform 0.25s ease,
-        border-color 0.25s ease,
-        background 0.25s ease;
+        transform var(--transition),
+        border-color var(--transition),
+        background var(--transition);
 }
 
 
 .heroCard:hover {
+
     transform:
         translateY(-5px);
 
     border-color:
-        rgba(255, 255, 255, 0.35);
+        rgba(183,148,255,.4);
 
     background:
         #111;
@@ -835,10 +1028,11 @@ nav {
 
 
 /* =========================================================
-   SQUARE HERO THUMBNAIL
+   HERO THUMBNAIL
 ========================================================= */
 
 .heroArt {
+
     position:
         relative;
 
@@ -857,6 +1051,7 @@ nav {
 
 
 .heroArt::after {
+
     content:
         "";
 
@@ -872,13 +1067,14 @@ nav {
     background:
         linear-gradient(
             to top,
-            rgba(0, 0, 0, 0.55),
-            transparent 45%
+            rgba(0,0,0,.45),
+            transparent 46%
         );
 }
 
 
 .heroArt img {
+
     width:
         100%;
 
@@ -892,12 +1088,14 @@ nav {
         center;
 
     transition:
-        transform 0.4s ease,
-        filter 0.4s ease;
+        transform .4s ease,
+        filter .4s ease;
 }
 
 
-.heroCard:hover .heroArt img {
+.heroCard:hover
+.heroArt img {
+
     transform:
         scale(1.035);
 
@@ -907,6 +1105,7 @@ nav {
 
 
 .heroArtFallback {
+
     display:
         flex;
 
@@ -932,22 +1131,51 @@ nav {
 
 
 /* =========================================================
-   HERO CARD INFO
+   HERO INFO
 ========================================================= */
 
 .heroInfo {
+
     position:
         relative;
 
     z-index:
         2;
 
+    min-height:
+        135px;
+
+    display:
+        flex;
+
+    align-items:
+        flex-end;
+
+    justify-content:
+        space-between;
+
+    gap:
+        20px;
+
     padding:
-        21px 20px 24px;
+        21px
+        20px
+        24px;
+}
+
+
+.heroInfoText {
+
+    min-width:
+        0;
+
+    flex:
+        1;
 }
 
 
 .heroName {
+
     color:
         #fff;
 
@@ -961,11 +1189,12 @@ nav {
         uppercase;
 
     letter-spacing:
-        0.05em;
+        .05em;
 }
 
 
 .heroTitle {
+
     min-height:
         35px;
 
@@ -976,14 +1205,31 @@ nav {
         #666;
 
     font-size:
-        0.72rem;
+        .72rem;
 
     line-height:
         1.45;
 }
 
 
+/* =========================================================
+   HERO ROLE TEXT
+========================================================= */
+
 .heroRole {
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    flex-wrap:
+        wrap;
+
+    gap:
+        5px;
+
     margin-top:
         18px;
 
@@ -991,7 +1237,7 @@ nav {
         #999;
 
     font-size:
-        0.58rem;
+        .54rem;
 
     font-weight:
         700;
@@ -1000,7 +1246,105 @@ nav {
         uppercase;
 
     letter-spacing:
-        0.22em;
+        .13em;
+}
+
+
+.heroRoleDivider {
+
+    color:
+        #444;
+
+    margin:
+        0
+        2px;
+}
+
+
+/* =========================================================
+   HERO ROLE ICONS
+========================================================= */
+
+.heroRoleIcons {
+
+    flex-shrink:
+        0;
+
+    display:
+        flex;
+
+    align-items:
+        flex-end;
+
+    justify-content:
+        flex-end;
+
+    gap:
+        7px;
+}
+
+
+.heroRoleIcon {
+
+    width:
+        31px;
+
+    height:
+        31px;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    opacity:
+        .68;
+
+    transition:
+        opacity .2s ease,
+        transform .2s ease,
+        filter .2s ease;
+}
+
+
+.heroRoleIcon img {
+
+    width:
+        100%;
+
+    height:
+        100%;
+
+    object-fit:
+        contain;
+}
+
+
+.heroCard:hover
+.heroRoleIcon {
+
+    opacity:
+        1;
+
+    filter:
+        drop-shadow(
+            0
+            0
+            5px
+            rgba(255,255,255,.18)
+        );
+}
+
+
+.heroRoleIcon:hover {
+
+    transform:
+        translateY(-2px)
+        scale(1.08);
 }
 
 
@@ -1009,26 +1353,29 @@ nav {
 ========================================================= */
 
 footer {
+
     padding:
-        45px 6vw;
+        45px
+        6vw;
 
     color:
         #444;
 
     border-top:
-        1px solid rgba(255, 255, 255, 0.07);
+        1px solid
+        rgba(255,255,255,.07);
 
     text-align:
         center;
 
     font-size:
-        0.58rem;
+        .58rem;
 
     font-weight:
         700;
 
     letter-spacing:
-        0.3em;
+        .3em;
 }
 
 
@@ -1037,6 +1384,7 @@ footer {
 ========================================================= */
 
 .modal {
+
     position:
         fixed;
 
@@ -1050,7 +1398,7 @@ footer {
         auto;
 
     background:
-        rgba(0, 0, 0, 0.88);
+        rgba(0,0,0,.88);
 
     backdrop-filter:
         blur(12px);
@@ -1065,12 +1413,13 @@ footer {
         hidden;
 
     transition:
-        opacity 0.2s ease,
-        visibility 0.2s ease;
+        opacity .2s ease,
+        visibility .2s ease;
 }
 
 
 .modal.open {
+
     opacity:
         1;
 
@@ -1080,8 +1429,12 @@ footer {
 
 
 .modalContent {
+
     width:
-        min(1300px, 94vw);
+        min(
+            1300px,
+            94vw
+        );
 
     min-height:
         100vh;
@@ -1090,11 +1443,14 @@ footer {
         0 auto;
 
     padding:
-        90px 0 120px;
+        90px
+        0
+        120px;
 }
 
 
 .close {
+
     position:
         fixed;
 
@@ -1126,10 +1482,11 @@ footer {
         #888;
 
     background:
-        rgba(10, 10, 10, 0.85);
+        rgba(10,10,10,.85);
 
     border:
-        1px solid rgba(255, 255, 255, 0.12);
+        1px solid
+        rgba(255,255,255,.12);
 
     cursor:
         pointer;
@@ -1137,23 +1494,21 @@ footer {
     font-size:
         1.8rem;
 
-    font-weight:
-        200;
-
     line-height:
         1;
 
     transition:
-        0.2s ease;
+        var(--transition);
 }
 
 
 .close:hover {
+
     color:
         #fff;
 
     border-color:
-        #777;
+        var(--accent);
 }
 
 
@@ -1162,18 +1517,23 @@ footer {
 ========================================================= */
 
 .detailHeader {
+
     display:
         grid;
 
     grid-template-columns:
-        minmax(300px, 0.9fr)
-        minmax(0, 1.1fr);
+        minmax(300px,.9fr)
+        minmax(0,1.1fr);
 
     align-items:
         center;
 
     gap:
-        clamp(45px, 7vw, 100px);
+        clamp(
+            45px,
+            7vw,
+            100px
+        );
 
     min-height:
         540px;
@@ -1184,10 +1544,11 @@ footer {
 
 
 /* =========================================================
-   CHARACTER HERO ART
+   CHARACTER ART
 ========================================================= */
 
 .detailArt {
+
     position:
         relative;
 
@@ -1204,11 +1565,13 @@ footer {
         #0d0d0d;
 
     border:
-        1px solid rgba(255, 255, 255, 0.08);
+        1px solid
+        rgba(255,255,255,.08);
 }
 
 
 .detailArt::after {
+
     content:
         "";
 
@@ -1224,13 +1587,14 @@ footer {
     background:
         linear-gradient(
             to top,
-            rgba(0, 0, 0, 0.3),
+            rgba(0,0,0,.3),
             transparent 45%
         );
 }
 
 
 .detailArt img {
+
     width:
         100%;
 
@@ -1238,14 +1602,15 @@ footer {
         100%;
 
     object-fit:
-        cover;
+        contain;
 
     object-position:
-        center top;
+        center;
 }
 
 
 .detailArtFallback {
+
     width:
         100%;
 
@@ -1277,6 +1642,7 @@ footer {
 ========================================================= */
 
 .detailName {
+
     margin-top:
         14px;
 
@@ -1294,10 +1660,10 @@ footer {
         900;
 
     line-height:
-        0.88;
+        .88;
 
     letter-spacing:
-        -0.055em;
+        -.055em;
 
     text-transform:
         uppercase;
@@ -1305,6 +1671,7 @@ footer {
 
 
 .detailTitle {
+
     margin-top:
         20px;
 
@@ -1315,11 +1682,12 @@ footer {
         1rem;
 
     letter-spacing:
-        0.04em;
+        .04em;
 }
 
 
 .detailDescription {
+
     max-width:
         650px;
 
@@ -1330,7 +1698,7 @@ footer {
         #aaa;
 
     font-size:
-        0.95rem;
+        .95rem;
 
     line-height:
         1.85;
@@ -1342,6 +1710,7 @@ footer {
 ========================================================= */
 
 .tags {
+
     display:
         flex;
 
@@ -1357,17 +1726,20 @@ footer {
 
 
 .tag {
+
     padding:
-        8px 11px;
+        8px
+        11px;
 
     color:
         #999;
 
     border:
-        1px solid rgba(255, 255, 255, 0.12);
+        1px solid
+        rgba(255,255,255,.12);
 
     font-size:
-        0.58rem;
+        .58rem;
 
     font-weight:
         700;
@@ -1376,15 +1748,16 @@ footer {
         uppercase;
 
     letter-spacing:
-        0.16em;
+        .16em;
 }
 
 
 /* =========================================================
-   CHARACTER NAVIGATION TABS
+   CHARACTER TABS
 ========================================================= */
 
 .characterTabs {
+
     position:
         sticky;
 
@@ -1404,28 +1777,29 @@ footer {
         60px;
 
     background:
-        rgba(8, 8, 8, 0.96);
+        rgba(8,8,8,.96);
 
     border-top:
-        1px solid rgba(255, 255, 255, 0.08);
+        1px solid
+        rgba(255,255,255,.08);
 
     border-bottom:
-        1px solid rgba(255, 255, 255, 0.08);
+        1px solid
+        rgba(255,255,255,.08);
 
     backdrop-filter:
-        blur(14px);
-
-    -webkit-backdrop-filter:
         blur(14px);
 }
 
 
 .characterTab {
+
     position:
         relative;
 
     padding:
-        19px 26px;
+        19px
+        26px;
 
     color:
         #555;
@@ -1443,32 +1817,35 @@ footer {
         uppercase;
 
     font-size:
-        0.65rem;
+        .65rem;
 
     font-weight:
         700;
 
     letter-spacing:
-        0.18em;
+        .18em;
 
     transition:
-        color 0.2s ease;
+        color .2s ease;
 }
 
 
 .characterTab:hover {
+
     color:
         #aaa;
 }
 
 
 .characterTab.active {
+
     color:
         #fff;
 }
 
 
 .characterTab::after {
+
     content:
         "";
 
@@ -1488,17 +1865,18 @@ footer {
         1px;
 
     background:
-        #fff;
+        var(--accent);
 
     transform:
         scaleX(0);
 
     transition:
-        transform 0.2s ease;
+        transform .2s ease;
 }
 
 
 .characterTab.active::after {
+
     transform:
         scaleX(1);
 }
@@ -1509,15 +1887,19 @@ footer {
 ========================================================= */
 
 .characterPanel {
+
     display:
         none;
 
     animation:
-        panelFade 0.25s ease;
+        panelFade
+        .25s
+        ease;
 }
 
 
 .characterPanel.active {
+
     display:
         block;
 }
@@ -1526,6 +1908,7 @@ footer {
 @keyframes panelFade {
 
     from {
+
         opacity:
             0;
 
@@ -1534,17 +1917,18 @@ footer {
     }
 
     to {
+
         opacity:
             1;
 
         transform:
             translateY(0);
     }
-
 }
 
 
 .sectionTitle {
+
     margin-bottom:
         32px;
 
@@ -1552,7 +1936,7 @@ footer {
         #777;
 
     font-size:
-        0.68rem;
+        .68rem;
 
     font-weight:
         700;
@@ -1561,7 +1945,7 @@ footer {
         uppercase;
 
     letter-spacing:
-        0.3em;
+        .3em;
 }
 
 
@@ -1570,12 +1954,13 @@ footer {
 ========================================================= */
 
 .combatProfile {
+
     display:
         grid;
 
     grid-template-columns:
-        minmax(350px, 0.9fr)
-        minmax(300px, 1.1fr);
+        minmax(350px,.9fr)
+        minmax(300px,1.1fr);
 
     gap:
         70px;
@@ -1587,10 +1972,11 @@ footer {
         40px;
 
     background:
-        rgba(255, 255, 255, 0.015);
+        rgba(255,255,255,.015);
 
     border:
-        1px solid rgba(255, 255, 255, 0.08);
+        1px solid
+        rgba(255,255,255,.08);
 }
 
 
@@ -1599,6 +1985,7 @@ footer {
 ========================================================= */
 
 .radarChart {
+
     width:
         100%;
 
@@ -1611,6 +1998,7 @@ footer {
 
 
 .radarSVG {
+
     width:
         100%;
 
@@ -1623,11 +2011,12 @@ footer {
 
 
 .radarGrid {
+
     fill:
         none;
 
     stroke:
-        rgba(255, 255, 255, 0.11);
+        rgba(255,255,255,.11);
 
     stroke-width:
         1;
@@ -1635,8 +2024,9 @@ footer {
 
 
 .radarAxis {
+
     stroke:
-        rgba(255, 255, 255, 0.08);
+        rgba(255,255,255,.08);
 
     stroke-width:
         1;
@@ -1644,30 +2034,35 @@ footer {
 
 
 .radarData {
+
     fill:
-        rgba(255, 255, 255, 0.12);
+        rgba(183,148,255,.16);
 
     stroke:
-        rgba(255, 255, 255, 0.9);
+        var(--accent);
 
     stroke-width:
         2;
 
     filter:
         drop-shadow(
-            0 0 8px
-            rgba(255, 255, 255, 0.15)
+            0
+            0
+            8px
+            rgba(183,148,255,.25)
         );
 }
 
 
 .radarPoint {
+
     fill:
-        #fff;
+        var(--accent);
 }
 
 
 .radarLabel {
+
     fill:
         #777;
 
@@ -1687,6 +2082,7 @@ footer {
 ========================================================= */
 
 .profileStats {
+
     display:
         flex;
 
@@ -1699,6 +2095,7 @@ footer {
 
 
 .profileStatTop {
+
     display:
         flex;
 
@@ -1715,7 +2112,7 @@ footer {
         #888;
 
     font-size:
-        0.67rem;
+        .67rem;
 
     font-weight:
         700;
@@ -1724,17 +2121,19 @@ footer {
         uppercase;
 
     letter-spacing:
-        0.13em;
+        .13em;
 }
 
 
 .profileStatTop span:last-child {
+
     color:
         #ccc;
 }
 
 
 .profileBar {
+
     position:
         relative;
 
@@ -1745,19 +2144,23 @@ footer {
         hidden;
 
     background:
-        rgba(255, 255, 255, 0.08);
+        rgba(255,255,255,.08);
 }
 
 
 .profileBarFill {
+
     height:
         100%;
 
     background:
-        #ddd;
+        var(--accent);
 
     box-shadow:
-        0 0 8px rgba(255, 255, 255, 0.2);
+        0
+        0
+        8px
+        rgba(183,148,255,.25);
 }
 
 
@@ -1766,13 +2169,14 @@ footer {
 ========================================================= */
 
 .abilityGrid {
+
     display:
         grid;
 
     grid-template-columns:
         repeat(
             2,
-            minmax(0, 1fr)
+            minmax(0,1fr)
         );
 
     gap:
@@ -1785,6 +2189,7 @@ footer {
 ========================================================= */
 
 .ability {
+
     position:
         relative;
 
@@ -1795,32 +2200,37 @@ footer {
         hidden;
 
     background:
-        rgba(255, 255, 255, 0.018);
+        rgba(255,255,255,.018);
 
     border:
-        1px solid rgba(255, 255, 255, 0.08);
+        1px solid
+        rgba(255,255,255,.08);
 
     transition:
-        border-color 0.2s ease,
-        background 0.2s ease;
+        border-color .2s ease,
+        background .2s ease;
 }
 
 
 .ability:hover {
+
     border-color:
-        rgba(255, 255, 255, 0.16);
+        rgba(183,148,255,.25);
 
     background:
-        rgba(255, 255, 255, 0.026);
+        rgba(255,255,255,.026);
 }
 
 
 .abilityTop {
+
     display:
         grid;
 
     grid-template-columns:
-        70px 1fr auto;
+        70px
+        1fr
+        auto;
 
     align-items:
         center;
@@ -1838,6 +2248,7 @@ footer {
 ========================================================= */
 
 .abilityIcon {
+
     position:
         relative;
 
@@ -1857,11 +2268,13 @@ footer {
         #080808;
 
     border:
-        1px solid rgba(255, 255, 255, 0.13);
+        1px solid
+        rgba(255,255,255,.13);
 }
 
 
 .abilityIcon img {
+
     width:
         100%;
 
@@ -1874,6 +2287,7 @@ footer {
 
 
 .abilityIconFallback {
+
     width:
         100%;
 
@@ -1905,17 +2319,19 @@ footer {
 ========================================================= */
 
 .abilityHeading {
+
     min-width:
         0;
 }
 
 
 .abilityType {
+
     color:
-        #666;
+        var(--accent);
 
     font-size:
-        0.55rem;
+        .55rem;
 
     font-weight:
         700;
@@ -1924,11 +2340,12 @@ footer {
         uppercase;
 
     letter-spacing:
-        0.18em;
+        .18em;
 }
 
 
 .ability h3 {
+
     margin-top:
         6px;
 
@@ -1944,6 +2361,7 @@ footer {
 
 
 .abilityKey {
+
     margin-top:
         7px;
 
@@ -1951,21 +2369,22 @@ footer {
         #555;
 
     font-size:
-        0.55rem;
+        .55rem;
 
     font-weight:
         700;
 
     letter-spacing:
-        0.16em;
+        .16em;
 }
 
 
 /* =========================================================
-   PREVIEW ICON BUTTON
+   PREVIEW BUTTON
 ========================================================= */
 
 .previewButton {
+
     width:
         38px;
 
@@ -1988,44 +2407,49 @@ footer {
         transparent;
 
     border:
-        1px solid rgba(255, 255, 255, 0.1);
+        1px solid
+        rgba(255,255,255,.1);
 
     cursor:
         pointer;
 
     transition:
-        0.2s ease;
+        var(--transition);
 }
 
 
 .previewButton:hover {
+
     color:
         #fff;
 
     border-color:
-        #666;
+        var(--accent);
 
     background:
-        rgba(255, 255, 255, 0.04);
+        rgba(183,148,255,.07);
 }
 
 
 /* =========================================================
-   ABILITY DESCRIPTION
+   ABILITY SHORT DESCRIPTION
 ========================================================= */
 
 .abilityShort {
+
     min-height:
         78px;
 
     padding:
-        0 22px 22px;
+        0
+        22px
+        22px;
 
     color:
         #999;
 
     font-size:
-        0.82rem;
+        .82rem;
 
     line-height:
         1.65;
@@ -2037,15 +2461,18 @@ footer {
 ========================================================= */
 
 .abilityActions {
+
     display:
         flex;
 
     border-top:
-        1px solid rgba(255, 255, 255, 0.07);
+        1px solid
+        rgba(255,255,255,.07);
 }
 
 
 .abilityAction {
+
     flex:
         1;
 
@@ -2068,31 +2495,36 @@ footer {
         uppercase;
 
     font-size:
-        0.56rem;
+        .56rem;
 
     font-weight:
         700;
 
     letter-spacing:
-        0.15em;
+        .15em;
 
     transition:
-        0.2s ease;
+        var(--transition);
 }
 
 
-.abilityAction + .abilityAction {
+.abilityAction
++
+.abilityAction {
+
     border-left:
-        1px solid rgba(255, 255, 255, 0.07);
+        1px solid
+        rgba(255,255,255,.07);
 }
 
 
 .abilityAction:hover {
+
     color:
         #fff;
 
     background:
-        rgba(255, 255, 255, 0.04);
+        rgba(183,148,255,.05);
 }
 
 
@@ -2101,21 +2533,28 @@ footer {
 ========================================================= */
 
 .abilityDetails {
+
     display:
         none;
 
     padding:
-        25px 22px 27px;
+        25px
+        22px
+        27px;
 
     border-top:
-        1px solid rgba(255, 255, 255, 0.07);
+        1px solid
+        rgba(255,255,255,.07);
 
     animation:
-        detailsFade 0.2s ease;
+        detailsFade
+        .2s
+        ease;
 }
 
 
 .abilityDetails.open {
+
     display:
         block;
 }
@@ -2124,6 +2563,7 @@ footer {
 @keyframes detailsFade {
 
     from {
+
         opacity:
             0;
 
@@ -2132,22 +2572,23 @@ footer {
     }
 
     to {
+
         opacity:
             1;
 
         transform:
             translateY(0);
     }
-
 }
 
 
 .detailText {
+
     color:
         #aaa;
 
     font-size:
-        0.82rem;
+        .82rem;
 
     line-height:
         1.8;
@@ -2159,13 +2600,14 @@ footer {
 ========================================================= */
 
 .abilityStats {
+
     display:
         grid;
 
     grid-template-columns:
         repeat(
             2,
-            minmax(0, 1fr)
+            minmax(0,1fr)
         );
 
     gap:
@@ -2175,19 +2617,22 @@ footer {
         24px;
 
     background:
-        rgba(255, 255, 255, 0.06);
+        rgba(255,255,255,.06);
 
     border:
-        1px solid rgba(255, 255, 255, 0.06);
+        1px solid
+        rgba(255,255,255,.06);
 }
 
 
 .stat {
+
     min-width:
         0;
 
     padding:
-        13px 14px;
+        13px
+        14px;
 
     background:
         #0c0c0c;
@@ -2195,11 +2640,12 @@ footer {
 
 
 .statLabel {
+
     color:
         #555;
 
     font-size:
-        0.53rem;
+        .53rem;
 
     font-weight:
         700;
@@ -2211,11 +2657,12 @@ footer {
         uppercase;
 
     letter-spacing:
-        0.1em;
+        .1em;
 }
 
 
 .statValue {
+
     margin-top:
         6px;
 
@@ -2223,7 +2670,7 @@ footer {
         #ddd;
 
     font-size:
-        0.74rem;
+        .74rem;
 
     line-height:
         1.45;
@@ -2231,10 +2678,11 @@ footer {
 
 
 /* =========================================================
-   ABILITY VARIANT SECTIONS
+   COLORED ABILITY SECTIONS
 ========================================================= */
 
 .abilitySections {
+
     display:
         flex;
 
@@ -2250,8 +2698,9 @@ footer {
 
 
 .abilitySection {
+
     --variant-color:
-        255, 255, 255;
+        255,255,255;
 
     position:
         relative;
@@ -2265,19 +2714,20 @@ footer {
     background:
         rgba(
             var(--variant-color),
-            0.035
+            .035
         );
 
     border:
         1px solid
         rgba(
             var(--variant-color),
-            0.18
+            .18
         );
 }
 
 
 .abilitySection::before {
+
     content:
         "";
 
@@ -2304,6 +2754,7 @@ footer {
 
 
 .abilitySectionHeader {
+
     display:
         flex;
 
@@ -2319,7 +2770,7 @@ footer {
         );
 
     font-size:
-        0.7rem;
+        .7rem;
 
     font-weight:
         800;
@@ -2328,11 +2779,12 @@ footer {
         uppercase;
 
     letter-spacing:
-        0.14em;
+        .14em;
 }
 
 
 .variantIndicator {
+
     width:
         8px;
 
@@ -2351,15 +2803,18 @@ footer {
         );
 
     box-shadow:
-        0 0 10px
+        0
+        0
+        10px
         rgba(
             var(--variant-color),
-            0.5
+            .5
         );
 }
 
 
 .abilitySectionDescription {
+
     margin-top:
         14px;
 
@@ -2367,7 +2822,7 @@ footer {
         #999;
 
     font-size:
-        0.78rem;
+        .78rem;
 
     line-height:
         1.7;
@@ -2375,14 +2830,17 @@ footer {
 
 
 .variantStats {
+
     margin-top:
         18px;
 }
 
 
-.variantStats .stat {
+.variantStats
+.stat {
+
     background:
-        rgba(0, 0, 0, 0.28);
+        rgba(0,0,0,.28);
 }
 
 
@@ -2391,71 +2849,81 @@ footer {
 ========================================================= */
 
 .variant-red {
+
     --variant-color:
-        235, 82, 82;
+        235,82,82;
 }
 
 
 .variant-orange {
+
     --variant-color:
-        238, 145, 69;
+        238,145,69;
 }
 
 
 .variant-yellow {
+
     --variant-color:
-        237, 207, 90;
+        237,207,90;
 }
 
 
 .variant-green {
+
     --variant-color:
-        92, 205, 121;
+        92,205,121;
 }
 
 
 .variant-teal {
+
     --variant-color:
-        73, 204, 189;
+        73,204,189;
 }
 
 
 .variant-blue {
+
     --variant-color:
-        82, 146, 230;
+        82,146,230;
 }
 
 
 .variant-violet {
+
     --variant-color:
-        165, 105, 232;
+        165,105,232;
 }
 
 
 .variant-pink {
+
     --variant-color:
-        234, 113, 181;
+        234,113,181;
 }
 
 
 .variant-white {
+
     --variant-color:
-        230, 230, 230;
+        230,230,230;
 }
 
 
 /* =========================================================
-   SKINS GRID
+   SKINS
 ========================================================= */
 
 .skinsGrid {
+
     display:
         grid;
 
     grid-template-columns:
         repeat(
             3,
-            minmax(0, 1fr)
+            minmax(0,1fr)
         );
 
     gap:
@@ -2464,6 +2932,7 @@ footer {
 
 
 .skinCard {
+
     overflow:
         hidden;
 
@@ -2474,24 +2943,27 @@ footer {
         #0c0c0c;
 
     border:
-        1px solid rgba(255, 255, 255, 0.08);
+        1px solid
+        rgba(255,255,255,.08);
 
     transition:
-        transform 0.22s ease,
-        border-color 0.22s ease;
+        transform .22s ease,
+        border-color .22s ease;
 }
 
 
 .skinCard:hover {
+
     transform:
         translateY(-4px);
 
     border-color:
-        rgba(255, 255, 255, 0.28);
+        rgba(183,148,255,.35);
 }
 
 
 .skinImage {
+
     position:
         relative;
 
@@ -2510,6 +2982,7 @@ footer {
 
 
 .skinImage img {
+
     width:
         100%;
 
@@ -2520,17 +2993,20 @@ footer {
         cover;
 
     transition:
-        transform 0.35s ease;
+        transform .35s ease;
 }
 
 
-.skinCard:hover .skinImage img {
+.skinCard:hover
+.skinImage img {
+
     transform:
         scale(1.035);
 }
 
 
 .skinFallback {
+
     width:
         100%;
 
@@ -2558,17 +3034,19 @@ footer {
 
 
 .skinInfo {
+
     padding:
         17px;
 }
 
 
 .skinName {
+
     color:
         #ddd;
 
     font-size:
-        0.88rem;
+        .88rem;
 
     font-weight:
         750;
@@ -2577,19 +3055,20 @@ footer {
         uppercase;
 
     letter-spacing:
-        0.05em;
+        .05em;
 }
 
 
 .skinRarity {
+
     margin-top:
         7px;
 
     color:
-        #666;
+        var(--accent);
 
     font-size:
-        0.56rem;
+        .56rem;
 
     font-weight:
         700;
@@ -2598,22 +3077,23 @@ footer {
         uppercase;
 
     letter-spacing:
-        0.16em;
+        .16em;
 }
 
 
 /* =========================================================
-   CONCEPT ART GRID
+   CONCEPT ART
 ========================================================= */
 
 .conceptGrid {
+
     display:
         grid;
 
     grid-template-columns:
         repeat(
             3,
-            minmax(0, 1fr)
+            minmax(0,1fr)
         );
 
     gap:
@@ -2622,6 +3102,7 @@ footer {
 
 
 .conceptCard {
+
     overflow:
         hidden;
 
@@ -2632,24 +3113,27 @@ footer {
         #0c0c0c;
 
     border:
-        1px solid rgba(255, 255, 255, 0.08);
+        1px solid
+        rgba(255,255,255,.08);
 
     transition:
-        transform 0.22s ease,
-        border-color 0.22s ease;
+        transform .22s ease,
+        border-color .22s ease;
 }
 
 
 .conceptCard:hover {
+
     transform:
         translateY(-4px);
 
     border-color:
-        rgba(255, 255, 255, 0.28);
+        rgba(183,148,255,.35);
 }
 
 
 .conceptImage {
+
     width:
         100%;
 
@@ -2665,6 +3149,7 @@ footer {
 
 
 .conceptImage img {
+
     width:
         100%;
 
@@ -2675,17 +3160,20 @@ footer {
         cover;
 
     transition:
-        transform 0.35s ease;
+        transform .35s ease;
 }
 
 
-.conceptCard:hover .conceptImage img {
+.conceptCard:hover
+.conceptImage img {
+
     transform:
         scale(1.025);
 }
 
 
 .conceptFallback {
+
     width:
         100%;
 
@@ -2713,17 +3201,19 @@ footer {
 
 
 .conceptInfo {
+
     padding:
         18px;
 }
 
 
 .conceptTitle {
+
     color:
         #ddd;
 
     font-size:
-        0.85rem;
+        .85rem;
 
     font-weight:
         750;
@@ -2732,11 +3222,12 @@ footer {
         uppercase;
 
     letter-spacing:
-        0.05em;
+        .05em;
 }
 
 
 .conceptDescription {
+
     margin-top:
         10px;
 
@@ -2744,7 +3235,7 @@ footer {
         #666;
 
     font-size:
-        0.72rem;
+        .72rem;
 
     line-height:
         1.6;
@@ -2752,10 +3243,11 @@ footer {
 
 
 /* =========================================================
-   EMPTY CHARACTER SECTIONS
+   EMPTY SECTIONS
 ========================================================= */
 
 .emptySection {
+
     grid-column:
         1 / -1;
 
@@ -2775,16 +3267,17 @@ footer {
         #4c4c4c;
 
     border:
-        1px solid rgba(255, 255, 255, 0.07);
+        1px solid
+        rgba(255,255,255,.07);
 
     font-size:
-        0.62rem;
+        .62rem;
 
     font-weight:
         700;
 
     letter-spacing:
-        0.25em;
+        .25em;
 
     text-align:
         center;
@@ -2796,6 +3289,7 @@ footer {
 ========================================================= */
 
 .previewModal {
+
     position:
         fixed;
 
@@ -2818,12 +3312,9 @@ footer {
         30px;
 
     background:
-        rgba(0, 0, 0, 0.9);
+        rgba(0,0,0,.9);
 
     backdrop-filter:
-        blur(10px);
-
-    -webkit-backdrop-filter:
         blur(10px);
 
     opacity:
@@ -2833,12 +3324,13 @@ footer {
         hidden;
 
     transition:
-        opacity 0.2s ease,
-        visibility 0.2s ease;
+        opacity .2s ease,
+        visibility .2s ease;
 }
 
 
 .previewModal.open {
+
     opacity:
         1;
 
@@ -2848,8 +3340,12 @@ footer {
 
 
 .previewWindow {
+
     width:
-        min(1000px, 92vw);
+        min(
+            1000px,
+            92vw
+        );
 
     max-height:
         90vh;
@@ -2861,14 +3357,19 @@ footer {
         #0a0a0a;
 
     border:
-        1px solid rgba(255, 255, 255, 0.14);
+        1px solid
+        rgba(255,255,255,.14);
 
     box-shadow:
-        0 30px 100px rgba(0, 0, 0, 0.7);
+        0
+        30px
+        100px
+        rgba(0,0,0,.7);
 }
 
 
 .previewHeader {
+
     min-height:
         55px;
 
@@ -2885,29 +3386,34 @@ footer {
         20px;
 
     padding:
-        0 18px 0 22px;
+        0
+        18px
+        0
+        22px;
 
     color:
         #aaa;
 
     border-bottom:
-        1px solid rgba(255, 255, 255, 0.08);
+        1px solid
+        rgba(255,255,255,.08);
 
     text-transform:
         uppercase;
 
     font-size:
-        0.64rem;
+        .64rem;
 
     font-weight:
         700;
 
     letter-spacing:
-        0.17em;
+        .17em;
 }
 
 
 .previewClose {
+
     width:
         36px;
 
@@ -2939,22 +3445,26 @@ footer {
         1.5rem;
 
     transition:
-        color 0.2s ease;
+        color .2s ease;
 }
 
 
 .previewClose:hover {
+
     color:
         #fff;
 }
 
 
 .previewMedia {
+
     width:
         100%;
 
     max-height:
-        calc(90vh - 55px);
+        calc(
+            90vh - 55px
+        );
 
     display:
         flex;
@@ -2974,6 +3484,7 @@ footer {
 
 
 .previewMedia img {
+
     width:
         auto;
 
@@ -2984,7 +3495,9 @@ footer {
         auto;
 
     max-height:
-        calc(90vh - 55px);
+        calc(
+            90vh - 55px
+        );
 
     object-fit:
         contain;
@@ -2992,11 +3505,14 @@ footer {
 
 
 .previewMedia video {
+
     width:
         100%;
 
     max-height:
-        calc(90vh - 55px);
+        calc(
+            90vh - 55px
+        );
 
     object-fit:
         contain;
@@ -3007,6 +3523,7 @@ footer {
 
 
 .previewFallback {
+
     width:
         100%;
 
@@ -3026,13 +3543,13 @@ footer {
         #444;
 
     font-size:
-        0.7rem;
+        .7rem;
 
     font-weight:
         700;
 
     letter-spacing:
-        0.25em;
+        .25em;
 
     text-align:
         center;
@@ -3048,15 +3565,17 @@ footer {
 ) {
 
     .roster {
+
         grid-template-columns:
             repeat(
                 3,
-                minmax(0, 1fr)
+                minmax(0,1fr)
             );
     }
 
 
     .controls {
+
         align-items:
             flex-start;
 
@@ -3066,6 +3585,7 @@ footer {
 
 
     .search {
+
         width:
             100%;
 
@@ -3075,14 +3595,17 @@ footer {
 
 
     .filters {
+
         width:
             100%;
     }
 
 
     .detailHeader {
+
         grid-template-columns:
-            0.85fr 1fr;
+            .85fr
+            1fr;
 
         gap:
             45px;
@@ -3090,22 +3613,24 @@ footer {
 
 
     .detailArt {
+
         height:
             500px;
     }
 
 
     .combatProfile {
+
         gap:
             40px;
     }
 
 
     .abilityGrid {
+
         grid-template-columns:
             1fr;
     }
-
 }
 
 
@@ -3118,24 +3643,31 @@ footer {
 ) {
 
     nav {
+
         padding:
-            0 4vw;
+            0
+            4vw;
     }
 
 
     .navLinks {
+
         gap:
             18px;
     }
 
 
     .heroHeader {
+
         padding:
-            100px 5vw 70px;
+            100px
+            5vw
+            70px;
     }
 
 
     .orbit {
+
         width:
             330px;
 
@@ -3146,26 +3678,31 @@ footer {
             -100px;
 
         opacity:
-            0.6;
+            .6;
     }
 
 
     .rosterSection {
+
         padding:
-            0 5vw 100px;
+            0
+            5vw
+            100px;
     }
 
 
     .roster {
+
         grid-template-columns:
             repeat(
                 2,
-                minmax(0, 1fr)
+                minmax(0,1fr)
             );
     }
 
 
     .modalContent {
+
         width:
             90vw;
 
@@ -3175,6 +3712,7 @@ footer {
 
 
     .detailHeader {
+
         grid-template-columns:
             1fr;
 
@@ -3187,8 +3725,12 @@ footer {
 
 
     .detailArt {
+
         width:
-            min(100%, 560px);
+            min(
+                100%,
+                560px
+            );
 
         height:
             auto;
@@ -3199,6 +3741,7 @@ footer {
 
 
     .combatProfile {
+
         grid-template-columns:
             1fr;
 
@@ -3208,6 +3751,7 @@ footer {
 
 
     .radarChart {
+
         max-width:
             430px;
     }
@@ -3215,15 +3759,17 @@ footer {
 
     .skinsGrid,
     .conceptGrid {
+
         grid-template-columns:
             repeat(
                 2,
-                minmax(0, 1fr)
+                minmax(0,1fr)
             );
     }
 
 
     .characterTabs {
+
         overflow-x:
             auto;
 
@@ -3233,16 +3779,29 @@ footer {
 
 
     .characterTabs::-webkit-scrollbar {
+
         display:
             none;
     }
 
 
     .characterTab {
+
         flex:
-            0 0 auto;
+            0
+            0
+            auto;
     }
 
+
+    .heroRoleIcon {
+
+        width:
+            28px;
+
+        height:
+            28px;
+    }
 }
 
 
@@ -3255,42 +3814,51 @@ footer {
 ) {
 
     nav {
+
         min-height:
             62px;
 
         padding:
-            0 18px;
+            0
+            18px;
     }
 
 
     .logo {
+
         font-size:
-            0.85rem;
+            .85rem;
     }
 
 
     .navLinks {
+
         gap:
             12px;
     }
 
 
     .navLinks a {
+
         font-size:
-            0.54rem;
+            .54rem;
 
         letter-spacing:
-            0.1em;
+            .1em;
     }
 
 
     .heroHeader {
+
         padding:
-            85px 20px 55px;
+            85px
+            20px
+            55px;
     }
 
 
     .heroHeader h1 {
+
         font-size:
             clamp(
                 3.3rem,
@@ -3301,15 +3869,17 @@ footer {
 
 
     .heroHeader p {
+
         margin-top:
             30px;
 
         font-size:
-            0.82rem;
+            .82rem;
     }
 
 
     .orbit {
+
         width:
             250px;
 
@@ -3325,30 +3895,36 @@ footer {
 
 
     .rosterSection {
+
         padding:
-            0 20px 80px;
+            0
+            20px
+            80px;
     }
 
 
     .filters {
+
         display:
             grid;
 
         grid-template-columns:
             repeat(
                 2,
-                minmax(0, 1fr)
+                minmax(0,1fr)
             );
     }
 
 
     .roleGroup {
+
         width:
             100%;
     }
 
 
     .roleFilter {
+
         width:
             100%;
 
@@ -3358,18 +3934,21 @@ footer {
 
 
     .allFilter {
+
         justify-content:
             center;
     }
 
 
     .subFilters {
+
         min-width:
             100%;
     }
 
 
     .roster {
+
         grid-template-columns:
             1fr;
 
@@ -3379,27 +3958,58 @@ footer {
 
 
     .heroInfo {
+
+        min-height:
+            120px;
+
         padding:
             18px;
+
+        gap:
+            12px;
     }
 
 
     .heroTitle {
+
         min-height:
             0;
     }
 
 
-    .modalContent {
+    .heroRoleIcons {
+
+        gap:
+            5px;
+    }
+
+
+    .heroRoleIcon {
+
         width:
-            calc(100vw - 32px);
+            27px;
+
+        height:
+            27px;
+    }
+
+
+    .modalContent {
+
+        width:
+            calc(
+                100vw - 32px
+            );
 
         padding:
-            70px 0 90px;
+            70px
+            0
+            90px;
     }
 
 
     .close {
+
         top:
             14px;
 
@@ -3415,6 +4025,7 @@ footer {
 
 
     .detailArt {
+
         width:
             100%;
 
@@ -3424,6 +4035,7 @@ footer {
 
 
     .detailName {
+
         font-size:
             clamp(
                 3rem,
@@ -3434,12 +4046,14 @@ footer {
 
 
     .detailDescription {
+
         font-size:
-            0.84rem;
+            .84rem;
     }
 
 
     .characterTabs {
+
         top:
             62px;
 
@@ -3455,15 +4069,18 @@ footer {
 
 
     .characterTab {
+
         padding:
-            17px 15px;
+            17px
+            15px;
 
         font-size:
-            0.56rem;
+            .56rem;
     }
 
 
     .characterTab::after {
+
         left:
             14px;
 
@@ -3473,20 +4090,25 @@ footer {
 
 
     .combatProfile {
+
         padding:
             15px;
     }
 
 
     .radarLabel {
+
         font-size:
             8px;
     }
 
 
     .abilityTop {
+
         grid-template-columns:
-            58px 1fr auto;
+            58px
+            1fr
+            auto;
 
         gap:
             12px;
@@ -3497,6 +4119,7 @@ footer {
 
 
     .abilityIcon {
+
         width:
             58px;
 
@@ -3506,33 +4129,41 @@ footer {
 
 
     .ability h3 {
+
         font-size:
-            0.95rem;
+            .95rem;
     }
 
 
     .abilityShort {
+
         min-height:
             0;
 
         padding:
-            0 17px 18px;
+            0
+            17px
+            18px;
     }
 
 
     .abilityDetails {
+
         padding:
-            20px 17px;
+            20px
+            17px;
     }
 
 
     .abilityStats {
+
         grid-template-columns:
             1fr;
     }
 
 
     .abilitySection {
+
         padding:
             17px;
     }
@@ -3540,28 +4171,31 @@ footer {
 
     .skinsGrid,
     .conceptGrid {
+
         grid-template-columns:
             1fr;
     }
 
 
     .previewModal {
+
         padding:
             15px;
     }
 
 
     .previewWindow {
+
         width:
             100%;
     }
 
 
     .previewFallback {
+
         min-height:
             300px;
     }
-
 }
 
 
@@ -3575,24 +4209,56 @@ footer {
 
     .navLinks a:nth-child(2),
     .navLinks a:nth-child(3) {
+
         display:
             none;
     }
 
 
     .filters {
+
         grid-template-columns:
             1fr;
     }
 
 
+    .heroInfo {
+
+        align-items:
+            center;
+    }
+
+
+    .heroRoleIcons {
+
+        flex-direction:
+            column;
+
+        align-items:
+            center;
+    }
+
+
+    .heroRoleIcon {
+
+        width:
+            25px;
+
+        height:
+            25px;
+    }
+
+
     .abilityTop {
+
         grid-template-columns:
-            52px 1fr;
+            52px
+            1fr;
     }
 
 
     .abilityIcon {
+
         width:
             52px;
 
@@ -3602,6 +4268,7 @@ footer {
 
 
     .previewButton {
+
         grid-column:
             1 / -1;
 
@@ -3614,17 +4281,21 @@ footer {
 
 
     .abilityActions {
+
         flex-direction:
             column;
     }
 
 
-    .abilityAction + .abilityAction {
+    .abilityAction
+    +
+    .abilityAction {
+
         border-left:
             none;
 
         border-top:
-            1px solid rgba(255, 255, 255, 0.07);
+            1px solid
+            rgba(255,255,255,.07);
     }
-
 }
