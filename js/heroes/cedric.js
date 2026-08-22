@@ -1,4 +1,6 @@
-const cedric = {
+window.heroes = window.heroes || [];
+
+window.heroes.push({
     name: "Cedric",
 
     title: "The Smoke Warden",
@@ -616,4 +618,4 @@ const cedric = {
 
     ]
 
-}
+});
