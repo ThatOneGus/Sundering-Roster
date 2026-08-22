@@ -85,8 +85,7 @@ const corvinSilas = {
     ===================================================== */
 
     conceptArt: [
-
-        /*
+        
         Example:
 
         {
@@ -98,7 +97,6 @@ const corvinSilas = {
             description:
                 "Early exploration of Corvin and Silas as a permanently linked pair."
         }
-        */
 
     ],
 
