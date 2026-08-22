@@ -38,19 +38,19 @@ const roleIconPaths = {
     /* STRIKER SUBCLASSES */
 
     Brawler:
-        "Assets/Roles/Striker/Brawler.png",
+        "Assets/Roles/Striker/IMG_6685.png",
 
     Marksman:
-        "Assets/Roles/Striker/Marksman.png",
+        "Assets/Roles/Striker/IMG_6689.png",
 
     Hunter:
-        "Assets/Roles/Striker/Hunter.png",
+        "Assets/Roles/Striker/IMG_6688.png",
 
     Ravager:
-        "Assets/Roles/Striker/Ravager.png",
+        "Assets/Roles/Striker/IMG_6687.png",
 
     Disruptor:
-        "Assets/Roles/Striker/Disruptor.png",
+        "Assets/Roles/Striker/IMG_6686.png",
 
 
     /* CATALYST SUBCLASSES */
