@@ -1,4 +1,6 @@
-const corvinSilas = {
+window.heroes = window.heroes || [];
+
+window.heroes.push({
     name: "Corvin & Silas",
 
     title: "The Bound Twins",
@@ -758,4 +760,4 @@ const corvinSilas = {
 
     ]
 
-}
+});
