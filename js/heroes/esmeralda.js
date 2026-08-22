@@ -94,7 +94,6 @@ const esmeralda = {
 
     conceptArt: [
 
-        /*
         Example:
 
         {
@@ -106,7 +105,6 @@ const esmeralda = {
             description:
                 "Early exploration of Esmeralda's psychic dagger combat style."
         }
-        */
 
     ],
 
