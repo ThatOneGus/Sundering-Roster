@@ -1,4 +1,6 @@
-const alejandro = {
+window.heroes = window.heroes || [];
+
+window.heroes.push({
     name: "Alejandro",
 
     title: "The Crown Prince of Elaris",
@@ -762,4 +764,4 @@ const alejandro = {
 
     ]
 
-};
+});
