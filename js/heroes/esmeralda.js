@@ -1,4 +1,6 @@
-const esmeralda = {
+window.heroes = window.heroes || [];
+
+window.heroes.push({
     name: "Esmeralda",
 
     title: "The Psychic Princess",
@@ -447,4 +449,4 @@ const esmeralda = {
 
     ]
 
-}
+});
