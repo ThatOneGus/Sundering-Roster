@@ -87,8 +87,6 @@ window.heroes.push({
     ===================================================== */
 
     conceptArt: [
-        
-        Example:
 
         {
             title: "Twin Design Exploration",
