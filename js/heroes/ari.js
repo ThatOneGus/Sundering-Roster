@@ -82,7 +82,7 @@ const ari = {
                 "Assets/Heroes/Ari/Concept-Art/early-concept.png",
 
             description:
-                "Early exploration of Ari's sunflower-inspired design."
+                "Previous Ari iterations"
         }
         
     ],
