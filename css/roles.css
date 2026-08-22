@@ -1,0 +1,1078 @@
+/* =========================================================
+   SUNDERING — ROLES PAGE
+========================================================= */
+
+
+/* =========================================================
+   ROLES HEADER
+========================================================= */
+
+.rolesHeader {
+
+    position:
+        relative;
+
+    max-width:
+        1500px;
+
+    min-height:
+        70vh;
+
+    margin:
+        0 auto;
+
+    padding:
+        130px
+        6vw
+        90px;
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    justify-content:
+        center;
+
+    overflow:
+        hidden;
+}
+
+
+.rolesHeader .eyebrow {
+
+    margin-bottom:
+        18px;
+}
+
+
+.rolesHeader h1 {
+
+    position:
+        relative;
+
+    z-index:
+        2;
+
+    max-width:
+        900px;
+
+    font-size:
+        clamp(
+            4rem,
+            10vw,
+            9rem
+        );
+
+    font-weight:
+        800;
+
+    line-height:
+        .82;
+
+    letter-spacing:
+        -.065em;
+
+    text-transform:
+        uppercase;
+}
+
+
+.rolesHeader p {
+
+    position:
+        relative;
+
+    z-index:
+        2;
+
+    max-width:
+        620px;
+
+    margin-top:
+        42px;
+
+    color:
+        #888;
+
+    font-size:
+        .95rem;
+
+    line-height:
+        1.8;
+}
+
+
+/* =========================================================
+   ROLE JUMP NAVIGATION
+========================================================= */
+
+.roleJumpSection {
+
+    max-width:
+        1500px;
+
+    margin:
+        0 auto;
+
+    padding:
+        0
+        6vw;
+}
+
+
+.roleJumpNav {
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    gap:
+        0;
+
+    border-top:
+        1px solid
+        rgba(255,255,255,.08);
+
+    border-bottom:
+        1px solid
+        rgba(255,255,255,.08);
+}
+
+
+.roleJumpNav a {
+
+    position:
+        relative;
+
+    flex:
+        1;
+
+    padding:
+        20px
+        25px;
+
+    color:
+        #666;
+
+    text-decoration:
+        none;
+
+    text-align:
+        center;
+
+    text-transform:
+        uppercase;
+
+    font-size:
+        .64rem;
+
+    font-weight:
+        700;
+
+    letter-spacing:
+        .18em;
+
+    border-right:
+        1px solid
+        rgba(255,255,255,.07);
+
+    transition:
+        color .2s ease,
+        background .2s ease;
+}
+
+
+.roleJumpNav a:last-child {
+
+    border-right:
+        none;
+}
+
+
+.roleJumpNav a:hover {
+
+    color:
+        #fff;
+
+    background:
+        rgba(183,148,255,.05);
+}
+
+
+/* =========================================================
+   ROLES PAGE
+========================================================= */
+
+.rolesPage {
+
+    max-width:
+        1500px;
+
+    margin:
+        0 auto;
+
+    padding:
+        40px
+        6vw
+        150px;
+}
+
+
+/* =========================================================
+   ROLE SECTION
+========================================================= */
+
+.roleSection {
+
+    padding:
+        110px
+        0;
+
+    scroll-margin-top:
+        100px;
+
+    border-bottom:
+        1px solid
+        rgba(255,255,255,.08);
+}
+
+
+.roleSection:last-child {
+
+    border-bottom:
+        none;
+}
+
+
+/* =========================================================
+   ROLE SECTION HEADER
+========================================================= */
+
+.roleSectionHeader {
+
+    display:
+        grid;
+
+    grid-template-columns:
+        180px
+        minmax(0,1fr);
+
+    gap:
+        60px;
+
+    align-items:
+        flex-start;
+
+    margin-bottom:
+        70px;
+}
+
+
+.roleNumber {
+
+    color:
+        rgba(255,255,255,.08);
+
+    font-size:
+        clamp(
+            5rem,
+            10vw,
+            10rem
+        );
+
+    font-weight:
+        900;
+
+    line-height:
+        .8;
+
+    letter-spacing:
+        -.06em;
+}
+
+
+.roleHeading {
+
+    max-width:
+        760px;
+}
+
+
+.roleHeading .eyebrow {
+
+    margin-bottom:
+        14px;
+}
+
+
+.roleHeading h2 {
+
+    color:
+        #fff;
+
+    font-size:
+        clamp(
+            3rem,
+            7vw,
+            6.5rem
+        );
+
+    font-weight:
+        900;
+
+    line-height:
+        .9;
+
+    letter-spacing:
+        -.045em;
+
+    text-transform:
+        uppercase;
+}
+
+
+.roleHeading p {
+
+    max-width:
+        680px;
+
+    margin-top:
+        28px;
+
+    color:
+        #999;
+
+    font-size:
+        .92rem;
+
+    line-height:
+        1.85;
+}
+
+
+/* =========================================================
+   VIEW ROLE BUTTON
+========================================================= */
+
+.viewRoleButton {
+
+    display:
+        inline-flex;
+
+    align-items:
+        center;
+
+    gap:
+        14px;
+
+    margin-top:
+        28px;
+
+    padding:
+        13px
+        0;
+
+    color:
+        var(--accent);
+
+    text-decoration:
+        none;
+
+    text-transform:
+        uppercase;
+
+    font-size:
+        .62rem;
+
+    font-weight:
+        800;
+
+    letter-spacing:
+        .18em;
+
+    transition:
+        color .2s ease;
+}
+
+
+.viewRoleButton span {
+
+    font-size:
+        1rem;
+
+    transition:
+        transform .2s ease;
+}
+
+
+.viewRoleButton:hover {
+
+    color:
+        #fff;
+}
+
+
+.viewRoleButton:hover span {
+
+    transform:
+        translateX(5px);
+}
+
+
+/* =========================================================
+   SUBCLASS GRID
+========================================================= */
+
+.subclassGrid {
+
+    display:
+        grid;
+
+    grid-template-columns:
+        repeat(
+            3,
+            minmax(0,1fr)
+        );
+
+    gap:
+        15px;
+}
+
+
+/* =========================================================
+   SUBCLASS CARD
+========================================================= */
+
+.subclassCard {
+
+    position:
+        relative;
+
+    min-height:
+        380px;
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    justify-content:
+        space-between;
+
+    padding:
+        28px;
+
+    overflow:
+        hidden;
+
+    color:
+        inherit;
+
+    text-decoration:
+        none;
+
+    background:
+        rgba(255,255,255,.018);
+
+    border:
+        1px solid
+        rgba(255,255,255,.08);
+
+    transition:
+        transform .25s ease,
+        border-color .25s ease,
+        background .25s ease;
+}
+
+
+.subclassCard::before {
+
+    content:
+        "";
+
+    position:
+        absolute;
+
+    width:
+        190px;
+
+    height:
+        190px;
+
+    top:
+        -110px;
+
+    right:
+        -110px;
+
+    border:
+        1px solid
+        rgba(183,148,255,.08);
+
+    transform:
+        rotate(45deg);
+
+    pointer-events:
+        none;
+}
+
+
+.subclassCard:hover {
+
+    transform:
+        translateY(-6px);
+
+    border-color:
+        rgba(183,148,255,.35);
+
+    background:
+        rgba(183,148,255,.035);
+}
+
+
+/* =========================================================
+   SUBCLASS ICON
+========================================================= */
+
+.subclassIcon {
+
+    width:
+        110px;
+
+    height:
+        110px;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    margin-bottom:
+        55px;
+}
+
+
+.subclassIcon img {
+
+    width:
+        100%;
+
+    height:
+        100%;
+
+    object-fit:
+        contain;
+
+    opacity:
+        .78;
+
+    transition:
+        transform .3s ease,
+        opacity .3s ease,
+        filter .3s ease;
+}
+
+
+.subclassCard:hover
+.subclassIcon img {
+
+    opacity:
+        1;
+
+    transform:
+        scale(1.05);
+
+    filter:
+        drop-shadow(
+            0
+            0
+            12px
+            rgba(183,148,255,.2)
+        );
+}
+
+
+/* =========================================================
+   SUBCLASS INFO
+========================================================= */
+
+.subclassInfo {
+
+    position:
+        relative;
+
+    z-index:
+        2;
+}
+
+
+.subclassNumber {
+
+    margin-bottom:
+        10px;
+
+    color:
+        var(--accent);
+
+    font-size:
+        .55rem;
+
+    font-weight:
+        700;
+
+    text-transform:
+        uppercase;
+
+    letter-spacing:
+        .18em;
+}
+
+
+.subclassInfo h3 {
+
+    color:
+        #fff;
+
+    font-size:
+        1.45rem;
+
+    font-weight:
+        800;
+
+    text-transform:
+        uppercase;
+
+    letter-spacing:
+        .02em;
+}
+
+
+.subclassInfo p {
+
+    margin-top:
+        16px;
+
+    color:
+        #777;
+
+    font-size:
+        .78rem;
+
+    line-height:
+        1.75;
+}
+
+
+/* =========================================================
+   SUBCLASS LINK
+========================================================= */
+
+.subclassLink {
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        space-between;
+
+    margin-top:
+        28px;
+
+    padding-top:
+        17px;
+
+    color:
+        #666;
+
+    border-top:
+        1px solid
+        rgba(255,255,255,.07);
+
+    text-transform:
+        uppercase;
+
+    font-size:
+        .57rem;
+
+    font-weight:
+        700;
+
+    letter-spacing:
+        .16em;
+
+    transition:
+        color .2s ease;
+}
+
+
+.subclassLink span {
+
+    color:
+        var(--accent);
+
+    font-size:
+        .95rem;
+
+    transition:
+        transform .2s ease;
+}
+
+
+.subclassCard:hover
+.subclassLink {
+
+    color:
+        #fff;
+}
+
+
+.subclassCard:hover
+.subclassLink span {
+
+    transform:
+        translateX(4px);
+}
+
+
+/* =========================================================
+   UNIQUE MAJOR ROLE ACCENTS
+========================================================= */
+
+#vanguard
+.roleHeading .eyebrow,
+#vanguard
+.subclassNumber {
+
+    color:
+        #8cb7ff;
+}
+
+
+#vanguard
+.viewRoleButton {
+
+    color:
+        #8cb7ff;
+}
+
+
+#vanguard
+.subclassCard:hover {
+
+    border-color:
+        rgba(140,183,255,.35);
+
+    background:
+        rgba(140,183,255,.03);
+}
+
+
+#striker
+.roleHeading .eyebrow,
+#striker
+.subclassNumber {
+
+    color:
+        #ff8d7b;
+}
+
+
+#striker
+.viewRoleButton {
+
+    color:
+        #ff8d7b;
+}
+
+
+#striker
+.subclassCard:hover {
+
+    border-color:
+        rgba(255,141,123,.35);
+
+    background:
+        rgba(255,141,123,.03);
+}
+
+
+#catalyst
+.roleHeading .eyebrow,
+#catalyst
+.subclassNumber {
+
+    color:
+        #b794ff;
+}
+
+
+#catalyst
+.viewRoleButton {
+
+    color:
+        #b794ff;
+}
+
+
+#catalyst
+.subclassCard:hover {
+
+    border-color:
+        rgba(183,148,255,.35);
+
+    background:
+        rgba(183,148,255,.03);
+}
+
+
+/* =========================================================
+   LARGE TABLET
+========================================================= */
+
+@media (
+    max-width: 1150px
+) {
+
+    .subclassGrid {
+
+        grid-template-columns:
+            repeat(
+                2,
+                minmax(0,1fr)
+            );
+    }
+
+
+    .roleSectionHeader {
+
+        grid-template-columns:
+            130px
+            1fr;
+
+        gap:
+            40px;
+    }
+
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (
+    max-width: 850px
+) {
+
+    .rolesHeader {
+
+        padding:
+            100px
+            5vw
+            70px;
+    }
+
+
+    .roleJumpSection,
+    .rolesPage {
+
+        padding-left:
+            5vw;
+
+        padding-right:
+            5vw;
+    }
+
+
+    .roleSection {
+
+        padding:
+            80px
+            0;
+    }
+
+
+    .roleSectionHeader {
+
+        grid-template-columns:
+            1fr;
+
+        gap:
+            25px;
+    }
+
+
+    .roleNumber {
+
+        font-size:
+            5rem;
+    }
+
+
+    .subclassGrid {
+
+        grid-template-columns:
+            repeat(
+                2,
+                minmax(0,1fr)
+            );
+    }
+
+
+    .subclassCard {
+
+        min-height:
+            340px;
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (
+    max-width: 600px
+) {
+
+    .rolesHeader {
+
+        min-height:
+            60vh;
+
+        padding:
+            85px
+            20px
+            55px;
+    }
+
+
+    .rolesHeader h1 {
+
+        font-size:
+            clamp(
+                3.3rem,
+                18vw,
+                5rem
+            );
+    }
+
+
+    .rolesHeader p {
+
+        margin-top:
+            30px;
+
+        font-size:
+            .82rem;
+    }
+
+
+    .roleJumpSection,
+    .rolesPage {
+
+        padding-left:
+            20px;
+
+        padding-right:
+            20px;
+    }
+
+
+    .roleJumpNav {
+
+        flex-direction:
+            column;
+    }
+
+
+    .roleJumpNav a {
+
+        width:
+            100%;
+
+        border-right:
+            none;
+
+        border-bottom:
+            1px solid
+            rgba(255,255,255,.07);
+    }
+
+
+    .roleJumpNav a:last-child {
+
+        border-bottom:
+            none;
+    }
+
+
+    .roleSection {
+
+        padding:
+            65px
+            0;
+    }
+
+
+    .roleHeading h2 {
+
+        font-size:
+            clamp(
+                2.8rem,
+                15vw,
+                4.5rem
+            );
+    }
+
+
+    .roleHeading p {
+
+        font-size:
+            .82rem;
+    }
+
+
+    .subclassGrid {
+
+        grid-template-columns:
+            1fr;
+    }
+
+
+    .subclassCard {
+
+        min-height:
+            320px;
+
+        padding:
+            24px;
+    }
+
+
+    .subclassIcon {
+
+        width:
+            95px;
+
+        height:
+            95px;
+
+        margin-bottom:
+            45px;
+    }
+
+}
