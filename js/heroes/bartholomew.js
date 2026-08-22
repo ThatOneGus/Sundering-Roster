@@ -523,4 +523,4 @@ const bartholomew = {
         }
 
     ]
-}
+};
