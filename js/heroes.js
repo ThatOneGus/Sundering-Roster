@@ -1,7 +1,7 @@
 const heroes = [
-
+  
     alejandro,
-    ari,
+    ari, 
     bartholomew,
     cedric,
     chance,
