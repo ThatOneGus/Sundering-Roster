@@ -1,4 +1,6 @@
-const ari = {
+window.heroes = window.heroes || [];
+
+window.heroes.push({
     name: "Ari",
 
     title: "The Sunflower Fairy",
@@ -442,4 +444,4 @@ const ari = {
 
     ]
     
-};
+});
