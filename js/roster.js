@@ -1,4 +1,20 @@
 /* =========================================================
+   SUNDERING — ROSTER
+========================================================= */
+
+
+/* =========================================================
+   HERO DATABASE
+
+   Every individual hero file pushes its character into:
+   window.heroes
+========================================================= */
+
+const heroes =
+    window.heroes || [];
+
+
+/* =========================================================
    ROSTER ELEMENT
 ========================================================= */
 
@@ -19,13 +35,7 @@ function renderRoster(list) {
 
         roster.innerHTML = `
 
-            <div style="
-                grid-column: 1 / -1;
-                padding: 100px;
-                text-align: center;
-                color: #777;
-                letter-spacing: .2em;
-            ">
+            <div class="emptyRoster">
 
                 NO CHARACTERS FOUND
 
@@ -42,42 +52,100 @@ function renderRoster(list) {
         const card =
             document.createElement("div");
 
-
         card.className =
             "heroCard";
 
 
-        card.innerHTML = `
+        /* -----------------------------------------------------
+           HERO THUMBNAIL
+        ----------------------------------------------------- */
 
-            <div class="heroArt">
+        const art =
+            document.createElement("div");
 
-                <img
-                    src="${hero.thumbnail}"
-                    alt="${hero.name}"
-                >
+        art.className =
+            "heroArt";
 
+
+        if (hero.thumbnail) {
+
+            const image =
+                document.createElement("img");
+
+            image.src =
+                hero.thumbnail;
+
+            image.alt =
+                hero.name;
+
+            image.loading =
+                "lazy";
+
+
+            image.addEventListener(
+                "error",
+                () => {
+
+                    image.remove();
+
+                    art.classList.add(
+                        "heroArtFallback"
+                    );
+
+                    art.textContent =
+                        hero.name.charAt(0);
+
+                }
+            );
+
+
+            art.appendChild(image);
+
+        }
+
+        else {
+
+            art.classList.add(
+                "heroArtFallback"
+            );
+
+            art.textContent =
+                hero.name.charAt(0);
+
+        }
+
+
+        /* -----------------------------------------------------
+           HERO INFORMATION
+        ----------------------------------------------------- */
+
+        const info =
+            document.createElement("div");
+
+        info.className =
+            "heroInfo";
+
+
+        info.innerHTML = `
+
+            <div class="heroName">
+                ${hero.name}
             </div>
 
+            <div class="heroTitle">
+                ${hero.title}
+            </div>
 
-            <div class="heroInfo">
-
-                <div class="heroName">
-                    ${hero.name}
-                </div>
-
-
-                <div class="heroTitle">
-                    ${hero.title}
-                </div>
-
-
-                <div class="heroRole">
-                    ${hero.role}
-                </div>
-
+            <div class="heroRole">
+                ${hero.role}
             </div>
 
         `;
+
+
+        card.appendChild(art);
+
+        card.appendChild(info);
 
 
         card.addEventListener(
@@ -94,72 +162,120 @@ function renderRoster(list) {
 
 
 /* =========================================================
-   SEARCH
+   SEARCH + FILTER STATE
 ========================================================= */
 
 const search =
     document.getElementById("search");
 
 
-search.addEventListener(
-    "input",
-    () => {
+let currentRole =
+    "all";
 
-        const query =
-            search.value
+
+function getFilteredHeroes() {
+
+    const query =
+        search
+            ? search.value
                 .toLowerCase()
-                .trim();
+                .trim()
+            : "";
 
 
-        const results =
-            heroes.filter(hero => {
+    return heroes.filter(hero => {
 
-                const secondaryRoles =
-                    hero.secondaryRoles || [];
+        /* -----------------------------------------------------
+           SEARCH MATCH
+        ----------------------------------------------------- */
+
+        const searchableRoles = [
+            hero.role,
+            ...(hero.secondaryRoles || [])
+        ];
 
 
-                return (
+        const matchesSearch =
 
-                    hero.name
+            !query
+
+            ||
+
+            hero.name
+                .toLowerCase()
+                .includes(query)
+
+            ||
+
+            (hero.title || "")
+                .toLowerCase()
+                .includes(query)
+
+            ||
+
+            (hero.region || "")
+                .toLowerCase()
+                .includes(query)
+
+            ||
+
+            searchableRoles.some(
+                role =>
+                    role
                         .toLowerCase()
                         .includes(query)
-
-                    ||
-
-                    hero.title
-                        .toLowerCase()
-                        .includes(query)
-
-                    ||
-
-                    hero.region
-                        .toLowerCase()
-                        .includes(query)
-
-                    ||
-
-                    hero.role
-                        .toLowerCase()
-                        .includes(query)
-
-                    ||
-
-                    secondaryRoles.some(
-                        role =>
-                            role
-                                .toLowerCase()
-                                .includes(query)
-                    )
-
-                );
-
-            });
+            );
 
 
-        renderRoster(results);
+        /* -----------------------------------------------------
+           ROLE MATCH
+        ----------------------------------------------------- */
 
-    }
-);
+        const matchesRole =
+
+            currentRole === "all"
+
+            ||
+
+            hero.role === currentRole
+
+            ||
+
+            (hero.secondaryRoles || [])
+                .includes(currentRole);
+
+
+        return (
+            matchesSearch &&
+            matchesRole
+        );
+
+    });
+
+}
+
+
+function refreshRoster() {
+
+    renderRoster(
+        getFilteredHeroes()
+    );
+
+}
+
+
+/* =========================================================
+   SEARCH
+========================================================= */
+
+if (search) {
+
+    search.addEventListener(
+        "input",
+        refreshRoster
+    );
+
+}
 
 
 /* =========================================================
@@ -171,18 +287,15 @@ const roleButtons =
         ".roleFilter"
     );
 
-
 const allButton =
     document.querySelector(
         ".allFilter"
     );
 
-
 const roleGroups =
     document.querySelectorAll(
         ".roleGroup"
     );
-
 
 const subclassButtons =
     document.querySelectorAll(
@@ -191,46 +304,94 @@ const subclassButtons =
 
 
 /* =========================================================
-   FILTER HEROES
+   SET ROLE FILTER
 ========================================================= */
 
-function filterHeroes(role) {
+function setRoleFilter(role) {
 
-    if (role === "all") {
+    currentRole =
+        role;
 
-        renderRoster(
-            heroes
+
+    roleButtons.forEach(
+        button =>
+            button.classList.remove(
+                "active"
+            )
+    );
+
+
+    subclassButtons.forEach(
+        button =>
+            button.classList.remove(
+                "active"
+            )
+    );
+
+
+    if (
+        allButton &&
+        role === "all"
+    ) {
+
+        allButton.classList.add(
+            "active"
         );
 
-        return;
     }
 
 
-    const filtered =
-        heroes.filter(hero => {
+    const matchingMainRole =
+        [...roleButtons].find(
+            button =>
+                button.dataset.role === role
+        );
 
-            const secondaryRoles =
-                hero.secondaryRoles || [];
+
+    if (
+        matchingMainRole &&
+        role !== "all"
+    ) {
+
+        matchingMainRole.classList.add(
+            "active"
+        );
+
+    }
 
 
-            return (
+    const matchingSubclass =
+        [...subclassButtons].find(
+            button =>
+                button.dataset.role === role
+        );
 
-                hero.role === role
 
-                ||
+    if (matchingSubclass) {
 
-                secondaryRoles.includes(
-                    role
-                )
+        matchingSubclass.classList.add(
+            "active"
+        );
 
+
+        const parentGroup =
+            matchingSubclass.closest(
+                ".roleGroup"
             );
 
-        });
+
+        if (parentGroup) {
+
+            parentGroup.classList.add(
+                "open"
+            );
+
+        }
+
+    }
 
 
-    renderRoster(
-        filtered
-    );
+    refreshRoster();
 
 }
 
@@ -239,50 +400,29 @@ function filterHeroes(role) {
    ALL BUTTON
 ========================================================= */
 
-allButton.addEventListener(
-    "click",
-    () => {
+if (allButton) {
 
-        roleGroups.forEach(
-            group =>
-                group.classList.remove(
-                    "open"
-                )
-        );
+    allButton.addEventListener(
+        "click",
+        event => {
+
+            event.stopPropagation();
 
 
-        roleButtons.forEach(
-            button =>
-                button.classList.remove(
-                    "active"
-                )
-        );
+            roleGroups.forEach(
+                group =>
+                    group.classList.remove(
+                        "open"
+                    )
+            );
 
 
-        subclassButtons.forEach(
-            button =>
-                button.classList.remove(
-                    "active"
-                )
-        );
+            setRoleFilter("all");
 
+        }
+    );
 
-        allButton.classList.add(
-            "active"
-        );
-
-
-        filterHeroes(
-            "all"
-        );
-
-
-        updateRoleURL(
-            null
-        );
-
-    }
-);
+}
 
 
 /* =========================================================
@@ -315,18 +455,13 @@ roleButtons.forEach(button => {
                 );
 
 
-            if (!group) {
-                return;
-            }
-
-
             const wasOpen =
-                group.classList.contains(
-                    "open"
-                );
+                group
+                    ? group.classList.contains(
+                        "open"
+                    )
+                    : false;
 
-
-            /* Close other dropdowns */
 
             roleGroups.forEach(
                 otherGroup => {
@@ -345,60 +480,19 @@ roleButtons.forEach(button => {
             );
 
 
-            /* Filter roster */
-
-            const role =
-                button.dataset.role;
-
-
-            filterHeroes(
-                role
+            setRoleFilter(
+                button.dataset.role
             );
 
 
-            /* Clear active states */
+            if (group) {
 
-            roleButtons.forEach(
-                otherButton =>
-                    otherButton.classList.remove(
-                        "active"
-                    )
-            );
+                group.classList.toggle(
+                    "open",
+                    !wasOpen
+                );
 
-
-            subclassButtons.forEach(
-                otherButton =>
-                    otherButton.classList.remove(
-                        "active"
-                    )
-            );
-
-
-            allButton.classList.remove(
-                "active"
-            );
-
-
-            /* Activate selected role */
-
-            button.classList.add(
-                "active"
-            );
-
-
-            /* Open or close dropdown */
-
-            group.classList.toggle(
-                "open",
-                !wasOpen
-            );
-
-
-            /* Update URL */
-
-            updateRoleURL(
-                role
-            );
+            }
 
         }
     );
@@ -423,41 +517,7 @@ subclassButtons.forEach(button => {
                 button.dataset.role;
 
 
-            /* Filter */
-
-            filterHeroes(
-                role
-            );
-
-
-            /* Clear active state */
-
-            roleButtons.forEach(
-                otherButton =>
-                    otherButton.classList.remove(
-                        "active"
-                    )
-            );
-
-
-            subclassButtons.forEach(
-                otherButton =>
-                    otherButton.classList.remove(
-                        "active"
-                    )
-            );
-
-
-            allButton.classList.remove(
-                "active"
-            );
-
-
-            /* Activate subclass */
-
-            button.classList.add(
-                "active"
-            );
+            setRoleFilter(role);
 
 
             const group =
@@ -472,34 +532,7 @@ subclassButtons.forEach(button => {
                     "open"
                 );
 
-
-                /*
-                    Also highlight the parent
-                    major role.
-                */
-
-                const parentButton =
-                    group.querySelector(
-                        ".roleFilter"
-                    );
-
-
-                if (parentButton) {
-
-                    parentButton.classList.add(
-                        "active"
-                    );
-
-                }
-
             }
-
-
-            /* Update URL */
-
-            updateRoleURL(
-                role
-            );
 
         }
     );
@@ -508,68 +541,44 @@ subclassButtons.forEach(button => {
 
 
 /* =========================================================
-   CLICK OUTSIDE DROPDOWNS
+   CLOSE DROPDOWNS WHEN CLICKING ELSEWHERE
 ========================================================= */
 
 document.addEventListener(
     "click",
-    () => {
+    event => {
 
-        roleGroups.forEach(
-            group =>
-                group.classList.remove(
-                    "open"
-                )
-        );
+        if (
+            !event.target.closest(
+                ".roleGroup"
+            )
+        ) {
+
+            roleGroups.forEach(
+                group =>
+                    group.classList.remove(
+                        "open"
+                    )
+            );
+
+        }
 
     }
 );
 
 
 /* =========================================================
-   UPDATE ROLE URL
+   URL ROLE FILTER
+
+   Allows links such as:
+
+   index.html?role=Vanguard
+   index.html?role=Guardian
+   index.html?role=Hunter
+   index.html?role=Lifeline
 ========================================================= */
 
-function updateRoleURL(role) {
-
-    const url =
-        new URL(
-            window.location.href
-        );
-
-
-    if (role) {
-
-        url.searchParams.set(
-            "role",
-            role
-        );
-
-    }
-
-    else {
-
-        url.searchParams.delete(
-            "role"
-        );
-
-    }
-
-
-    window.history.replaceState(
-        {},
-        "",
-        url
-    );
-
-}
-
-
-/* =========================================================
-   APPLY ROLE FROM URL
-========================================================= */
-
-function applyRoleFromURL() {
+function applyURLFilter() {
 
     const params =
         new URLSearchParams(
@@ -577,15 +586,16 @@ function applyRoleFromURL() {
         );
 
 
-    const requestedRole =
-        params.get(
-            "role"
-        );
+    const role =
+        params.get("role");
 
 
-    /* ---------------------------------------------------------
-       VALID ROLES
-    --------------------------------------------------------- */
+    if (!role) {
+
+        return;
+
+    }
+
 
     const validRoles = [
 
@@ -610,141 +620,18 @@ function applyRoleFromURL() {
     ];
 
 
-    /* ---------------------------------------------------------
-       DEFAULT TO ALL
-    --------------------------------------------------------- */
-
-    if (
-        !requestedRole ||
-        !validRoles.includes(
-            requestedRole
-        )
-    ) {
-
-        renderRoster(
-            heroes
+    const matchingRole =
+        validRoles.find(
+            validRole =>
+                validRole.toLowerCase() ===
+                role.toLowerCase()
         );
 
 
-        allButton.classList.add(
-            "active"
-        );
+    if (matchingRole) {
 
-
-        return;
-    }
-
-
-    /* ---------------------------------------------------------
-       FILTER ROSTER
-    --------------------------------------------------------- */
-
-    filterHeroes(
-        requestedRole
-    );
-
-
-    /* ---------------------------------------------------------
-       CLEAR ACTIVE FILTERS
-    --------------------------------------------------------- */
-
-    allButton.classList.remove(
-        "active"
-    );
-
-
-    roleButtons.forEach(
-        button =>
-            button.classList.remove(
-                "active"
-            )
-    );
-
-
-    subclassButtons.forEach(
-        button =>
-            button.classList.remove(
-                "active"
-            )
-    );
-
-
-    /* ---------------------------------------------------------
-       MAIN ROLE?
-    --------------------------------------------------------- */
-
-    const mainRoleButton =
-        Array.from(
-            roleButtons
-        )
-        .find(
-            button =>
-                button.dataset.role ===
-                requestedRole
-        );
-
-
-    if (
-        mainRoleButton &&
-        !mainRoleButton.classList.contains(
-            "allFilter"
-        )
-    ) {
-
-        mainRoleButton.classList.add(
-            "active"
-        );
-
-        return;
-    }
-
-
-    /* ---------------------------------------------------------
-       SUBCLASS?
-    --------------------------------------------------------- */
-
-    const subclassButton =
-        Array.from(
-            subclassButtons
-        )
-        .find(
-            button =>
-                button.dataset.role ===
-                requestedRole
-        );
-
-
-    if (!subclassButton) {
-        return;
-    }
-
-
-    subclassButton.classList.add(
-        "active"
-    );
-
-
-    const group =
-        subclassButton.closest(
-            ".roleGroup"
-        );
-
-
-    if (!group) {
-        return;
-    }
-
-
-    const parentButton =
-        group.querySelector(
-            ".roleFilter"
-        );
-
-
-    if (parentButton) {
-
-        parentButton.classList.add(
-            "active"
+        setRoleFilter(
+            matchingRole
         );
 
     }
@@ -757,56 +644,66 @@ function applyRoleFromURL() {
 ========================================================= */
 
 const modal =
-    document.getElementById(
-        "modal"
-    );
-
+    document.getElementById("modal");
 
 const closeModal =
     document.getElementById(
         "closeModal"
     );
 
-
 const detailArt =
     document.getElementById(
         "detailArt"
     );
-
 
 const detailName =
     document.getElementById(
         "detailName"
     );
 
-
 const detailTitle =
     document.getElementById(
         "detailTitle"
     );
-
 
 const detailRole =
     document.getElementById(
         "detailRole"
     );
 
-
 const detailDescription =
     document.getElementById(
         "detailDescription"
     );
-
 
 const detailTags =
     document.getElementById(
         "detailTags"
     );
 
-
 const abilityGrid =
     document.getElementById(
         "abilityGrid"
+    );
+
+const skinsGrid =
+    document.getElementById(
+        "skinsGrid"
+    );
+
+const conceptGrid =
+    document.getElementById(
+        "conceptGrid"
+    );
+
+const radarChart =
+    document.getElementById(
+        "radarChart"
+    );
+
+const profileStats =
+    document.getElementById(
+        "profileStats"
     );
 
 
@@ -819,59 +716,976 @@ const characterTabs =
         ".characterTab"
     );
 
-
 const characterPanels =
     document.querySelectorAll(
         ".characterPanel"
     );
 
 
+function switchCharacterTab(tabName) {
+
+    characterTabs.forEach(tab => {
+
+        tab.classList.toggle(
+            "active",
+            tab.dataset.tab === tabName
+        );
+
+    });
+
+
+    characterPanels.forEach(panel => {
+
+        panel.classList.remove(
+            "active"
+        );
+
+    });
+
+
+    const panel =
+        document.getElementById(
+            `${tabName}Panel`
+        );
+
+
+    if (panel) {
+
+        panel.classList.add(
+            "active"
+        );
+
+    }
+
+}
+
+
+characterTabs.forEach(tab => {
+
+    tab.addEventListener(
+        "click",
+        () => {
+
+            switchCharacterTab(
+                tab.dataset.tab
+            );
+
+        }
+    );
+
+});
+
+
 /* =========================================================
-   COMBAT PROFILE ELEMENTS
+   OPEN HERO
 ========================================================= */
 
-const radarChart =
-    document.getElementById(
-        "radarChart"
-    );
+function openHero(hero) {
+
+    /* -----------------------------------------------------
+       HERO ART
+    ----------------------------------------------------- */
+
+    detailArt.innerHTML =
+        "";
 
 
-const profileStats =
-    document.getElementById(
-        "profileStats"
-    );
+    if (hero.heroArt) {
+
+        const image =
+            document.createElement(
+                "img"
+            );
+
+        image.src =
+            hero.heroArt;
+
+        image.alt =
+            hero.name;
 
 
-/* =========================================================
-   SKINS + CONCEPT ART
-========================================================= */
+        image.addEventListener(
+            "error",
+            () => {
 
-const skinsGrid =
-    document.getElementById(
-        "skinsGrid"
-    );
+                detailArt.innerHTML = `
+
+                    <div class="detailArtFallback">
+                        ${hero.name.charAt(0)}
+                    </div>
+
+                `;
+
+            }
+        );
 
 
-const conceptGrid =
-    document.getElementById(
-        "conceptGrid"
-    );
+        detailArt.appendChild(image);
 
+    }
 
-/* =========================================================
-   ABILITY STAT RENDERER
-========================================================= */
+    else {
 
-function renderStats(stats) {
+        detailArt.innerHTML = `
 
-    if (!stats) {
-        return "";
+            <div class="detailArtFallback">
+                ${hero.name.charAt(0)}
+            </div>
+
+        `;
+
     }
 
 
-    return Object.entries(
-        stats
-    )
+    /* -----------------------------------------------------
+       BASIC INFORMATION
+    ----------------------------------------------------- */
+
+    detailName.textContent =
+        hero.name;
+
+    detailTitle.textContent =
+        hero.title;
+
+    detailRole.textContent =
+        hero.role;
+
+    detailDescription.textContent =
+        hero.description;
+
+
+    /* -----------------------------------------------------
+       TAGS
+    ----------------------------------------------------- */
+
+    detailTags.innerHTML =
+        "";
+
+
+    const tags = [
+
+        hero.role,
+
+        ...(hero.secondaryRoles || [])
+            .filter(
+                role =>
+                    role !== hero.role
+            ),
+
+        hero.region
+
+    ].filter(Boolean);
+
+
+    tags.forEach(tag => {
+
+        const element =
+            document.createElement(
+                "div"
+            );
+
+        element.className =
+            "tag";
+
+        element.textContent =
+            tag;
+
+        detailTags.appendChild(
+            element
+        );
+
+    });
+
+
+    /* -----------------------------------------------------
+       RENDER CHARACTER SECTIONS
+    ----------------------------------------------------- */
+
+    renderCombatProfile(hero);
+
+    renderAbilities(hero);
+
+    renderSkins(hero);
+
+    renderConceptArt(hero);
+
+
+    /* -----------------------------------------------------
+       RESET TAB
+    ----------------------------------------------------- */
+
+    switchCharacterTab(
+        "overview"
+    );
+
+
+    /* -----------------------------------------------------
+       OPEN MODAL
+    ----------------------------------------------------- */
+
+    modal.classList.add(
+        "open"
+    );
+
+    document.body.style.overflow =
+        "hidden";
+
+}
+
+
+/* =========================================================
+   COMBAT PROFILE
+========================================================= */
+
+const profileLabels = {
+
+    damage:
+        "Damage",
+
+    survivability:
+        "Survivability",
+
+    crowdControl:
+        "CC",
+
+    mobility:
+        "Mobility",
+
+    support:
+        "Support",
+
+    range:
+        "Range"
+
+};
+
+
+function renderCombatProfile(hero) {
+
+    const profile =
+        hero.profile || {};
+
+
+    const values = [
+
+        profile.damage || 0,
+
+        profile.survivability || 0,
+
+        profile.crowdControl || 0,
+
+        profile.mobility || 0,
+
+        profile.support || 0,
+
+        profile.range || 0
+
+    ];
+
+
+    renderRadarChart(values);
+
+
+    profileStats.innerHTML =
+        "";
+
+
+    Object.entries(
+        profileLabels
+    ).forEach(
+        ([key, label]) => {
+
+            const value =
+                profile[key] || 0;
+
+
+            const stat =
+                document.createElement(
+                    "div"
+                );
+
+            stat.className =
+                "profileStat";
+
+
+            stat.innerHTML = `
+
+                <div class="profileStatTop">
+
+                    <span>
+                        ${label}
+                    </span>
+
+                    <span>
+                        ${value}/10
+                    </span>
+
+                </div>
+
+
+                <div class="profileBar">
+
+                    <div
+                        class="profileBarFill"
+                        style="
+                            width:${value * 10}%;
+                        "
+                    >
+                    </div>
+
+                </div>
+
+            `;
+
+
+            profileStats.appendChild(
+                stat
+            );
+
+        }
+    );
+
+}
+
+
+/* =========================================================
+   RADAR CHART
+========================================================= */
+
+function renderRadarChart(values) {
+
+    if (!radarChart) {
+
+        return;
+
+    }
+
+
+    const labels = [
+
+        "DAMAGE",
+        "SURVIVABILITY",
+        "CC",
+        "MOBILITY",
+        "SUPPORT",
+        "RANGE"
+
+    ];
+
+
+    const size =
+        420;
+
+    const center =
+        size / 2;
+
+    const radius =
+        135;
+
+    const levels =
+        5;
+
+    const count =
+        labels.length;
+
+
+    function getPoint(
+        index,
+        distance
+    ) {
+
+        const angle =
+            (
+                Math.PI * 2 *
+                index / count
+            )
+            -
+            Math.PI / 2;
+
+
+        return {
+
+            x:
+                center +
+                Math.cos(angle) *
+                distance,
+
+            y:
+                center +
+                Math.sin(angle) *
+                distance
+
+        };
+
+    }
+
+
+    /* -----------------------------------------------------
+       GRID
+    ----------------------------------------------------- */
+
+    let grid =
+        "";
+
+
+    for (
+        let level = 1;
+        level <= levels;
+        level++
+    ) {
+
+        const distance =
+            radius *
+            (
+                level /
+                levels
+            );
+
+
+        const points =
+            labels
+                .map(
+                    (_, index) => {
+
+                        const point =
+                            getPoint(
+                                index,
+                                distance
+                            );
+
+                        return (
+                            `${point.x},${point.y}`
+                        );
+
+                    }
+                )
+                .join(" ");
+
+
+        grid += `
+
+            <polygon
+                points="${points}"
+                class="radarGrid"
+            />
+
+        `;
+
+    }
+
+
+    /* -----------------------------------------------------
+       AXES
+    ----------------------------------------------------- */
+
+    let axes =
+        "";
+
+
+    labels.forEach(
+        (_, index) => {
+
+            const point =
+                getPoint(
+                    index,
+                    radius
+                );
+
+
+            axes += `
+
+                <line
+                    x1="${center}"
+                    y1="${center}"
+                    x2="${point.x}"
+                    y2="${point.y}"
+                    class="radarAxis"
+                />
+
+            `;
+
+        }
+    );
+
+
+    /* -----------------------------------------------------
+       DATA POLYGON
+    ----------------------------------------------------- */
+
+    const dataPoints =
+        values
+            .map(
+                (value, index) => {
+
+                    const normalized =
+                        Math.max(
+                            0,
+                            Math.min(
+                                10,
+                                value
+                            )
+                        ) / 10;
+
+
+                    const point =
+                        getPoint(
+                            index,
+                            radius *
+                            normalized
+                        );
+
+
+                    return (
+                        `${point.x},${point.y}`
+                    );
+
+                }
+            )
+            .join(" ");
+
+
+    /* -----------------------------------------------------
+       DATA POINTS
+    ----------------------------------------------------- */
+
+    let dots =
+        "";
+
+
+    values.forEach(
+        (value, index) => {
+
+            const normalized =
+                Math.max(
+                    0,
+                    Math.min(
+                        10,
+                        value
+                    )
+                ) / 10;
+
+
+            const point =
+                getPoint(
+                    index,
+                    radius *
+                    normalized
+                );
+
+
+            dots += `
+
+                <circle
+                    cx="${point.x}"
+                    cy="${point.y}"
+                    r="4"
+                    class="radarPoint"
+                />
+
+            `;
+
+        }
+    );
+
+
+    /* -----------------------------------------------------
+       LABELS
+    ----------------------------------------------------- */
+
+    let labelElements =
+        "";
+
+
+    labels.forEach(
+        (label, index) => {
+
+            const point =
+                getPoint(
+                    index,
+                    radius + 38
+                );
+
+
+            let anchor =
+                "middle";
+
+
+            if (
+                point.x <
+                center - 20
+            ) {
+
+                anchor =
+                    "end";
+
+            }
+
+            else if (
+                point.x >
+                center + 20
+            ) {
+
+                anchor =
+                    "start";
+
+            }
+
+
+            labelElements += `
+
+                <text
+                    x="${point.x}"
+                    y="${point.y}"
+                    text-anchor="${anchor}"
+                    dominant-baseline="middle"
+                    class="radarLabel"
+                >
+                    ${label}
+                </text>
+
+            `;
+
+        }
+    );
+
+
+    radarChart.innerHTML = `
+
+        <svg
+            viewBox="0 0 ${size} ${size}"
+            class="radarSVG"
+        >
+
+            ${grid}
+
+            ${axes}
+
+            <polygon
+                points="${dataPoints}"
+                class="radarData"
+            />
+
+            ${dots}
+
+            ${labelElements}
+
+        </svg>
+
+    `;
+
+}
+
+
+/* =========================================================
+   ABILITIES
+========================================================= */
+
+function renderAbilities(hero) {
+
+    abilityGrid.innerHTML =
+        "";
+
+
+    const abilities =
+        hero.abilities || [];
+
+
+    if (!abilities.length) {
+
+        abilityGrid.innerHTML = `
+
+            <div class="emptySection">
+                NO ABILITY DATA AVAILABLE
+            </div>
+
+        `;
+
+        return;
+    }
+
+
+    abilities.forEach(
+        (ability, index) => {
+
+            const card =
+                document.createElement(
+                    "div"
+                );
+
+            card.className =
+                "ability";
+
+
+            /* -------------------------------------------------
+               BASE STATS
+            ------------------------------------------------- */
+
+            const stats =
+                createStatsHTML(
+                    ability.stats
+                );
+
+
+            /* -------------------------------------------------
+               COLORED SECTIONS / VARIANTS
+            ------------------------------------------------- */
+
+            const sections =
+                createSectionsHTML(
+                    ability.sections
+                );
+
+
+            /* -------------------------------------------------
+               CARD
+            ------------------------------------------------- */
+
+            card.innerHTML = `
+
+                <div class="abilityTop">
+
+
+                    <div class="abilityIcon">
+
+                        ${
+                            ability.icon
+                                ? `
+                                    <img
+                                        src="${ability.icon}"
+                                        alt="${ability.name}"
+                                    >
+                                  `
+                                : ""
+                        }
+
+                        <div
+                            class="abilityIconFallback"
+                            ${
+                                ability.icon
+                                    ? `style="display:none;"`
+                                    : ""
+                            }
+                        >
+                            ${index + 1}
+                        </div>
+
+                    </div>
+
+
+                    <div class="abilityHeading">
+
+                        <div class="abilityType">
+                            ${ability.type || ""}
+                        </div>
+
+                        <h3>
+                            ${ability.name}
+                        </h3>
+
+                        <div class="abilityKey">
+                            ${ability.key || ""}
+                        </div>
+
+                    </div>
+
+
+                    <button
+                        class="previewButton"
+                        type="button"
+                        title="Preview ability"
+                    >
+                        ▶
+                    </button>
+
+
+                </div>
+
+
+                <div class="abilityShort">
+
+                    ${ability.shortDescription || ""}
+
+                </div>
+
+
+                <div class="abilityActions">
+
+
+                    <button
+                        class="abilityAction detailsButton"
+                        type="button"
+                    >
+                        View Details
+                    </button>
+
+
+                    <button
+                        class="abilityAction previewAction"
+                        type="button"
+                    >
+                        Preview
+                    </button>
+
+
+                </div>
+
+
+                <div class="abilityDetails">
+
+
+                    <div class="detailText">
+
+                        ${ability.detailedDescription || ""}
+
+                    </div>
+
+
+                    ${
+                        stats
+                            ? `
+                                <div class="abilityStats">
+                                    ${stats}
+                                </div>
+                              `
+                            : ""
+                    }
+
+
+                    ${sections}
+
+
+                </div>
+
+            `;
+
+
+            /* -------------------------------------------------
+               PREVIEW BUTTON
+            ------------------------------------------------- */
+
+            const previewButton =
+                card.querySelector(
+                    ".previewButton"
+                );
+
+
+            previewButton.addEventListener(
+                "click",
+                event => {
+
+                    event.stopPropagation();
+
+                    openPreview(
+                        ability
+                    );
+
+                }
+            );
+
+
+            /* -------------------------------------------------
+               PREVIEW ACTION
+            ------------------------------------------------- */
+
+            const previewAction =
+                card.querySelector(
+                    ".previewAction"
+                );
+
+
+            previewAction.addEventListener(
+                "click",
+                event => {
+
+                    event.stopPropagation();
+
+                    openPreview(
+                        ability
+                    );
+
+                }
+            );
+
+
+            /* -------------------------------------------------
+               DETAILS
+            ------------------------------------------------- */
+
+            const detailsButton =
+                card.querySelector(
+                    ".detailsButton"
+                );
+
+
+            detailsButton.addEventListener(
+                "click",
+                () => {
+
+                    toggleDetails(
+                        detailsButton
+                    );
+
+                }
+            );
+
+
+            /* -------------------------------------------------
+               ICON FALLBACK
+            ------------------------------------------------- */
+
+            const icon =
+                card.querySelector(
+                    ".abilityIcon img"
+                );
+
+            const fallback =
+                card.querySelector(
+                    ".abilityIconFallback"
+                );
+
+
+            if (icon) {
+
+                icon.addEventListener(
+                    "error",
+                    () => {
+
+                        icon.style.display =
+                            "none";
+
+                        fallback.style.display =
+                            "flex";
+
+                    }
+                );
+
+            }
+
+
+            abilityGrid.appendChild(
+                card
+            );
+
+        }
+    );
+
+}
+
+
+/* =========================================================
+   CREATE STAT HTML
+========================================================= */
+
+function createStatsHTML(stats) {
+
+    if (!stats) {
+
+        return "";
+
+    }
+
+
+    return Object.entries(stats)
         .map(
             ([label, value]) => `
 
@@ -895,1322 +1709,110 @@ function renderStats(stats) {
 
 
 /* =========================================================
-   COLORED ABILITY SECTION RENDERER
+   ABILITY COLORED SECTIONS
+
+   Supported colors:
+
+   red
+   orange
+   yellow
+   green
+   teal
+   blue
+   violet
+   pink
+   white
 ========================================================= */
 
-function renderAbilitySection(
-    section
+function createSectionsHTML(
+    sections
 ) {
 
-    if (!section) {
+    if (
+        !sections ||
+        !sections.length
+    ) {
+
         return "";
+
     }
-
-
-    const stats =
-        renderStats(
-            section.details
-        );
-
-
-    const allowedColors = [
-
-        "red",
-        "orange",
-        "yellow",
-        "green",
-        "teal",
-        "blue",
-        "violet",
-        "pink",
-        "white"
-
-    ];
-
-
-    const requestedColor =
-        section.color ||
-        "white";
-
-
-    const color =
-        allowedColors.includes(
-            requestedColor
-        )
-            ? requestedColor
-            : "white";
 
 
     return `
 
-        <div
-            class="
-                abilityVariant
-                variant-${color}
-            "
-        >
+        <div class="abilitySections">
 
-            <div class="variantHeader">
+            ${sections
+                .map(
+                    section => {
 
-                <span class="variantName">
-
-                    ${section.name}
-
-                </span>
-
-            </div>
+                        const details =
+                            createStatsHTML(
+                                section.details
+                            );
 
 
-            ${
-                section.description
-                    ? `
-
-                        <div class="variantDescription">
-
-                            ${section.description}
-
-                        </div>
-
-                    `
-                    : ""
-            }
+                        const color =
+                            section.color ||
+                            "white";
 
 
-            ${
-                stats
-                    ? `
+                        return `
 
-                        <div class="abilityStats">
+                            <div
+                                class="
+                                    abilitySection
+                                    variant-${color}
+                                "
+                            >
 
-                            ${stats}
+                                <div class="abilitySectionHeader">
 
-                        </div>
+                                    <span class="variantIndicator">
+                                    </span>
 
-                    `
-                    : ""
-            }
+                                    <span>
+                                        ${section.name}
+                                    </span>
+
+                                </div>
+
+
+                                ${
+                                    section.description
+                                        ? `
+                                            <div class="abilitySectionDescription">
+                                                ${section.description}
+                                            </div>
+                                          `
+                                        : ""
+                                }
+
+
+                                ${
+                                    details
+                                        ? `
+                                            <div class="abilityStats variantStats">
+                                                ${details}
+                                            </div>
+                                          `
+                                        : ""
+                                }
+
+
+                            </div>
+
+                        `;
+
+                    }
+                )
+                .join("")}
 
         </div>
 
     `;
 
 }
-
-
-/* =========================================================
-   COMBAT PROFILE / RADAR CHART
-========================================================= */
-
-function renderCombatProfile(hero) {
-
-    const profile =
-        hero.profile;
-
-
-    if (!profile) {
-
-        radarChart.innerHTML = `
-
-            <div class="emptySection">
-
-                Combat profile unavailable.
-
-            </div>
-
-        `;
-
-
-        profileStats.innerHTML =
-            "";
-
-        return;
-    }
-
-
-    const axes = [
-
-        {
-            key: "damage",
-            label: "Damage"
-        },
-
-        {
-            key: "survivability",
-            label: "Survivability"
-        },
-
-        {
-            key: "crowdControl",
-            label: "Crowd Control"
-        },
-
-        {
-            key: "mobility",
-            label: "Mobility"
-        },
-
-        {
-            key: "support",
-            label: "Support"
-        },
-
-        {
-            key: "range",
-            label: "Range"
-        }
-
-    ];
-
-
-    const size =
-        500;
-
-
-    const center =
-        size / 2;
-
-
-    const radius =
-        155;
-
-
-    const labelRadius =
-        205;
-
-
-    const levels =
-        5;
-
-
-    /* ---------------------------------------------------------
-       POINT CALCULATOR
-    --------------------------------------------------------- */
-
-    function pointAt(
-        index,
-        distance
-    ) {
-
-        const angle =
-            (
-                Math.PI *
-                2 *
-                index /
-                axes.length
-            )
-            -
-            Math.PI / 2;
-
-
-        return {
-
-            x:
-                center +
-                Math.cos(angle) *
-                distance,
-
-            y:
-                center +
-                Math.sin(angle) *
-                distance
-
-        };
-
-    }
-
-
-    /* ---------------------------------------------------------
-       BACKGROUND GRID
-    --------------------------------------------------------- */
-
-    let grid =
-        "";
-
-
-    for (
-        let level = 1;
-        level <= levels;
-        level++
-    ) {
-
-        const levelRadius =
-            radius *
-            (
-                level /
-                levels
-            );
-
-
-        const points =
-            axes
-                .map(
-                    (_, index) => {
-
-                        const point =
-                            pointAt(
-                                index,
-                                levelRadius
-                            );
-
-
-                        return (
-                            `${point.x},${point.y}`
-                        );
-
-                    }
-                )
-                .join(" ");
-
-
-        grid += `
-
-            <polygon
-                points="${points}"
-                class="radarGrid"
-            />
-
-        `;
-
-    }
-
-
-    /* ---------------------------------------------------------
-       AXIS LINES
-    --------------------------------------------------------- */
-
-    const axisLines =
-        axes
-            .map(
-                (_, index) => {
-
-                    const point =
-                        pointAt(
-                            index,
-                            radius
-                        );
-
-
-                    return `
-
-                        <line
-                            x1="${center}"
-                            y1="${center}"
-                            x2="${point.x}"
-                            y2="${point.y}"
-                            class="radarAxis"
-                        />
-
-                    `;
-
-                }
-            )
-            .join("");
-
-
-    /* ---------------------------------------------------------
-       HERO PROFILE POLYGON
-    --------------------------------------------------------- */
-
-    const profilePoints =
-        axes
-            .map(
-                (axis, index) => {
-
-                    const rawValue =
-                        Number(
-                            profile[
-                                axis.key
-                            ]
-                        ) || 0;
-
-
-                    const value =
-                        Math.max(
-                            0,
-                            Math.min(
-                                10,
-                                rawValue
-                            )
-                        );
-
-
-                    const distance =
-                        radius *
-                        (
-                            value /
-                            10
-                        );
-
-
-                    const point =
-                        pointAt(
-                            index,
-                            distance
-                        );
-
-
-                    return (
-                        `${point.x},${point.y}`
-                    );
-
-                }
-            )
-            .join(" ");
-
-
-    /* ---------------------------------------------------------
-       HERO PROFILE DOTS
-    --------------------------------------------------------- */
-
-    const profileDots =
-        axes
-            .map(
-                (axis, index) => {
-
-                    const rawValue =
-                        Number(
-                            profile[
-                                axis.key
-                            ]
-                        ) || 0;
-
-
-                    const value =
-                        Math.max(
-                            0,
-                            Math.min(
-                                10,
-                                rawValue
-                            )
-                        );
-
-
-                    const point =
-                        pointAt(
-                            index,
-                            radius *
-                            (
-                                value /
-                                10
-                            )
-                        );
-
-
-                    return `
-
-                        <circle
-                            cx="${point.x}"
-                            cy="${point.y}"
-                            r="4"
-                            class="radarPoint"
-                        />
-
-                    `;
-
-                }
-            )
-            .join("");
-
-
-    /* ---------------------------------------------------------
-       LABELS
-    --------------------------------------------------------- */
-
-    const labels =
-        axes
-            .map(
-                (axis, index) => {
-
-                    const point =
-                        pointAt(
-                            index,
-                            labelRadius
-                        );
-
-
-                    let anchor =
-                        "middle";
-
-
-                    if (
-                        point.x <
-                        center - 20
-                    ) {
-
-                        anchor =
-                            "end";
-
-                    }
-
-                    else if (
-                        point.x >
-                        center + 20
-                    ) {
-
-                        anchor =
-                            "start";
-
-                    }
-
-
-                    return `
-
-                        <text
-                            x="${point.x}"
-                            y="${point.y}"
-                            text-anchor="${anchor}"
-                            dominant-baseline="middle"
-                            class="radarLabel"
-                        >
-
-                            ${axis.label}
-
-                        </text>
-
-                    `;
-
-                }
-            )
-            .join("");
-
-
-    /* ---------------------------------------------------------
-       BUILD SVG
-    --------------------------------------------------------- */
-
-    radarChart.innerHTML = `
-
-        <svg
-            viewBox="0 0 ${size} ${size}"
-            class="radarSvg"
-            role="img"
-            aria-label="${hero.name} combat profile"
-        >
-
-            ${grid}
-
-            ${axisLines}
-
-
-            <polygon
-                points="${profilePoints}"
-                class="radarProfile"
-            />
-
-
-            ${profileDots}
-
-            ${labels}
-
-        </svg>
-
-    `;
-
-
-    /* ---------------------------------------------------------
-       NUMERIC PROFILE VALUES
-    --------------------------------------------------------- */
-
-    profileStats.innerHTML =
-        axes
-            .map(
-                axis => {
-
-                    const rawValue =
-                        Number(
-                            profile[
-                                axis.key
-                            ]
-                        ) || 0;
-
-
-                    const value =
-                        Math.max(
-                            0,
-                            Math.min(
-                                10,
-                                rawValue
-                            )
-                        );
-
-
-                    return `
-
-                        <div class="profileStat">
-
-                            <div class="profileStatName">
-
-                                ${axis.label}
-
-                            </div>
-
-
-                            <div class="profileStatValue">
-
-                                ${value}
-
-                                <span>
-                                    / 10
-                                </span>
-
-                            </div>
-
-                        </div>
-
-                    `;
-
-                }
-            )
-            .join("");
-
-}
-
-
-/* =========================================================
-   SKINS RENDERER
-========================================================= */
-
-function renderSkins(hero) {
-
-    skinsGrid.innerHTML =
-        "";
-
-
-    if (
-        !hero.skins ||
-        !hero.skins.length
-    ) {
-
-        skinsGrid.innerHTML = `
-
-            <div class="emptySection">
-
-                No skins available.
-
-            </div>
-
-        `;
-
-        return;
-    }
-
-
-    hero.skins.forEach(
-        skin => {
-
-            const card =
-                document.createElement(
-                    "div"
-                );
-
-
-            card.className =
-                "skinCard";
-
-
-            card.innerHTML = `
-
-                <img
-                    src="${skin.thumbnail}"
-                    alt="${skin.name}"
-                >
-
-
-                <div class="skinInfo">
-
-                    <div class="skinName">
-
-                        ${skin.name}
-
-                    </div>
-
-
-                    ${
-                        skin.rarity
-                            ? `
-
-                                <div class="skinRarity">
-
-                                    ${skin.rarity}
-
-                                </div>
-
-                            `
-                            : ""
-                    }
-
-                </div>
-
-            `;
-
-
-            skinsGrid.appendChild(
-                card
-            );
-
-        }
-    );
-
-}
-
-
-/* =========================================================
-   CONCEPT ART RENDERER
-========================================================= */
-
-function renderConceptArt(hero) {
-
-    conceptGrid.innerHTML =
-        "";
-
-
-    if (
-        !hero.conceptArt ||
-        !hero.conceptArt.length
-    ) {
-
-        conceptGrid.innerHTML = `
-
-            <div class="emptySection">
-
-                No concept art available.
-
-            </div>
-
-        `;
-
-        return;
-    }
-
-
-    hero.conceptArt.forEach(
-        concept => {
-
-            const card =
-                document.createElement(
-                    "div"
-                );
-
-
-            card.className =
-                "conceptCard";
-
-
-            card.innerHTML = `
-
-                <div class="conceptImage">
-
-                    <img
-                        src="${concept.image}"
-                        alt="${concept.title}"
-                    >
-
-                </div>
-
-
-                <div class="conceptInfo">
-
-                    <div class="conceptTitle">
-
-                        ${concept.title}
-
-                    </div>
-
-
-                    ${
-                        concept.description
-                            ? `
-
-                                <div class="conceptDescription">
-
-                                    ${concept.description}
-
-                                </div>
-
-                            `
-                            : ""
-                    }
-
-                </div>
-
-            `;
-
-
-            conceptGrid.appendChild(
-                card
-            );
-
-        }
-    );
-
-}
-
-
-/* =========================================================
-   RESET CHARACTER TABS
-========================================================= */
-
-function resetCharacterTabs() {
-
-    characterTabs.forEach(
-        tab =>
-            tab.classList.remove(
-                "active"
-            )
-    );
-
-
-    characterPanels.forEach(
-        panel =>
-            panel.classList.remove(
-                "active"
-            )
-    );
-
-
-    const overviewTab =
-        document.querySelector(
-            '[data-tab="overview"]'
-        );
-
-
-    const overviewPanel =
-        document.getElementById(
-            "overviewPanel"
-        );
-
-
-    if (overviewTab) {
-
-        overviewTab.classList.add(
-            "active"
-        );
-
-    }
-
-
-    if (overviewPanel) {
-
-        overviewPanel.classList.add(
-            "active"
-        );
-
-    }
-
-}
-
-
-/* =========================================================
-   OPEN HERO
-========================================================= */
-
-function openHero(hero) {
-
-    resetCharacterTabs();
-
-
-    /* ---------------------------------------------------------
-       HERO ART
-    --------------------------------------------------------- */
-
-    detailArt.innerHTML = `
-
-        <img
-            src="${hero.heroArt}"
-            alt="${hero.name}"
-        >
-
-    `;
-
-
-    /* ---------------------------------------------------------
-       HERO INFORMATION
-    --------------------------------------------------------- */
-
-    detailName.textContent =
-        hero.name;
-
-
-    detailTitle.textContent =
-        hero.title;
-
-
-    detailRole.textContent =
-        hero.role;
-
-
-    detailDescription.textContent =
-        hero.description;
-
-
-    /* ---------------------------------------------------------
-       TAGS
-    --------------------------------------------------------- */
-
-    detailTags.innerHTML =
-        "";
-
-
-    const secondaryRoles =
-        hero.secondaryRoles || [];
-
-
-    [
-
-        hero.role,
-
-        ...secondaryRoles.filter(
-            role =>
-                role !== hero.role
-        ),
-
-        hero.region
-
-    ].forEach(tag => {
-
-        const element =
-            document.createElement(
-                "div"
-            );
-
-
-        element.className =
-            "tag";
-
-
-        element.textContent =
-            tag;
-
-
-        detailTags.appendChild(
-            element
-        );
-
-    });
-
-
-    /* ---------------------------------------------------------
-       COMBAT PROFILE
-    --------------------------------------------------------- */
-
-    renderCombatProfile(
-        hero
-    );
-
-
-    /* ---------------------------------------------------------
-       SKINS
-    --------------------------------------------------------- */
-
-    renderSkins(
-        hero
-    );
-
-
-    /* ---------------------------------------------------------
-       CONCEPT ART
-    --------------------------------------------------------- */
-
-    renderConceptArt(
-        hero
-    );
-
-
-    /* ---------------------------------------------------------
-       ABILITIES
-    --------------------------------------------------------- */
-
-    abilityGrid.innerHTML =
-        "";
-
-
-    const abilities =
-        hero.abilities || [];
-
-
-    abilities.forEach(
-        (ability, index) => {
-
-            const card =
-                document.createElement(
-                    "div"
-                );
-
-
-            card.className =
-                "ability";
-
-
-            const stats =
-                renderStats(
-                    ability.stats
-                );
-
-
-            /* ---------------------------------------------
-               COLORED SECTIONS
-            --------------------------------------------- */
-
-            let sections =
-                "";
-
-
-            if (
-                ability.sections &&
-                ability.sections.length
-            ) {
-
-                sections = `
-
-                    <div class="abilityVariants">
-
-                        ${ability.sections
-                            .map(
-                                section =>
-                                    renderAbilitySection(
-                                        section
-                                    )
-                            )
-                            .join("")}
-
-                    </div>
-
-                `;
-
-            }
-
-
-            /* ---------------------------------------------
-               ABILITY CARD
-            --------------------------------------------- */
-
-            card.innerHTML = `
-
-                <div class="abilityTop">
-
-
-                    <div class="abilityIcon">
-
-                        <img
-                            src="${ability.icon}"
-                            alt="${ability.name}"
-                        >
-
-
-                        <div
-                            class="abilityIconFallback"
-                            style="display:none;"
-                        >
-
-                            ${index + 1}
-
-                        </div>
-
-                    </div>
-
-
-                    <div>
-
-                        <div class="abilityType">
-
-                            ${ability.type}
-
-                        </div>
-
-
-                        <h3>
-
-                            ${ability.name}
-
-                        </h3>
-
-
-                        <div class="abilityKey">
-
-                            ${ability.key || ""}
-
-                        </div>
-
-                    </div>
-
-
-                    <button
-                        class="previewButton"
-                        title="Preview ability"
-                        type="button"
-                    >
-
-                        ▶
-
-                    </button>
-
-                </div>
-
-
-                <div class="abilityShort">
-
-                    ${ability.shortDescription || ""}
-
-                </div>
-
-
-                <div class="abilityActions">
-
-
-                    <button
-                        class="
-                            abilityAction
-                            detailsButton
-                        "
-                        type="button"
-                    >
-
-                        View Details
-
-                    </button>
-
-
-                    <button
-                        class="
-                            abilityAction
-                            previewAction
-                        "
-                        type="button"
-                    >
-
-                        Preview
-
-                    </button>
-
-
-                </div>
-
-
-                <div class="abilityDetails">
-
-
-                    ${
-                        ability.detailedDescription
-                            ? `
-
-                                <div class="detailText">
-
-                                    ${ability.detailedDescription}
-
-                                </div>
-
-                            `
-                            : ""
-                    }
-
-
-                    ${
-                        stats
-                            ? `
-
-                                <div class="abilityGeneralLabel">
-
-                                    General
-
-                                </div>
-
-
-                                <div class="abilityStats">
-
-                                    ${stats}
-
-                                </div>
-
-                            `
-                            : ""
-                    }
-
-
-                    ${sections}
-
-
-                </div>
-
-            `;
-
-
-            /* ---------------------------------------------
-               TOP PREVIEW BUTTON
-            --------------------------------------------- */
-
-            const previewButton =
-                card.querySelector(
-                    ".previewButton"
-                );
-
-
-            previewButton.addEventListener(
-                "click",
-                event => {
-
-                    event.stopPropagation();
-
-                    openPreview(
-                        ability
-                    );
-
-                }
-            );
-
-
-            /* ---------------------------------------------
-               BOTTOM PREVIEW BUTTON
-            --------------------------------------------- */
-
-            const previewAction =
-                card.querySelector(
-                    ".previewAction"
-                );
-
-
-            previewAction.addEventListener(
-                "click",
-                event => {
-
-                    event.stopPropagation();
-
-                    openPreview(
-                        ability
-                    );
-
-                }
-            );
-
-
-            /* ---------------------------------------------
-               DETAILS BUTTON
-            --------------------------------------------- */
-
-            const detailsButton =
-                card.querySelector(
-                    ".detailsButton"
-                );
-
-
-            detailsButton.addEventListener(
-                "click",
-                event => {
-
-                    event.stopPropagation();
-
-                    toggleDetails(
-                        detailsButton
-                    );
-
-                }
-            );
-
-
-            /* ---------------------------------------------
-               ICON FALLBACK
-            --------------------------------------------- */
-
-            const icon =
-                card.querySelector(
-                    ".abilityIcon img"
-                );
-
-
-            const fallback =
-                card.querySelector(
-                    ".abilityIconFallback"
-                );
-
-
-            icon.addEventListener(
-                "error",
-                () => {
-
-                    icon.style.display =
-                        "none";
-
-
-                    fallback.style.display =
-                        "flex";
-
-                }
-            );
-
-
-            abilityGrid.appendChild(
-                card
-            );
-
-        }
-    );
-
-
-    /* ---------------------------------------------------------
-       OPEN HERO MODAL
-    --------------------------------------------------------- */
-
-    modal.classList.add(
-        "open"
-    );
-
-
-    document.body.style.overflow =
-        "hidden";
-
-}
-
-
-/* =========================================================
-   CHARACTER TAB SWITCHING
-========================================================= */
-
-characterTabs.forEach(
-    tab => {
-
-        tab.addEventListener(
-            "click",
-            () => {
-
-                characterTabs.forEach(
-                    otherTab =>
-                        otherTab.classList.remove(
-                            "active"
-                        )
-                );
-
-
-                characterPanels.forEach(
-                    panel =>
-                        panel.classList.remove(
-                            "active"
-                        )
-                );
-
-
-                tab.classList.add(
-                    "active"
-                );
-
-
-                const targetPanel =
-                    document.getElementById(
-                        `${tab.dataset.tab}Panel`
-                    );
-
-
-                if (targetPanel) {
-
-                    targetPanel.classList.add(
-                        "active"
-                    );
-
-                }
-
-            }
-        );
-
-    }
-);
 
 
 /* =========================================================
@@ -2225,20 +1827,10 @@ function toggleDetails(button) {
         );
 
 
-    if (!card) {
-        return;
-    }
-
-
     const details =
         card.querySelector(
             ".abilityDetails"
         );
-
-
-    if (!details) {
-        return;
-    }
 
 
     const isOpen =
@@ -2256,32 +1848,293 @@ function toggleDetails(button) {
 
 
 /* =========================================================
-   CLOSE HERO
+   SKINS
 ========================================================= */
 
-closeModal.addEventListener(
-    "click",
-    closeHero
-);
+function renderSkins(hero) {
+
+    skinsGrid.innerHTML =
+        "";
 
 
-modal.addEventListener(
-    "click",
-    event => {
+    const skins =
+        hero.skins || [];
 
-        if (
-            event.target === modal
-        ) {
 
-            closeHero();
+    if (!skins.length) {
+
+        skinsGrid.innerHTML = `
+
+            <div class="emptySection">
+                NO SKINS AVAILABLE
+            </div>
+
+        `;
+
+        return;
+    }
+
+
+    skins.forEach(skin => {
+
+        const card =
+            document.createElement(
+                "div"
+            );
+
+        card.className =
+            "skinCard";
+
+
+        card.innerHTML = `
+
+            <div class="skinImage">
+
+                ${
+                    skin.thumbnail
+                        ? `
+                            <img
+                                src="${skin.thumbnail}"
+                                alt="${skin.name}"
+                                loading="lazy"
+                            >
+                          `
+                        : `
+                            <div class="skinFallback">
+                                ?
+                            </div>
+                          `
+                }
+
+            </div>
+
+
+            <div class="skinInfo">
+
+                <div class="skinName">
+                    ${skin.name}
+                </div>
+
+                <div class="skinRarity">
+                    ${skin.rarity || ""}
+                </div>
+
+            </div>
+
+        `;
+
+
+        const image =
+            card.querySelector(
+                ".skinImage img"
+            );
+
+
+        if (image) {
+
+            image.addEventListener(
+                "error",
+                () => {
+
+                    image.parentElement.innerHTML = `
+
+                        <div class="skinFallback">
+                            ?
+                        </div>
+
+                    `;
+
+                }
+            );
 
         }
 
+
+        /*
+            If a skin has larger splash art,
+            clicking the skin opens it in the
+            existing preview modal.
+        */
+
+        if (skin.splash) {
+
+            card.addEventListener(
+                "click",
+                () => {
+
+                    openMediaPreview(
+                        skin.name,
+                        skin.splash,
+                        "image"
+                    );
+
+                }
+            );
+
+        }
+
+
+        skinsGrid.appendChild(
+            card
+        );
+
+    });
+
+}
+
+
+/* =========================================================
+   CONCEPT ART
+========================================================= */
+
+function renderConceptArt(hero) {
+
+    conceptGrid.innerHTML =
+        "";
+
+
+    const concepts =
+        hero.conceptArt || [];
+
+
+    if (!concepts.length) {
+
+        conceptGrid.innerHTML = `
+
+            <div class="emptySection">
+                NO CONCEPT ART AVAILABLE
+            </div>
+
+        `;
+
+        return;
     }
-);
+
+
+    concepts.forEach(concept => {
+
+        const card =
+            document.createElement(
+                "div"
+            );
+
+        card.className =
+            "conceptCard";
+
+
+        card.innerHTML = `
+
+            <div class="conceptImage">
+
+                ${
+                    concept.image
+                        ? `
+                            <img
+                                src="${concept.image}"
+                                alt="${concept.title}"
+                                loading="lazy"
+                            >
+                          `
+                        : `
+                            <div class="conceptFallback">
+                                ?
+                            </div>
+                          `
+                }
+
+            </div>
+
+
+            <div class="conceptInfo">
+
+                <div class="conceptTitle">
+                    ${concept.title}
+                </div>
+
+                ${
+                    concept.description
+                        ? `
+                            <div class="conceptDescription">
+                                ${concept.description}
+                            </div>
+                          `
+                        : ""
+                }
+
+            </div>
+
+        `;
+
+
+        if (concept.image) {
+
+            card.addEventListener(
+                "click",
+                () => {
+
+                    openMediaPreview(
+                        concept.title,
+                        concept.image,
+                        "image"
+                    );
+
+                }
+            );
+
+        }
+
+
+        conceptGrid.appendChild(
+            card
+        );
+
+    });
+
+}
+
+
+/* =========================================================
+   CLOSE HERO
+========================================================= */
+
+if (closeModal) {
+
+    closeModal.addEventListener(
+        "click",
+        closeHero
+    );
+
+}
+
+
+if (modal) {
+
+    modal.addEventListener(
+        "click",
+        event => {
+
+            if (
+                event.target === modal
+            ) {
+
+                closeHero();
+
+            }
+
+        }
+    );
+
+}
 
 
 function closeHero() {
+
+    if (!modal) {
+
+        return;
+
+    }
+
 
     modal.classList.remove(
         "open"
@@ -2295,7 +2148,7 @@ function closeHero() {
 
 
 /* =========================================================
-   ABILITY PREVIEW ELEMENTS
+   PREVIEW MODAL
 ========================================================= */
 
 const previewModal =
@@ -2303,18 +2156,15 @@ const previewModal =
         "previewModal"
     );
 
-
 const previewMedia =
     document.getElementById(
         "previewMedia"
     );
 
-
 const previewTitle =
     document.getElementById(
         "previewTitle"
     );
-
 
 const previewClose =
     document.getElementById(
@@ -2323,27 +2173,46 @@ const previewClose =
 
 
 /* =========================================================
-   OPEN ABILITY PREVIEW
+   ABILITY PREVIEW
 ========================================================= */
 
 function openPreview(ability) {
 
+    openMediaPreview(
+        ability.name,
+        ability.preview,
+        ability.previewType
+    );
+
+}
+
+
+/* =========================================================
+   GENERIC MEDIA PREVIEW
+
+   Used by:
+   - abilities
+   - skins
+   - concept art
+========================================================= */
+
+function openMediaPreview(
+    title,
+    source,
+    type
+) {
+
     previewTitle.textContent =
-        ability.name;
+        title || "Preview";
 
 
     previewMedia.innerHTML =
         "";
 
 
-    /* ---------------------------------------------------------
-       VIDEO
-    --------------------------------------------------------- */
-
     if (
-        ability.preview &&
-        ability.previewType ===
-        "video"
+        source &&
+        type === "video"
     ) {
 
         const video =
@@ -2351,25 +2220,39 @@ function openPreview(ability) {
                 "video"
             );
 
-
         video.src =
-            ability.preview;
-
+            source;
 
         video.controls =
             true;
 
-
         video.autoplay =
             true;
-
 
         video.loop =
             true;
 
-
         video.muted =
             true;
+
+        video.playsInline =
+            true;
+
+
+        video.addEventListener(
+            "error",
+            () => {
+
+                previewMedia.innerHTML = `
+
+                    <div class="previewFallback">
+                        PREVIEW NOT AVAILABLE
+                    </div>
+
+                `;
+
+            }
+        );
 
 
         previewMedia.appendChild(
@@ -2378,15 +2261,9 @@ function openPreview(ability) {
 
     }
 
-
-    /* ---------------------------------------------------------
-       IMAGE
-    --------------------------------------------------------- */
-
     else if (
-        ability.preview &&
-        ability.previewType ===
-        "image"
+        source &&
+        type === "image"
     ) {
 
         const image =
@@ -2394,13 +2271,27 @@ function openPreview(ability) {
                 "img"
             );
 
-
         image.src =
-            ability.preview;
-
+            source;
 
         image.alt =
-            ability.name;
+            title || "Preview";
+
+
+        image.addEventListener(
+            "error",
+            () => {
+
+                previewMedia.innerHTML = `
+
+                    <div class="previewFallback">
+                        PREVIEW NOT AVAILABLE
+                    </div>
+
+                `;
+
+            }
+        );
 
 
         previewMedia.appendChild(
@@ -2409,19 +2300,12 @@ function openPreview(ability) {
 
     }
 
-
-    /* ---------------------------------------------------------
-       NO PREVIEW
-    --------------------------------------------------------- */
-
     else {
 
         previewMedia.innerHTML = `
 
             <div class="previewFallback">
-
                 PREVIEW NOT AVAILABLE
-
             </div>
 
         `;
@@ -2437,10 +2321,17 @@ function openPreview(ability) {
 
 
 /* =========================================================
-   CLOSE ABILITY PREVIEW
+   CLOSE PREVIEW
 ========================================================= */
 
 function closePreview() {
+
+    if (!previewModal) {
+
+        return;
+
+    }
+
 
     previewModal.classList.remove(
         "open"
@@ -2453,27 +2344,35 @@ function closePreview() {
 }
 
 
-previewClose.addEventListener(
-    "click",
-    closePreview
-);
+if (previewClose) {
+
+    previewClose.addEventListener(
+        "click",
+        closePreview
+    );
+
+}
 
 
-previewModal.addEventListener(
-    "click",
-    event => {
+if (previewModal) {
 
-        if (
-            event.target ===
-            previewModal
-        ) {
+    previewModal.addEventListener(
+        "click",
+        event => {
 
-            closePreview();
+            if (
+                event.target ===
+                previewModal
+            ) {
+
+                closePreview();
+
+            }
 
         }
+    );
 
-    }
-);
+}
 
 
 /* =========================================================
@@ -2495,6 +2394,7 @@ document.addEventListener(
 
 
         if (
+            previewModal &&
             previewModal.classList.contains(
                 "open"
             )
@@ -2508,6 +2408,7 @@ document.addEventListener(
 
 
         if (
+            modal &&
             modal.classList.contains(
                 "open"
             )
@@ -2522,26 +2423,24 @@ document.addEventListener(
 
 
 /* =========================================================
-   INITIAL PAGE LOAD
+   INITIALIZE ROSTER
 ========================================================= */
 
 /*
-    This replaces the old:
-
-        renderRoster(heroes);
-
-    We now check the URL first.
-
-    Examples:
-
-        index.html
-        → shows everyone
-
-        index.html?role=Striker
-        → shows Strikers
-
-        index.html?role=Ravager
-        → shows Ravagers
+    At this point all individual hero files
+    have already pushed themselves into
+    window.heroes.
 */
 
-applyRoleFromURL();
+renderRoster(heroes);
+
+
+/*
+    If someone arrived from roles.html with:
+
+        index.html?role=Vanguard
+
+    apply that filter after the initial render.
+*/
+
+applyURLFilter();
