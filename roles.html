@@ -12,9 +12,16 @@
 
     <title>SUNDERING — Roles</title>
 
+    <!-- Shared roster styling -->
     <link
         rel="stylesheet"
         href="css/roster.css"
+    >
+
+    <!-- Role-page-specific styling -->
+    <link
+        rel="stylesheet"
+        href="css/roles.css"
     >
 
 </head>
@@ -85,7 +92,7 @@
 
         <div class="eyebrow">
 
-            Combat Classifications
+            Combat Classification
 
         </div>
 
@@ -99,9 +106,10 @@
 
         <p>
 
-            Every character specializes in a major combat role,
-            but their subclass determines how they fulfill that
-            purpose on the battlefield.
+            Every hero in Sundering approaches battle differently.
+            Roles describe a hero's broad purpose on the battlefield,
+            while subclasses describe the particular way they fulfill
+            that purpose.
 
         </p>
 
@@ -110,42 +118,35 @@
 
 
     <!-- =====================================================
-         ROLES PAGE
+         ROLE NAVIGATION
+    ===================================================== -->
+
+    <section class="roleJumpSection">
+
+        <div class="roleJumpNav">
+
+            <a href="#vanguard">
+                Vanguard
+            </a>
+
+            <a href="#striker">
+                Striker
+            </a>
+
+            <a href="#catalyst">
+                Catalyst
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         ROLES
     ===================================================== -->
 
     <main class="rolesPage">
-
-
-        <!-- =================================================
-             INTRO
-        ================================================== -->
-
-        <div class="rolesIntro">
-
-            <div class="sectionEyebrow">
-
-                The Three Pillars
-
-            </div>
-
-
-            <h2>
-
-                Major Roles
-
-            </h2>
-
-
-            <p>
-
-                Every character belongs to one of three major
-                classifications: Vanguard, Striker, or Catalyst.
-                Subclasses further define their preferred combat
-                style, responsibilities, and strengths.
-
-            </p>
-
-        </div>
 
 
         <!-- =================================================
@@ -158,36 +159,24 @@
         >
 
 
-            <div class="majorRoleHeader">
+            <!-- ROLE HEADER -->
+
+            <div class="roleSectionHeader">
 
 
-                <!-- VANGUARD ICON -->
+                <div class="roleNumber">
 
-                <div class="majorRoleIcon">
-
-                    <img
-                        src="Assets/Roles/Vanguard/IMG_6672.png"
-                        alt="Vanguard Role"
-                    >
+                    01
 
                 </div>
 
 
-                <!-- VANGUARD TEXT -->
-
-                <div class="majorRoleText">
+                <div class="roleHeading">
 
 
-                    <div class="roleNumber">
+                    <div class="eyebrow">
 
-                        01
-
-                    </div>
-
-
-                    <div class="roleCategory">
-
-                        Major Role
+                        Frontline
 
                     </div>
 
@@ -201,25 +190,20 @@
 
                     <p>
 
-                        Vanguards define and control the frontline.
-                        They absorb pressure, disrupt enemy advances,
-                        protect valuable space, and force opponents
-                        to fight on unfavorable terms.
+                        Vanguards control the front line through
+                        durability, disruption, protection, and space
+                        control. They thrive when standing between
+                        danger and their team.
 
                     </p>
 
 
                     <a
+                        class="viewRoleButton"
                         href="index.html?role=Vanguard"
-                        class="viewRoleRoster"
                     >
-
-                        View Vanguard Roster
-
-                        <span>
-                            →
-                        </span>
-
+                        View Vanguard Heroes
+                        <span>→</span>
                     </a>
 
 
@@ -229,16 +213,7 @@
             </div>
 
 
-            <!-- =================================================
-                 VANGUARD SUBCLASSES
-            ================================================== -->
-
-            <div class="subclassLabel">
-
-                Vanguard Subclasses
-
-            </div>
-
+            <!-- SUBCLASSES -->
 
             <div class="subclassGrid">
 
@@ -250,21 +225,23 @@
                     href="index.html?role=Guardian"
                 >
 
+
                     <div class="subclassIcon">
 
                         <img
-                            src="Assets/Roles/Vanguard/IMG_6671.png"
-                            alt="Guardian"
+                            src="Assets/Roles/Vanguard/Guardian.png"
+                            alt="Guardian role icon"
                         >
 
                     </div>
 
 
-                    <div class="subclassContent">
+                    <div class="subclassInfo">
 
-                        <div class="subclassParent">
 
-                            Vanguard
+                        <div class="subclassNumber">
+
+                            VANGUARD / 01
 
                         </div>
 
@@ -278,14 +255,24 @@
 
                         <p>
 
-                            Defensive specialists focused on keeping
-                            teammates alive through protection,
-                            mitigation, interception, and direct
-                            frontline presence.
+                            Defensive Vanguards who specialize in
+                            protecting teammates, absorbing pressure,
+                            and preventing enemies from reaching
+                            vulnerable allies.
 
                         </p>
 
+
+                        <div class="subclassLink">
+
+                            View Heroes
+                            <span>→</span>
+
+                        </div>
+
+
                     </div>
+
 
                 </a>
 
@@ -297,21 +284,23 @@
                     href="index.html?role=Warden"
                 >
 
+
                     <div class="subclassIcon">
 
                         <img
-                            src="Assets/Roles/Vanguard/IMG_6670.png"
-                            alt="Warden"
+                            src="Assets/Roles/Vanguard/Warden.png"
+                            alt="Warden role icon"
                         >
 
                     </div>
 
 
-                    <div class="subclassContent">
+                    <div class="subclassInfo">
 
-                        <div class="subclassParent">
 
-                            Vanguard
+                        <div class="subclassNumber">
+
+                            VANGUARD / 02
 
                         </div>
 
@@ -325,14 +314,24 @@
 
                         <p>
 
-                            Territory specialists who control
-                            important areas through structures,
-                            persistent effects, hazards, or other
-                            forms of battlefield denial.
+                            Area-control Vanguards who establish
+                            territory and make sections of the
+                            battlefield difficult or dangerous for
+                            enemies to contest.
 
                         </p>
 
+
+                        <div class="subclassLink">
+
+                            View Heroes
+                            <span>→</span>
+
+                        </div>
+
+
                     </div>
+
 
                 </a>
 
@@ -344,21 +343,23 @@
                     href="index.html?role=Bludgeon"
                 >
 
+
                     <div class="subclassIcon">
 
                         <img
-                            src="Assets/Roles/Vanguard/IMG_6669.png"
-                            alt="Bludgeon"
+                            src="Assets/Roles/Vanguard/Bludgeon.png"
+                            alt="Bludgeon role icon"
                         >
 
                     </div>
 
 
-                    <div class="subclassContent">
+                    <div class="subclassInfo">
 
-                        <div class="subclassParent">
 
-                            Vanguard
+                        <div class="subclassNumber">
+
+                            VANGUARD / 03
 
                         </div>
 
@@ -372,14 +373,24 @@
 
                         <p>
 
-                            Aggressive Vanguards who create space
-                            through direct pressure, disruption,
-                            displacement, and overwhelming frontline
-                            presence.
+                            Aggressive Vanguards who use their
+                            durability to force their way into enemy
+                            formations and disrupt opponents at close
+                            range.
 
                         </p>
 
+
+                        <div class="subclassLink">
+
+                            View Heroes
+                            <span>→</span>
+
+                        </div>
+
+
                     </div>
+
 
                 </a>
 
@@ -400,36 +411,24 @@
         >
 
 
-            <div class="majorRoleHeader">
+            <!-- ROLE HEADER -->
+
+            <div class="roleSectionHeader">
 
 
-                <!-- STRIKER ICON -->
+                <div class="roleNumber">
 
-                <div class="majorRoleIcon">
-
-                    <img
-                        src="Assets/Roles/Striker/striker.png"
-                        alt="Striker Role"
-                    >
+                    02
 
                 </div>
 
 
-                <!-- STRIKER TEXT -->
-
-                <div class="majorRoleText">
+                <div class="roleHeading">
 
 
-                    <div class="roleNumber">
+                    <div class="eyebrow">
 
-                        02
-
-                    </div>
-
-
-                    <div class="roleCategory">
-
-                        Major Role
+                        Offense
 
                     </div>
 
@@ -443,25 +442,20 @@
 
                     <p>
 
-                        Strikers are the primary offensive force of a
-                        team. Their kits are designed around securing
-                        eliminations, pressuring priority targets,
-                        and converting openings into damage.
+                        Strikers are offensive heroes built around
+                        applying pressure and securing eliminations.
+                        Their subclasses differ primarily in where,
+                        when, and how that damage is delivered.
 
                     </p>
 
 
                     <a
+                        class="viewRoleButton"
                         href="index.html?role=Striker"
-                        class="viewRoleRoster"
                     >
-
-                        View Striker Roster
-
-                        <span>
-                            →
-                        </span>
-
+                        View Striker Heroes
+                        <span>→</span>
                     </a>
 
 
@@ -471,16 +465,7 @@
             </div>
 
 
-            <!-- =================================================
-                 STRIKER SUBCLASSES
-            ================================================== -->
-
-            <div class="subclassLabel">
-
-                Striker Subclasses
-
-            </div>
-
+            <!-- SUBCLASSES -->
 
             <div class="subclassGrid">
 
@@ -492,21 +477,23 @@
                     href="index.html?role=Brawler"
                 >
 
+
                     <div class="subclassIcon">
 
                         <img
-                            src="Assets/Roles/Striker/brawler.png"
-                            alt="Brawler"
+                            src="Assets/Roles/Striker/Brawler.png"
+                            alt="Brawler role icon"
                         >
 
                     </div>
 
 
-                    <div class="subclassContent">
+                    <div class="subclassInfo">
 
-                        <div class="subclassParent">
 
-                            Striker
+                        <div class="subclassNumber">
+
+                            STRIKER / 01
 
                         </div>
 
@@ -520,14 +507,24 @@
 
                         <p>
 
-                            Close-range combatants who thrive in
-                            prolonged engagements and maintain
-                            offensive pressure directly on the
+                            Close-range fighters who prefer to remain
+                            directly in the fight, trading blows and
+                            maintaining constant pressure on the
                             frontline.
 
                         </p>
 
+
+                        <div class="subclassLink">
+
+                            View Heroes
+                            <span>→</span>
+
+                        </div>
+
+
                     </div>
+
 
                 </a>
 
@@ -539,21 +536,23 @@
                     href="index.html?role=Marksman"
                 >
 
+
                     <div class="subclassIcon">
 
                         <img
-                            src="Assets/Roles/Striker/marksman.png"
-                            alt="Marksman"
+                            src="Assets/Roles/Striker/Marksman.png"
+                            alt="Marksman role icon"
                         >
 
                     </div>
 
 
-                    <div class="subclassContent">
+                    <div class="subclassInfo">
 
-                        <div class="subclassParent">
 
-                            Striker
+                        <div class="subclassNumber">
+
+                            STRIKER / 02
 
                         </div>
 
@@ -567,13 +566,23 @@
 
                         <p>
 
-                            Precision-focused ranged attackers who
-                            reward aim, target selection, and
-                            maintaining favorable sightlines.
+                            Precision-focused Strikers who rely on
+                            accurate weapon fire and consistent damage
+                            from favorable distances.
 
                         </p>
 
+
+                        <div class="subclassLink">
+
+                            View Heroes
+                            <span>→</span>
+
+                        </div>
+
+
                     </div>
+
 
                 </a>
 
@@ -585,21 +594,23 @@
                     href="index.html?role=Hunter"
                 >
 
+
                     <div class="subclassIcon">
 
                         <img
-                            src="Assets/Roles/Striker/hunter.png"
-                            alt="Hunter"
+                            src="Assets/Roles/Striker/Hunter.png"
+                            alt="Hunter role icon"
                         >
 
                     </div>
 
 
-                    <div class="subclassContent">
+                    <div class="subclassInfo">
 
-                        <div class="subclassParent">
 
-                            Striker
+                        <div class="subclassNumber">
+
+                            STRIKER / 03
 
                         </div>
 
@@ -613,13 +624,23 @@
 
                         <p>
 
-                            Mobile killers built to dive, flank,
-                            isolate, chase, and eliminate vulnerable
-                            targets before escaping or repositioning.
+                            Mobile assassins and flankers who hunt
+                            vulnerable targets, bypass frontlines,
+                            and rapidly engage or escape.
 
                         </p>
 
+
+                        <div class="subclassLink">
+
+                            View Heroes
+                            <span>→</span>
+
+                        </div>
+
+
                     </div>
+
 
                 </a>
 
@@ -631,21 +652,23 @@
                     href="index.html?role=Ravager"
                 >
 
+
                     <div class="subclassIcon">
 
                         <img
-                            src="Assets/Roles/Striker/ravager.png"
-                            alt="Ravager"
+                            src="Assets/Roles/Striker/Ravager.png"
+                            alt="Ravager role icon"
                         >
 
                     </div>
 
 
-                    <div class="subclassContent">
+                    <div class="subclassInfo">
 
-                        <div class="subclassParent">
 
-                            Striker
+                        <div class="subclassNumber">
+
+                            STRIKER / 04
 
                         </div>
 
@@ -659,14 +682,23 @@
 
                         <p>
 
-                            Highly aggressive damage dealers who use
-                            explosive pressure, relentless attacks,
-                            or powerful combat loops to overwhelm
-                            enemies.
+                            High-pressure Strikers built around
+                            overwhelming enemies through sustained,
+                            explosive, or rapidly escalating offense.
 
                         </p>
 
+
+                        <div class="subclassLink">
+
+                            View Heroes
+                            <span>→</span>
+
+                        </div>
+
+
                     </div>
+
 
                 </a>
 
@@ -678,21 +710,23 @@
                     href="index.html?role=Disruptor"
                 >
 
+
                     <div class="subclassIcon">
 
                         <img
-                            src="Assets/Roles/Striker/disruptor.png"
-                            alt="Disruptor"
+                            src="Assets/Roles/Striker/Disruptor.png"
+                            alt="Disruptor role icon"
                         >
 
                     </div>
 
 
-                    <div class="subclassContent">
+                    <div class="subclassInfo">
 
-                        <div class="subclassParent">
 
-                            Striker
+                        <div class="subclassNumber">
+
+                            STRIKER / 05
 
                         </div>
 
@@ -706,14 +740,24 @@
 
                         <p>
 
-                            Offensive specialists whose damage comes
-                            alongside unusual interference, debuffs,
-                            manipulation, or mechanics that
-                            destabilize enemy plans.
+                            Offensive specialists who combine damage
+                            with interference, manipulating enemy
+                            movement, abilities, or combat rhythm to
+                            create openings.
 
                         </p>
 
+
+                        <div class="subclassLink">
+
+                            View Heroes
+                            <span>→</span>
+
+                        </div>
+
+
                     </div>
+
 
                 </a>
 
@@ -734,36 +778,24 @@
         >
 
 
-            <div class="majorRoleHeader">
+            <!-- ROLE HEADER -->
+
+            <div class="roleSectionHeader">
 
 
-                <!-- CATALYST ICON -->
+                <div class="roleNumber">
 
-                <div class="majorRoleIcon">
-
-                    <img
-                        src="Assets/Roles/Catalyst/catalyst.png"
-                        alt="Catalyst Role"
-                    >
+                    03
 
                 </div>
 
 
-                <!-- CATALYST TEXT -->
-
-                <div class="majorRoleText">
+                <div class="roleHeading">
 
 
-                    <div class="roleNumber">
+                    <div class="eyebrow">
 
-                        03
-
-                    </div>
-
-
-                    <div class="roleCategory">
-
-                        Major Role
+                        Support
 
                     </div>
 
@@ -777,26 +809,21 @@
 
                     <p>
 
-                        Catalysts amplify the effectiveness of their
-                        team. Their influence comes through healing,
-                        enabling allies, controlling engagements,
-                        manipulating positioning, or providing
-                        specialized utility.
+                        Catalysts shape fights through healing,
+                        utility, setup, and battlefield manipulation.
+                        Rather than simply dealing damage or absorbing
+                        it, they change the conditions under which
+                        everyone else fights.
 
                     </p>
 
 
                     <a
+                        class="viewRoleButton"
                         href="index.html?role=Catalyst"
-                        class="viewRoleRoster"
                     >
-
-                        View Catalyst Roster
-
-                        <span>
-                            →
-                        </span>
-
+                        View Catalyst Heroes
+                        <span>→</span>
                     </a>
 
 
@@ -806,16 +833,7 @@
             </div>
 
 
-            <!-- =================================================
-                 CATALYST SUBCLASSES
-            ================================================== -->
-
-            <div class="subclassLabel">
-
-                Catalyst Subclasses
-
-            </div>
-
+            <!-- SUBCLASSES -->
 
             <div class="subclassGrid">
 
@@ -827,21 +845,23 @@
                     href="index.html?role=Lifeline"
                 >
 
+
                     <div class="subclassIcon">
 
                         <img
-                            src="Assets/Roles/Catalyst/lifeline.png"
-                            alt="Lifeline"
+                            src="Assets/Roles/Catalyst/Lifeline.png"
+                            alt="Lifeline role icon"
                         >
 
                     </div>
 
 
-                    <div class="subclassContent">
+                    <div class="subclassInfo">
 
-                        <div class="subclassParent">
 
-                            Catalyst
+                        <div class="subclassNumber">
+
+                            CATALYST / 01
 
                         </div>
 
@@ -855,13 +875,23 @@
 
                         <p>
 
-                            Sustain specialists focused on restoring,
-                            preserving, and reinforcing allied health
-                            throughout an engagement.
+                            Sustain-focused Catalysts who keep allies
+                            alive through healing, recovery, damage
+                            prevention, and other forms of protection.
 
                         </p>
 
+
+                        <div class="subclassLink">
+
+                            View Heroes
+                            <span>→</span>
+
+                        </div>
+
+
                     </div>
+
 
                 </a>
 
@@ -873,21 +903,23 @@
                     href="index.html?role=Playmaker"
                 >
 
+
                     <div class="subclassIcon">
 
                         <img
-                            src="Assets/Roles/Catalyst/playmaker.png"
-                            alt="Playmaker"
+                            src="Assets/Roles/Catalyst/Playmaker.png"
+                            alt="Playmaker role icon"
                         >
 
                     </div>
 
 
-                    <div class="subclassContent">
+                    <div class="subclassInfo">
 
-                        <div class="subclassParent">
 
-                            Catalyst
+                        <div class="subclassNumber">
+
+                            CATALYST / 02
 
                         </div>
 
@@ -902,12 +934,23 @@
                         <p>
 
                             Catalysts who create opportunities for
-                            their team through setup, tempo control,
-                            initiation, and coordinated interactions.
+                            their team through powerful setup,
+                            coordination, buffs, and fight-changing
+                            ability combinations.
 
                         </p>
 
+
+                        <div class="subclassLink">
+
+                            View Heroes
+                            <span>→</span>
+
+                        </div>
+
+
                     </div>
+
 
                 </a>
 
@@ -919,21 +962,23 @@
                     href="index.html?role=Utility"
                 >
 
+
                     <div class="subclassIcon">
 
                         <img
-                            src="Assets/Roles/Catalyst/utility.png"
-                            alt="Utility"
+                            src="Assets/Roles/Catalyst/Utility.png"
+                            alt="Utility role icon"
                         >
 
                     </div>
 
 
-                    <div class="subclassContent">
+                    <div class="subclassInfo">
 
-                        <div class="subclassParent">
 
-                            Catalyst
+                        <div class="subclassNumber">
+
+                            CATALYST / 03
 
                         </div>
 
@@ -947,14 +992,24 @@
 
                         <p>
 
-                            Specialists built around unconventional
-                            tools, buffs, information, resources,
-                            or situational advantages that expand
-                            what their team can do.
+                            Flexible Catalysts whose value comes from
+                            specialized tools, buffs, information,
+                            mobility, or other advantages that do not
+                            fit purely into healing or control.
 
                         </p>
 
+
+                        <div class="subclassLink">
+
+                            View Heroes
+                            <span>→</span>
+
+                        </div>
+
+
                     </div>
+
 
                 </a>
 
@@ -966,21 +1021,23 @@
                     href="index.html?role=Controller"
                 >
 
+
                     <div class="subclassIcon">
 
                         <img
-                            src="Assets/Roles/Catalyst/controller.png"
-                            alt="Controller"
+                            src="Assets/Roles/Catalyst/Controller.png"
+                            alt="Controller role icon"
                         >
 
                     </div>
 
 
-                    <div class="subclassContent">
+                    <div class="subclassInfo">
 
-                        <div class="subclassParent">
 
-                            Catalyst
+                        <div class="subclassNumber">
+
+                            CATALYST / 04
 
                         </div>
 
@@ -994,13 +1051,23 @@
 
                         <p>
 
-                            Crowd-control specialists who manipulate
-                            enemy movement, positioning, actions, or
-                            access to important areas of a fight.
+                            Battlefield manipulators who restrict
+                            enemies through crowd control, zoning,
+                            debuffs, and other forms of interference.
 
                         </p>
 
+
+                        <div class="subclassLink">
+
+                            View Heroes
+                            <span>→</span>
+
+                        </div>
+
+
                     </div>
+
 
                 </a>
 
@@ -1020,7 +1087,7 @@
 
     <footer>
 
-        SUNDERING — ROLE ARCHIVE
+        SUNDERING — THE ARCHIVE
 
     </footer>
 
