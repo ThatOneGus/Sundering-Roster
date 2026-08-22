@@ -1,12 +1,12 @@
 const heroes = [
   
     alejandro,
-    ari, 
+    /*ari, */
     bartholomew,
-    cedric,
+    /*cedric,
     chance,
     corvinSilas,
     dante,
-    esmeralda
+    esmeralda*/
 
 ];
