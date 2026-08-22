@@ -76,7 +76,6 @@ const cedric = {
 
     conceptArt: [
 
-        /*
         Example:
 
         {
@@ -88,7 +87,6 @@ const cedric = {
             description:
                 "Early exploration of Cedric's deployable industrial smoke machinery."
         }
-        */
 
     ],
 
