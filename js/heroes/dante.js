@@ -12,7 +12,7 @@ window.heroes.push({
         "Disruptor"
     ],
 
-    region: "TBD",
+    region: "Elaris",
 
 
     /* =====================================================
