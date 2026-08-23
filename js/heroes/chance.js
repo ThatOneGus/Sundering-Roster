@@ -1,4 +1,11 @@
-const chance = {
+/* =========================================================
+   CHANCE
+========================================================= */
+
+window.heroes = window.heroes || [];
+
+window.heroes.push({
+
     name: "Chance",
 
     title: "The House Favorite",
@@ -10,7 +17,7 @@ const chance = {
         "Warden"
     ],
 
-    region: "Ferrumalis",
+    region: "TBD",
 
 
     /* =====================================================
@@ -18,10 +25,10 @@ const chance = {
     ===================================================== */
 
     thumbnail:
-        "Assets/Heroes/Chance/IMG_6557.png",
+        "Assets/Heroes/Chance/thumbnail.png",
 
     heroArt:
-        "Assets/Heroes/Chance/IMG_6561.png",
+        "Assets/Heroes/Chance/hero-art.png",
 
 
     /* =====================================================
@@ -29,7 +36,7 @@ const chance = {
     ===================================================== */
 
     description:
-        "A gambler who turns every fight into a game of calculated chaos. Chance protects himself and his allies with enchanted cards, roulette shields, and sheer luck, forcing enemies to play by rules that seem to change every few seconds.",
+        "A risk-loving gambler who bends probability around himself, Chance turns every fight into a game of shifting odds. Between enchanted cards, defensive tricks, random buffs, and chaotic battlefield effects, he thrives when neither team is entirely sure what comes next.",
 
 
     /* =====================================================
@@ -40,13 +47,13 @@ const chance = {
 
         damage: 6,
 
-        survivability: 8,
+        survivability: 9,
 
-        crowdControl: 8,
+        crowdControl: 7,
 
-        mobility: 2,
+        mobility: 3,
 
-        support: 5,
+        support: 6,
 
         range: 6
 
@@ -65,7 +72,10 @@ const chance = {
             rarity: "Base",
 
             thumbnail:
-                "Assets/Heroes/Chance/Skins/Default/thumbnail.png"
+                "Assets/Heroes/Chance/thumbnail.png",
+
+            splash:
+                "Assets/Heroes/Chance/hero-art.png"
         },
 
         {
@@ -74,16 +84,22 @@ const chance = {
             rarity: "Epic",
 
             thumbnail:
-                "Assets/Heroes/Chance/Skins/Roll-The-Tides/thumbnail.png"
+                "Assets/Heroes/Chance/Skins/Roll-The-Tides/thumbnail.png",
+
+            splash:
+                "Assets/Heroes/Chance/Skins/Roll-The-Tides/splash.png"
         },
 
         {
             name: "Royal Flush",
 
-            rarity: "Rare",
+            rarity: "Mythic",
 
             thumbnail:
-                "Assets/Heroes/Chance/Skins/Royal-Flush/thumbnail.png"
+                "Assets/Heroes/Chance/Skins/Royal-Flush/thumbnail.png",
+
+            splash:
+                "Assets/Heroes/Chance/Skins/Royal-Flush/splash.png"
         }
 
     ],
@@ -96,8 +112,6 @@ const chance = {
     conceptArt: [
 
         /*
-        Example:
-
         {
             title: "Early Chance Concept",
 
@@ -105,7 +119,7 @@ const chance = {
                 "Assets/Heroes/Chance/Concept-Art/early-concept.png",
 
             description:
-                "Early exploration of Chance's enchanted casino aesthetic."
+                "Early exploration of Chance's casino-inspired silhouette and enchanted gambling equipment."
         }
         */
 
@@ -140,18 +154,15 @@ const chance = {
                 "video",
 
             shortDescription:
-                "Using an ability rolls a D6, granting Chance one of six temporary effects.",
+                "Using abilities rolls a D6, granting Chance a random temporary effect.",
 
             detailedDescription:
-                "Every time Chance uses an ability, he rolls a Chance Die (D6). The result determines one of six effects. House Rules has a 10-second cooldown before another standard ability use can trigger a roll.",
+                "Every time Chance uses an ability, he rolls a Chance Die. The D6 result determines which minor effect activates. House Rules has a 10-second internal cooldown.",
 
             stats: {
 
                 "Die":
                     "D6",
-
-                "Possible Results":
-                    "6",
 
                 "Internal Cooldown":
                     "10 sec"
@@ -169,7 +180,7 @@ const chance = {
                         "blue",
 
                     description:
-                        "Chance's abilities cycle faster for a short duration.",
+                        "Chance temporarily accelerates his ability recovery.",
 
                     details: {
 
@@ -212,7 +223,7 @@ const chance = {
                         "green",
 
                     description:
-                        "Chance restores a portion of his maximum health over time.",
+                        "Chance restores a percentage of his maximum Health.",
 
                     details: {
 
@@ -232,10 +243,10 @@ const chance = {
                         "4 — Payback",
 
                     color:
-                        "teal",
+                        "violet",
 
                     description:
-                        "Chance reflects a portion of the next instance of damage he receives.",
+                        "The next damage Chance takes is partially reflected back.",
 
                     details: {
 
@@ -255,7 +266,7 @@ const chance = {
                         "orange",
 
                     description:
-                        "Chance temporarily increases his outgoing damage.",
+                        "Chance temporarily deals increased damage.",
 
                     details: {
 
@@ -278,7 +289,7 @@ const chance = {
                         "red",
 
                     description:
-                        "Chance becomes substantially more dangerous, but also more vulnerable.",
+                        "Chance deals more damage but briefly becomes more vulnerable himself.",
 
                     details: {
 
@@ -321,10 +332,10 @@ const chance = {
                 "video",
 
             shortDescription:
-                "Rapidly flick enchanted playing cards, with every sixth shot becoming a piercing House Card.",
+                "Rapidly throw enchanted cards, with every sixth card becoming a powerful piercing House Card.",
 
             detailedDescription:
-                "Chance flicks enchanted playing cards from his deck in rapid succession. Every 6th card is transformed into a glowing golden House Card. House Cards deal increased damage, travel faster, pierce through enemies, and immediately trigger a House Rules die roll when they hit an enemy.",
+                "Chance flicks enchanted playing cards from his deck in rapid succession. Every sixth card becomes a glowing gold House Card that pierces enemies. If the House Card hits an enemy, Chance immediately rolls House Rules regardless of its normal trigger timing.",
 
             stats: {
 
@@ -340,8 +351,62 @@ const chance = {
                 "Ammo":
                     "12",
 
-                "House Card Frequency":
-                    "Every 6th shot"
+                "House Card Interval":
+                    "Every 6th card",
+
+                "House Card Damage":
+                    "55",
+
+                "House Card Projectile Speed":
+                    "120 m/s",
+
+                "House Card":
+                    "Pierces enemies",
+
+                "House Card Hit":
+                    "Immediately rolls House Rules"
+
+            }
+
+        },
+
+
+        /* =================================================
+           ABILITY 1 — FLYING JACKPOT
+        ================================================= */
+
+        {
+            type: "Ability 1",
+
+            key: "M2",
+
+            name: "Flying Jackpot",
+
+            icon:
+                "Assets/Heroes/Chance/Abilities/flying-jackpot.png",
+
+            preview:
+                "Assets/Heroes/Chance/Abilities/flying-jackpot-preview.mp4",
+
+            previewType:
+                "video",
+
+            shortDescription:
+                "Throw a roulette shield that bounces between enemies before returning to Chance with a random defensive reward.",
+
+            detailedDescription:
+                "Chance throws a spinning roulette shield forward like a discus. The shield can bounce between up to 3 enemies. When it finishes bouncing, either because no additional enemy is available or all 3 bounces are completed, it returns to Chance and grants one random buff. Striking 3 enemies triggers Jackpot instead, granting all three rewards at reduced strength.",
+
+            stats: {
+
+                "Maximum Enemy Bounces":
+                    "3",
+
+                "Projectile Speed":
+                    "90 m/s",
+
+                "Cooldown":
+                    "12 sec"
 
             },
 
@@ -350,27 +415,391 @@ const chance = {
 
                 {
                     name:
-                        "House Card",
+                        "Damage Reduction Reward",
+
+                    color:
+                        "blue",
+
+                    details: {
+
+                        "Damage Reduction":
+                            "25%",
+
+                        "Duration":
+                            "1 sec"
+
+                    }
+
+                },
+
+
+                {
+                    name:
+                        "Bonus Health Reward",
+
+                    color:
+                        "white",
+
+                    details: {
+
+                        "Bonus Health":
+                            "100"
+
+                    }
+
+                },
+
+
+                {
+                    name:
+                        "Cooldown Reward",
+
+                    color:
+                        "violet",
+
+                    details: {
+
+                        "Cooldown Reduction":
+                            "2 sec off all abilities"
+
+                    }
+
+                },
+
+
+                {
+                    name:
+                        "Jackpot",
 
                     color:
                         "yellow",
 
                     description:
-                        "Every sixth card becomes a golden piercing projectile. Hitting an enemy immediately rolls Chance's passive die.",
+                        "Hitting all 3 enemy bounces guarantees a combined reward instead of selecting one random effect.",
+
+                    details: {
+
+                        "Damage Reduction":
+                            "15%",
+
+                        "Bonus Health":
+                            "75",
+
+                        "Cooldown Reduction":
+                            "1 sec off all abilities"
+
+                    }
+
+                }
+
+            ]
+
+        },
+
+
+        /* =================================================
+           ABILITY 2 — HOUSE OF CARDS
+        ================================================= */
+
+        {
+            type: "Ability 2",
+
+            key: "E",
+
+            name: "House of Cards",
+
+            icon:
+                "Assets/Heroes/Chance/Abilities/house-of-cards.png",
+
+            preview:
+                "Assets/Heroes/Chance/Abilities/house-of-cards-preview.mp4",
+
+            previewType:
+                "video",
+
+            shortDescription:
+                "Build a temporary card wall that blocks movement and projectiles before exploding outward.",
+
+            detailedDescription:
+                "Chance throws down a collapsing card structure at a target location. The House of Cards blocks enemy movement and projectiles for 4 seconds. Allies positioned behind the structure take reduced ranged damage. When the structure collapses naturally or is manually detonated, it shatters outward in an explosive flurry of cards that damages and Shoves nearby enemies.",
+
+            stats: {
+
+                "Duration":
+                    "4 sec",
+
+                "Ally Ranged Damage Reduction":
+                    "20%",
+
+                "Blocks Enemy Movement":
+                    "Yes",
+
+                "Blocks Projectiles":
+                    "Yes",
+
+                "Manual Detonation":
+                    "Yes",
+
+                "Cooldown":
+                    "14 sec"
+
+            },
+
+
+            sections: [
+
+                {
+                    name:
+                        "Collapse",
+
+                    color:
+                        "red",
+
+                    description:
+                        "When the House of Cards collapses or is manually detonated, it explodes outward and Shoves nearby enemies.",
 
                     details: {
 
                         "Damage":
-                            "55",
+                            "TBD",
 
-                        "Projectile Speed":
-                            "120 m/s",
+                        "Shove Distance":
+                            "TBD",
 
-                        "Pierces Enemies":
-                            "Yes",
+                        "Explosion Radius":
+                            "TBD"
 
-                        "Triggers House Rules":
-                            "Immediately on hit"
+                    }
+
+                }
+
+            ]
+
+        },
+
+
+        /* =================================================
+           ABILITY 3 — LUCKY BREAK
+        ================================================= */
+
+        {
+            type: "Ability 3",
+
+            key: "SHIFT",
+
+            name: "Lucky Break",
+
+            icon:
+                "Assets/Heroes/Chance/Abilities/lucky-break.png",
+
+            preview:
+                "Assets/Heroes/Chance/Abilities/lucky-break-preview.mp4",
+
+            previewType:
+                "video",
+
+            shortDescription:
+                "Flip a massive golden coin and receive either powerful healing or another House Rules roll.",
+
+            detailedDescription:
+                "Chance spins a massive golden coin into the air. After 1.5 seconds, the coin lands on Heads or Tails, determining which effect activates.",
+
+            stats: {
+
+                "Flip Delay":
+                    "1.5 sec",
+
+                "Cooldown":
+                    "20 sec"
+
+            },
+
+
+            sections: [
+
+                {
+                    name:
+                        "Heads — Second Wind",
+
+                    color:
+                        "green",
+
+                    description:
+                        "Chance rapidly recovers a large portion of his missing Health.",
+
+                    details: {
+
+                        "Healing":
+                            "40% of missing HP",
+
+                        "Duration":
+                            "5 sec"
+
+                    }
+
+                },
+
+
+                {
+                    name:
+                        "Tails — Risk & Reward",
+
+                    color:
+                        "violet",
+
+                    description:
+                        "Chance immediately triggers another House Rules die roll.",
+
+                    details: {
+
+                        "Effect":
+                            "Immediately roll House Rules"
+
+                    }
+
+                }
+
+            ]
+
+        },
+
+
+        /* =================================================
+           ULTIMATE — HOUSE ALWAYS WINS
+        ================================================= */
+
+        {
+            type: "Ultimate",
+
+            key: "Q",
+
+            name: "House Always Wins",
+
+            icon:
+                "Assets/Heroes/Chance/Abilities/house-always-wins.png",
+
+            preview:
+                "Assets/Heroes/Chance/Abilities/house-always-wins-preview.mp4",
+
+            previewType:
+                "video",
+
+            shortDescription:
+                "Create a Casino Zone that makes Chance extremely durable while repeatedly inflicting random debuffs on enemies inside.",
+
+            detailedDescription:
+                "Chance tosses a giant die into the air, creating a 10m Casino Zone after a brief delay. Chance gains Crowd Control Immunity and Bonus Health while inside the effect. Every enemy within the Casino Zone is randomly afflicted by one debuff every 2 seconds for the duration.",
+
+            stats: {
+
+                "Delay":
+                    "1 sec",
+
+                "Duration":
+                    "8 sec",
+
+                "Radius":
+                    "10 m",
+
+                "Crowd Control Immunity":
+                    "Yes",
+
+                "Bonus Health":
+                    "300",
+
+                "Debuff Interval":
+                    "Every 2 sec",
+
+                "Ultimate Cost":
+                    "3100"
+
+            },
+
+
+            sections: [
+
+                {
+                    name:
+                        "Slowed",
+
+                    color:
+                        "blue",
+
+                    details: {
+
+                        "Slow":
+                            "30%",
+
+                        "Duration":
+                            "3 sec"
+
+                    }
+
+                },
+
+
+                {
+                    name:
+                        "Silenced",
+
+                    color:
+                        "violet",
+
+                    details: {
+
+                        "Duration":
+                            "1.5 sec"
+
+                    }
+
+                },
+
+
+                {
+                    name:
+                        "Weakened",
+
+                    color:
+                        "orange",
+
+                    details: {
+
+                        "Outgoing Damage Reduction":
+                            "25%"
+
+                    }
+
+                },
+
+
+                {
+                    name:
+                        "Blinded",
+
+                    color:
+                        "white",
+
+                    details: {
+
+                        "Duration":
+                            "1.5 sec"
+
+                    }
+
+                },
+
+
+                {
+                    name:
+                        "Rooted",
+
+                    color:
+                        "red",
+
+                    details: {
+
+                        "Duration":
+                            "2 sec"
 
                     }
 
@@ -379,3 +808,7 @@ const chance = {
             ]
 
         }
+
+    ]
+
+});
