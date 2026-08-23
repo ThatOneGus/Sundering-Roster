@@ -23,7 +23,7 @@ window.heroes.push({
         "Assets/Heroes/Dante/IMG_6716.png",
 
     heroArt:
-        "Assets/Heroes/Dante/IMG_6713.png",
+        "Assets/Heroes/Dante/IMG_6723.png",
 
 
     /* =====================================================
