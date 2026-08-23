@@ -17,7 +17,7 @@ window.heroes.push({
         "Warden"
     ],
 
-    region: "TBD",
+    region: "Ferrumalis",
 
 
     /* =====================================================
@@ -93,7 +93,7 @@ window.heroes.push({
         {
             name: "Royal Flush",
 
-            rarity: "Mythic",
+            rarity: "Rare",
 
             thumbnail:
                 "Assets/Heroes/Chance/Skins/Royal-Flush/thumbnail.png",
