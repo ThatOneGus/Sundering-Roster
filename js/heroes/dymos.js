@@ -16,7 +16,7 @@ window.heroes.push({
         "Disruptor"
     ],
 
-    region: "TBD",
+    region: "Solari",
 
 
     /* =====================================================
@@ -24,10 +24,10 @@ window.heroes.push({
     ===================================================== */
 
     thumbnail:
-        "Assets/Heroes/Dymos/thumbnail.png",
+        "Assets/Heroes/Dymos/IMG_6728.png",
 
     heroArt:
-        "Assets/Heroes/Dymos/hero-art.png",
+        "Assets/Heroes/Dymos/IMG_6722.png",
 
 
     /* =====================================================
@@ -44,13 +44,13 @@ window.heroes.push({
 
     profile: {
 
-        damage: 8,
+        damage: 7,
 
         survivability: 6,
 
         crowdControl: 8,
 
-        mobility: 4,
+        mobility: 2,
 
         support: 3,
 
@@ -86,17 +86,35 @@ window.heroes.push({
 
     conceptArt: [
 
-        /*
         {
-            title: "Temporal Fracture Study",
+            title: "Dymos Concept Art",
+
+            image:
+                "Assets/Heroes/Dymos/IMG_6697.png",
+
+            description:
+                "Exploration of Dymos's current look."
+        },
+
+       {
+            title: "Dymos Concept Full Body",
+
+            image:
+                "Assets/Heroes/Dymos/IMG_6718.png",
+
+            description:
+                "Final Concept art of Dymos's current look."
+        },
+
+       {
+            title: "Previous Dymos Iteration",
 
             image:
                 "Assets/Heroes/Dymos/Concept-Art/temporal-fracture.png",
 
             description:
-                "Exploration of Dymos's fractured face and permanently frozen temporal afterimages."
+                "Dymos's scraped look."
         }
-        */
 
     ],
 
