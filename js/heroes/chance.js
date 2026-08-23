@@ -25,10 +25,10 @@ window.heroes.push({
     ===================================================== */
 
     thumbnail:
-        "Assets/Heroes/Chance/thumbnail.png",
+        "Assets/Heroes/Chance/IMG_6557.png",
 
     heroArt:
-        "Assets/Heroes/Chance/hero-art.png",
+        "Assets/Heroes/Chance/IMG_6561.png",
 
 
     /* =====================================================
