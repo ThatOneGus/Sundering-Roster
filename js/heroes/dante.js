@@ -20,10 +20,10 @@ window.heroes.push({
     ===================================================== */
 
     thumbnail:
-        "Assets/Heroes/Dante/thumbnail.png",
+        "Assets/Heroes/Dante/IMG_6716.png",
 
     heroArt:
-        "Assets/Heroes/Dante/hero-art.png",
+        "Assets/Heroes/Dante/IMG_6713.png",
 
 
     /* =====================================================
@@ -88,19 +88,25 @@ window.heroes.push({
 
     conceptArt: [
 
-        /*
-        Example:
-
         {
-            title: "Early Dante Concept",
+            title: "Dante Concept Art",
 
             image:
-                "Assets/Heroes/Dante/Concept-Art/early-concept.png",
+                "Assets/Heroes/Dante/IMG_6712.png",
 
             description:
-                "Early exploration of Dante's thief equipment and climbing silhouette."
+                "Concept art of Dante before final render."
+        },
+
+        {
+            title: "Elarian Thief Concept Art",
+
+            image:
+                "Assets/Heroes/Dante/IMG_6681.png",
+
+            description:
+                "Early exploration of Dante's look, later turned into skin."
         }
-        */
 
     ],
 
