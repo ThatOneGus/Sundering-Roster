@@ -45,13 +45,13 @@ window.heroes.push({
 
     profile: {
 
-        damage: 8,
+        damage: 7,
 
         survivability: 6,
 
-        crowdControl: 6,
+        crowdControl: 4,
 
-        mobility: 9,
+        mobility: 8,
 
         support: 1,
 
@@ -176,40 +176,7 @@ window.heroes.push({
                 "Reapplication":
                     "Refreshes duration"
 
-            },
-
-
-            sections: [
-
-                {
-                    name:
-                        "Scented",
-
-                    color:
-                        "red",
-
-                    description:
-                        "Scented enemies become much easier for Rook to track and take increased damage from all of his attacks.",
-
-                    details: {
-
-                        "Duration":
-                            "6 sec",
-
-                        "Damage Taken from Rook":
-                            "+10%",
-
-                        "Wall Reveal":
-                            "Yes",
-
-                        "Scent Trail":
-                            "Visible to Rook"
-
-                    }
-
-                }
-
-            ]
+            }
 
         },
 
@@ -323,15 +290,6 @@ window.heroes.push({
 
             stats: {
 
-                "Gutbreaker Damage":
-                    "70",
-
-                "Range":
-                    "4 m",
-
-                "Thrown Duration":
-                    "0.5 sec",
-
                 "Recast Window":
                     "1 sec",
 
@@ -356,7 +314,7 @@ window.heroes.push({
                     details: {
 
                         "Damage":
-                            "70",
+                            "50",
 
                         "Range":
                             "4 m",
@@ -382,7 +340,10 @@ window.heroes.push({
                     details: {
 
                         "Damage":
-                            "80",
+                            "20",
+
+                       "Impact Damage":
+                            "40",
 
                         "Explosion Radius":
                             "3 m",
@@ -427,15 +388,6 @@ window.heroes.push({
 
             stats: {
 
-                "Dash Distance":
-                    "6 m",
-
-                "Scent Detection Range":
-                    "8 m from destination",
-
-                "Claw Strike Damage":
-                    "40",
-
                 "Damage Reduction":
                     "25%",
 
@@ -470,31 +422,7 @@ window.heroes.push({
 
                     }
 
-                },
-
-
-                {
-                    name:
-                        "Whiplash Guard",
-
-                    color:
-                        "white",
-
-                    description:
-                        "Rook becomes harder to damage during the dash.",
-
-                    details: {
-
-                        "Damage Reduction":
-                            "25%",
-
-                        "Duration":
-                            "While dashing"
-
-                    }
-
                 }
-
             ]
 
         },
@@ -529,7 +457,7 @@ window.heroes.push({
             stats: {
 
                 "Base Damage":
-                    "90",
+                    "70",
 
                 "Range":
                     "7 m",
