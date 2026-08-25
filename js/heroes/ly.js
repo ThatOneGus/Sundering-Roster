@@ -47,15 +47,15 @@ window.heroes.push({
 
         damage: 5,
 
-        survivability: 6,
+        survivability: 4,
 
-        crowdControl: 6,
+        crowdControl: 4,
 
         mobility: 1,
 
         support: 10,
 
-        range: 8
+        range: 6,
 
     },
 
