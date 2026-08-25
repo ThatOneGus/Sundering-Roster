@@ -53,7 +53,7 @@ window.heroes.push({
 
         mobility: 1,
 
-        support: 10,
+        support: 9,
 
         range: 6,
 
