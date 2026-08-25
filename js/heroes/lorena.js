@@ -49,9 +49,9 @@ window.heroes.push({
 
         survivability: 7,
 
-        crowdControl: 7,
+        crowdControl: 5,
 
-        mobility: 2,
+        mobility: 1,
 
         support: 10,
 
