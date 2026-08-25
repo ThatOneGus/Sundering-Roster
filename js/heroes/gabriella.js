@@ -36,7 +36,7 @@ window.heroes.push({
     ===================================================== */
 
     description:
-        "Gabriella fights alongside three enchanted Stuffies, each carrying its own psychic aura. By repositioning Cotton, Luna, and Spooky across the battlefield, she can sustain allies, hinder enemies, and turn seemingly harmless companions into powerful anchors of control.",
+        "Gabriella fights alongside three enchanted Stuffies, each carrying its own psychic aura. By repositioning Cotton, Flurry, and Spooky across the battlefield, she can sustain allies, hinder enemies, and turn seemingly harmless companions into powerful anchors of control.",
 
 
     /* =====================================================
@@ -154,10 +154,10 @@ window.heroes.push({
                 "video",
 
             shortDescription:
-                "Command Cotton, Luna, or Spooky to maintain unique aura effects wherever they are positioned.",
+                "Command Cotton, Flurry, or Spooky to maintain unique aura effects wherever they are positioned.",
 
             detailedDescription:
-                "Gabriella carries 3 enchanted Stuffies: Cotton, Luna, and Spooky. Each Stuffy resonates with a unique passive aura that affects nearby allies or enemies. Gabriella can command one Stuffy at a time to walk autonomously within range and maintain its aura where positioned. Stuffies are targetable but invulnerable, and automatically return if they travel too far away.",
+                "Gabriella carries 3 enchanted Stuffies: Cotton, Flurry, and Spooky. Each Stuffy resonates with a unique passive aura that affects nearby allies or enemies. Gabriella can command one Stuffy at a time to walk autonomously within range and maintain its aura where positioned. Stuffies are targetable but invulnerable, and automatically return if they travel too far away.",
 
             stats: {
 
@@ -186,7 +186,7 @@ window.heroes.push({
                         "Cotton",
 
                     color:
-                        "white",
+                        "pink",
 
                     description:
                         "Cotton creates a restorative aura for nearby allies.",
@@ -197,7 +197,7 @@ window.heroes.push({
                             "+10%",
 
                         "Healing":
-                            "25 HP/s"
+                            "30 HP/s"
 
                     }
 
@@ -206,13 +206,13 @@ window.heroes.push({
 
                 {
                     name:
-                        "Luna",
+                        "Flurry",
 
                     color:
-                        "blue",
+                        "teal",
 
                     description:
-                        "Luna creates a slowing aura around herself.",
+                        "Flurry creates a slowing aura around herself.",
 
                     details: {
 
@@ -237,10 +237,10 @@ window.heroes.push({
                     details: {
 
                         "Lifesteal":
-                            "5%",
+                            "10%",
 
                         "Movement Speed":
-                            "+10%"
+                            "+15%"
 
                     }
 
@@ -521,7 +521,7 @@ window.heroes.push({
                         "Cotton",
 
                     color:
-                        "white",
+                        "pink",
 
                     description:
                         "Cotton reinforces nearby allies, reducing incoming damage.",
@@ -541,13 +541,13 @@ window.heroes.push({
 
                 {
                     name:
-                        "Luna",
+                        "Flurry",
 
                     color:
-                        "blue",
+                        "teal",
 
                     description:
-                        "Luna freezes newly entering enemies while Soul Stuffing is active.",
+                        "Flurry freezes newly entering enemies while Soul Stuffing is active.",
 
                     details: {
 
@@ -578,7 +578,7 @@ window.heroes.push({
                             "35 HP/s",
 
                         "Bonus Health":
-                            "50 per sec",
+                            "25 per sec",
 
                         "Maximum Bonus Health":
                             "50",
