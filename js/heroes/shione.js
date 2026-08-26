@@ -25,10 +25,10 @@ window.heroes.push({
     ===================================================== */
 
     thumbnail:
-        "Assets/Heroes/Shione/thumbnail.png",
+        "Assets/Heroes/Shione/IMG_6761.png",
 
     heroArt:
-        "Assets/Heroes/Shione/hero-art.png",
+        "Assets/Heroes/Shione/IMG_6543.png",
 
 
     /* =====================================================
