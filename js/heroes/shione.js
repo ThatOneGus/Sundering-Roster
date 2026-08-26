@@ -442,13 +442,13 @@ window.heroes.push({
 
                 damage: 7,
 
-                survivability: 4,
+                survivability: 2,
 
-                crowdControl: 8,
+                crowdControl: 5,
 
-                mobility: 9,
+                mobility: 4,
 
-                support: 7,
+                support: 3,
 
                 range: 8
 
@@ -661,13 +661,13 @@ window.heroes.push({
 
                 damage: 6,
 
-                survivability: 6,
+                survivability: 4,
 
-                crowdControl: 8,
+                crowdControl: 6,
 
-                mobility: 4,
+                mobility: 1,
 
-                support: 10,
+                support: 7,
 
                 range: 7
 
@@ -945,13 +945,13 @@ window.heroes.push({
 
                 damage: 9,
 
-                survivability: 5,
+                survivability: 3,
 
-                crowdControl: 7,
+                crowdControl: 5,
 
-                mobility: 9,
+                mobility: 2,
 
-                support: 8,
+                support: 3,
 
                 range: 8
 
