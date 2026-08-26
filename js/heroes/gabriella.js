@@ -25,10 +25,10 @@ window.heroes.push({
     ===================================================== */
 
     thumbnail:
-        "Assets/Heroes/Gabriella/thumbnail.png",
+        "Assets/Heroes/Gabriella/IMG_6757.png",
 
     heroArt:
-        "Assets/Heroes/Gabriella/hero-art.png",
+        "Assets/Heroes/Gabriella/IMG_6756.png",
 
 
     /* =====================================================
