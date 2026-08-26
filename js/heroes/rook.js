@@ -25,10 +25,10 @@ window.heroes.push({
     ===================================================== */
 
     thumbnail:
-        "Assets/Heroes/Rook/thumbnail.png",
+        "Assets/Heroes/Rook/IMG_6512.png",
 
     heroArt:
-        "Assets/Heroes/Rook/hero-art.png",
+        "Assets/Heroes/Rook/IMG_6511.png",
 
 
     /* =====================================================
