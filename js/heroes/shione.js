@@ -667,7 +667,7 @@ window.heroes.push({
 
                 mobility: 1,
 
-                support: 7,
+                support: 5,
 
                 range: 7
 
