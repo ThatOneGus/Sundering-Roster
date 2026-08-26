@@ -950,6 +950,7 @@ nav {
 }
 
 
+.noResults,
 .emptyRoster {
 
     grid-column:
@@ -1073,7 +1074,8 @@ nav {
 }
 
 
-.heroArt img {
+.heroArt img,
+.heroThumbnail {
 
     width:
         100%;
@@ -1104,7 +1106,14 @@ nav {
 }
 
 
-.heroArtFallback {
+.heroArtFallback,
+.heroThumbnailFallback {
+
+    width:
+        100%;
+
+    height:
+        100%;
 
     display:
         flex;
@@ -1164,6 +1173,7 @@ nav {
 }
 
 
+.heroText,
 .heroInfoText {
 
     min-width:
@@ -1212,10 +1222,6 @@ nav {
 }
 
 
-/* =========================================================
-   HERO ROLE TEXT
-========================================================= */
-
 .heroRole {
 
     display:
@@ -1250,19 +1256,8 @@ nav {
 }
 
 
-.heroRoleDivider {
-
-    color:
-        #444;
-
-    margin:
-        0
-        2px;
-}
-
-
 /* =========================================================
-   HERO ROLE ICONS
+   HERO SUBROLE ICONS
 ========================================================= */
 
 .heroRoleIcons {
@@ -1539,7 +1534,7 @@ footer {
         540px;
 
     padding-bottom:
-        75px;
+        55px;
 }
 
 
@@ -1606,6 +1601,10 @@ footer {
 
     object-position:
         center;
+
+    transition:
+        opacity .2s ease,
+        transform .25s ease;
 }
 
 
@@ -1749,6 +1748,274 @@ footer {
 
     letter-spacing:
         .16em;
+}
+
+
+/* =========================================================
+   CHARACTER FORM TABS
+========================================================= */
+
+.formTabs {
+
+    display:
+        none;
+
+    align-items:
+        stretch;
+
+    flex-wrap:
+        wrap;
+
+    gap:
+        8px;
+
+    margin:
+        0
+        0
+        24px;
+
+    padding:
+        16px
+        0;
+
+    border-top:
+        1px solid
+        rgba(255,255,255,.06);
+
+    border-bottom:
+        1px solid
+        rgba(255,255,255,.06);
+}
+
+
+.formTab {
+
+    position:
+        relative;
+
+    min-width:
+        120px;
+
+    min-height:
+        44px;
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    gap:
+        4px;
+
+    padding:
+        10px
+        18px;
+
+    color:
+        #666;
+
+    background:
+        rgba(255,255,255,.018);
+
+    border:
+        1px solid
+        rgba(255,255,255,.1);
+
+    cursor:
+        pointer;
+
+    text-transform:
+        uppercase;
+
+    font-size:
+        .6rem;
+
+    font-weight:
+        800;
+
+    letter-spacing:
+        .17em;
+
+    transition:
+        color .2s ease,
+        border-color .2s ease,
+        background .2s ease,
+        transform .2s ease,
+        box-shadow .2s ease;
+}
+
+
+.formTab:hover {
+
+    color:
+        #fff;
+
+    border-color:
+        rgba(183,148,255,.45);
+
+    background:
+        rgba(183,148,255,.04);
+
+    transform:
+        translateY(-1px);
+}
+
+
+.formTab.active {
+
+    color:
+        #fff;
+
+    border-color:
+        var(--accent);
+
+    background:
+        rgba(183,148,255,.09);
+
+    box-shadow:
+        inset
+        0
+        -2px
+        0
+        var(--accent);
+}
+
+
+.formTabName {
+
+    display:
+        block;
+}
+
+
+.formTabSubtitle {
+
+    display:
+        block;
+
+    color:
+        var(--accent);
+
+    font-size:
+        .48rem;
+
+    font-weight:
+        700;
+
+    letter-spacing:
+        .16em;
+
+    opacity:
+        .8;
+}
+
+
+.formTab.active
+.formTabSubtitle {
+
+    opacity:
+        1;
+}
+
+
+/* =========================================================
+   OPTIONAL FORM COLORS
+========================================================= */
+
+.formTab[data-color="red"].active {
+
+    border-color:
+        #eb5252;
+
+    box-shadow:
+        inset 0 -2px 0 #eb5252;
+}
+
+
+.formTab[data-color="orange"].active {
+
+    border-color:
+        #ee9145;
+
+    box-shadow:
+        inset 0 -2px 0 #ee9145;
+}
+
+
+.formTab[data-color="yellow"].active {
+
+    border-color:
+        #edcf5a;
+
+    box-shadow:
+        inset 0 -2px 0 #edcf5a;
+}
+
+
+.formTab[data-color="green"].active {
+
+    border-color:
+        #5ccd79;
+
+    box-shadow:
+        inset 0 -2px 0 #5ccd79;
+}
+
+
+.formTab[data-color="teal"].active {
+
+    border-color:
+        #49ccbd;
+
+    box-shadow:
+        inset 0 -2px 0 #49ccbd;
+}
+
+
+.formTab[data-color="blue"].active {
+
+    border-color:
+        #5292e6;
+
+    box-shadow:
+        inset 0 -2px 0 #5292e6;
+}
+
+
+.formTab[data-color="violet"].active {
+
+    border-color:
+        #a569e8;
+
+    box-shadow:
+        inset 0 -2px 0 #a569e8;
+}
+
+
+.formTab[data-color="pink"].active {
+
+    border-color:
+        #ea71b5;
+
+    box-shadow:
+        inset 0 -2px 0 #ea71b5;
+}
+
+
+.formTab[data-color="white"].active {
+
+    border-color:
+        #e6e6e6;
+
+    box-shadow:
+        inset 0 -2px 0 #e6e6e6;
 }
 
 
@@ -2054,13 +2321,6 @@ footer {
 }
 
 
-.radarPoint {
-
-    fill:
-        var(--accent);
-}
-
-
 .radarLabel {
 
     fill:
@@ -2090,29 +2350,35 @@ footer {
         column;
 
     gap:
-        23px;
+        18px;
 }
 
 
-.profileStatTop {
+.profileStat {
 
     display:
-        flex;
+        grid;
 
-    justify-content:
-        space-between;
+    grid-template-columns:
+        110px
+        1fr
+        28px;
+
+    align-items:
+        center;
 
     gap:
-        20px;
+        14px;
+}
 
-    margin-bottom:
-        9px;
+
+.profileStatLabel {
 
     color:
-        #888;
+        #777;
 
     font-size:
-        .67rem;
+        .6rem;
 
     font-weight:
         700;
@@ -2121,21 +2387,11 @@ footer {
         uppercase;
 
     letter-spacing:
-        .13em;
+        .12em;
 }
 
 
-.profileStatTop span:last-child {
-
-    color:
-        #ccc;
-}
-
-
-.profileBar {
-
-    position:
-        relative;
+.profileStatBar {
 
     height:
         3px;
@@ -2148,7 +2404,7 @@ footer {
 }
 
 
-.profileBarFill {
+.profileStatFill {
 
     height:
         100%;
@@ -2161,6 +2417,22 @@ footer {
         0
         8px
         rgba(183,148,255,.25);
+}
+
+
+.profileStatValue {
+
+    color:
+        #ccc;
+
+    text-align:
+        right;
+
+    font-size:
+        .7rem;
+
+    font-weight:
+        700;
 }
 
 
@@ -2678,10 +2950,10 @@ footer {
 
 
 /* =========================================================
-   COLORED ABILITY SECTIONS
+   ABILITY VARIANTS / SECTIONS
 ========================================================= */
 
-.abilitySections {
+.abilityVariants {
 
     display:
         flex;
@@ -2697,10 +2969,10 @@ footer {
 }
 
 
-.abilitySection {
+.abilityVariant {
 
     --variant-color:
-        255,255,255;
+        230,230,230;
 
     position:
         relative;
@@ -2726,7 +2998,7 @@ footer {
 }
 
 
-.abilitySection::before {
+.abilityVariant::before {
 
     content:
         "";
@@ -2753,7 +3025,7 @@ footer {
 }
 
 
-.abilitySectionHeader {
+.variantHeader {
 
     display:
         flex;
@@ -2763,23 +3035,6 @@ footer {
 
     gap:
         10px;
-
-    color:
-        rgb(
-            var(--variant-color)
-        );
-
-    font-size:
-        .7rem;
-
-    font-weight:
-        800;
-
-    text-transform:
-        uppercase;
-
-    letter-spacing:
-        .14em;
 }
 
 
@@ -2813,7 +3068,28 @@ footer {
 }
 
 
-.abilitySectionDescription {
+.variantName {
+
+    color:
+        rgb(
+            var(--variant-color)
+        );
+
+    font-size:
+        .7rem;
+
+    font-weight:
+        800;
+
+    text-transform:
+        uppercase;
+
+    letter-spacing:
+        .14em;
+}
+
+
+.variantDescription {
 
     margin-top:
         14px;
@@ -2831,16 +3107,69 @@ footer {
 
 .variantStats {
 
+    display:
+        grid;
+
+    grid-template-columns:
+        repeat(
+            2,
+            minmax(0,1fr)
+        );
+
+    gap:
+        1px;
+
     margin-top:
         18px;
+
+    background:
+        rgba(255,255,255,.06);
 }
 
 
-.variantStats
-.stat {
+.variantStat {
+
+    padding:
+        13px
+        14px;
 
     background:
         rgba(0,0,0,.28);
+}
+
+
+.variantStatLabel {
+
+    color:
+        #555;
+
+    font-size:
+        .53rem;
+
+    font-weight:
+        700;
+
+    text-transform:
+        uppercase;
+
+    letter-spacing:
+        .1em;
+}
+
+
+.variantStatValue {
+
+    margin-top:
+        6px;
+
+    color:
+        #ddd;
+
+    font-size:
+        .74rem;
+
+    line-height:
+        1.45;
 }
 
 
@@ -2848,63 +3177,130 @@ footer {
    VARIANT COLORS
 ========================================================= */
 
-.variant-red {
+.abilityVariant[data-variant="red"] {
 
     --variant-color:
         235,82,82;
 }
 
 
-.variant-orange {
+.abilityVariant[data-variant="orange"] {
 
     --variant-color:
         238,145,69;
 }
 
 
-.variant-yellow {
+.abilityVariant[data-variant="yellow"] {
 
     --variant-color:
         237,207,90;
 }
 
 
-.variant-green {
+.abilityVariant[data-variant="green"] {
 
     --variant-color:
         92,205,121;
 }
 
 
-.variant-teal {
+.abilityVariant[data-variant="teal"] {
 
     --variant-color:
         73,204,189;
 }
 
 
-.variant-blue {
+.abilityVariant[data-variant="blue"] {
 
     --variant-color:
         82,146,230;
 }
 
 
-.variant-violet {
+.abilityVariant[data-variant="violet"] {
 
     --variant-color:
         165,105,232;
 }
 
 
-.variant-pink {
+.abilityVariant[data-variant="pink"] {
 
     --variant-color:
         234,113,181;
 }
 
 
-.variant-white {
+.abilityVariant[data-variant="white"] {
+
+    --variant-color:
+        230,230,230;
+}
+
+
+/* =========================================================
+   VARIANT INDICATOR COLORS
+========================================================= */
+
+.variantIndicator[data-color="red"] {
+
+    --variant-color:
+        235,82,82;
+}
+
+
+.variantIndicator[data-color="orange"] {
+
+    --variant-color:
+        238,145,69;
+}
+
+
+.variantIndicator[data-color="yellow"] {
+
+    --variant-color:
+        237,207,90;
+}
+
+
+.variantIndicator[data-color="green"] {
+
+    --variant-color:
+        92,205,121;
+}
+
+
+.variantIndicator[data-color="teal"] {
+
+    --variant-color:
+        73,204,189;
+}
+
+
+.variantIndicator[data-color="blue"] {
+
+    --variant-color:
+        82,146,230;
+}
+
+
+.variantIndicator[data-color="violet"] {
+
+    --variant-color:
+        165,105,232;
+}
+
+
+.variantIndicator[data-color="pink"] {
+
+    --variant-color:
+        234,113,181;
+}
+
+
+.variantIndicator[data-color="white"] {
 
     --variant-color:
         230,230,230;
@@ -3193,7 +3589,7 @@ footer {
         #333;
 
     font-size:
-        4rem;
+        3rem;
 
     font-weight:
         800;
@@ -3243,9 +3639,10 @@ footer {
 
 
 /* =========================================================
-   EMPTY SECTIONS
+   EMPTY PANELS
 ========================================================= */
 
+.emptyPanel,
 .emptySection {
 
     grid-column:
@@ -3277,10 +3674,13 @@ footer {
         700;
 
     letter-spacing:
-        .25em;
+        .18em;
 
     text-align:
         center;
+
+    text-transform:
+        uppercase;
 }
 
 
@@ -3557,7 +3957,7 @@ footer {
 
 
 /* =========================================================
-   RESPONSIVE — LARGE TABLET
+   LARGE TABLET
 ========================================================= */
 
 @media (
@@ -3631,11 +4031,12 @@ footer {
         grid-template-columns:
             1fr;
     }
+
 }
 
 
 /* =========================================================
-   RESPONSIVE — TABLET
+   TABLET
 ========================================================= */
 
 @media (
@@ -3720,7 +4121,7 @@ footer {
             40px;
 
         padding-bottom:
-            55px;
+            45px;
     }
 
 
@@ -3737,6 +4138,35 @@ footer {
 
         aspect-ratio:
             4 / 5;
+    }
+
+
+    .formTabs {
+
+        overflow-x:
+            auto;
+
+        flex-wrap:
+            nowrap;
+
+        scrollbar-width:
+            none;
+    }
+
+
+    .formTabs::-webkit-scrollbar {
+
+        display:
+            none;
+    }
+
+
+    .formTab {
+
+        flex:
+            0
+            0
+            auto;
     }
 
 
@@ -3802,11 +4232,12 @@ footer {
         height:
             28px;
     }
+
 }
 
 
 /* =========================================================
-   RESPONSIVE — MOBILE
+   MOBILE
 ========================================================= */
 
 @media (
@@ -4052,6 +4483,57 @@ footer {
     }
 
 
+    /* FORM TABS */
+
+    .formTabs {
+
+        display:
+            flex;
+
+        overflow-x:
+            auto;
+
+        flex-wrap:
+            nowrap;
+
+        gap:
+            7px;
+
+        padding:
+            12px
+            0;
+
+        scrollbar-width:
+            none;
+    }
+
+
+    .formTabs::-webkit-scrollbar {
+
+        display:
+            none;
+    }
+
+
+    .formTab {
+
+        flex:
+            0
+            0
+            auto;
+
+        min-width:
+            105px;
+
+        padding:
+            10px
+            14px;
+
+        font-size:
+            .55rem;
+    }
+
+
     .characterTabs {
 
         top:
@@ -4100,6 +4582,25 @@ footer {
 
         font-size:
             8px;
+    }
+
+
+    .profileStat {
+
+        grid-template-columns:
+            90px
+            1fr
+            24px;
+
+        gap:
+            10px;
+    }
+
+
+    .profileStatLabel {
+
+        font-size:
+            .53rem;
     }
 
 
@@ -4155,14 +4656,15 @@ footer {
     }
 
 
-    .abilityStats {
+    .abilityStats,
+    .variantStats {
 
         grid-template-columns:
             1fr;
     }
 
 
-    .abilitySection {
+    .abilityVariant {
 
         padding:
             17px;
@@ -4196,6 +4698,7 @@ footer {
         min-height:
             300px;
     }
+
 }
 
 
@@ -4249,6 +4752,15 @@ footer {
     }
 
 
+    .profileStat {
+
+        grid-template-columns:
+            78px
+            1fr
+            22px;
+    }
+
+
     .abilityTop {
 
         grid-template-columns:
@@ -4298,4 +4810,5 @@ footer {
             1px solid
             rgba(255,255,255,.07);
     }
+
 }
