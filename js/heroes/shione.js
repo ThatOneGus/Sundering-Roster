@@ -21,7 +21,7 @@ window.heroes.push({
 
 
     /* =====================================================
-       ART
+       BASE ART
     ===================================================== */
 
     thumbnail:
@@ -40,7 +40,9 @@ window.heroes.push({
 
 
     /* =====================================================
-       COMBAT PROFILE
+       BASE COMBAT PROFILE
+
+       Used as fallback if a form does not define one.
     ===================================================== */
 
     profile: {
@@ -49,9 +51,9 @@ window.heroes.push({
 
         survivability: 5,
 
-        crowdControl: 9,
+        crowdControl: 8,
 
-        mobility: 6,
+        mobility: 4,
 
         support: 6,
 
@@ -103,7 +105,9 @@ window.heroes.push({
 
 
     /* =====================================================
-       ABILITIES
+       SHARED ABILITIES
+
+       These appear in every form.
     ===================================================== */
 
     abilities: [
@@ -130,10 +134,10 @@ window.heroes.push({
                 "video",
 
             shortDescription:
-                "Switch between Air, Nature, and Light, completely changing Shione's Primary Fire and three core abilities.",
+                "Switch between Air, Nature, and Light, changing Shione's Primary Fire and three core abilities.",
 
             detailedDescription:
-                "Shione can shift between Air, Nature, and Light Stances. Each elemental stance replaces her Primary Fire, Ability 1, Ability 2, and Ability 3 with a unique elemental version. Elementalist has a 3-second cooldown between stance changes.",
+                "Shione can switch between Air, Nature, and Light Stances. Each stance replaces her Primary Fire, Ability 1, Ability 2, and Ability 3 with a unique elemental version.",
 
             stats: {
 
@@ -141,19 +145,7 @@ window.heroes.push({
                     "Air / Nature / Light",
 
                 "Stance Switch Cooldown":
-                    "3 sec",
-
-                "Primary Fire Changes":
-                    "Yes",
-
-                "Ability 1 Changes":
-                    "Yes",
-
-                "Ability 2 Changes":
-                    "Yes",
-
-                "Ability 3 Changes":
-                    "Yes"
+                    "3 sec"
 
             },
 
@@ -162,13 +154,13 @@ window.heroes.push({
 
                 {
                     name:
-                        "Air Stance",
+                        "Air",
 
                     color:
                         "teal",
 
                     description:
-                        "Air focuses on fast projectiles, displacement, Slows, and team-wide Movement Speed.",
+                        "Air focuses on projectile pressure, displacement, Slows, and team mobility.",
 
                     details: {
 
@@ -191,13 +183,13 @@ window.heroes.push({
 
                 {
                     name:
-                        "Nature Stance",
+                        "Nature",
 
                     color:
                         "green",
 
                     description:
-                        "Nature specializes in Poison, Roots, area sustain, and increased healing.",
+                        "Nature focuses on Poison, Roots, sustain, and increased healing.",
 
                     details: {
 
@@ -220,13 +212,13 @@ window.heroes.push({
 
                 {
                     name:
-                        "Light Stance",
+                        "Light",
 
                     color:
                         "yellow",
 
                     description:
-                        "Light emphasizes burst damage, teleportation, Blinds, cooldown utility, and Crowd Control Immunity.",
+                        "Light focuses on burst damage, teleportation, Blinds, cooldown utility, and Crowd Control Immunity.",
 
                     details: {
 
@@ -241,691 +233,6 @@ window.heroes.push({
 
                         "Ability 3":
                             "Light's Blessing"
-
-                    }
-
-                }
-
-            ]
-
-        },
-
-
-        /* =================================================
-           AIR — PRIMARY
-        ================================================= */
-
-        {
-            type: "Air Stance — Primary Fire",
-
-            key: "M1",
-
-            name: "Air Cutter",
-
-            icon:
-                "Assets/Heroes/Shione/Abilities/air-cutter.png",
-
-            preview:
-                "Assets/Heroes/Shione/Abilities/air-cutter-preview.mp4",
-
-            previewType:
-                "video",
-
-            shortDescription:
-                "Fire fast-moving wind projectiles at enemies.",
-
-            detailedDescription:
-                "While in Air Stance, Shione fires fast-traveling projectiles of compressed wind.",
-
-            stats: {
-
-                "Damage":
-                    "38",
-
-                "Fire Rate":
-                    "3 shots/sec",
-
-                "Projectile Speed":
-                    "150 m/s"
-
-            }
-
-        },
-
-
-        /* =================================================
-           AIR — ABILITY 1
-        ================================================= */
-
-        {
-            type: "Air Stance — Ability 1",
-
-            key: "M2",
-
-            name: "Gale Pierce",
-
-            icon:
-                "Assets/Heroes/Shione/Abilities/gale-pierce.png",
-
-            preview:
-                "Assets/Heroes/Shione/Abilities/gale-pierce-preview.mp4",
-
-            previewType:
-                "video",
-
-            shortDescription:
-                "Launch a piercing spear of compressed wind that damages and Slows every enemy struck.",
-
-            detailedDescription:
-                "Shione launches a concentrated spear of wind that pierces through all enemies in its path. Enemies struck take damage and are Slowed.",
-
-            stats: {
-
-                "Damage":
-                    "95",
-
-                "Pierces Enemies":
-                    "Yes",
-
-                "Slow":
-                    "25%",
-
-                "Slow Duration":
-                    "2 sec",
-
-                "Cooldown":
-                    "8 sec"
-
-            }
-
-        },
-
-
-        /* =================================================
-           AIR — ABILITY 2
-        ================================================= */
-
-        {
-            type: "Air Stance — Ability 2",
-
-            key: "E",
-
-            name: "Tempest Zone",
-
-            icon:
-                "Assets/Heroes/Shione/Abilities/tempest-zone.png",
-
-            preview:
-                "Assets/Heroes/Shione/Abilities/tempest-zone-preview.mp4",
-
-            previewType:
-                "video",
-
-            shortDescription:
-                "Create a swirling storm that damages enemies and launches them upward.",
-
-            detailedDescription:
-                "Shione creates a concentrated storm at a target area. Enemies caught in the Tempest take damage and are launched upward.",
-
-            stats: {
-
-                "Impact Damage":
-                    "45",
-
-                "Knock-up Duration":
-                    "0.8 sec",
-
-                "Radius":
-                    "4 m",
-
-                "Cooldown":
-                    "11 sec"
-
-            }
-
-        },
-
-
-        /* =================================================
-           AIR — ABILITY 3
-        ================================================= */
-
-        {
-            type: "Air Stance — Ability 3",
-
-            key: "SHIFT",
-
-            name: "Sky's Blessing",
-
-            icon:
-                "Assets/Heroes/Shione/Abilities/skys-blessing.png",
-
-            preview:
-                "Assets/Heroes/Shione/Abilities/skys-blessing-preview.mp4",
-
-            previewType:
-                "video",
-
-            shortDescription:
-                "Empower Shione and nearby allies with increased Movement Speed.",
-
-            detailedDescription:
-                "Shione channels the speed of the wind into herself and nearby allies, increasing their Movement Speed for several seconds.",
-
-            stats: {
-
-                "Movement Speed":
-                    "+16%",
-
-                "Duration":
-                    "6 sec",
-
-                "Radius":
-                    "15 m",
-
-                "Cooldown":
-                    "15 sec"
-
-            }
-
-        },
-
-
-        /* =================================================
-           NATURE — PRIMARY
-        ================================================= */
-
-        {
-            type: "Nature Stance — Primary Fire",
-
-            key: "M1",
-
-            name: "Leaf Blade",
-
-            icon:
-                "Assets/Heroes/Shione/Abilities/leaf-blade.png",
-
-            preview:
-                "Assets/Heroes/Shione/Abilities/leaf-blade-preview.mp4",
-
-            previewType:
-                "video",
-
-            shortDescription:
-                "Fire a spread of three sharpened leaves.",
-
-            detailedDescription:
-                "While in Nature Stance, Shione launches three sharpened leaves as a single attack.",
-
-            stats: {
-
-                "Damage":
-                    "24",
-
-                "Leaves per Attack":
-                    "3",
-
-                "Fire Rate":
-                    "1.15 attacks/sec",
-
-                "Projectile Speed":
-                    "130 m/s"
-
-            }
-
-        },
-
-
-        /* =================================================
-           NATURE — ABILITY 1
-        ================================================= */
-
-        {
-            type: "Nature Stance — Ability 1",
-
-            key: "M2",
-
-            name: "Thornlash",
-
-            icon:
-                "Assets/Heroes/Shione/Abilities/thornlash.png",
-
-            preview:
-                "Assets/Heroes/Shione/Abilities/thornlash-preview.mp4",
-
-            previewType:
-                "video",
-
-            shortDescription:
-                "Launch explosive poisonous thorns that damage and Poison enemies.",
-
-            detailedDescription:
-                "Shione launches a cluster of poisonous thorns that explode on impact. The initial hit and explosion both deal damage, while affected enemies are Poisoned afterward.",
-
-            stats: {
-
-                "Impact Damage":
-                    "60",
-
-                "Explosion Damage":
-                    "25",
-
-                "Explosion Radius":
-                    "3 m",
-
-                "Poison Damage":
-                    "18 HP/s",
-
-                "Poison Duration":
-                    "4 sec",
-
-                "Cooldown":
-                    "8 sec"
-
-            }
-
-        },
-
-
-        /* =================================================
-           NATURE — ABILITY 2
-        ================================================= */
-
-        {
-            type: "Nature Stance — Ability 2",
-
-            key: "E",
-
-            name: "Vine Grasp",
-
-            icon:
-                "Assets/Heroes/Shione/Abilities/vine-grasp.png",
-
-            preview:
-                "Assets/Heroes/Shione/Abilities/vine-grasp-preview.mp4",
-
-            previewType:
-                "video",
-
-            shortDescription:
-                "Fire a living vine that damages and Roots the first enemy struck.",
-
-            detailedDescription:
-                "Shione launches a living vine forward. The first enemy hit takes damage and is Rooted in place.",
-
-            stats: {
-
-                "Damage":
-                    "40",
-
-                "Root Duration":
-                    "1.75 sec",
-
-                "Range":
-                    "18 m",
-
-                "Cooldown":
-                    "12 sec"
-
-            }
-
-        },
-
-
-        /* =================================================
-           NATURE — ABILITY 3
-        ================================================= */
-
-        {
-            type: "Nature Stance — Ability 3",
-
-            key: "SHIFT",
-
-            name: "Nature's Blessing",
-
-            icon:
-                "Assets/Heroes/Shione/Abilities/natures-blessing.png",
-
-            preview:
-                "Assets/Heroes/Shione/Abilities/natures-blessing-preview.mp4",
-
-            previewType:
-                "video",
-
-            shortDescription:
-                "Passively increase nearby healing, then activate the Blessing to continuously heal allies around Shione.",
-
-            detailedDescription:
-                "While Shione remains in Nature Stance, nearby allies passively receive increased healing. Activating Nature's Blessing causes Shione to radiate restorative energy for 10 seconds, continuously healing allies within range.",
-
-            stats: {
-
-                "Passive Healing Increase":
-                    "+8%",
-
-                "Passive Radius":
-                    "10 m",
-
-                "Active Healing":
-                    "25 HP/s",
-
-                "Active Duration":
-                    "10 sec",
-
-                "Active Radius":
-                    "10 m",
-
-                "Cooldown":
-                    "24 sec"
-
-            },
-
-
-            sections: [
-
-                {
-                    name:
-                        "Passive — Verdant Aura",
-
-                    color:
-                        "green",
-
-                    description:
-                        "While in Nature Stance, nearby allies receive increased healing from all sources.",
-
-                    details: {
-
-                        "Healing Received":
-                            "+8%",
-
-                        "Radius":
-                            "10 m"
-
-                    }
-
-                },
-
-
-                {
-                    name:
-                        "Active — Restorative Bloom",
-
-                    color:
-                        "yellow",
-
-                    description:
-                        "Activating Nature's Blessing continuously restores nearby allies.",
-
-                    details: {
-
-                        "Healing":
-                            "25 HP/s",
-
-                        "Duration":
-                            "10 sec",
-
-                        "Radius":
-                            "10 m"
-
-                    }
-
-                }
-
-            ]
-
-        },
-
-
-        /* =================================================
-           LIGHT — PRIMARY
-        ================================================= */
-
-        {
-            type: "Light Stance — Primary Fire",
-
-            key: "M1",
-
-            name: "Light Shot",
-
-            icon:
-                "Assets/Heroes/Shione/Abilities/light-shot.png",
-
-            preview:
-                "Assets/Heroes/Shione/Abilities/light-shot-preview.mp4",
-
-            previewType:
-                "video",
-
-            shortDescription:
-                "Fire powerful instantaneous shots of concentrated light.",
-
-            detailedDescription:
-                "While in Light Stance, Shione fires high-damage instantaneous beams of concentrated light using a hitscan weapon.",
-
-            stats: {
-
-                "Damage":
-                    "65",
-
-                "Fire Rate":
-                    "2 shots/sec",
-
-                "Projectile":
-                    "Hitscan"
-
-            }
-
-        },
-
-
-        /* =================================================
-           LIGHT — ABILITY 1
-        ================================================= */
-
-        {
-            type: "Light Stance — Ability 1",
-
-            key: "M2",
-
-            name: "Solar Beam",
-
-            icon:
-                "Assets/Heroes/Shione/Abilities/solar-beam.png",
-
-            preview:
-                "Assets/Heroes/Shione/Abilities/solar-beam-preview.mp4",
-
-            previewType:
-                "video",
-
-            shortDescription:
-                "Fire a concentrated multi-hit beam that deals increased damage to wounded enemies.",
-
-            detailedDescription:
-                "Shione fires an intensely focused beam of light. Solar Beam strikes multiple times before delivering a powerful final hit. Enemies below half Health take increased damage.",
-
-            stats: {
-
-                "Damage":
-                    "12 × 4 + 70",
-
-                "Base Total Damage":
-                    "118",
-
-                "Damage Increase Below Half Health":
-                    "+30%",
-
-                "Cooldown":
-                    "9 sec"
-
-            },
-
-
-            sections: [
-
-                {
-                    name:
-                        "Execution Light",
-
-                    color:
-                        "yellow",
-
-                    description:
-                        "Solar Beam becomes more powerful against enemies below half Health.",
-
-                    details: {
-
-                        "Health Requirement":
-                            "Below 50% HP",
-
-                        "Damage Increase":
-                            "+30%"
-
-                    }
-
-                }
-
-            ]
-
-        },
-
-
-        /* =================================================
-           LIGHT — ABILITY 2
-        ================================================= */
-
-        {
-            type: "Light Stance — Ability 2",
-
-            key: "E",
-
-            name: "Flashpoint",
-
-            icon:
-                "Assets/Heroes/Shione/Abilities/flashpoint.png",
-
-            preview:
-                "Assets/Heroes/Shione/Abilities/flashpoint-preview.mp4",
-
-            previewType:
-                "video",
-
-            shortDescription:
-                "Teleport instantly while leaving behind a radiant explosion that damages and Blinds enemies.",
-
-            detailedDescription:
-                "Shione instantly teleports to a targeted location. Her previous position erupts in radiant energy, damaging and Blinding nearby enemies.",
-
-            stats: {
-
-                "Teleport Range":
-                    "18 m",
-
-                "Explosion Damage":
-                    "70",
-
-                "Explosion Radius":
-                    "5 m",
-
-                "Blind Duration":
-                    "2 sec",
-
-                "Cooldown":
-                    "13 sec"
-
-            }
-
-        },
-
-
-        /* =================================================
-           LIGHT — ABILITY 3
-        ================================================= */
-
-        {
-            type: "Light Stance — Ability 3",
-
-            key: "SHIFT",
-
-            name: "Light's Blessing",
-
-            icon:
-                "Assets/Heroes/Shione/Abilities/lights-blessing.png",
-
-            preview:
-                "Assets/Heroes/Shione/Abilities/lights-blessing-preview.mp4",
-
-            previewType:
-                "video",
-
-            shortDescription:
-                "Bless nearby allies with faster ability recovery and brief Crowd Control Immunity.",
-
-            detailedDescription:
-                "Shione blesses nearby allies with divine light, reducing their Ability cooldowns for several seconds. At the beginning of the Blessing, affected allies briefly gain Crowd Control Immunity.",
-
-            stats: {
-
-                "Ability Cooldown Reduction":
-                    "15%",
-
-                "Duration":
-                    "6 sec",
-
-                "Crowd Control Immunity":
-                    "First 1.25 sec",
-
-                "Radius":
-                    "6 m",
-
-                "Cooldown":
-                    "20 sec"
-
-            },
-
-
-            sections: [
-
-                {
-                    name:
-                        "Divine Protection",
-
-                    color:
-                        "white",
-
-                    description:
-                        "Allies are temporarily protected from Crowd Control when Light's Blessing first activates.",
-
-                    details: {
-
-                        "Crowd Control Immunity":
-                            "Yes",
-
-                        "Duration":
-                            "1.25 sec"
-
-                    }
-
-                },
-
-
-                {
-                    name:
-                        "Radiant Acceleration",
-
-                    color:
-                        "yellow",
-
-                    description:
-                        "Affected allies recover their abilities faster for the full Blessing duration.",
-
-                    details: {
-
-                        "Cooldown Reduction":
-                            "15%",
-
-                        "Duration":
-                            "6 sec"
 
                     }
 
@@ -957,10 +264,10 @@ window.heroes.push({
                 "video",
 
             shortDescription:
-                "Create a massive elemental field that cycles through Air, Nature, and Light before detonating in a devastating final explosion.",
+                "Create a massive elemental field that cycles through Air, Nature, and Light before detonating.",
 
             detailedDescription:
-                "Shione creates a massive elemental field that evolves through three consecutive phases: Air Surge, Nature's Grasp, and Lightflare. Each phase applies a different form of pressure and Crowd Control. When the final phase ends, the entire field detonates, dealing base damage plus additional damage based on how many phases each enemy endured.",
+                "Shione creates a massive elemental field that evolves through three consecutive phases: Air Surge, Nature's Grasp, and Lightflare. Each phase applies a different form of pressure and Crowd Control. When the final phase ends, the field detonates, dealing base damage plus additional damage based on how many phases each enemy endured.",
 
             stats: {
 
@@ -981,10 +288,6 @@ window.heroes.push({
 
             sections: [
 
-                /* =============================================
-                   PHASE 1 — AIR
-                ============================================= */
-
                 {
                     name:
                         "Phase 1 — Air Surge",
@@ -993,7 +296,7 @@ window.heroes.push({
                         "teal",
 
                     description:
-                        "From 0 to 2.5 seconds, the field becomes a violent wind vortex that pulls enemies inward, damages them, interferes with projectiles, and makes enemies more vulnerable.",
+                        "From 0 to 2.5 seconds, enemies are steadily pulled toward the center while the field damages them and interferes with projectile travel.",
 
                     details: {
 
@@ -1004,7 +307,7 @@ window.heroes.push({
                             "45 HP/s",
 
                         "Forced Movement":
-                            "Steadily toward center",
+                            "Toward center",
 
                         "Projectile Speed Reduction":
                             "40%",
@@ -1017,10 +320,6 @@ window.heroes.push({
                 },
 
 
-                /* =============================================
-                   PHASE 2 — NATURE
-                ============================================= */
-
                 {
                     name:
                         "Phase 2 — Nature's Grasp",
@@ -1029,7 +328,7 @@ window.heroes.push({
                         "green",
 
                     description:
-                        "From 2.5 to 5 seconds, the field becomes Poisoned Ground. Enemies who remain inside long enough are Rooted, then suffer a burst of Nature damage when the Root ends.",
+                        "From 2.5 to 5 seconds, the field becomes Poisoned Ground. Enemies remaining inside are Rooted and take additional damage when the Root ends.",
 
                     details: {
 
@@ -1053,10 +352,6 @@ window.heroes.push({
                 },
 
 
-                /* =============================================
-                   PHASE 3 — LIGHT
-                ============================================= */
-
                 {
                     name:
                         "Phase 3 — Lightflare",
@@ -1065,7 +360,7 @@ window.heroes.push({
                         "yellow",
 
                     description:
-                        "From 5 to 7 seconds, the field erupts with overwhelming light. Enemies are Blinded when the phase begins before taking a massive burst of Light damage at its conclusion.",
+                        "From 5 to 7 seconds, enemies are Blinded at the beginning of the phase and take a large burst of Light damage when it ends.",
 
                     details: {
 
@@ -1076,16 +371,12 @@ window.heroes.push({
                             "1.5 sec",
 
                         "Final Phase Damage":
-                            "150 AoE"
+                            "150"
 
                     }
 
                 },
 
-
-                /* =============================================
-                   FINAL EXPLOSION
-                ============================================= */
 
                 {
                     name:
@@ -1095,7 +386,7 @@ window.heroes.push({
                         "white",
 
                     description:
-                        "When Elemental Convergence ends, all three elemental forces collapse together. Every enemy caught in the detonation takes base damage plus additional damage based on the number of phases they experienced.",
+                        "When Elemental Convergence ends, all elemental effects collapse together and detonate.",
 
                     details: {
 
@@ -1115,6 +406,790 @@ window.heroes.push({
                             "380"
 
                     }
+
+                }
+
+            ]
+
+        }
+
+    ],
+
+
+    /* =====================================================
+       FORMS
+    ===================================================== */
+
+    forms: [
+
+
+        /* =================================================
+           AIR FORM
+        ================================================= */
+
+        {
+            id: "air",
+
+            name: "Air",
+
+            color: "teal",
+
+            heroArt:
+                "Assets/Heroes/Shione/IMG_6543.png",
+
+
+            profile: {
+
+                damage: 7,
+
+                survivability: 4,
+
+                crowdControl: 8,
+
+                mobility: 9,
+
+                support: 7,
+
+                range: 8
+
+            },
+
+
+            abilities: [
+
+
+                /* =========================================
+                   AIR CUTTER
+                ========================================= */
+
+                {
+                    type: "Primary Fire",
+
+                    key: "M1",
+
+                    name: "Air Cutter",
+
+                    icon:
+                        "Assets/Heroes/Shione/Abilities/air-cutter.png",
+
+                    preview:
+                        "Assets/Heroes/Shione/Abilities/air-cutter-preview.mp4",
+
+                    previewType:
+                        "video",
+
+                    shortDescription:
+                        "Fire fast-traveling wind projectiles.",
+
+                    detailedDescription:
+                        "Shione fires compressed wind projectiles at high speed.",
+
+                    stats: {
+
+                        "Damage":
+                            "38",
+
+                        "Fire Rate":
+                            "3 shots/sec",
+
+                        "Projectile Speed":
+                            "150 m/s"
+
+                    }
+
+                },
+
+
+                /* =========================================
+                   GALE PIERCE
+                ========================================= */
+
+                {
+                    type: "Ability 1",
+
+                    key: "M2",
+
+                    name: "Gale Pierce",
+
+                    icon:
+                        "Assets/Heroes/Shione/Abilities/gale-pierce.png",
+
+                    preview:
+                        "Assets/Heroes/Shione/Abilities/gale-pierce-preview.mp4",
+
+                    previewType:
+                        "video",
+
+                    shortDescription:
+                        "Launch a piercing spear of compressed wind that Slows enemies.",
+
+                    detailedDescription:
+                        "Shione launches a compressed spear of wind that pierces through every enemy in its path. Enemies struck are Slowed.",
+
+                    stats: {
+
+                        "Damage":
+                            "95",
+
+                        "Pierces":
+                            "All enemies hit",
+
+                        "Slow":
+                            "25%",
+
+                        "Slow Duration":
+                            "2 sec",
+
+                        "Cooldown":
+                            "8 sec"
+
+                    }
+
+                },
+
+
+                /* =========================================
+                   TEMPEST ZONE
+                ========================================= */
+
+                {
+                    type: "Ability 2",
+
+                    key: "E",
+
+                    name: "Tempest Zone",
+
+                    icon:
+                        "Assets/Heroes/Shione/Abilities/tempest-zone.png",
+
+                    preview:
+                        "Assets/Heroes/Shione/Abilities/tempest-zone-preview.mp4",
+
+                    previewType:
+                        "video",
+
+                    shortDescription:
+                        "Create a swirling storm that launches enemies upward.",
+
+                    detailedDescription:
+                        "Shione creates a swirling storm that damages enemies on impact and launches them upward.",
+
+                    stats: {
+
+                        "Impact Damage":
+                            "45",
+
+                        "Knock-up Duration":
+                            "0.8 sec",
+
+                        "Radius":
+                            "4 m",
+
+                        "Cooldown":
+                            "11 sec"
+
+                    }
+
+                },
+
+
+                /* =========================================
+                   SKY'S BLESSING
+                ========================================= */
+
+                {
+                    type: "Ability 3",
+
+                    key: "SHIFT",
+
+                    name: "Sky's Blessing",
+
+                    icon:
+                        "Assets/Heroes/Shione/Abilities/skys-blessing.png",
+
+                    preview:
+                        "Assets/Heroes/Shione/Abilities/skys-blessing-preview.mp4",
+
+                    previewType:
+                        "video",
+
+                    shortDescription:
+                        "Empower Shione and nearby allies with increased Movement Speed.",
+
+                    detailedDescription:
+                        "Shione blesses herself and nearby allies with the speed of the wind.",
+
+                    stats: {
+
+                        "Movement Speed":
+                            "+16%",
+
+                        "Duration":
+                            "6 sec",
+
+                        "Radius":
+                            "15 m",
+
+                        "Cooldown":
+                            "15 sec"
+
+                    }
+
+                }
+
+            ]
+
+        },
+
+
+        /* =================================================
+           NATURE FORM
+        ================================================= */
+
+        {
+            id: "nature",
+
+            name: "Nature",
+
+            color: "green",
+
+            heroArt:
+                "Assets/Heroes/Shione/IMG_6543.png",
+
+
+            profile: {
+
+                damage: 6,
+
+                survivability: 6,
+
+                crowdControl: 8,
+
+                mobility: 4,
+
+                support: 10,
+
+                range: 7
+
+            },
+
+
+            abilities: [
+
+
+                /* =========================================
+                   LEAF BLADE
+                ========================================= */
+
+                {
+                    type: "Primary Fire",
+
+                    key: "M1",
+
+                    name: "Leaf Blade",
+
+                    icon:
+                        "Assets/Heroes/Shione/Abilities/leaf-blade.png",
+
+                    preview:
+                        "Assets/Heroes/Shione/Abilities/leaf-blade-preview.mp4",
+
+                    previewType:
+                        "video",
+
+                    shortDescription:
+                        "Fire three sharpened leaves in a single attack.",
+
+                    detailedDescription:
+                        "Shione fires three sharp leaves toward her target.",
+
+                    stats: {
+
+                        "Damage":
+                            "24",
+
+                        "Leaves per Attack":
+                            "3",
+
+                        "Fire Rate":
+                            "1.15 attacks/sec",
+
+                        "Projectile Speed":
+                            "130 m/s"
+
+                    }
+
+                },
+
+
+                /* =========================================
+                   THORNLASH
+                ========================================= */
+
+                {
+                    type: "Ability 1",
+
+                    key: "M2",
+
+                    name: "Thornlash",
+
+                    icon:
+                        "Assets/Heroes/Shione/Abilities/thornlash.png",
+
+                    preview:
+                        "Assets/Heroes/Shione/Abilities/thornlash-preview.mp4",
+
+                    previewType:
+                        "video",
+
+                    shortDescription:
+                        "Launch explosive poisonous thorns that Poison enemies.",
+
+                    detailedDescription:
+                        "Shione launches poisonous thorns that explode on impact. Enemies struck take impact and explosion damage before becoming Poisoned.",
+
+                    stats: {
+
+                        "Impact Damage":
+                            "60",
+
+                        "Explosion Damage":
+                            "25",
+
+                        "Explosion Radius":
+                            "3 m",
+
+                        "Poison Damage":
+                            "18 HP/s",
+
+                        "Poison Duration":
+                            "4 sec",
+
+                        "Cooldown":
+                            "8 sec"
+
+                    }
+
+                },
+
+
+                /* =========================================
+                   VINE GRASP
+                ========================================= */
+
+                {
+                    type: "Ability 2",
+
+                    key: "E",
+
+                    name: "Vine Grasp",
+
+                    icon:
+                        "Assets/Heroes/Shione/Abilities/vine-grasp.png",
+
+                    preview:
+                        "Assets/Heroes/Shione/Abilities/vine-grasp-preview.mp4",
+
+                    previewType:
+                        "video",
+
+                    shortDescription:
+                        "Fire a living vine that damages and Roots the first enemy struck.",
+
+                    detailedDescription:
+                        "Shione fires a living vine forward. The first enemy hit takes damage and is Rooted.",
+
+                    stats: {
+
+                        "Damage":
+                            "40",
+
+                        "Root Duration":
+                            "1.75 sec",
+
+                        "Range":
+                            "18 m",
+
+                        "Cooldown":
+                            "12 sec"
+
+                    }
+
+                },
+
+
+                /* =========================================
+                   NATURE'S BLESSING
+                ========================================= */
+
+                {
+                    type: "Ability 3",
+
+                    key: "SHIFT",
+
+                    name: "Nature's Blessing",
+
+                    icon:
+                        "Assets/Heroes/Shione/Abilities/natures-blessing.png",
+
+                    preview:
+                        "Assets/Heroes/Shione/Abilities/natures-blessing-preview.mp4",
+
+                    previewType:
+                        "video",
+
+                    shortDescription:
+                        "Increase nearby healing passively, then activate to continuously heal allies around Shione.",
+
+                    detailedDescription:
+                        "While in Nature Stance, nearby allies receive increased healing. Activating Nature's Blessing causes Shione to radiate restorative energy and continuously heal allies around her.",
+
+                    stats: {
+
+                        "Passive Healing Increase":
+                            "+8%",
+
+                        "Passive Radius":
+                            "10 m",
+
+                        "Active Healing":
+                            "25 HP/s",
+
+                        "Active Duration":
+                            "10 sec",
+
+                        "Active Radius":
+                            "10 m",
+
+                        "Cooldown":
+                            "24 sec"
+
+                    },
+
+
+                    sections: [
+
+                        {
+                            name:
+                                "Passive",
+
+                            color:
+                                "green",
+
+                            description:
+                                "Nearby allies receive increased healing while Shione remains in Nature Stance.",
+
+                            details: {
+
+                                "Healing Received":
+                                    "+8%",
+
+                                "Radius":
+                                    "10 m"
+
+                            }
+
+                        },
+
+
+                        {
+                            name:
+                                "Active",
+
+                            color:
+                                "yellow",
+
+                            description:
+                                "Shione radiates restorative energy around herself.",
+
+                            details: {
+
+                                "Healing":
+                                    "25 HP/s",
+
+                                "Duration":
+                                    "10 sec",
+
+                                "Radius":
+                                    "10 m"
+
+                            }
+
+                        }
+
+                    ]
+
+                }
+
+            ]
+
+        },
+
+
+        /* =================================================
+           LIGHT FORM
+        ================================================= */
+
+        {
+            id: "light",
+
+            name: "Light",
+
+            color: "yellow",
+
+            heroArt:
+                "Assets/Heroes/Shione/IMG_6543.png",
+
+
+            profile: {
+
+                damage: 9,
+
+                survivability: 5,
+
+                crowdControl: 7,
+
+                mobility: 9,
+
+                support: 8,
+
+                range: 8
+
+            },
+
+
+            abilities: [
+
+
+                /* =========================================
+                   LIGHT SHOT
+                ========================================= */
+
+                {
+                    type: "Primary Fire",
+
+                    key: "M1",
+
+                    name: "Light Shot",
+
+                    icon:
+                        "Assets/Heroes/Shione/Abilities/light-shot.png",
+
+                    preview:
+                        "Assets/Heroes/Shione/Abilities/light-shot-preview.mp4",
+
+                    previewType:
+                        "video",
+
+                    shortDescription:
+                        "Fire powerful instantaneous shots of concentrated light.",
+
+                    detailedDescription:
+                        "Shione fires concentrated light using an instantaneous hitscan attack.",
+
+                    stats: {
+
+                        "Damage":
+                            "65",
+
+                        "Fire Rate":
+                            "2 shots/sec",
+
+                        "Projectile":
+                            "Hitscan"
+
+                    }
+
+                },
+
+
+                /* =========================================
+                   SOLAR BEAM
+                ========================================= */
+
+                {
+                    type: "Ability 1",
+
+                    key: "M2",
+
+                    name: "Solar Beam",
+
+                    icon:
+                        "Assets/Heroes/Shione/Abilities/solar-beam.png",
+
+                    preview:
+                        "Assets/Heroes/Shione/Abilities/solar-beam-preview.mp4",
+
+                    previewType:
+                        "video",
+
+                    shortDescription:
+                        "Fire a concentrated beam that deals increased damage to enemies below half Health.",
+
+                    detailedDescription:
+                        "Shione fires an intensely focused beam of light. Solar Beam strikes multiple times before delivering a powerful final hit. Enemies below half Health take increased damage.",
+
+                    stats: {
+
+                        "Damage":
+                            "12 × 4 + 70",
+
+                        "Base Total Damage":
+                            "118",
+
+                        "Damage Increase Below 50% HP":
+                            "+30%",
+
+                        "Cooldown":
+                            "9 sec"
+
+                    }
+
+                },
+
+
+                /* =========================================
+                   FLASHPOINT
+                ========================================= */
+
+                {
+                    type: "Ability 2",
+
+                    key: "E",
+
+                    name: "Flashpoint",
+
+                    icon:
+                        "Assets/Heroes/Shione/Abilities/flashpoint.png",
+
+                    preview:
+                        "Assets/Heroes/Shione/Abilities/flashpoint-preview.mp4",
+
+                    previewType:
+                        "video",
+
+                    shortDescription:
+                        "Teleport instantly and leave behind a radiant explosion that Blinds enemies.",
+
+                    detailedDescription:
+                        "Shione instantly teleports to a targeted location. Her previous position erupts in radiant energy, damaging and Blinding nearby enemies.",
+
+                    stats: {
+
+                        "Teleport Range":
+                            "18 m",
+
+                        "Explosion Damage":
+                            "70",
+
+                        "Explosion Radius":
+                            "5 m",
+
+                        "Blind Duration":
+                            "2 sec",
+
+                        "Cooldown":
+                            "13 sec"
+
+                    }
+
+                },
+
+
+                /* =========================================
+                   LIGHT'S BLESSING
+                ========================================= */
+
+                {
+                    type: "Ability 3",
+
+                    key: "SHIFT",
+
+                    name: "Light's Blessing",
+
+                    icon:
+                        "Assets/Heroes/Shione/Abilities/lights-blessing.png",
+
+                    preview:
+                        "Assets/Heroes/Shione/Abilities/lights-blessing-preview.mp4",
+
+                    previewType:
+                        "video",
+
+                    shortDescription:
+                        "Grant nearby allies faster cooldown recovery and brief Crowd Control Immunity.",
+
+                    detailedDescription:
+                        "Shione blesses nearby allies with divine light. Affected allies gain Ability Cooldown Reduction for several seconds and Crowd Control Immunity during the beginning of the effect.",
+
+                    stats: {
+
+                        "Ability Cooldown Reduction":
+                            "15%",
+
+                        "Duration":
+                            "6 sec",
+
+                        "Crowd Control Immunity":
+                            "First 1.25 sec",
+
+                        "Radius":
+                            "6 m",
+
+                        "Cooldown":
+                            "20 sec"
+
+                    },
+
+
+                    sections: [
+
+                        {
+                            name:
+                                "Divine Protection",
+
+                            color:
+                                "white",
+
+                            description:
+                                "Affected allies gain brief Crowd Control Immunity when the Blessing begins.",
+
+                            details: {
+
+                                "Crowd Control Immunity":
+                                    "Yes",
+
+                                "Duration":
+                                    "1.25 sec"
+
+                            }
+
+                        },
+
+
+                        {
+                            name:
+                                "Radiant Acceleration",
+
+                            color:
+                                "yellow",
+
+                            description:
+                                "Affected allies recover their abilities faster for the full duration.",
+
+                            details: {
+
+                                "Cooldown Reduction":
+                                    "15%",
+
+                                "Duration":
+                                    "6 sec"
+
+                            }
+
+                        }
+
+                    ]
 
                 }
 
