@@ -659,15 +659,15 @@ window.heroes.push({
 
             profile: {
 
-                damage: 6,
+                damage: 7,
 
                 survivability: 4,
 
-                crowdControl: 6,
+                crowdControl: 5,
 
                 mobility: 1,
 
-                support: 5,
+                support: 4,
 
                 range: 7
 
