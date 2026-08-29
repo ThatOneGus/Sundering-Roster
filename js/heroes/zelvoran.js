@@ -801,6 +801,8 @@ window.heroes.push({
                     }
 
                 },
+
+               {
                        type: "Ultimate",
 
             key: "Q",
@@ -1248,6 +1250,8 @@ window.heroes.push({
                     ]
 
                 },
+               
+               {
 
                        type: "Ultimate",
 
