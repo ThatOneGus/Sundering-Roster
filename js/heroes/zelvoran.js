@@ -17,7 +17,7 @@ window.heroes.push({
         "Warden"
     ],
 
-    region: "TBD",
+    region: "Nocturne",
 
 
     /* =====================================================
@@ -236,11 +236,11 @@ window.heroes.push({
 
                     }
 
-                }*/
+                }
 
             ]
 
-        }
+        }*/
 
     ],
 
