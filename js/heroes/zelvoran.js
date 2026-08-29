@@ -47,11 +47,11 @@ window.heroes.push({
 
     profile: {
 
-        damage: 7,
+        damage: 8,
 
-        survivability: 8,
+        survivability: 10,
 
-        crowdControl: 7,
+        crowdControl: 8,
 
         mobility: 3,
 
@@ -117,7 +117,7 @@ window.heroes.push({
            ULTIMATE — CATACLYSM CORE
         ================================================= */
 
-       /* {
+        {
             type: "Ultimate",
 
             key: "Q",
@@ -240,7 +240,7 @@ window.heroes.push({
 
             ]
 
-        }*/
+        }
 
     ],
 
@@ -269,17 +269,17 @@ window.heroes.push({
 
             profile: {
 
-               damage: 7,
+                damage: 7,
 
-               survivability: 8,
+                survivability: 8,
 
-               crowdControl: 7,
+                crowdControl: 7,
 
-               mobility: 3,
+                mobility: 1,
 
-               support: 2,
+                support: 2,
 
-               range: 4
+                range: 4
 
             },
 
@@ -800,127 +800,6 @@ window.heroes.push({
 
                     }
 
-                },
-
-               {
-                       type: "Ultimate",
-
-            key: "Q",
-
-            name: "Cataclysm Core",
-
-            icon:
-                "Assets/Heroes/Zelvoran/Abilities/cataclysm-core.png",
-
-            preview:
-                "Assets/Heroes/Zelvoran/Abilities/cataclysm-core-preview.mp4",
-
-            previewType:
-                "video",
-
-            shortDescription:
-                "Transform into Dragon-Form, gaining massive Health, Crowd Control Immunity, and an enhanced infernal moveset.",
-
-            detailedDescription:
-                "Zel'voran unleashes his Dragon-Form for 10 seconds, increasing his maximum Health to 1200 and becoming Crowd Control Immune. During Dragon-Form, his normal abilities are replaced by enhanced versions of Infernal Heart, Infernal Claw, Infernal Spit, and Volcanic Rupture. When the transformation ends, Zel'voran releases a massive explosion and converts a portion of all damage dealt during Cataclysm Core into Bonus Health.",
-
-            stats: {
-
-                "Duration":
-                    "10 sec",
-
-                "Maximum Health":
-                    "1200 HP",
-
-                "Crowd Control Immunity":
-                    "Yes",
-
-                "Final Explosion Radius":
-                    "10 m",
-
-                "Final Explosion Damage":
-                    "100",
-
-                "Bonus Health Conversion":
-                    "10% of all damage dealt during Dragon-Form",
-
-                "Ultimate Cost":
-                    "3400"
-
-            },
-
-
-            sections: [
-
-                {
-                    name:
-                        "Dragon Transformation",
-
-                    color:
-                        "red",
-
-                    description:
-                        "Zel'voran transforms into his true draconic form, greatly increasing his durability and replacing his normal combat abilities with empowered versions.",
-
-                    details: {
-
-                        "Duration":
-                            "10 sec",
-
-                        "Maximum Health":
-                            "1200 HP",
-
-                        "Crowd Control Immunity":
-                            "Yes"
-
-                    }
-
-                },
-
-
-                {
-                    name:
-                        "Final Cataclysm",
-
-                    color:
-                        "orange",
-
-                    description:
-                        "When Dragon-Form ends, Zel'voran violently releases the accumulated heat of Cataclysm Core, damaging and Shoving nearby enemies away.",
-
-                    details: {
-
-                        "Explosion Damage":
-                            "100",
-
-                        "Explosion Radius":
-                            "10 m",
-
-                        "Shove":
-                            "Away from Zel'voran"
-
-                    }
-
-                },
-
-
-                {
-                    name:
-                        "Infernal Conversion",
-
-                    color:
-                        "yellow",
-
-                    description:
-                        "After the transformation ends, Zel'voran converts a portion of all damage dealt during Cataclysm Core into Bonus Health.",
-
-                    details: {
-
-                        "Bonus Health":
-                            "10% of all damage dealt during Dragon-Form"
-
-                    }
-
                 }
 
             ]
@@ -957,7 +836,7 @@ window.heroes.push({
 
                 support: 1,
 
-                range: 6
+                range: 5
 
             },
 
@@ -1248,128 +1127,6 @@ window.heroes.push({
                         }
 
                     ]
-
-                },
-               
-               {
-
-                       type: "Ultimate",
-
-            key: "Q",
-
-            name: "Cataclysm Core",
-
-            icon:
-                "Assets/Heroes/Zelvoran/Abilities/cataclysm-core.png",
-
-            preview:
-                "Assets/Heroes/Zelvoran/Abilities/cataclysm-core-preview.mp4",
-
-            previewType:
-                "video",
-
-            shortDescription:
-                "Transform into Dragon-Form, gaining massive Health, Crowd Control Immunity, and an enhanced infernal moveset.",
-
-            detailedDescription:
-                "Zel'voran unleashes his Dragon-Form for 10 seconds, increasing his maximum Health to 1200 and becoming Crowd Control Immune. During Dragon-Form, his normal abilities are replaced by enhanced versions of Infernal Heart, Infernal Claw, Infernal Spit, and Volcanic Rupture. When the transformation ends, Zel'voran releases a massive explosion and converts a portion of all damage dealt during Cataclysm Core into Bonus Health.",
-
-            stats: {
-
-                "Duration":
-                    "10 sec",
-
-                "Maximum Health":
-                    "1200 HP",
-
-                "Crowd Control Immunity":
-                    "Yes",
-
-                "Final Explosion Radius":
-                    "10 m",
-
-                "Final Explosion Damage":
-                    "100",
-
-                "Bonus Health Conversion":
-                    "10% of all damage dealt during Dragon-Form",
-
-                "Ultimate Cost":
-                    "3400"
-
-            },
-
-
-            sections: [
-
-                {
-                    name:
-                        "Dragon Transformation",
-
-                    color:
-                        "red",
-
-                    description:
-                        "Zel'voran transforms into his true draconic form, greatly increasing his durability and replacing his normal combat abilities with empowered versions.",
-
-                    details: {
-
-                        "Duration":
-                            "10 sec",
-
-                        "Maximum Health":
-                            "1200 HP",
-
-                        "Crowd Control Immunity":
-                            "Yes"
-
-                    }
-
-                },
-
-
-                {
-                    name:
-                        "Final Cataclysm",
-
-                    color:
-                        "orange",
-
-                    description:
-                        "When Dragon-Form ends, Zel'voran violently releases the accumulated heat of Cataclysm Core, damaging and Shoving nearby enemies away.",
-
-                    details: {
-
-                        "Explosion Damage":
-                            "100",
-
-                        "Explosion Radius":
-                            "10 m",
-
-                        "Shove":
-                            "Away from Zel'voran"
-
-                    }
-
-                },
-
-
-                {
-                    name:
-                        "Infernal Conversion",
-
-                    color:
-                        "yellow",
-
-                    description:
-                        "After the transformation ends, Zel'voran converts a portion of all damage dealt during Cataclysm Core into Bonus Health.",
-
-                    details: {
-
-                        "Bonus Health":
-                            "10% of all damage dealt during Dragon-Form"
-
-                    }
 
                 }
 
