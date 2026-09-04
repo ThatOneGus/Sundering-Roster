@@ -83,11 +83,39 @@ window.heroes.push({
 
             rarity: "Epic",
 
+           skinline: "Summer Skins",
+
             thumbnail:
                 "Assets/Heroes/Chance/Skins/Roll-The-Tides/thumbnail.png",
 
             splash:
                 "Assets/Heroes/Chance/Skins/Roll-The-Tides/splash.png"
+        },
+
+       {
+            name: "Greedy Gambler",
+
+            rarity: "Legendary",
+
+            skinline: "Deadly Sins",
+
+            description: "The embodiment of greed. This gambler spends fortunes upon fortunes and yet somehow always more than what he started with.",
+
+            thumbnail:
+                "Assets/Heroes/Chance/Skins/Default/thumbnail.png"
+        },
+
+       {
+            name: "Drowned Horizon",
+
+            rarity: "Epic",
+
+            skinline: "Drowned Horizon",
+
+            description: "Something",
+
+            thumbnail:
+                "Assets/Heroes/Bartholomew/Skins/Default/thumbnail.png"
         },
 
         {
