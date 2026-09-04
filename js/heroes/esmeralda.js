@@ -74,6 +74,11 @@ window.heroes.push({
 
             rarity: "Legendary",
 
+            skinline: "Summer Skins",
+
+            description: 
+                "Dealing with a brother like Alejandro can take a lot out of a girl. Can you blame her for wanting to relax?",
+
             thumbnail:
                 "Assets/Heroes/Esmeralda/Skins/Sunlit-Escape/thumbnail.png"
         },
@@ -83,9 +88,28 @@ window.heroes.push({
 
             rarity: "Epic",
 
+            skinline: "Elarian Royalty",
+
+            description: 
+                "Esmeralda has her royal attire in her closet at all times... Where it stays",
+
             thumbnail:
                 "Assets/Heroes/Esmeralda/Skins/Kingdoms-Princess/thumbnail.png"
-        }
+        },
+
+        {
+            name: "Clockwork Ballerina",
+
+            rarity: "Epic",
+
+            skinline: "Dreary Dollhouse",
+
+            description: 
+                "Such a pretty ballerina... it makes a lovely lullaby... It'll knock you right out... Cold.",
+
+            thumbnail:
+                "Assets/Heroes/Esmeralda/Skins/Sunlit-Escape/thumbnail.png"
+        },
 
     ],
 
