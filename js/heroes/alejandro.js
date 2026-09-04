@@ -53,10 +53,32 @@ window.heroes.push({
                 "Assets/Heroes/Alejandro/IMG_6308.png"
         },
 
+             {
+            name: "Rose & Thorn",
+
+            rarity: "Rare",
+
+            skinline: "Recolors",
+
+            description: 
+                "Inverted colors of Alejandro's base design",
+
+            thumbnail:
+                "Assets/Heroes/Alejandro/Skins/Island-Paradise/thumbnail.png",
+
+            splash:
+                "Assets/Heroes/Alejandro/Skins/Island-Paradise/splash.png"
+        },
+
         {
             name: "Island Paradise",
 
             rarity: "Legendary",
+
+            skinline: "Summer Skins",
+
+            description: 
+                "A relaxed tropical look fit for a prince on vacation.",
 
             thumbnail:
                 "Assets/Heroes/Alejandro/Skins/Island-Paradise/thumbnail.png",
@@ -70,6 +92,11 @@ window.heroes.push({
 
             rarity: "Legendary",
 
+            skinline: "Elarian Royalty",
+
+            description: 
+                "Soon to be crowned as the new king, Alejandro needs to get used to all that ceremonial garb.",
+
             thumbnail:
                 "Assets/Heroes/Alejandro/Skins/Elarian-Heir/thumbnail.png",
 
@@ -82,6 +109,11 @@ window.heroes.push({
 
             rarity: "Legendary",
 
+            skinline: "Winter Skins",
+
+            description: 
+                "Like an aurora in the winter sky shining over Aetheria. The cold must not bother him very much since he looks like that.",
+
             thumbnail:
                 "Assets/Heroes/Alejandro/Skins/Elarian-Heir/thumbnail.png",
 
@@ -92,7 +124,12 @@ window.heroes.push({
         {
             name: "Campus Royalty",
 
-            rarity: "Epic",
+            rarity: "Rare",
+
+            skinline: "Arcane Academy",
+
+            description: 
+                "Popular, a prodigy, talented... He must work so hard to maintain- What? Oh he'a naturally gifted? Of course...",
 
             thumbnail:
                 "Assets/Heroes/Alejandro/Skins/Elarian-Heir/thumbnail.png",
@@ -104,7 +141,12 @@ window.heroes.push({
         {
             name: "Halloween",
 
-            rarity: "Legendary",
+            rarity: "Epic",
+
+            skinline: "Halloween Skins",
+
+            description: 
+                "A witch! Oof so close- Hes a bitch.",
 
             thumbnail:
                 "Assets/Heroes/Alejandro/Skins/Elarian-Heir/thumbnail.png",
@@ -114,9 +156,31 @@ window.heroes.push({
         },
 
         {
-            name: "Sinful Temptation",
+            name: "Lustful Temptation",
+
+            rarity: "Epic",
+
+            skinline: "Deadly Sins",
+
+            description: 
+                "The embodiment of Lust. He invites you for a... special... night in his room. Don't worry, he doesn't bite.",
+
+            thumbnail:
+                "Assets/Heroes/Alejandro/Skins/Elarian-Heir/thumbnail.png",
+
+            splash:
+                "Assets/Heroes/Alejandro/Skins/Elarian-Heir/splash.png"
+        },
+
+        {
+            name: "Divine Diplomat",
 
             rarity: "Legendary",
+
+            skinline: "Celestials",
+
+            description: 
+                "One side, the starry gods of the realm above. The other side, the corrupted demons of the realm below.",
 
             thumbnail:
                 "Assets/Heroes/Alejandro/Skins/Elarian-Heir/thumbnail.png",
