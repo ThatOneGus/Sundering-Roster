@@ -1,0 +1,2211 @@
+/* =========================================================
+   SUNDERING — SKINS
+========================================================= */
+
+
+/* =========================================================
+   VARIABLES
+========================================================= */
+
+:root {
+
+    --bg:
+        #080808;
+
+    --panel:
+        #0d0d0d;
+
+    --text:
+        #f2f2f2;
+
+    --muted:
+        #777;
+
+    --border:
+        rgba(255,255,255,.09);
+
+    --accent:
+        #b794ff;
+
+}
+
+
+/* =========================================================
+   RESET
+========================================================= */
+
+* {
+
+    margin:
+        0;
+
+    padding:
+        0;
+
+    box-sizing:
+        border-box;
+}
+
+
+html {
+
+    scroll-behavior:
+        smooth;
+}
+
+
+body {
+
+    min-height:
+        100vh;
+
+    overflow-x:
+        hidden;
+
+    color:
+        var(--text);
+
+    background:
+        var(--bg);
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+}
+
+
+button,
+input {
+
+    font:
+        inherit;
+}
+
+
+button {
+
+    color:
+        inherit;
+}
+
+
+img {
+
+    display:
+        block;
+
+    max-width:
+        100%;
+}
+
+
+/* =========================================================
+   BACKGROUND
+========================================================= */
+
+.background {
+
+    position:
+        fixed;
+
+    inset:
+        0;
+
+    z-index:
+        -3;
+
+    pointer-events:
+        none;
+
+    background:
+
+        radial-gradient(
+            circle at 50% 0%,
+            rgba(183,148,255,.08),
+            transparent 35%
+        ),
+
+        radial-gradient(
+            circle at 15% 65%,
+            rgba(255,120,180,.035),
+            transparent 28%
+        ),
+
+        radial-gradient(
+            circle at 90% 65%,
+            rgba(100,170,255,.035),
+            transparent 30%
+        ),
+
+        #080808;
+}
+
+
+.noise {
+
+    position:
+        fixed;
+
+    inset:
+        0;
+
+    z-index:
+        -2;
+
+    pointer-events:
+        none;
+
+    opacity:
+        .03;
+
+    background-image:
+        repeating-linear-gradient(
+            0deg,
+            rgba(255,255,255,.12) 0,
+            rgba(255,255,255,.12) 1px,
+            transparent 1px,
+            transparent 3px
+        );
+}
+
+
+/* =========================================================
+   NAV
+========================================================= */
+
+nav {
+
+    position:
+        sticky;
+
+    top:
+        0;
+
+    z-index:
+        1000;
+
+    min-height:
+        72px;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        space-between;
+
+    padding:
+        0
+        6vw;
+
+    background:
+        rgba(8,8,8,.9);
+
+    border-bottom:
+        1px solid
+        rgba(255,255,255,.08);
+
+    backdrop-filter:
+        blur(16px);
+}
+
+
+.logo {
+
+    font-size:
+        1.05rem;
+
+    font-weight:
+        800;
+
+    letter-spacing:
+        .28em;
+}
+
+
+.logo span {
+
+    color:
+        var(--accent);
+}
+
+
+.navLinks {
+
+    display:
+        flex;
+
+    gap:
+        36px;
+}
+
+
+.navLinks a {
+
+    position:
+        relative;
+
+    color:
+        #777;
+
+    text-decoration:
+        none;
+
+    text-transform:
+        uppercase;
+
+    font-size:
+        .7rem;
+
+    font-weight:
+        700;
+
+    letter-spacing:
+        .2em;
+}
+
+
+.navLinks a:hover,
+.navLinks a.active {
+
+    color:
+        #fff;
+}
+
+
+.navLinks a::after {
+
+    content:
+        "";
+
+    position:
+        absolute;
+
+    left:
+        0;
+
+    right:
+        0;
+
+    bottom:
+        -10px;
+
+    height:
+        1px;
+
+    background:
+        #fff;
+
+    transform:
+        scaleX(0);
+
+    transition:
+        .2s ease;
+}
+
+
+.navLinks a:hover::after,
+.navLinks a.active::after {
+
+    transform:
+        scaleX(1);
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.skinsHeader {
+
+    position:
+        relative;
+
+    max-width:
+        1500px;
+
+    margin:
+        auto;
+
+    padding:
+        135px
+        6vw
+        100px;
+
+    overflow:
+        hidden;
+}
+
+
+.eyebrow,
+.sectionEyebrow {
+
+    color:
+        var(--accent);
+
+    text-transform:
+        uppercase;
+
+    font-size:
+        .63rem;
+
+    font-weight:
+        800;
+
+    letter-spacing:
+        .27em;
+}
+
+
+.skinsHeader h1 {
+
+    margin-top:
+        15px;
+
+    font-size:
+        clamp(
+            5rem,
+            13vw,
+            11rem
+        );
+
+    font-weight:
+        900;
+
+    line-height:
+        .8;
+
+    letter-spacing:
+        -.07em;
+
+    text-transform:
+        uppercase;
+}
+
+
+.skinsHeader p {
+
+    max-width:
+        650px;
+
+    margin-top:
+        42px;
+
+    color:
+        #888;
+
+    font-size:
+        .95rem;
+
+    line-height:
+        1.8;
+}
+
+
+/* =========================================================
+   HEADER DECORATION
+========================================================= */
+
+.headerDecoration {
+
+    position:
+        absolute;
+
+    right:
+        8%;
+
+    top:
+        60px;
+
+    width:
+        380px;
+
+    height:
+        380px;
+
+    opacity:
+        .7;
+}
+
+
+.headerRing {
+
+    position:
+        absolute;
+
+    inset:
+        0;
+
+    border:
+        1px solid
+        rgba(183,148,255,.15);
+
+    border-radius:
+        50%;
+}
+
+
+.headerRing.inner {
+
+    inset:
+        80px;
+
+    border-color:
+        rgba(255,255,255,.06);
+}
+
+
+/* =========================================================
+   MAIN
+========================================================= */
+
+.skinsMain {
+
+    max-width:
+        1500px;
+
+    margin:
+        auto;
+
+    padding:
+        0
+        6vw
+        130px;
+}
+
+
+/* =========================================================
+   CONTROLS
+========================================================= */
+
+.skinControls {
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        space-between;
+
+    gap:
+        30px;
+
+    padding:
+        18px
+        0;
+
+    margin-bottom:
+        80px;
+
+    border-top:
+        1px solid
+        var(--border);
+
+    border-bottom:
+        1px solid
+        var(--border);
+}
+
+
+.skinSearch {
+
+    flex:
+        1;
+
+    max-width:
+        480px;
+}
+
+
+.skinSearch input {
+
+    width:
+        100%;
+
+    padding:
+        14px
+        0;
+
+    color:
+        white;
+
+    background:
+        transparent;
+
+    border:
+        none;
+
+    border-bottom:
+        1px solid
+        #333;
+
+    outline:
+        none;
+
+    font-size:
+        .7rem;
+
+    font-weight:
+        700;
+
+    letter-spacing:
+        .16em;
+}
+
+
+.skinSearch input:focus {
+
+    border-color:
+        var(--accent);
+}
+
+
+.skinFilters {
+
+    display:
+        flex;
+
+    gap:
+        8px;
+}
+
+
+.skinFilter {
+
+    padding:
+        11px
+        17px;
+
+    color:
+        #666;
+
+    background:
+        transparent;
+
+    border:
+        1px solid
+        rgba(255,255,255,.12);
+
+    cursor:
+        pointer;
+
+    text-transform:
+        uppercase;
+
+    font-size:
+        .6rem;
+
+    font-weight:
+        800;
+
+    letter-spacing:
+        .15em;
+}
+
+
+.skinFilter:hover,
+.skinFilter.active {
+
+    color:
+        #fff;
+
+    border-color:
+        var(--accent);
+
+    background:
+        rgba(183,148,255,.07);
+}
+
+
+/* =========================================================
+   ARCHIVE SECTION
+========================================================= */
+
+.skinArchiveSection {
+
+    margin-bottom:
+        110px;
+}
+
+
+.archiveHeading {
+
+    display:
+        flex;
+
+    align-items:
+        flex-end;
+
+    justify-content:
+        space-between;
+
+    gap:
+        30px;
+
+    margin-bottom:
+        35px;
+}
+
+
+.archiveHeading h2 {
+
+    margin-top:
+        10px;
+
+    font-size:
+        clamp(
+            2rem,
+            5vw,
+            4rem
+        );
+
+    text-transform:
+        uppercase;
+
+    letter-spacing:
+        -.04em;
+}
+
+
+.archiveCount {
+
+    padding-bottom:
+        8px;
+
+    color:
+        #555;
+
+    font-size:
+        .6rem;
+
+    font-weight:
+        800;
+
+    letter-spacing:
+        .18em;
+}
+
+
+/* =========================================================
+   SKINLINE GRID
+========================================================= */
+
+.skinlinesGrid {
+
+    display:
+        grid;
+
+    grid-template-columns:
+        repeat(
+            2,
+            minmax(0,1fr)
+        );
+
+    gap:
+        18px;
+}
+
+
+.skinlineCard {
+
+    overflow:
+        hidden;
+
+    cursor:
+        pointer;
+
+    background:
+        #0c0c0c;
+
+    border:
+        1px solid
+        rgba(255,255,255,.08);
+
+    transition:
+        transform .25s ease,
+        border-color .25s ease;
+}
+
+
+.skinlineCard:hover {
+
+    transform:
+        translateY(-5px);
+
+    border-color:
+        rgba(183,148,255,.4);
+}
+
+
+.skinlineArt {
+
+    position:
+        relative;
+
+    aspect-ratio:
+        16 / 7;
+
+    overflow:
+        hidden;
+
+    background:
+        #111;
+}
+
+
+.skinlineArt img {
+
+    width:
+        100%;
+
+    height:
+        100%;
+
+    object-fit:
+        cover;
+
+    transition:
+        transform .5s ease;
+}
+
+
+.skinlineCard:hover
+.skinlineArt img {
+
+    transform:
+        scale(1.035);
+}
+
+
+.skinlineOverlay {
+
+    position:
+        absolute;
+
+    inset:
+        0;
+
+    background:
+        linear-gradient(
+            to top,
+            rgba(0,0,0,.7),
+            transparent 60%
+        );
+}
+
+
+.skinlineCountBadge {
+
+    position:
+        absolute;
+
+    right:
+        16px;
+
+    bottom:
+        15px;
+
+    padding:
+        8px
+        10px;
+
+    color:
+        #fff;
+
+    background:
+        rgba(0,0,0,.65);
+
+    border:
+        1px solid
+        rgba(255,255,255,.16);
+
+    font-size:
+        .53rem;
+
+    font-weight:
+        800;
+
+    letter-spacing:
+        .14em;
+}
+
+
+.skinlineFallback {
+
+    width:
+        100%;
+
+    height:
+        100%;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    color:
+        #333;
+
+    font-size:
+        2rem;
+
+    font-weight:
+        900;
+
+    text-transform:
+        uppercase;
+}
+
+
+.skinlineInfo {
+
+    padding:
+        25px;
+}
+
+
+.skinlineSubtitle {
+
+    color:
+        var(--accent);
+
+    font-size:
+        .55rem;
+
+    font-weight:
+        800;
+
+    text-transform:
+        uppercase;
+
+    letter-spacing:
+        .18em;
+}
+
+
+.skinlineInfo h3 {
+
+    margin-top:
+        9px;
+
+    font-size:
+        1.7rem;
+
+    text-transform:
+        uppercase;
+}
+
+
+.skinlineInfo p {
+
+    margin-top:
+        15px;
+
+    color:
+        #777;
+
+    font-size:
+        .8rem;
+
+    line-height:
+        1.7;
+}
+
+
+.skinlineHeroes {
+
+    margin-top:
+        19px;
+
+    color:
+        #555;
+
+    font-size:
+        .58rem;
+
+    line-height:
+        1.6;
+
+    text-transform:
+        uppercase;
+
+    letter-spacing:
+        .1em;
+}
+
+
+.viewSkinline {
+
+    width:
+        100%;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        space-between;
+
+    margin-top:
+        25px;
+
+    padding:
+        13px
+        0;
+
+    color:
+        #aaa;
+
+    background:
+        transparent;
+
+    border:
+        none;
+
+    border-top:
+        1px solid
+        rgba(255,255,255,.08);
+
+    cursor:
+        pointer;
+
+    text-transform:
+        uppercase;
+
+    font-size:
+        .58rem;
+
+    font-weight:
+        800;
+
+    letter-spacing:
+        .15em;
+}
+
+
+/* =========================================================
+   STANDALONE SKINS
+========================================================= */
+
+.standaloneGrid,
+.skinlineSkinGrid {
+
+    display:
+        grid;
+
+    grid-template-columns:
+        repeat(
+            4,
+            minmax(0,1fr)
+        );
+
+    gap:
+        15px;
+}
+
+
+.archiveSkinCard {
+
+    overflow:
+        hidden;
+
+    cursor:
+        pointer;
+
+    background:
+        #0c0c0c;
+
+    border:
+        1px solid
+        rgba(255,255,255,.08);
+
+    transition:
+        transform .22s ease,
+        border-color .22s ease;
+}
+
+
+.archiveSkinCard:hover {
+
+    transform:
+        translateY(-4px);
+
+    border-color:
+        rgba(183,148,255,.35);
+}
+
+
+.archiveSkinArt {
+
+    position:
+        relative;
+
+    aspect-ratio:
+        1 / 1;
+
+    overflow:
+        hidden;
+
+    background:
+        #111;
+}
+
+
+.archiveSkinArt img {
+
+    width:
+        100%;
+
+    height:
+        100%;
+
+    object-fit:
+        cover;
+
+    transition:
+        transform .35s ease;
+}
+
+
+.archiveSkinCard:hover
+.archiveSkinArt img {
+
+    transform:
+        scale(1.04);
+}
+
+
+.skinCardOverlay {
+
+    position:
+        absolute;
+
+    inset:
+        0;
+
+    pointer-events:
+        none;
+
+    background:
+        linear-gradient(
+            to top,
+            rgba(0,0,0,.42),
+            transparent 45%
+        );
+}
+
+
+.skinRarityBadge {
+
+    position:
+        absolute;
+
+    right:
+        11px;
+
+    bottom:
+        11px;
+
+    padding:
+        7px
+        9px;
+
+    color:
+        #ddd;
+
+    background:
+        rgba(0,0,0,.7);
+
+    border:
+        1px solid
+        rgba(255,255,255,.13);
+
+    font-size:
+        .48rem;
+
+    font-weight:
+        800;
+
+    text-transform:
+        uppercase;
+
+    letter-spacing:
+        .12em;
+}
+
+
+.archiveSkinInfo {
+
+    padding:
+        17px;
+}
+
+
+.skinHeroName {
+
+    color:
+        var(--accent);
+
+    font-size:
+        .5rem;
+
+    font-weight:
+        800;
+
+    text-transform:
+        uppercase;
+
+    letter-spacing:
+        .16em;
+}
+
+
+.archiveSkinInfo h3 {
+
+    margin-top:
+        7px;
+
+    color:
+        #ddd;
+
+    font-size:
+        .95rem;
+
+    text-transform:
+        uppercase;
+}
+
+
+.skinCollectionName {
+
+    margin-top:
+        7px;
+
+    color:
+        #555;
+
+    font-size:
+        .55rem;
+
+    text-transform:
+        uppercase;
+
+    letter-spacing:
+        .12em;
+}
+
+
+.skinFallback {
+
+    width:
+        100%;
+
+    height:
+        100%;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    color:
+        #333;
+
+    font-size:
+        5rem;
+
+    font-weight:
+        900;
+}
+
+
+/* =========================================================
+   EMPTY RESULTS
+========================================================= */
+
+.archiveEmpty {
+
+    grid-column:
+        1 / -1;
+
+    min-height:
+        220px;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    color:
+        #444;
+
+    border:
+        1px solid
+        rgba(255,255,255,.06);
+
+    font-size:
+        .65rem;
+
+    text-transform:
+        uppercase;
+
+    letter-spacing:
+        .2em;
+}
+
+
+.noSkinResults {
+
+    min-height:
+        300px;
+
+    display:
+        none;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    color:
+        #444;
+
+    border:
+        1px solid
+        var(--border);
+
+    font-size:
+        .7rem;
+
+    font-weight:
+        800;
+
+    letter-spacing:
+        .3em;
+}
+
+
+/* =========================================================
+   SKINLINE MODAL
+========================================================= */
+
+.skinModal {
+
+    position:
+        fixed;
+
+    inset:
+        0;
+
+    z-index:
+        2000;
+
+    overflow-y:
+        auto;
+
+    background:
+        rgba(0,0,0,.94);
+
+    backdrop-filter:
+        blur(15px);
+
+    opacity:
+        0;
+
+    visibility:
+        hidden;
+
+    transition:
+        .2s ease;
+}
+
+
+.skinModal.open {
+
+    opacity:
+        1;
+
+    visibility:
+        visible;
+}
+
+
+.modalClose {
+
+    position:
+        fixed;
+
+    top:
+        24px;
+
+    right:
+        28px;
+
+    z-index:
+        2100;
+
+    width:
+        48px;
+
+    height:
+        48px;
+
+    color:
+        #888;
+
+    background:
+        #0b0b0b;
+
+    border:
+        1px solid
+        rgba(255,255,255,.13);
+
+    cursor:
+        pointer;
+
+    font-size:
+        1.7rem;
+}
+
+
+.modalClose:hover {
+
+    color:
+        #fff;
+
+    border-color:
+        var(--accent);
+}
+
+
+.skinlineModalContent {
+
+    width:
+        min(
+            1300px,
+            92vw
+        );
+
+    margin:
+        auto;
+
+    padding:
+        90px
+        0
+        120px;
+}
+
+
+.skinlineHeroBanner {
+
+    width:
+        100%;
+
+    max-height:
+        520px;
+
+    overflow:
+        hidden;
+
+    background:
+        #101010;
+
+    border:
+        1px solid
+        var(--border);
+}
+
+
+.skinlineHeroBanner img {
+
+    width:
+        100%;
+
+    height:
+        100%;
+
+    max-height:
+        520px;
+
+    object-fit:
+        cover;
+}
+
+
+.skinlineModalHeader {
+
+    max-width:
+        850px;
+
+    padding:
+        55px
+        0;
+}
+
+
+.skinlineModalHeader h2 {
+
+    margin-top:
+        12px;
+
+    font-size:
+        clamp(
+            3rem,
+            8vw,
+            7rem
+        );
+
+    line-height:
+        .88;
+
+    text-transform:
+        uppercase;
+
+    letter-spacing:
+        -.05em;
+}
+
+
+.skinlineModalHeader p {
+
+    max-width:
+        700px;
+
+    margin-top:
+        25px;
+
+    color:
+        #888;
+
+    line-height:
+        1.8;
+}
+
+
+/* =========================================================
+   SKIN PREVIEW
+========================================================= */
+
+.skinPreviewModal {
+
+    position:
+        fixed;
+
+    inset:
+        0;
+
+    z-index:
+        3000;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    padding:
+        30px;
+
+    background:
+        rgba(0,0,0,.94);
+
+    backdrop-filter:
+        blur(16px);
+
+    opacity:
+        0;
+
+    visibility:
+        hidden;
+
+    transition:
+        .2s ease;
+}
+
+
+.skinPreviewModal.open {
+
+    opacity:
+        1;
+
+    visibility:
+        visible;
+}
+
+
+.skinPreviewWindow {
+
+    position:
+        relative;
+
+    width:
+        min(
+            1200px,
+            95vw
+        );
+
+    max-height:
+        90vh;
+
+    display:
+        grid;
+
+    grid-template-columns:
+        1.25fr
+        .75fr;
+
+    overflow:
+        hidden;
+
+    background:
+        #0b0b0b;
+
+    border:
+        1px solid
+        rgba(255,255,255,.13);
+}
+
+
+.previewClose {
+
+    position:
+        absolute;
+
+    top:
+        15px;
+
+    right:
+        15px;
+
+    z-index:
+        5;
+
+    width:
+        42px;
+
+    height:
+        42px;
+
+    color:
+        #aaa;
+
+    background:
+        rgba(0,0,0,.75);
+
+    border:
+        1px solid
+        rgba(255,255,255,.15);
+
+    cursor:
+        pointer;
+
+    font-size:
+        1.5rem;
+}
+
+
+.skinPreviewArt {
+
+    min-height:
+        600px;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    background:
+        #050505;
+
+    overflow:
+        hidden;
+}
+
+
+.skinPreviewArt img {
+
+    width:
+        100%;
+
+    height:
+        100%;
+
+    max-height:
+        90vh;
+
+    object-fit:
+        contain;
+}
+
+
+.skinPreviewFallback {
+
+    display:
+        none;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    width:
+        100%;
+
+    height:
+        100%;
+
+    color:
+        #333;
+
+    font-size:
+        .7rem;
+
+    letter-spacing:
+        .2em;
+}
+
+
+.skinPreviewInfo {
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    justify-content:
+        center;
+
+    padding:
+        55px;
+}
+
+
+.skinPreviewSkinline {
+
+    color:
+        var(--accent);
+
+    font-size:
+        .58rem;
+
+    font-weight:
+        800;
+
+    text-transform:
+        uppercase;
+
+    letter-spacing:
+        .18em;
+}
+
+
+.skinPreviewInfo h2 {
+
+    margin-top:
+        10px;
+
+    font-size:
+        clamp(
+            2.4rem,
+            5vw,
+            4.5rem
+        );
+
+    line-height:
+        .92;
+
+    text-transform:
+        uppercase;
+}
+
+
+.skinPreviewHero {
+
+    margin-top:
+        15px;
+
+    color:
+        #999;
+
+    font-size:
+        .85rem;
+
+    text-transform:
+        uppercase;
+
+    letter-spacing:
+        .1em;
+}
+
+
+.skinPreviewRarity {
+
+    margin-top:
+        12px;
+
+    color:
+        #666;
+
+    font-size:
+        .6rem;
+
+    font-weight:
+        800;
+
+    text-transform:
+        uppercase;
+
+    letter-spacing:
+        .14em;
+}
+
+
+.skinPreviewInfo p {
+
+    margin-top:
+        30px;
+
+    color:
+        #888;
+
+    line-height:
+        1.8;
+
+    font-size:
+        .85rem;
+}
+
+
+.skinPreviewMeta {
+
+    display:
+        grid;
+
+    grid-template-columns:
+        repeat(
+            2,
+            minmax(0,1fr)
+        );
+
+    gap:
+        1px;
+
+    margin-top:
+        35px;
+
+    background:
+        rgba(255,255,255,.06);
+}
+
+
+.previewMetaItem {
+
+    padding:
+        15px;
+
+    background:
+        #0d0d0d;
+}
+
+
+.previewMetaItem span {
+
+    display:
+        block;
+
+    color:
+        #555;
+
+    font-size:
+        .5rem;
+
+    text-transform:
+        uppercase;
+
+    letter-spacing:
+        .14em;
+}
+
+
+.previewMetaItem strong {
+
+    display:
+        block;
+
+    margin-top:
+        7px;
+
+    color:
+        #ddd;
+
+    font-size:
+        .72rem;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer {
+
+    padding:
+        45px
+        6vw;
+
+    color:
+        #444;
+
+    border-top:
+        1px solid
+        var(--border);
+
+    text-align:
+        center;
+
+    font-size:
+        .58rem;
+
+    font-weight:
+        700;
+
+    letter-spacing:
+        .3em;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (
+    max-width: 1050px
+) {
+
+    .standaloneGrid,
+    .skinlineSkinGrid {
+
+        grid-template-columns:
+            repeat(
+                3,
+                1fr
+            );
+    }
+
+
+    .skinPreviewWindow {
+
+        grid-template-columns:
+            1fr
+            1fr;
+    }
+
+
+    .skinPreviewInfo {
+
+        padding:
+            35px;
+    }
+
+}
+
+
+/* =========================================================
+   SMALL TABLET
+========================================================= */
+
+@media (
+    max-width: 800px
+) {
+
+    .skinControls {
+
+        align-items:
+            stretch;
+
+        flex-direction:
+            column;
+    }
+
+
+    .skinSearch {
+
+        max-width:
+            none;
+    }
+
+
+    .skinlinesGrid {
+
+        grid-template-columns:
+            1fr;
+    }
+
+
+    .standaloneGrid,
+    .skinlineSkinGrid {
+
+        grid-template-columns:
+            repeat(
+                2,
+                1fr
+            );
+    }
+
+
+    .skinPreviewWindow {
+
+        display:
+            block;
+
+        overflow-y:
+            auto;
+    }
+
+
+    .skinPreviewArt {
+
+        min-height:
+            400px;
+
+        max-height:
+            55vh;
+    }
+
+
+    .skinPreviewInfo {
+
+        padding:
+            35px;
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (
+    max-width: 600px
+) {
+
+    nav {
+
+        min-height:
+            62px;
+
+        padding:
+            0
+            18px;
+    }
+
+
+    .logo {
+
+        font-size:
+            .85rem;
+    }
+
+
+    .navLinks {
+
+        gap:
+            12px;
+    }
+
+
+    .navLinks a {
+
+        font-size:
+            .53rem;
+
+        letter-spacing:
+            .1em;
+    }
+
+
+    .skinsHeader {
+
+        padding:
+            90px
+            20px
+            65px;
+    }
+
+
+    .skinsHeader h1 {
+
+        font-size:
+            clamp(
+                4.5rem,
+                24vw,
+                7rem
+            );
+    }
+
+
+    .headerDecoration {
+
+        right:
+            -160px;
+
+        top:
+            30px;
+
+        width:
+            280px;
+
+        height:
+            280px;
+    }
+
+
+    .skinsMain {
+
+        padding:
+            0
+            20px
+            90px;
+    }
+
+
+    .skinFilters {
+
+        display:
+            grid;
+
+        grid-template-columns:
+            1fr
+            1fr
+            1fr;
+    }
+
+
+    .skinFilter {
+
+        padding:
+            11px
+            8px;
+    }
+
+
+    .archiveHeading {
+
+        align-items:
+            flex-start;
+
+        flex-direction:
+            column;
+
+        gap:
+            10px;
+    }
+
+
+    .standaloneGrid,
+    .skinlineSkinGrid {
+
+        grid-template-columns:
+            1fr;
+    }
+
+
+    .skinlineInfo {
+
+        padding:
+            20px;
+    }
+
+
+    .skinlineModalContent {
+
+        width:
+            calc(
+                100vw - 32px
+            );
+
+        padding:
+            75px
+            0;
+    }
+
+
+    .modalClose {
+
+        top:
+            14px;
+
+        right:
+            14px;
+    }
+
+
+    .skinPreviewModal {
+
+        padding:
+            12px;
+    }
+
+
+    .skinPreviewWindow {
+
+        width:
+            100%;
+
+        max-height:
+            95vh;
+    }
+
+
+    .skinPreviewArt {
+
+        min-height:
+            350px;
+    }
+
+
+    .skinPreviewInfo {
+
+        padding:
+            28px
+            22px;
+    }
+
+
+    .skinPreviewMeta {
+
+        grid-template-columns:
+            1fr;
+    }
+
+}
