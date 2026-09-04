@@ -20,7 +20,7 @@ window.heroes.push({
     ===================================================== */
 
     thumbnail:
-        "Assets/Heroes/Dante/IMG_6716.png",
+        "Assets/Heroes/Dante/IMG_6920.png",
 
     heroArt:
         "Assets/Heroes/Dante/IMG_6723.png",
@@ -67,17 +67,31 @@ window.heroes.push({
             rarity: "Base",
 
             thumbnail:
-                "Assets/Heroes/Dante/Skins/Default/thumbnail.png"
+                "Assets/Heroes/Dante/IMG_6920.png"
         },
         
         {
-            name: "Elarian Theif",
+            name: "Elarian Thief",
 
             rarity: "Epic",
 
             thumbnail:
-                "Assets/Heroes/Dante/Skins/Default/thumbnail.png"
+                "Assets/Heroes/Dante/thumbnail.png"
+        },
+
+        {
+            name: "Suave Swashbuckler",
+
+            rarity: "Epic",
+
+            skinline: "Drowned Horizon",
+
+            Description: "He was recruited for his skills and it shows. He makes his Captain's life worse than the seas they sail.",
+
+            thumbnail:
+                "Assets/Heroes/Dante/Skins/IMG_6921.png"
         }
+
 
     ],
 
