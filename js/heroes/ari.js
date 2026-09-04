@@ -64,6 +64,34 @@ window.heroes.push({
 
             rarity: "Legendary",
 
+            skinline: "Summer Skins",
+
+            thumbnail:
+                "Assets/Heroes/Ari/Skins/Faerie-Waves/thumbnail.png"
+        },
+
+        {
+            name: "Flora Of Nocturne",
+
+            rarity: "Epic",
+
+            skinline: "Nocturne's Corruption",
+
+            description: "Ari turned into the flora that got corrupted by Nocturne, and in turn became a Nocturne Fairy.",
+
+            thumbnail:
+                "Assets/Heroes/Ari/Skins/Faerie-Waves/thumbnail.png"
+        },
+
+        {
+            name: "Petal To The Metal",
+
+            rarity: "Legendary",
+
+            skinline: "Streetwear",
+
+            description: "No one expected this little fairy to be the best racer here. Who would've thought?",
+
             thumbnail:
                 "Assets/Heroes/Ari/Skins/Faerie-Waves/thumbnail.png"
         },
