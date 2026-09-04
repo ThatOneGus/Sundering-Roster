@@ -75,6 +75,10 @@ window.heroes.push({
 
             rarity: "Epic",
 
+            skinline: "Elarian Royalty",
+
+            description: "Oh this coat? Of course it's mine. Now... I mean, doesn't it just look so good on me?",
+
             thumbnail:
                 "Assets/Heroes/Dante/thumbnail.png"
         },
