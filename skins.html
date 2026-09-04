@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>SUNDERING — Skins</title>
+
+    <link
+        rel="stylesheet"
+        href="css/skins.css"
+    >
+
+</head>
+
+
+<body>
+
+
+    <!-- =====================================================
+         BACKGROUND
+    ===================================================== -->
+
+    <div class="background"></div>
+
+    <div class="noise"></div>
+
+
+    <!-- =====================================================
+         NAVIGATION
+    ===================================================== -->
+
+    <nav>
+
+        <div class="logo">
+            <span>SUND</span>ERING
+        </div>
+
+
+        <div class="navLinks">
+
+            <a href="index.html">
+                Roster
+            </a>
+
+            <a
+                href="skins.html"
+                class="active"
+            >
+                Skins
+            </a>
+
+            <a href="lore.html">
+                Lore
+            </a>
+
+            <a href="roles.html">
+                Roles
+            </a>
+
+        </div>
+
+    </nav>
+
+
+    <!-- =====================================================
+         PAGE HEADER
+    ===================================================== -->
+
+    <header class="skinsHeader">
+
+        <div class="headerDecoration">
+
+            <div class="headerRing"></div>
+
+            <div class="headerRing inner"></div>
+
+        </div>
+
+
+        <div class="eyebrow">
+            Sundering Cosmetics Archive
+        </div>
+
+
+        <h1>
+            Skins
+        </h1>
+
+
+        <p>
+            Alternate histories, impossible worlds, seasonal celebrations,
+            and completely different visions of the characters of Sundering.
+        </p>
+
+    </header>
+
+
+    <!-- =====================================================
+         CONTROLS
+    ===================================================== -->
+
+    <main class="skinsMain">
+
+
+        <section class="skinControls">
+
+
+            <div class="skinSearch">
+
+                <input
+                    type="text"
+                    id="skinSearch"
+                    placeholder="SEARCH SKINS, HEROES, OR SKINLINES..."
+                    autocomplete="off"
+                >
+
+            </div>
+
+
+            <div class="skinFilters">
+
+                <button
+                    class="skinFilter active"
+                    data-filter="all"
+                    type="button"
+                >
+                    All
+                </button>
+
+                <button
+                    class="skinFilter"
+                    data-filter="skinlines"
+                    type="button"
+                >
+                    Skinlines
+                </button>
+
+                <button
+                    class="skinFilter"
+                    data-filter="standalone"
+                    type="button"
+                >
+                    Standalone
+                </button>
+
+            </div>
+
+
+        </section>
+
+
+        <!-- =================================================
+             FEATURED / SKINLINES
+        ================================================== -->
+
+        <section
+            class="skinArchiveSection"
+            id="skinlinesSection"
+        >
+
+            <div class="archiveHeading">
+
+                <div>
+
+                    <div class="sectionEyebrow">
+                        Collections
+                    </div>
+
+                    <h2>
+                        Skinlines
+                    </h2>
+
+                </div>
+
+
+                <div
+                    class="archiveCount"
+                    id="skinlineCount"
+                >
+                </div>
+
+            </div>
+
+
+            <div
+                class="skinlinesGrid"
+                id="skinlinesGrid"
+            >
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             STANDALONE SKINS
+        ================================================== -->
+
+        <section
+            class="skinArchiveSection"
+            id="standaloneSection"
+        >
+
+            <div class="archiveHeading">
+
+                <div>
+
+                    <div class="sectionEyebrow">
+                        Individual Designs
+                    </div>
+
+                    <h2>
+                        Standalone Skins
+                    </h2>
+
+                </div>
+
+
+                <div
+                    class="archiveCount"
+                    id="standaloneCount"
+                >
+                </div>
+
+            </div>
+
+
+            <div
+                class="standaloneGrid"
+                id="standaloneGrid"
+            >
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             NO RESULTS
+        ================================================== -->
+
+        <div
+            class="noSkinResults"
+            id="noSkinResults"
+        >
+            NO SKINS FOUND
+        </div>
+
+
+    </main>
+
+
+    <!-- =====================================================
+         SKINLINE MODAL
+    ===================================================== -->
+
+    <div
+        class="skinModal"
+        id="skinlineModal"
+    >
+
+        <button
+            class="modalClose"
+            id="skinlineModalClose"
+            type="button"
+            aria-label="Close skinline"
+        >
+            ×
+        </button>
+
+
+        <div class="skinlineModalContent">
+
+
+            <div
+                class="skinlineHeroBanner"
+                id="skinlineHeroBanner"
+            >
+            </div>
+
+
+            <div class="skinlineModalHeader">
+
+                <div
+                    class="sectionEyebrow"
+                    id="skinlineModalEyebrow"
+                >
+                    Skinline
+                </div>
+
+
+                <h2
+                    id="skinlineModalTitle"
+                >
+                </h2>
+
+
+                <p
+                    id="skinlineModalDescription"
+                >
+                </p>
+
+            </div>
+
+
+            <div
+                class="skinlineSkinGrid"
+                id="skinlineSkinGrid"
+            >
+            </div>
+
+
+        </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         SKIN PREVIEW MODAL
+    ===================================================== -->
+
+    <div
+        class="skinPreviewModal"
+        id="skinPreviewModal"
+    >
+
+        <div class="skinPreviewWindow">
+
+
+            <button
+                class="previewClose"
+                id="skinPreviewClose"
+                type="button"
+                aria-label="Close skin preview"
+            >
+                ×
+            </button>
+
+
+            <div class="skinPreviewArt">
+
+                <img
+                    id="skinPreviewImage"
+                    src=""
+                    alt=""
+                >
+
+                <div
+                    class="skinPreviewFallback"
+                    id="skinPreviewFallback"
+                >
+                    ART NOT AVAILABLE
+                </div>
+
+            </div>
+
+
+            <div class="skinPreviewInfo">
+
+
+                <div
+                    class="skinPreviewSkinline"
+                    id="skinPreviewSkinline"
+                >
+                </div>
+
+
+                <h2
+                    id="skinPreviewName"
+                >
+                </h2>
+
+
+                <div
+                    class="skinPreviewHero"
+                    id="skinPreviewHero"
+                >
+                </div>
+
+
+                <div
+                    class="skinPreviewRarity"
+                    id="skinPreviewRarity"
+                >
+                </div>
+
+
+                <p
+                    id="skinPreviewDescription"
+                >
+                </p>
+
+
+                <div
+                    class="skinPreviewMeta"
+                    id="skinPreviewMeta"
+                >
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         FOOTER
+    ===================================================== -->
+
+    <footer>
+        SUNDERING — COSMETICS ARCHIVE
+    </footer>
+
+
+    <!-- =====================================================
+         HERO DATABASE
+    ===================================================== -->
+
+    <script src="js/heroes.js"></script>
+
+
+    <!-- =====================================================
+         SKINS PAGE
+    ===================================================== -->
+
+    <script src="js/skins.js"></script>
+
+
+</body>
+
+</html>
