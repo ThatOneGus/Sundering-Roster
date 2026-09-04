@@ -3318,7 +3318,7 @@ footer {
 
     grid-template-columns:
         repeat(
-            3,
+            4,
             minmax(0,1fr)
         );
 
@@ -3367,7 +3367,7 @@ footer {
         100%;
 
     aspect-ratio:
-        16 / 10;
+        1 / 1;
 
     overflow:
         hidden;
@@ -3488,7 +3488,7 @@ footer {
 
     grid-template-columns:
         repeat(
-            3,
+            4,
             minmax(0,1fr)
         );
 
@@ -3534,7 +3534,7 @@ footer {
         100%;
 
     aspect-ratio:
-        4 / 3;
+       3 / 4;
 
     overflow:
         hidden;
