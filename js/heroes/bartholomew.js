@@ -67,7 +67,21 @@ window.heroes.push({
 
             thumbnail:
                 "Assets/Heroes/Bartholomew/Skins/Default/thumbnail.png"
+        },
+
+        {
+            name: "Headmaster Richards III",
+
+            rarity: "Rare",
+
+            skinline: "Arcane Academy",
+
+            description: "The headmaster of the university. He oversees every mishap and swiftly cleans it up.",
+
+            thumbnail:
+                "Assets/Heroes/Bartholomew/Skins/Default/thumbnail.png"
         }
+
 
     ],
 
