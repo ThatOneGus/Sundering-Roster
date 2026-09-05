@@ -83,6 +83,8 @@ window.heroes.push({
 
             rarity: "Legendary",
 
+           skinline: "Summer Skins",
+
             thumbnail:
                 "Assets/Heroes/Gabriella/Skins/Lazy-Lagoon/thumbnail.png",
 
@@ -90,7 +92,47 @@ window.heroes.push({
                 "Assets/Heroes/Gabriella/Skins/Lazy-Lagoon/splash.png"
         },
 
-        {
+       {
+            name: "Big Bad Girl",
+
+            rarity: "Legendary",
+
+          skinline: "Broken Faiytale",
+
+            thumbnail:
+                "Assets/Heroes/Gabriella/Skins/Lazy-Lagoon/thumbnail.png",
+
+            splash:
+                "Assets/Heroes/Gabriella/Skins/Lazy-Lagoon/splash.png"
+        },
+
+       {
+            name: "Porcelain Puppeteer",
+
+            rarity: "Legendary",
+
+          skinline: "Dreary Dollhouse",
+
+            thumbnail:
+                "Assets/Heroes/Gabriella/Skins/Lazy-Lagoon/thumbnail.png",
+
+            splash:
+                "Assets/Heroes/Gabriella/Skins/Lazy-Lagoon/splash.png"
+        },
+
+       {
+            name: "Slumber Party",
+
+            rarity: "Legendary",
+
+            thumbnail:
+                "Assets/Heroes/Gabriella/Skins/Lazy-Lagoon/thumbnail.png",
+
+            splash:
+                "Assets/Heroes/Gabriella/Skins/Lazy-Lagoon/splash.png"
+        }
+
+        /*{
             name: "Kingdom's Jewel",
 
             rarity: "Epic",
@@ -100,7 +142,7 @@ window.heroes.push({
 
             splash:
                 "Assets/Heroes/Gabriella/Skins/Kingdoms-Jewel/splash.png"
-        }
+        }*/
 
     ],
 
