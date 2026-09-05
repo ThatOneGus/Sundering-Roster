@@ -75,9 +75,22 @@ window.heroes.push({
 
             rarity: "Epic",
 
+            skinline: "Summer Skins",
+
             thumbnail:
                 "Assets/Heroes/Corvin-Silas/Skins/Twin-Tides/thumbnail.png"
         }
+
+        /*{
+            name: "",
+
+            rarity: "Epic",
+
+            skinline: "Summer Skins",
+
+            thumbnail:
+                "Assets/Heroes/Corvin-Silas/Skins/Twin-Tides/thumbnail.png"
+        },*/
 
     ],
 
