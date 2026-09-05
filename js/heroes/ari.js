@@ -60,6 +60,17 @@ window.heroes.push({
         },
 
         {
+            name: "Sunset Iris",
+
+            rarity: "Rare",
+
+            skinline: "Recolors",
+
+            thumbnail: "Assets/Heroes/Ari/Skins/thumbnail.png"
+
+        ),
+
+        {
             name: "Faerie Waves",
 
             rarity: "Legendary",
