@@ -373,8 +373,6 @@ function getFilteredSkins() {
 
             skin.rarity,
 
-            skin.description,
-
             skin.release
 
         ]
@@ -674,7 +672,7 @@ function renderSkinlines(
 
                     ${
                         info.description ||
-                        `${collection.length} alternate designs from the ${name} collection.`
+                        `${collection.length} characters in the ${name} collection.`
                     }
 
                 </p>
