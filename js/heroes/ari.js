@@ -68,7 +68,7 @@ window.heroes.push({
 
             thumbnail: "Assets/Heroes/Ari/Skins/thumbnail.png"
 
-        ),
+        },
 
         {
             name: "Faerie Waves",
