@@ -70,6 +70,15 @@ window.heroes.push({
         },
 
         {
+            name: "White Steward",
+
+            rarity: "Rare",
+
+            skinline: "Recolors"
+
+        },
+
+        {
             name: "Headmaster Richards III",
 
             rarity: "Rare",
