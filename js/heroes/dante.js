@@ -93,7 +93,7 @@ window.heroes.push({
             Description: "He was recruited for his skills and it shows. He makes his Captain's life worse than the seas they sail.",
 
             thumbnail:
-                "Assets/Heroes/Dante/Skins/IMG_6921.png"
+                "Assets/Heroes/Dante/Skins/IMG_6931.png"
         },
 
         {
