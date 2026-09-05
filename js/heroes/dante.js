@@ -70,7 +70,7 @@ window.heroes.push({
                 "Assets/Heroes/Dante/IMG_6920.png"
         },
         
-        {
+        /*{
             name: "Elarian Thief",
 
             rarity: "Rare",
@@ -81,7 +81,7 @@ window.heroes.push({
 
             thumbnail:
                 "Assets/Heroes/Dante/thumbnail.png"
-        },
+        },*/
 
         {
             name: "Suave Swashbuckler",
