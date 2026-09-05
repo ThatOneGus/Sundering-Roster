@@ -73,7 +73,7 @@ window.heroes.push({
         {
             name: "Elarian Thief",
 
-            rarity: "Epic",
+            rarity: "Rare",
 
             skinline: "Elarian Royalty",
 
@@ -94,6 +94,43 @@ window.heroes.push({
 
             thumbnail:
                 "Assets/Heroes/Dante/Skins/IMG_6921.png"
+        },
+
+        {
+            name: "Cat Burglar",
+
+            rarity: "Epic",
+
+            skinline: "Halloween Skins",
+
+            description: "A friend of mine dared me to wear this stupid costume.",
+
+            thumbnail:
+                "Assets/Heroes/Dante/thumbnail.png"
+        },
+
+        {
+            name: "Envious Thief",
+
+            rarity: "Legendary",
+
+            skinline: "Deadly Sins",
+
+            description: "The embodiment of envy. A master thief knows exactly what he wants, and how to get it. And this thief wants what everyone else has.",
+
+            thumbnail:
+                "Assets/Heroes/Dante/thumbnail.png"
+        },
+
+        {
+            name: "Petty Thief",
+
+            rarity: "Rare",
+
+            skinline: "Recolors",
+
+            thumbnail:
+                "Assets/Heroes/Dante/thumbnail.png"
         }
 
 
