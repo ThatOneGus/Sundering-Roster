@@ -194,16 +194,13 @@ let currentSearch =
 const skinlineInfo = {
 
 
-    "Island Paradise": {
-
-        subtitle:
-            "Summer Collection",
+    "Drowned Horizon": {
 
         description:
-            "The heroes of Sundering trade battlefields and royal duties for warm beaches, tropical waters, and a desperately needed vacation.",
+            "The seas are a treacherous place. Captain Reno gathered his crew and sailed off to find treasures of distant lands. Instead, they were found by creatures no one dares to speak of.",
 
         banner:
-            "Assets/Skins/Skinlines/Island-Paradise/banner.png"
+            "Assets/Skinlines/Banners/IMG_6935.png"
 
     },
 
