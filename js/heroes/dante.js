@@ -130,7 +130,7 @@ window.heroes.push({
             skinline: "Recolors",
 
             thumbnail:
-                "Assets/Heroes/Dante/thumbnail.png"
+                "Assets/Heroes/Dante/Skins/IMG_6938.png"
         }
 
 
