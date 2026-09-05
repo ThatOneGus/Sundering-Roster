@@ -383,8 +383,6 @@ function getFilteredSkins() {
 
             skin.rarity,
 
-            skin.description,
-
             skin.release
 
         ]
