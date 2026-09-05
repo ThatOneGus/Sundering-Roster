@@ -4,6 +4,18 @@
 
 
 /* =========================================================
+   GLOBAL DATABASES
+========================================================= */
+
+const heroes =
+    window.heroes || [];
+
+
+const skinlines =
+    window.skinlines || {};
+
+
+/* =========================================================
    ELEMENTS
 ========================================================= */
 
@@ -80,6 +92,12 @@ const skinlineModalClose =
 const skinlineHeroBanner =
     document.getElementById(
         "skinlineHeroBanner"
+    );
+
+
+const skinlineModalEyebrow =
+    document.getElementById(
+        "skinlineModalEyebrow"
     );
 
 
@@ -177,49 +195,8 @@ let currentSearch =
     "";
 
 
-/* =========================================================
-   OPTIONAL SKINLINE INFORMATION
-
-   This gives whole skinlines their own:
-   - description
-   - banner
-   - subtitle
-
-   It is NOT required.
-
-   If a skinline isn't listed here, the page will still
-   generate it automatically.
-========================================================= */
-
-const skinlineInfo = {
-
-
-    "Drowned Horizon": {
-
-        description:
-            "The seas are a treacherous place. Captain Reno gathered his crew and sailed off to find treasures of distant lands. Instead, they were found by creatures no one dares to speak of.",
-
-        banner:
-            "Assets/Skinlines/Banners/IMG_6935.png"
-
-    },
-
-
-    "Auroral Frostbloom": {
-
-        subtitle:
-            "Winter Collection",
-
-        description:
-            "An ethereal winter vision where crystalline frost and brilliant auroras transform familiar heroes into figures of frozen beauty.",
-
-        banner:
-            "Assets/Skins/Skinlines/Auroral-Frostbloom/banner.png"
-
-    }
-
-
-};
+let allSkins =
+    [];
 
 
 /* =========================================================
@@ -232,23 +209,18 @@ function buildSkinDatabase() {
         [];
 
 
-    const heroes =
-        window.heroes || [];
-
-
     heroes.forEach(hero => {
 
-        const skins =
+        const heroSkins =
             hero.skins || [];
 
 
-        skins.forEach(skin => {
+        heroSkins.forEach(skin => {
 
 
-            /*
-                Don't put default skins
-                in the cosmetics archive.
-            */
+            /* ---------------------------------------------
+               IGNORE DEFAULT / BASE SKINS
+            --------------------------------------------- */
 
             if (
                 skin.rarity === "Base" ||
@@ -292,15 +264,7 @@ function buildSkinDatabase() {
 
 
 /* =========================================================
-   MASTER DATA
-========================================================= */
-
-const allSkins =
-    buildSkinDatabase();
-
-
-/* =========================================================
-   GROUP SKINLINES
+   GROUP SKINS BY SKINLINE
 ========================================================= */
 
 function groupSkinlines(
@@ -346,7 +310,34 @@ function groupSkinlines(
 
 
 /* =========================================================
-   FILTER DATA
+   GET SKINLINE DATA
+========================================================= */
+
+function getSkinlineInfo(
+    name
+) {
+
+    return (
+        skinlines[name] || {
+            name:
+                name,
+
+            subtitle:
+                "Skin Collection",
+
+            description:
+                `Explore the ${name} skin collection.`,
+
+            banner:
+                null
+        }
+    );
+
+}
+
+
+/* =========================================================
+   FILTER SKINS
 ========================================================= */
 
 function getFilteredSkins() {
@@ -357,7 +348,21 @@ function getFilteredSkins() {
             .trim();
 
 
+    if (!query) {
+
+        return allSkins;
+
+    }
+
+
     return allSkins.filter(skin => {
+
+        const info =
+            skin.skinline
+                ? getSkinlineInfo(
+                    skin.skinline
+                )
+                : null;
 
 
         const searchableText = [
@@ -366,9 +371,19 @@ function getFilteredSkins() {
 
             skin.heroName,
 
+            skin.heroTitle,
+
+            skin.heroRole,
+
             skin.skinline,
 
+            info?.subtitle,
+
+            info?.description,
+
             skin.rarity,
+
+            skin.description,
 
             skin.release
 
@@ -429,7 +444,8 @@ function renderArchive() {
     ----------------------------------------------------- */
 
     if (
-        currentFilter === "skinlines"
+        currentFilter ===
+        "skinlines"
     ) {
 
         skinlinesSection.style.display =
@@ -442,7 +458,8 @@ function renderArchive() {
 
 
     else if (
-        currentFilter === "standalone"
+        currentFilter ===
+        "standalone"
     ) {
 
         skinlinesSection.style.display =
@@ -469,11 +486,13 @@ function renderArchive() {
        NO RESULTS
     ----------------------------------------------------- */
 
-    let visibleResults;
+    let visibleResults =
+        0;
 
 
     if (
-        currentFilter === "skinlines"
+        currentFilter ===
+        "skinlines"
     ) {
 
         visibleResults =
@@ -481,14 +500,17 @@ function renderArchive() {
 
     }
 
+
     else if (
-        currentFilter === "standalone"
+        currentFilter ===
+        "standalone"
     ) {
 
         visibleResults =
             standaloneSkins.length;
 
     }
+
 
     else {
 
@@ -507,7 +529,7 @@ function renderArchive() {
 
 
 /* =========================================================
-   SKINLINE GRID
+   RENDER SKINLINES
 ========================================================= */
 
 function renderSkinlines(
@@ -562,18 +584,9 @@ function renderSkinlines(
 
 
         const info =
-            skinlineInfo[name] ||
-            {};
-
-
-        const card =
-            document.createElement(
-                "article"
+            getSkinlineInfo(
+                name
             );
-
-
-        card.className =
-            "skinlineCard";
 
 
         const primarySkin =
@@ -597,10 +610,19 @@ function renderSkinlines(
                 .join(" • ");
 
 
+        const card =
+            document.createElement(
+                "article"
+            );
+
+
+        card.className =
+            "skinlineCard";
+
+
         card.innerHTML = `
 
             <div class="skinlineArt">
-
 
                 ${
                     banner
@@ -609,7 +631,7 @@ function renderSkinlines(
 
                         <img
                             src="${banner}"
-                            alt="${name}"
+                            alt="${info.name || name}"
                         >
 
                     `
@@ -618,7 +640,7 @@ function renderSkinlines(
 
                         <div class="skinlineFallback">
 
-                            ${name}
+                            ${info.name || name}
 
                         </div>
 
@@ -633,6 +655,7 @@ function renderSkinlines(
                 <div class="skinlineCountBadge">
 
                     ${collection.length}
+
                     SKIN${
                         collection.length === 1
                             ? ""
@@ -641,12 +664,10 @@ function renderSkinlines(
 
                 </div>
 
-
             </div>
 
 
             <div class="skinlineInfo">
-
 
                 <div class="skinlineSubtitle">
 
@@ -660,7 +681,10 @@ function renderSkinlines(
 
                 <h3>
 
-                    ${name}
+                    ${
+                        info.name ||
+                        name
+                    }
 
                 </h3>
 
@@ -669,7 +693,7 @@ function renderSkinlines(
 
                     ${
                         info.description ||
-                        `${collection.length} characters in the ${name} collection.`
+                        `Explore the ${name} collection.`
                     }
 
                 </p>
@@ -695,10 +719,60 @@ function renderSkinlines(
 
                 </button>
 
-
             </div>
 
         `;
+
+
+        const image =
+            card.querySelector(
+                ".skinlineArt img"
+            );
+
+
+        if (image) {
+
+            image.addEventListener(
+                "error",
+                () => {
+
+                    const art =
+                        card.querySelector(
+                            ".skinlineArt"
+                        );
+
+
+                    art.innerHTML = `
+
+                        <div class="skinlineFallback">
+
+                            ${info.name || name}
+
+                        </div>
+
+
+                        <div class="skinlineOverlay">
+                        </div>
+
+
+                        <div class="skinlineCountBadge">
+
+                            ${collection.length}
+
+                            SKIN${
+                                collection.length === 1
+                                    ? ""
+                                    : "S"
+                            }
+
+                        </div>
+
+                    `;
+
+                }
+            );
+
+        }
 
 
         card.addEventListener(
@@ -724,7 +798,7 @@ function renderSkinlines(
 
 
 /* =========================================================
-   STANDALONE GRID
+   RENDER STANDALONE SKINS
 ========================================================= */
 
 function renderStandaloneSkins(
@@ -802,7 +876,6 @@ function createSkinCard(
 
         <div class="archiveSkinArt">
 
-
             ${
                 image
 
@@ -810,7 +883,7 @@ function createSkinCard(
 
                     <img
                         src="${image}"
-                        alt="${skin.name}"
+                        alt="${skin.heroName} — ${skin.name}"
                     >
 
                 `
@@ -819,7 +892,11 @@ function createSkinCard(
 
                     <div class="skinFallback">
 
-                        ${skin.name.charAt(0)}
+                        ${
+                            skin.name
+                                ?.charAt(0) ||
+                            "?"
+                        }
 
                     </div>
 
@@ -833,16 +910,17 @@ function createSkinCard(
 
             <div class="skinRarityBadge">
 
-                ${skin.rarity || "Skin"}
+                ${
+                    skin.rarity ||
+                    "Skin"
+                }
 
             </div>
-
 
         </div>
 
 
         <div class="archiveSkinInfo">
-
 
             <div class="skinHeroName">
 
@@ -874,7 +952,6 @@ function createSkinCard(
                 : ""
             }
 
-
         </div>
 
     `;
@@ -892,11 +969,35 @@ function createSkinCard(
             "error",
             () => {
 
-                img.parentElement.innerHTML = `
+                const art =
+                    card.querySelector(
+                        ".archiveSkinArt"
+                    );
+
+
+                art.innerHTML = `
 
                     <div class="skinFallback">
 
-                        ${skin.name.charAt(0)}
+                        ${
+                            skin.name
+                                ?.charAt(0) ||
+                            "?"
+                        }
+
+                    </div>
+
+
+                    <div class="skinCardOverlay">
+                    </div>
+
+
+                    <div class="skinRarityBadge">
+
+                        ${
+                            skin.rarity ||
+                            "Skin"
+                        }
 
                     </div>
 
@@ -938,12 +1039,19 @@ function openSkinline(
 ) {
 
     const info =
-        skinlineInfo[name] ||
-        {};
+        getSkinlineInfo(
+            name
+        );
 
 
     skinlineModalTitle.textContent =
+        info.name ||
         name;
+
+
+    skinlineModalEyebrow.textContent =
+        info.subtitle ||
+        "Skin Collection";
 
 
     skinlineModalDescription.textContent =
@@ -995,12 +1103,46 @@ function openSkinline(
 
 
         image.alt =
+            info.name ||
             name;
+
+
+        image.addEventListener(
+            "error",
+            () => {
+
+                skinlineHeroBanner.innerHTML = `
+
+                    <div class="skinlineFallback">
+
+                        ${info.name || name}
+
+                    </div>
+
+                `;
+
+            }
+        );
 
 
         skinlineHeroBanner.appendChild(
             image
         );
+
+    }
+
+
+    else {
+
+        skinlineHeroBanner.innerHTML = `
+
+            <div class="skinlineFallback">
+
+                ${info.name || name}
+
+            </div>
+
+        `;
 
     }
 
@@ -1049,6 +1191,14 @@ function openSkinPreview(
     skin
 ) {
 
+    const info =
+        skin.skinline
+            ? getSkinlineInfo(
+                skin.skinline
+            )
+            : null;
+
+
     skinPreviewName.textContent =
         skin.name;
 
@@ -1067,16 +1217,18 @@ function openSkinPreview(
         "";
 
 
+    /* -----------------------------------------------------
+       SKINLINE LABEL
+    ----------------------------------------------------- */
+
     if (skin.skinline) {
 
         skinPreviewSkinline.textContent =
+            info?.name ||
             skin.skinline;
 
-
-        skinPreviewSkinline.style.display =
-            "";
-
     }
+
 
     else {
 
@@ -1147,7 +1299,12 @@ function openSkinPreview(
                 </span>
 
                 <strong>
-                    ${skin.skinline}
+
+                    ${
+                        info?.name ||
+                        skin.skinline
+                    }
+
                 </strong>
 
             </div>
@@ -1172,6 +1329,10 @@ function openSkinPreview(
 
     skinPreviewFallback.style.display =
         "none";
+
+
+    skinPreviewImage.onerror =
+        null;
 
 
     if (source) {
@@ -1201,6 +1362,7 @@ function openSkinPreview(
             };
 
     }
+
 
     else {
 
@@ -1307,7 +1469,7 @@ skinFilters.forEach(button => {
 
 
 /* =========================================================
-   MODAL EVENTS
+   SKINLINE MODAL EVENTS
 ========================================================= */
 
 skinlineModalClose.addEventListener(
@@ -1333,6 +1495,10 @@ skinlineModal.addEventListener(
 );
 
 
+/* =========================================================
+   SKIN PREVIEW EVENTS
+========================================================= */
+
 skinPreviewClose.addEventListener(
     "click",
     closeSkinPreview
@@ -1357,7 +1523,7 @@ skinPreviewModal.addEventListener(
 
 
 /* =========================================================
-   ESCAPE
+   ESCAPE KEY
 ========================================================= */
 
 document.addEventListener(
@@ -1365,9 +1531,12 @@ document.addEventListener(
     event => {
 
         if (
-            event.key !== "Escape"
+            event.key !==
+            "Escape"
         ) {
+
             return;
+
         }
 
 
@@ -1399,7 +1568,36 @@ document.addEventListener(
 
 
 /* =========================================================
-   INITIAL RENDER
+   INITIALIZE
 ========================================================= */
 
-renderArchive();
+function initializeSkinsPage() {
+
+    allSkins =
+        buildSkinDatabase();
+
+
+    console.log(
+        "Sundering heroes loaded:",
+        heroes.length
+    );
+
+
+    console.log(
+        "Sundering skins loaded:",
+        allSkins.length
+    );
+
+
+    console.log(
+        "Sundering skinlines:",
+        skinlines
+    );
+
+
+    renderArchive();
+
+}
+
+
+initializeSkinsPage();
