@@ -10,7 +10,7 @@ window.skinlines = {
             "A drowned world of abyssal oceans, drowned kingdoms, sea monsters, and cursed survivors.",
 
         banner:
-            "Assets/Skinlines/Banner/IMG_6931.png"
+            "Assets/Skinlines/Banner/IMG_6936.png"
     },
 
     "Overpaint": {
