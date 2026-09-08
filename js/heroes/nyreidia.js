@@ -72,10 +72,10 @@ window.heroes.push({
             rarity: "Base",
 
             thumbnail:
-                "Assets/Heroes/Nyreidia/thumbnail.png",
+                "Assets/Heroes/Nyreidia/IMG_6977.png",
 
             splash:
-                "Assets/Heroes/Nyreidia/hero-art.png"
+                "Assets/Heroes/Nyreidia/IMG_6973.png"
         },
 
        {
