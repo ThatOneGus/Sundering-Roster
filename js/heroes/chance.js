@@ -72,10 +72,10 @@ window.heroes.push({
             rarity: "Base",
 
             thumbnail:
-                "Assets/Heroes/Chance/thumbnail.png",
+                "Assets/Heroes/Chance/IMG_6557.png",
 
             splash:
-                "Assets/Heroes/Chance/hero-art.png"
+                "Assets/Heroes/Chance/IMG_6561.png"
         },
 
         {
