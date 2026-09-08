@@ -66,7 +66,7 @@ window.heroes.push({
             rarity: "Base",
 
             thumbnail:
-                "Assets/Heroes/Cedric/Skins/Default/thumbnail.png"
+                "Assets/Heroes/Cedric/IMG_6588.png"
         }
 
     ],
