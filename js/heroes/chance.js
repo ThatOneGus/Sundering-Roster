@@ -102,7 +102,7 @@ window.heroes.push({
             description: "The embodiment of greed. This gambler spends fortunes upon fortunes and yet somehow always more than what he started with.",
 
             thumbnail:
-                "Assets/Heroes/Chance/Skins/Default/thumbnail.png"
+                "Assets/Heroes/Chance/Skins/IMG_6983.png"
         },
 
        {
@@ -115,7 +115,7 @@ window.heroes.push({
             description: "Something",
 
             thumbnail:
-                "Assets/Heroes/Bartholomew/Skins/Default/thumbnail.png"
+                "Assets/Heroes/Chance/Skins/IMG_6982.png"
         },
 
         {
