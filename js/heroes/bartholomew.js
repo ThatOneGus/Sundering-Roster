@@ -66,7 +66,7 @@ window.heroes.push({
             rarity: "Base",
 
             thumbnail:
-                "Assets/Heroes/Bartholomew/Skins/Default/thumbnail.png"
+                "Assets/Heroes/Bartholomew/IMG_6495.png"
         },
 
         {
