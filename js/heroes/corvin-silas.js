@@ -67,7 +67,7 @@ window.heroes.push({
             rarity: "Base",
 
             thumbnail:
-                "Assets/Heroes/Corvin-Silas/Skins/Default/thumbnail.png"
+                "Assets/Heroes/Corvin-Silas/IMG_6658.png"
         },
 
         {
