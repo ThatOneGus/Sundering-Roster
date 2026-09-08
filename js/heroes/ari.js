@@ -56,7 +56,7 @@ window.heroes.push({
             rarity: "Base",
 
             thumbnail:
-                "Assets/Heroes/Ari/Skins/Default/thumbnail.png"
+                "Assets/Heroes/Ari/IMG_6594.png"
         },
 
         {
