@@ -25,10 +25,10 @@ window.heroes.push({
     ===================================================== */
 
     thumbnail:
-        "Assets/Heroes/Nyreidia/thumbnail.png",
+        "Assets/Heroes/Nyreidia/IMG_6977.png",
 
     heroArt:
-        "Assets/Heroes/Nyreidia/hero-art.png",
+        "Assets/Heroes/Nyreidia/IMG_6973.png",
 
 
     /* =====================================================
@@ -76,6 +76,34 @@ window.heroes.push({
 
             splash:
                 "Assets/Heroes/Nyreidia/hero-art.png"
+        },
+
+       {
+            name: "Monster of the Depths",
+
+            rarity: "Legendary",
+
+          skinline: "Drowned Horizon",
+
+          description: "Sailors tell the tales of the monster who lures those who aren't careful. Those who don't pay attention... Those who would choose not to take a closer look... It wouldn't matter. It would be too late.",
+
+            thumbnail:
+                "Assets/Heroes/Nyreidia/Skins/IMG_6978.png",
+
+        },
+
+       {
+            name: "Lustful Waters",
+
+            rarity: "Legendary",
+
+          skinline: "Deadly Sins",
+
+          description: "The embodiment of lust. She is a dangerous kind of desire... Obsession. She embodies what you most desire but can never have.",
+
+            thumbnail:
+                "Assets/Heroes/Nyreidia/thumbnail.png",
+
         }
 
     ],
