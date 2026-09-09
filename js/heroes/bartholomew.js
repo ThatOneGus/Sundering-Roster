@@ -83,7 +83,7 @@ window.heroes.push({
 
             rarity: "Rare",
 
-            skinline: "Arcane Academy",
+            skinline: "Ivory Hall University",
 
             description: "The headmaster of the university. He oversees every mishap and swiftly cleans it up.",
 
