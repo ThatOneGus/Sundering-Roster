@@ -78,7 +78,33 @@ window.heroes.push({
 
             splash:
                 "Assets/Heroes/Zelvoran/hero-art.png"
-        }
+        },
+
+       {
+          name: "Terror of the Deep",
+
+          rarity: "Legendary",
+
+          skinline: "Drowned Horizon"
+
+       },
+
+       {
+          name: "Wrathful Ashes",
+
+          rarity: "Legendary",
+
+          skinline: "Deadly Sins"
+
+       },
+
+       {
+          name: "Street Demon",
+
+          rarity: "Legendary",
+
+          skinline: "Overpaint"
+       }
 
     ],
 
