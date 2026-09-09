@@ -67,6 +67,15 @@ window.heroes.push({
 
             thumbnail:
                 "Assets/Heroes/Cedric/IMG_6588.png"
+        },
+
+        {
+            name: "</ADMIN/>",
+
+            rarity: "Legendary",
+
+            skinline: "FINAL//BOSS"
+
         }
 
     ],
