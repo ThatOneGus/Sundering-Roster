@@ -82,6 +82,8 @@ window.heroes.push({
 
             rarity: "Legendary",
 
+         skinline: "Ivory Hall University",
+
             thumbnail:
                 "Assets/Heroes/Killian/thumbnail.png",
 
