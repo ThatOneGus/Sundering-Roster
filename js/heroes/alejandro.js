@@ -75,7 +75,7 @@ window.heroes.push({
 
             rarity: "Legendary",
 
-            skinline: "Summer Skins",
+            skinline: "Suncrest Resort",
 
             description: 
                 "A relaxed tropical look fit for a prince on vacation.",
@@ -126,7 +126,7 @@ window.heroes.push({
 
             rarity: "Rare",
 
-            skinline: "Arcane Academy",
+            skinline: "Ivory Hall University",
 
             description: 
                 "Popular, a prodigy, talented... He must work so hard to maintain- What? Oh he'a naturally gifted? Of course...",
