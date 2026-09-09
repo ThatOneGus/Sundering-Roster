@@ -92,7 +92,7 @@ window.heroes.push({
 
             rarity: "Legendary",
 
-            skinline: "Elarian Royalty",
+            skinline: "Elarian Banquet",
 
             description: 
                 "Soon to be crowned as the new king, Alejandro needs to get used to all that ceremonial garb.",
