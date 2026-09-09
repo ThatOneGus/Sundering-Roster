@@ -72,10 +72,49 @@ window.skinlines = {
             "Skinline",
 
         description:
-            "A drowned world of abyssal oceans, drowned kingdoms, sea monsters, and cursed survivors.",
+            "You're all invited to the Royal Banquet! Don't be late~",
 
         banner:
             "Assets/Skinlines/Banners/IMG_7072.png"
+    },
+
+    "FINAL//BOSS": {
+        name: "FINAL//BOSS",
+
+        subtitle:
+            "Skinline",
+
+        description:
+            "Beyond Reality. They ̷̲̒ͅa̸͖̓̕r̸̫͆͝e̶̞̐ͅ ̸̻̭́c̷̛̥͂o̸̟̒m̷̦̀ȋ̷̢̛͓͖̺̦̔͂̉̎̾̚ṇ̷̜̥̈͐̾g̸̱̱͇̼͚͋̈́́́̎̀̂̅̑̎̈́̚͝͠",
+
+        banner:
+            "Assets/Skinlines/Banners/IMG_7069.png"
+    },
+
+    "Ivory Hall University": {
+        name: "Ivory Hall University",
+
+        subtitle:
+            "Skinline",
+
+        description:
+            "College life just became a lot more interesting.",
+
+        banner:
+            "Assets/Skinlines/Banners/IMG_7078.png"
+    },
+
+    "Nocturne's Grasp": {
+        name: "Nocturne's Grasp",
+
+        subtitle:
+            "Skinline",
+
+        description:
+            "All things eventually fall",
+
+        banner:
+            "Assets/Skinlines/Banners/IMG_7080.png"
     },
 
     "Overpaint": {
@@ -85,10 +124,23 @@ window.skinlines = {
             "Skinline",
 
         description:
-            "A contemporary graffiti-covered universe where every character looks like they walked straight through wet spray paint and somehow made it fashion.",
+            "Doesn't everything look better with a bit of color?",
 
         banner:
             "Assets/Skins/Skinlines/Banners/IMG_7070.png"
+    },
+
+    "Suncrest Resort": {
+        name: "Suncrest Resort",
+
+        subtitle:
+            "Summer Collection",
+
+        description:
+            "Same waves, hotter days.",
+
+        banner:
+            "Assets/Skinlines/Banners/IMG_7062.png"
     }
 
 };
