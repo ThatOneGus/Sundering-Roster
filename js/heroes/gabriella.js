@@ -106,7 +106,7 @@ window.heroes.push({
 
             rarity: "Legendary",
 
-          skinline: "Broken Faiytale",
+          skinline: "Broken Fairytale",
 
             thumbnail:
                 "Assets/Heroes/Gabriella/Skins/Lazy-Lagoon/thumbnail.png",
