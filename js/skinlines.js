@@ -127,7 +127,7 @@ window.skinlines = {
             "Doesn't everything look better with a bit of color?",
 
         banner:
-            "Assets/Skins/Skinlines/Banners/IMG_7070.png"
+            "Assets/Skinlines/Banners/IMG_7070.png"
     },
 
     "Suncrest Resort": {
