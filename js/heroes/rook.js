@@ -83,7 +83,7 @@ window.heroes.push({
 
             rarity: "Epic",
 
-           skinline: "Summer Skins",
+           skinline: "Suncrest Resort",
 
             thumbnail:
                 "Assets/Heroes/Rook/Skins/IMG_7047.png",
@@ -104,7 +104,16 @@ window.heroes.push({
 
             splash:
                 "Assets/Heroes/Rook/Skins/Spray-Stray/splash.png"
-        }
+        },
+
+       {
+          name: "Little Red Riding Wolf",
+
+          rarity: "Epic",
+
+          skinline: "Broken Fairytale"
+
+       }
 
     ],
 
