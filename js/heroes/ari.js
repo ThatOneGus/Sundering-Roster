@@ -75,7 +75,7 @@ window.heroes.push({
 
             rarity: "Legendary",
 
-            skinline: "Summer Skins",
+            skinline: "Suncrest Resort",
 
             thumbnail:
                 "Assets/Heroes/Ari/Skins/Faerie-Waves/thumbnail.png"
@@ -86,7 +86,7 @@ window.heroes.push({
 
             rarity: "Epic",
 
-            skinline: "Nocturne's Corruption",
+            skinline: "Nocturne's Grasp",
 
             description: "Ari turned into the flora that got corrupted by Nocturne, and in turn became a Nocturne Fairy.",
 
