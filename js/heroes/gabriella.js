@@ -78,12 +78,21 @@ window.heroes.push({
                 "Assets/Heroes/Gabriella/hero-art.png"
         },
 
+       {
+          name: "Sunshine",
+
+          rarity: "Rare",
+
+          skinline: "Recolors"
+
+       },
+
         {
             name: "Lazy Lagoon",
 
             rarity: "Legendary",
 
-           skinline: "Summer Skins",
+           skinline: "Suncrest Resort",
 
             thumbnail:
                 "Assets/Heroes/Gabriella/Skins/Lazy-Lagoon/thumbnail.png",
