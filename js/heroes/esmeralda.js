@@ -74,7 +74,7 @@ window.heroes.push({
 
             rarity: "Legendary",
 
-            skinline: "Summer Skins",
+            skinline: "Suncrest Resort",
 
             description: 
                 "Dealing with a brother like Alejandro can take a lot out of a girl. Can you blame her for wanting to relax?",
