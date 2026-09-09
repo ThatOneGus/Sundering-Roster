@@ -83,7 +83,7 @@ window.heroes.push({
                 "Assets/Heroes/Esmeralda/Skins/Sunlit-Escape/thumbnail.png"
         },
 
-        {
+        /*{
             name: "Kingdom's Princess",
 
             rarity: "Epic",
@@ -95,7 +95,7 @@ window.heroes.push({
 
             thumbnail:
                 "Assets/Heroes/Esmeralda/Skins/Kingdoms-Princess/thumbnail.png"
-        },
+        },*/
 
         {
             name: "Clockwork Ballerina",
@@ -109,7 +109,7 @@ window.heroes.push({
 
             thumbnail:
                 "Assets/Heroes/Esmeralda/Skins/Sunlit-Escape/thumbnail.png"
-        },
+        }
 
     ],
 
