@@ -72,10 +72,10 @@ window.heroes.push({
             rarity: "Base",
 
             thumbnail:
-                "Assets/Heroes/Rook/thumbnail.png",
+                "Assets/Heroes/Rook/IMG_6512.png",
 
             splash:
-                "Assets/Heroes/Rook/hero-art.png"
+                "Assets/Heroes/Rook/IMG_6511.png"
         },
 
         {
@@ -83,8 +83,10 @@ window.heroes.push({
 
             rarity: "Epic",
 
+           skinline: "Summer Skins",
+
             thumbnail:
-                "Assets/Heroes/Rook/Skins/Beachcomber/thumbnail.png",
+                "Assets/Heroes/Rook/Skins/IMG_7047.png",
 
             splash:
                 "Assets/Heroes/Rook/Skins/Beachcomber/splash.png"
@@ -95,8 +97,10 @@ window.heroes.push({
 
             rarity: "Legendary",
 
+           skinline: "Overpaint",
+
             thumbnail:
-                "Assets/Heroes/Rook/Skins/Spray-Stray/thumbnail.png",
+                "Assets/Heroes/Rook/Skins/IMG_7048.png",
 
             splash:
                 "Assets/Heroes/Rook/Skins/Spray-Stray/splash.png"
