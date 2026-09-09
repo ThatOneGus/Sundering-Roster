@@ -20,7 +20,7 @@ window.heroes.push({
     ===================================================== */
 
     thumbnail:
-        "Assets/Heroes/Corvin-Silas/IMG_6658.png",
+        "Assets/Heroes/Corvin-Silas/IMG_7034.png",
 
     heroArt:
         "Assets/Heroes/Corvin-Silas/hero-art.png",
@@ -67,7 +67,7 @@ window.heroes.push({
             rarity: "Base",
 
             thumbnail:
-                "Assets/Heroes/Corvin-Silas/IMG_6658.png"
+                "Assets/Heroes/Corvin-Silas/IMG_7034.png"
         },
 
         {
@@ -78,8 +78,17 @@ window.heroes.push({
             skinline: "Summer Skins",
 
             thumbnail:
-                "Assets/Heroes/Corvin-Silas/Skins/Twin-Tides/thumbnail.png"
-        }
+                "Assets/Heroes/Corvin-Silas/Skins/IMG_7036.png"
+        },
+
+        {
+            name: "Salt & Pepper",
+
+            rarity: "Rare",
+
+            skinline: "Recolors",
+
+            thumbnail: "Assets/Heroes/Corvin-Silas/Skins/IMG_7035.png"
 
         /*{
             name: "",
