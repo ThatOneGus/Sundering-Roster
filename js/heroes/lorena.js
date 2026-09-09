@@ -76,7 +76,16 @@ window.heroes.push({
 
             splash:
                 "Assets/Heroes/Lorena/hero-art.png"
-        }
+        },
+
+       {
+          name: "Prideful Queen",
+
+          rarity: "Legendary",
+
+          skinline: "Deadly Sins"
+
+       }
 
     ],
 
