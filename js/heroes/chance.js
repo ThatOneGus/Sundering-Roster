@@ -83,7 +83,7 @@ window.heroes.push({
 
             rarity: "Epic",
 
-           skinline: "Summer Skins",
+           skinline: "Suncrest Resort",
 
             thumbnail:
                 "Assets/Heroes/Chance/Skins/IMG_7033.png",
@@ -112,7 +112,7 @@ window.heroes.push({
 
             skinline: "Drowned Horizon",
 
-            description: "Something",
+            //description: "Something",
 
             thumbnail:
                 "Assets/Heroes/Chance/Skins/IMG_6982.png"
