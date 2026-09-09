@@ -123,6 +123,8 @@ window.heroes.push({
 
             rarity: "Rare",
 
+           skinline: "Elarian Banquet",
+
             thumbnail:
                 "Assets/Heroes/Chance/Skins/Royal-Flush/thumbnail.png",
 
