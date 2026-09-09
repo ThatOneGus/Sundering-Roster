@@ -78,7 +78,34 @@ window.heroes.push({
 
             splash:
                 "Assets/Heroes/Shione/hero-art.png"
-        }
+        },
+
+       {
+          name: "Azure Star",
+
+          rarity: "Rare",
+
+          skinline: "Recolors"
+
+       },
+
+       {
+          name: "Shining Starfish",
+
+          rarity: "Legendary",
+
+          skinline: "Suncrest Resort"
+
+       },
+
+       {
+          name: "Academy Valedictorian",
+
+          rarity: "Epic",
+
+          skinline: "Ivory Hall University"
+
+       }
 
     ],
 
