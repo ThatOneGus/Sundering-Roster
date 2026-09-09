@@ -73,9 +73,9 @@ window.heroes.push({
         {
             name: "Twin Tides",
 
-            rarity: "Epic",
+            rarity: "Legendary",
 
-            skinline: "Summer Skins",
+            skinline: "Suncrest Resort",
 
             thumbnail:
                 "Assets/Heroes/Corvin-Silas/Skins/IMG_7036.png"
@@ -92,16 +92,16 @@ window.heroes.push({
 
         }
 
-        /*{
-            name: "",
+        {
+            name: "</DIVIDE/>",
 
-            rarity: "Epic",
+            rarity: "Legendary",
 
-            skinline: "Summer Skins",
+            skinline: "FINAL//BOSS",
 
             thumbnail:
                 "Assets/Heroes/Corvin-Silas/Skins/Twin-Tides/thumbnail.png"
-        },*/
+        },
 
     ],
 
