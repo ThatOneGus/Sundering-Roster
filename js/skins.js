@@ -310,7 +310,7 @@ function groupSkinlines(
 
 
 /* =========================================================
-   GET SKINLINE DATA
+   GET SKINLINE INFO
 ========================================================= */
 
 function getSkinlineInfo(
@@ -319,6 +319,7 @@ function getSkinlineInfo(
 
     return (
         skinlines[name] || {
+
             name:
                 name,
 
@@ -330,6 +331,7 @@ function getSkinlineInfo(
 
             banner:
                 null
+
         }
     );
 
@@ -337,7 +339,7 @@ function getSkinlineInfo(
 
 
 /* =========================================================
-   FILTER SKINS
+   FILTER INDIVIDUAL SKINS
 ========================================================= */
 
 function getFilteredSkins() {
@@ -377,11 +379,15 @@ function getFilteredSkins() {
 
             skin.skinline,
 
+            info?.name,
+
             info?.subtitle,
 
             info?.description,
 
             skin.rarity,
+
+            skin.description,
 
             skin.release
 
@@ -404,6 +410,68 @@ function getFilteredSkins() {
 
 
 /* =========================================================
+   FILTER REGISTERED SKINLINES
+
+   This is separate from individual skins so empty
+   collections can still be searched and displayed.
+========================================================= */
+
+function getVisibleSkinlineRegistry() {
+
+    const query =
+        currentSearch
+            .toLowerCase()
+            .trim();
+
+
+    if (!query) {
+
+        return skinlines;
+
+    }
+
+
+    return Object.fromEntries(
+
+        Object.entries(
+            skinlines
+        )
+
+        .filter(
+            ([name, info]) => {
+
+                const searchableText = [
+
+                    name,
+
+                    info.name,
+
+                    info.subtitle,
+
+                    info.description
+
+                ]
+
+                    .filter(Boolean)
+
+                    .join(" ")
+
+                    .toLowerCase();
+
+
+                return searchableText.includes(
+                    query
+                );
+
+            }
+        )
+
+    );
+
+}
+
+
+/* =========================================================
    MAIN RENDER
 ========================================================= */
 
@@ -411,6 +479,10 @@ function renderArchive() {
 
     const filteredSkins =
         getFilteredSkins();
+
+
+    const visibleSkinlineRegistry =
+        getVisibleSkinlineRegistry();
 
 
     const skinlineSkins =
@@ -428,7 +500,8 @@ function renderArchive() {
 
 
     renderSkinlines(
-        skinlineSkins
+        skinlineSkins,
+        visibleSkinlineRegistry
     );
 
 
@@ -484,6 +557,12 @@ function renderArchive() {
        NO RESULTS
     ----------------------------------------------------- */
 
+    const registeredSkinlineCount =
+        Object.keys(
+            visibleSkinlineRegistry
+        ).length;
+
+
     let visibleResults =
         0;
 
@@ -494,7 +573,7 @@ function renderArchive() {
     ) {
 
         visibleResults =
-            skinlineSkins.length;
+            registeredSkinlineCount;
 
     }
 
@@ -513,7 +592,8 @@ function renderArchive() {
     else {
 
         visibleResults =
-            filteredSkins.length;
+            registeredSkinlineCount +
+            standaloneSkins.length;
 
     }
 
@@ -531,12 +611,17 @@ function renderArchive() {
 ========================================================= */
 
 function renderSkinlines(
-    skins
+    skins,
+    registry = skinlines
 ) {
 
     skinlinesGrid.innerHTML =
         "";
 
+
+    /* -----------------------------------------------------
+       HERO SKINS CURRENTLY ASSIGNED TO SKINLINES
+    ----------------------------------------------------- */
 
     const groups =
         groupSkinlines(
@@ -544,10 +629,38 @@ function renderSkinlines(
         );
 
 
-    const names =
+    /* -----------------------------------------------------
+       REGISTERED SKINLINES
+
+       These exist even if they currently have zero skins.
+    ----------------------------------------------------- */
+
+    const registeredNames =
+        Object.keys(
+            registry
+        );
+
+
+    /* -----------------------------------------------------
+       UNREGISTERED SKINLINES FOUND IN HERO FILES
+
+       This is a fallback so a typo or missing entry in
+       skinlines.js does not completely hide a collection.
+    ----------------------------------------------------- */
+
+    const heroSkinlineNames =
         Object.keys(
             groups
         );
+
+
+    const names =
+        [
+            ...new Set([
+                ...registeredNames,
+                ...heroSkinlineNames
+            ])
+        ];
 
 
     skinlineCount.textContent =
@@ -577,9 +690,10 @@ function renderSkinlines(
 
     names.forEach(name => {
 
-        const collection =
-            groups[name];
 
+        /* -------------------------------------------------
+           SKINLINE INFO
+        ------------------------------------------------- */
 
         const info =
             getSkinlineInfo(
@@ -587,26 +701,55 @@ function renderSkinlines(
             );
 
 
-        const primarySkin =
-            collection[0];
+        /* -------------------------------------------------
+           COLLECTION SKINS
 
+           May be empty.
+        ------------------------------------------------- */
+
+        const collection =
+            groups[name] || [];
+
+
+        const primarySkin =
+            collection[0] || null;
+
+
+        /* -------------------------------------------------
+           BANNER
+
+           skinlines.js always gets priority.
+        ------------------------------------------------- */
 
         const banner =
             info.banner ||
-            primarySkin.splash ||
-            primarySkin.thumbnail;
+            primarySkin?.splash ||
+            primarySkin?.thumbnail ||
+            null;
 
+
+        /* -------------------------------------------------
+           HERO NAMES
+        ------------------------------------------------- */
 
         const heroNames =
-            collection
+            collection.length
 
-                .map(
-                    skin =>
-                        skin.heroName
-                )
+                ? collection
 
-                .join(" • ");
+                    .map(
+                        skin =>
+                            skin.heroName
+                    )
 
+                    .join(" • ")
+
+                : "No skins revealed yet";
+
+
+        /* -------------------------------------------------
+           CREATE CARD
+        ------------------------------------------------- */
 
         const card =
             document.createElement(
@@ -709,7 +852,11 @@ function renderSkinlines(
                     type="button"
                 >
 
-                    Explore Collection
+                    ${
+                        collection.length
+                            ? "Explore Collection"
+                            : "View Collection"
+                    }
 
                     <span>
                         →
@@ -721,6 +868,10 @@ function renderSkinlines(
 
         `;
 
+
+        /* -------------------------------------------------
+           IMAGE ERROR FALLBACK
+        ------------------------------------------------- */
 
         const image =
             card.querySelector(
@@ -772,6 +923,10 @@ function renderSkinlines(
 
         }
 
+
+        /* -------------------------------------------------
+           OPEN COLLECTION
+        ------------------------------------------------- */
 
         card.addEventListener(
             "click",
@@ -941,7 +1096,12 @@ function createSkinCard(
 
                     <div class="skinCollectionName">
 
-                        ${skin.skinline}
+                        ${
+                            getSkinlineInfo(
+                                skin.skinline
+                            ).name ||
+                            skin.skinline
+                        }
 
                     </div>
 
@@ -954,6 +1114,10 @@ function createSkinCard(
 
     `;
 
+
+    /* -----------------------------------------------------
+       IMAGE ERROR FALLBACK
+    ----------------------------------------------------- */
 
     const img =
         card.querySelector(
@@ -1007,6 +1171,10 @@ function createSkinCard(
     }
 
 
+    /* -----------------------------------------------------
+       OPEN PREVIEW
+    ----------------------------------------------------- */
+
     card.addEventListener(
         "click",
         event => {
@@ -1033,7 +1201,7 @@ function createSkinCard(
 
 function openSkinline(
     name,
-    skins
+    skins = []
 ) {
 
     const info =
@@ -1041,6 +1209,10 @@ function openSkinline(
             name
         );
 
+
+    /* -----------------------------------------------------
+       HEADER
+    ----------------------------------------------------- */
 
     skinlineModalTitle.textContent =
         info.name ||
@@ -1054,34 +1226,62 @@ function openSkinline(
 
     skinlineModalDescription.textContent =
         info.description ||
-        `Explore every skin currently available in the ${name} collection.`;
+        `Explore the ${name} collection.`;
 
+
+    /* -----------------------------------------------------
+       COLLECTION SKINS
+    ----------------------------------------------------- */
 
     skinlineSkinGrid.innerHTML =
         "";
 
 
-    skins.forEach(skin => {
+    if (skins.length) {
 
-        skinlineSkinGrid.appendChild(
+        skins.forEach(skin => {
 
-            createSkinCard(
-                skin
-            )
+            skinlineSkinGrid.appendChild(
 
-        );
+                createSkinCard(
+                    skin
+                )
 
-    });
+            );
+
+        });
+
+    }
+
+
+    else {
+
+        skinlineSkinGrid.innerHTML = `
+
+            <div class="archiveEmpty">
+
+                No skins have been revealed for this collection yet.
+
+            </div>
+
+        `;
+
+    }
 
 
     /* -----------------------------------------------------
        BANNER
     ----------------------------------------------------- */
 
+    const primarySkin =
+        skins[0] || null;
+
+
     const banner =
         info.banner ||
-        skins[0]?.splash ||
-        skins[0]?.thumbnail;
+        primarySkin?.splash ||
+        primarySkin?.thumbnail ||
+        null;
 
 
     skinlineHeroBanner.innerHTML =
@@ -1145,6 +1345,10 @@ function openSkinline(
     }
 
 
+    /* -----------------------------------------------------
+       OPEN MODAL
+    ----------------------------------------------------- */
+
     skinlineModal.classList.add(
         "open"
     );
@@ -1196,6 +1400,10 @@ function openSkinPreview(
             )
             : null;
 
+
+    /* -----------------------------------------------------
+       BASIC INFO
+    ----------------------------------------------------- */
 
     skinPreviewName.textContent =
         skin.name;
@@ -1369,6 +1577,10 @@ function openSkinPreview(
 
     }
 
+
+    /* -----------------------------------------------------
+       OPEN
+    ----------------------------------------------------- */
 
     skinPreviewModal.classList.add(
         "open"
@@ -1588,8 +1800,10 @@ function initializeSkinsPage() {
 
 
     console.log(
-        "Sundering skinlines:",
-        skinlines
+        "Sundering skinlines loaded:",
+        Object.keys(
+            skinlines
+        )
     );
 
 
