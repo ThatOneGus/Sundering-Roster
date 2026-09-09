@@ -90,7 +90,7 @@ window.heroes.push({
 
             thumbnail: "Assets/Heroes/Corvin-Silas/Skins/IMG_7035.png"
 
-        }
+        },
 
         {
             name: "</DIVIDE/>",
@@ -101,7 +101,7 @@ window.heroes.push({
 
             thumbnail:
                 "Assets/Heroes/Corvin-Silas/Skins/Twin-Tides/thumbnail.png"
-        },
+        }
 
     ],
 
