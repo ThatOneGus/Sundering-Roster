@@ -86,7 +86,7 @@ window.heroes.push({
            skinline: "Summer Skins",
 
             thumbnail:
-                "Assets/Heroes/Chance/Skins/Roll-The-Tides/thumbnail.png",
+                "Assets/Heroes/Chance/Skins/IMG_7033.png",
 
             splash:
                 "Assets/Heroes/Chance/Skins/Roll-The-Tides/splash.png"
