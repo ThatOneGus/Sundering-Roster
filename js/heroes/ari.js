@@ -99,7 +99,7 @@ window.heroes.push({
 
             rarity: "Legendary",
 
-            skinline: "Streetwear",
+            skinline: "Overpaint",
 
             description: "No one expected this little fairy to be the best racer here. Who would've thought?",
 
