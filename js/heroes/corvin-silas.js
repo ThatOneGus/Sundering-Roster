@@ -90,6 +90,8 @@ window.heroes.push({
 
             thumbnail: "Assets/Heroes/Corvin-Silas/Skins/IMG_7035.png"
 
+        }
+
         /*{
             name: "",
 
