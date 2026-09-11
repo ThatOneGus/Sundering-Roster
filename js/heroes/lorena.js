@@ -13,7 +13,6 @@ window.heroes.push({
     role: "Catalyst",
 
     secondaryRoles: [
-        "Lifeline",
         "Controller"
     ],
 
