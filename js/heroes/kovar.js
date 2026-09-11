@@ -65,23 +65,17 @@ window.heroes.push({
 
     profile: {
 
-        Damage:
-            9,
+        damage: 9,
 
-        Survivability:
-            2,
+        survivability: 2,
 
-        CC:
-            5,
+        crowdControl: 5,
 
-        Mobility:
-            7,
+        mobility: 7,
 
-        Support:
-            1,
+        support: 1,
 
-        Range:
-            8
+        range: 8
 
     },
 
